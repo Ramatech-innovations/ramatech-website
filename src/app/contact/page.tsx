@@ -1,7 +1,7 @@
 import { ContactForm } from "@/components/forms/contact-form";
 import { PageHero } from "@/components/marketing/page-hero";
 import { MotionSection } from "@/components/motion/motion-section";
-import { createMetadata } from "@/lib/seo";
+import { createMetadata, siteConfig } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "Contact",
@@ -42,7 +42,7 @@ export default function ContactPage() {
                 </ol>
               </div>
               <p className="text-sm text-muted-foreground">
-                Email: hello@ramatech.co.in · Serving teams across US, UK, Europe, Southeast Asia,
+                Email: {siteConfig.email} · Serving teams across US, UK, Europe, Southeast Asia,
                 and Middle East.
               </p>
             </div>

@@ -8,7 +8,13 @@ export const siteConfig = {
     "AI-powered technology company building intelligent systems, cloud platforms, and enterprise automation.",
   url: siteUrl,
   tagline: "Engineering intelligent systems at scale.",
+  email: "info@ramatech.co.in",
 };
+
+/** Inbox for contact form delivery; optional CONTACT_EMAIL env override */
+export function getContactEmail(): string {
+  return process.env.CONTACT_EMAIL ?? siteConfig.email;
+}
 
 export function createMetadata({
   title,
@@ -46,5 +52,6 @@ export const organizationJsonLd = {
   name: siteConfig.name,
   url: siteConfig.url,
   description: siteConfig.description,
-  sameAs: ["https://www.linkedin.com/company/ramatech"],
+  email: siteConfig.email,
+  sameAs: ["https://www.linkedin.com/company/ramatechinnovation"],
 };

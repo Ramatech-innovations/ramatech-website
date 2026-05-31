@@ -66,7 +66,7 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
 
   if (status === "success") {
     return (
-      <div className="glass-panel rounded-xl p-8 text-center">
+      <div className="card-on-light rounded-xl p-8 text-center">
         <h3 className="font-heading text-2xl font-semibold text-brand-cyan">
           Message received
         </h3>
@@ -74,10 +74,10 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
           We respond within 4 business hours. Meanwhile, explore our proof and stack.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-4">
-          <Button asChild variant="outline">
+          <Button asChild variant="outlineLight">
             <Link href="/case-studies">Case studies</Link>
           </Button>
-          <Button asChild variant="outline">
+          <Button asChild variant="outlineLight">
             <Link href="/technology">Technology</Link>
           </Button>
         </div>
@@ -112,7 +112,7 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
             id="role"
             name="role"
             required
-            className="flex h-10 w-full rounded-md border border-white/10 bg-white/5 px-3 text-sm text-foreground"
+            className="flex h-10 w-full rounded-md border border-border bg-card px-3 text-sm text-foreground"
           >
             <option value="">Select role</option>
             {roles.map((r) => (
@@ -137,7 +137,7 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
                 checked={selectedInterests.includes(s.slug)}
                 onChange={() => toggleInterest(s.slug)}
               />
-              <span className="inline-block rounded-full border border-white/10 px-3 py-1 text-xs peer-checked:border-brand-cyan peer-checked:bg-brand-cyan/10">
+              <span className="inline-block rounded-full border border-slate-200 bg-white px-3 py-1 text-xs peer-checked:border-brand-cyan peer-checked:bg-brand-cyan/10">
                 {s.shortTitle}
               </span>
             </label>

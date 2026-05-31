@@ -21,7 +21,7 @@ export function FrameworkStrip() {
           {frameworkSteps.map((step, i) => (
             <li
               key={step.step}
-              className="relative rounded-lg border border-white/10 bg-white/[0.03] px-3 py-4 lg:px-2.5 lg:py-3 lg:text-center"
+              className="card-on-light relative px-3 py-4 lg:px-2.5 lg:py-3 lg:text-center"
             >
               {i < frameworkSteps.length - 1 && (
                 <span

@@ -10,10 +10,11 @@ import {
   OrchestrationSceneContent,
   OrchestrationPerformance,
 } from "./orchestration-scene";
-import { qualityConfig, type OrchestrationQuality } from "./nodes";
+import { getPalette, qualityConfig, type OrchestrationQuality, type SceneTone } from "./nodes";
 
 type Props = {
   quality: OrchestrationQuality;
+  sceneTone?: SceneTone;
   frameloop?: "always" | "demand" | "never";
   parallaxGroupRef?: React.RefObject<THREE.Group | null>;
   applyParallax?: () => void;
@@ -25,11 +26,13 @@ function Loader() {
 
 export function OrchestrationR3F({
   quality,
+  sceneTone = "dark",
   frameloop = "always",
   parallaxGroupRef,
   applyParallax,
 }: Props) {
-  const { dpr } = qualityConfig(quality);
+  const { dpr } = qualityConfig(quality, sceneTone);
+  const palette = getPalette(sceneTone);
 
   return (
     <Canvas
@@ -39,10 +42,12 @@ export function OrchestrationR3F({
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       style={{ background: "transparent" }}
     >
+      <color attach="background" args={[palette.bg]} />
       <Suspense fallback={<Loader />}>
         <OrchestrationPerformance quality={quality} />
         <OrchestrationSceneContent
           quality={quality}
+          sceneTone={sceneTone}
           parallaxGroupRef={parallaxGroupRef}
           applyParallax={applyParallax}
         />

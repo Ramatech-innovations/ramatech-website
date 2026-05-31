@@ -3,9 +3,10 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { BRAND } from "./nodes";
+import { useOrchestrationPalette } from "./orchestration-palette-context";
 
 export function Globe({ segments = 32 }: { segments?: number }) {
+  const palette = useOrchestrationPalette();
   const ref = useRef<THREE.Group>(null);
 
   useFrame((state) => {
@@ -17,28 +18,28 @@ export function Globe({ segments = 32 }: { segments?: number }) {
       <mesh>
         <icosahedronGeometry args={[2.1, segments >= 24 ? 2 : 1]} />
         <meshBasicMaterial
-          color={BRAND.deepBlue}
+          color={palette.deepBlue}
           wireframe
           transparent
-          opacity={0.22}
+          opacity={palette.globe.wireOpacity}
         />
       </mesh>
       <mesh>
         <sphereGeometry args={[2.05, segments, segments]} />
         <meshBasicMaterial
-          color={BRAND.cyan}
+          color={palette.accentBlue}
           wireframe
           transparent
-          opacity={0.06}
+          opacity={palette.globe.shellOpacity}
         />
       </mesh>
       <points>
         <sphereGeometry args={[2.08, segments, segments]} />
         <pointsMaterial
-          color={BRAND.cyan}
+          color={palette.accentBlue}
           size={0.025}
           transparent
-          opacity={0.45}
+          opacity={palette.globe.pointsOpacity}
           sizeAttenuation
           depthWrite={false}
         />

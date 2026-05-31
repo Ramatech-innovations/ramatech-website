@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${satoshi.variable} ${inter.variable} ${jetbrainsMono.variable} dark`}
+      className={`${satoshi.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <head>
         <link rel="preload" href="/brand/logo-icon.png" as="image" />

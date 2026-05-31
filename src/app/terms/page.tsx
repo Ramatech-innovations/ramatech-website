@@ -1,5 +1,5 @@
 import { PageHero } from "@/components/marketing/page-hero";
-import { createMetadata } from "@/lib/seo";
+import { createMetadata, siteConfig } from "@/lib/seo";
 
 export const metadata = createMetadata({
   title: "Terms of Service",
@@ -17,7 +17,7 @@ export default function TermsPage() {
       <div className="container mx-auto max-w-3xl px-4 py-16">
         <p className="text-muted-foreground">
           Use of this website is subject to terms to be published by Ramatech Innovation Pvt Ltd
-          prior to production launch. For inquiries, contact hello@ramatech.co.in.
+          prior to production launch. For inquiries, contact {siteConfig.email}.
         </p>
       </div>
     </>

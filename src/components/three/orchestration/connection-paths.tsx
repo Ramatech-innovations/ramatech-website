@@ -3,7 +3,8 @@
 import { useMemo } from "react";
 import { Line } from "@react-three/drei";
 import * as THREE from "three";
-import { BRAND, HUB, getSatellitePositions } from "./nodes";
+import { HUB, getSatellitePositions } from "./nodes";
+import { useOrchestrationPalette } from "./orchestration-palette-context";
 
 export function buildHubCurves(): THREE.CatmullRomCurve3[] {
   const satellites = getSatellitePositions();
@@ -19,6 +20,7 @@ export function buildHubCurves(): THREE.CatmullRomCurve3[] {
 }
 
 export function ConnectionPaths() {
+  const palette = useOrchestrationPalette();
   const curves = useMemo(() => buildHubCurves(), []);
 
   return (
@@ -29,10 +31,10 @@ export function ConnectionPaths() {
           <Line
             key={i}
             points={points}
-            color={BRAND.cyan}
-            lineWidth={1}
+            color={palette.cyan}
+            lineWidth={0.5}
             transparent
-            opacity={0.45}
+            opacity={palette.paths.opacity}
           />
         );
       })}

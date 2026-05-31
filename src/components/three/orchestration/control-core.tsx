@@ -4,9 +4,11 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Billboard, useTexture } from "@react-three/drei";
 import * as THREE from "three";
-import { BRAND, LOGO_Z } from "./nodes";
+import { LOGO_Z } from "./nodes";
+import { useOrchestrationPalette } from "./orchestration-palette-context";
 
 export function ControlCore() {
+  const palette = useOrchestrationPalette();
   const logo = useTexture("/brand/logo-mark.png");
   const ref = useRef<THREE.Group>(null);
   const logoLight = useRef<THREE.PointLight>(null);
@@ -18,12 +20,17 @@ export function ControlCore() {
     }
     const t = state.clock.elapsedTime;
     if (logoLight.current) {
-      logoLight.current.intensity = 0.9 + Math.sin(t * 2) * 0.35;
+      logoLight.current.intensity =
+        palette.logoLight.intensity + Math.sin(t * 2) * palette.logoLight.pulse;
     }
     if (depthLight.current) {
       depthLight.current.intensity = 0.25 + Math.sin(t * 1.6 + 0.5) * 0.12;
     }
   });
+
+  const haloInner = palette.labelsOnLight ? 0.14 : 0.2;
+  const haloOuter = palette.labelsOnLight ? 0.05 : 0.08;
+  const logoOpacity = palette.labelsOnLight ? 0.88 : 1;
 
   return (
     <group ref={ref}>
@@ -31,9 +38,9 @@ export function ControlCore() {
         <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, -0.06, 0]}>
           <circleGeometry args={[0.88, 64]} />
           <meshBasicMaterial
-            color={BRAND.deepBlue}
+            color={palette.deepBlue}
             transparent
-            opacity={0.18}
+            opacity={palette.hubGlow.platformOpacity}
             side={THREE.DoubleSide}
             depthWrite={false}
           />
@@ -41,28 +48,28 @@ export function ControlCore() {
         <mesh rotation={[Math.PI / 2, 0, 0]}>
           <torusGeometry args={[0.82, 0.012, 16, 80]} />
           <meshBasicMaterial
-            color={BRAND.cyan}
+            color={palette.cyan}
             transparent
-            opacity={0.22}
+            opacity={palette.hubGlow.ringOpacity}
             depthWrite={false}
           />
         </mesh>
         <mesh rotation={[0, 0, 0]}>
           <torusGeometry args={[0.62, 0.014, 16, 64]} />
           <meshBasicMaterial
-            color={BRAND.cyan}
+            color={palette.cyan}
             transparent
-            opacity={0.28}
+            opacity={palette.hubGlow.innerRingOpacity}
             depthWrite={false}
           />
         </mesh>
         <mesh>
           <icosahedronGeometry args={[0.32, 1]} />
           <meshBasicMaterial
-            color={BRAND.deepBlue}
+            color={palette.deepBlue}
             wireframe
             transparent
-            opacity={0.14}
+            opacity={palette.labelsOnLight ? 0.1 : 0.14}
             depthWrite={false}
           />
         </mesh>
@@ -72,9 +79,9 @@ export function ControlCore() {
         <mesh rotation={[Math.PI / 2, 0, 0]}>
           <circleGeometry args={[0.42, 48]} />
           <meshBasicMaterial
-            color={BRAND.cyan}
+            color={palette.cyan}
             transparent
-            opacity={0.2}
+            opacity={haloInner}
             depthWrite={false}
             blending={THREE.AdditiveBlending}
             side={THREE.DoubleSide}
@@ -83,9 +90,9 @@ export function ControlCore() {
         <mesh rotation={[Math.PI / 2, 0, 0]}>
           <circleGeometry args={[0.58, 48]} />
           <meshBasicMaterial
-            color={BRAND.cyan}
+            color={palette.cyan}
             transparent
-            opacity={0.08}
+            opacity={haloOuter}
             depthWrite={false}
             blending={THREE.AdditiveBlending}
             side={THREE.DoubleSide}
@@ -104,6 +111,7 @@ export function ControlCore() {
               depthTest={true}
               depthWrite={true}
               alphaTest={0.06}
+              opacity={logoOpacity}
             />
           </mesh>
         </group>
@@ -112,18 +120,23 @@ export function ControlCore() {
       <pointLight
         ref={logoLight}
         position={[0, 0.2, LOGO_Z + 0.4]}
-        intensity={1.2}
-        color={BRAND.cyan}
+        intensity={palette.logoLight.intensity}
+        color={palette.cyan}
         distance={3}
       />
       <pointLight
         ref={depthLight}
         position={[0, 0, 0.2]}
-        intensity={0.35}
-        color={BRAND.accentBlue}
+        intensity={palette.labelsOnLight ? 0.28 : 0.35}
+        color={palette.accentBlue}
         distance={2.8}
       />
-      <pointLight position={[0, -0.4, 0]} intensity={0.35} color={BRAND.deepBlue} distance={2.5} />
+      <pointLight
+        position={[0, -0.4, 0]}
+        intensity={palette.labelsOnLight ? 0.28 : 0.35}
+        color={palette.deepBlue}
+        distance={2.5}
+      />
     </group>
   );
 }

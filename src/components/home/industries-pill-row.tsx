@@ -17,7 +17,7 @@ export function IndustriesPillRow() {
           <Link
             key={ind.slug}
             href="/industries"
-            className="rounded-full border border-brand-cyan/25 bg-brand-cyan/5 px-4 py-2 text-sm text-foreground transition-colors hover:border-brand-cyan/50 hover:bg-brand-cyan/10"
+            className="rounded-full border border-brand-primary/20 bg-white px-4 py-2 text-sm text-brand-ink shadow-sm transition-colors hover:border-brand-cyan/50 hover:bg-brand-cyan/5"
           >
             {ind.title}
           </Link>

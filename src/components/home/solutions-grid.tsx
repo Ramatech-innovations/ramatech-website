@@ -17,7 +17,7 @@ export function SolutionsGrid() {
           <li key={s.slug}>
             <Link
               href={`/solutions/${s.slug}`}
-              className="group flex h-full flex-col justify-between rounded-lg border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-brand-cyan/30 hover:bg-white/[0.05]"
+              className="card-on-light group flex h-full flex-col justify-between p-4"
               aria-label={`${s.title}: ${s.tagline}`}
             >
               <div>

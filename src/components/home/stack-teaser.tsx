@@ -20,7 +20,7 @@ export function StackTeaser() {
         {STACK_CHIPS.map((tool) => (
           <span
             key={tool}
-            className="rounded-md border border-white/10 bg-white/5 px-3 py-1.5 font-mono text-xs text-muted-foreground"
+            className="rounded-md border border-slate-200 bg-white px-3 py-1.5 font-mono text-xs text-slate-600 shadow-sm"
           >
             {tool}
           </span>

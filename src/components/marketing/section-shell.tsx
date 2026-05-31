@@ -6,9 +6,11 @@ export function SectionShell({
   className,
 }: {
   children: React.ReactNode;
-  variant?: "default" | "elevated" | "gradient";
+  variant?: "default" | "elevated" | "gradient" | "light" | "lightElevated";
   className?: string;
 }) {
+  const isLight = variant === "light" || variant === "lightElevated";
+
   return (
     <div
       className={cn(
@@ -16,10 +18,18 @@ export function SectionShell({
         variant === "elevated" && "section-elevated",
         variant === "gradient" && "section-gradient",
         variant === "default" && "section-dark",
+        variant === "light" && "section-light on-light",
+        variant === "lightElevated" && "section-light-elevated on-light",
         className
       )}
     >
-      <div className="grid-bg pointer-events-none absolute inset-0 opacity-40" aria-hidden />
+      <div
+        className={cn(
+          "pointer-events-none absolute inset-0 opacity-40",
+          isLight ? "grid-bg-light" : "grid-bg"
+        )}
+        aria-hidden
+      />
       <div className="relative">{children}</div>
     </div>
   );

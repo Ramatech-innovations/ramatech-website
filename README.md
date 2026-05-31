@@ -1,4 +1,4 @@
-# Ramatech Website v2
+# Ramatech Website
 
 Premium marketing site for Ramatech Innovation Pvt Ltd.
 
@@ -34,4 +34,4 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Contact form
 
-Set `CONTACT_EMAIL` and optionally `RESEND_API_KEY` in `.env.local` for production email delivery.
+Set the public contact address in `siteConfig.email` (`src/lib/seo.ts`). Optionally set `CONTACT_EMAIL` in `.env.local` to override the form delivery inbox, and `RESEND_API_KEY` for production email delivery.

@@ -1,6 +1,6 @@
 # UX Spec — Infrastructure Orchestration 3D
 
-**Project:** Ramatech Website v2  
+**Project:** Ramatech Website  
 **Date:** 2026-05-30  
 **Status:** implemented
 

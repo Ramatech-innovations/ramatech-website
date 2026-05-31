@@ -3,18 +3,21 @@
 import { AnimatedCounter } from "@/components/marketing/animated-counter";
 import { enterpriseKpis } from "@/content/enterprise";
 
+const HOME_CONTAINER =
+  "container relative mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8 2xl:max-w-[88rem]";
+
 export function EnterpriseKpisSection() {
   return (
-    <section className="relative overflow-hidden border-y border-white/5 bg-[#060a12] py-16 md:py-20">
+    <section className="section-light on-light relative overflow-hidden border-t border-slate-200 py-16 md:py-20">
       <div
-        className="pointer-events-none absolute inset-0 opacity-40"
+        className="pointer-events-none absolute inset-0 opacity-50"
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(17,211,232,0.12), transparent 60%)",
+            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(10, 76, 149, 0.06), transparent 55%)",
         }}
         aria-hidden
       />
-      <div className="container relative mx-auto max-w-6xl px-4">
+      <div className={HOME_CONTAINER}>
         <p className="type-eyebrow text-center">Enterprise metrics</p>
         <h2 className="type-h2 mx-auto mt-5 max-w-3xl text-center md:mt-6">
           Proof at production scale
