@@ -1,0 +1,291 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  :root {
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+    --card: 217 33% 12%;
+    --card-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 18% 72%;
+    --border: 217 33% 22%;
+    --accent: 187 85% 49%;
+    --accent-foreground: 222 47% 7%;
+    --radius: 0.625rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans text-body-sm md:text-body;
+    background-color: #111827;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Section labels — enterprise uppercase */
+  .type-eyebrow {
+    @apply font-heading text-[11px] font-semibold uppercase tracking-eyebrow text-brand-cyan;
+  }
+
+  .type-display-lg {
+    @apply font-heading text-4xl font-bold tracking-[-0.03em] leading-[1.06] text-foreground md:text-5xl lg:text-[3.35rem];
+  }
+
+  .type-display {
+    @apply font-heading text-4xl font-bold tracking-[-0.03em] leading-[1.08] text-foreground md:text-5xl lg:text-6xl;
+  }
+
+  .type-h2 {
+    @apply font-heading text-[1.875rem] font-bold tracking-[-0.025em] leading-[1.12] text-foreground md:text-4xl lg:text-[2.75rem];
+  }
+
+  /* In-page section titles — smaller than hero-level type-h2 */
+  .type-h2-section {
+    @apply font-heading text-2xl font-bold tracking-[-0.02em] leading-[1.15] text-foreground md:text-3xl;
+  }
+
+  .type-section-gap {
+    @apply mb-6 md:mb-8;
+  }
+
+  .type-metric-home {
+    @apply font-mono text-4xl font-medium tabular-nums tracking-[-0.04em] text-gradient md:text-5xl;
+  }
+
+  .type-h3 {
+    @apply font-heading text-xl font-semibold tracking-[-0.02em] leading-[1.22] text-foreground md:text-2xl;
+  }
+
+  .type-body {
+    @apply text-body-sm leading-[1.7] text-foreground/85 md:text-body-lg md:leading-[1.75];
+  }
+
+  .type-body-muted {
+    @apply text-body-sm leading-[1.7] text-muted-foreground md:text-body md:leading-[1.75];
+  }
+
+  .type-metric {
+    @apply font-mono text-metric font-medium tabular-nums tracking-[-0.04em] text-gradient md:text-6xl lg:text-metric-lg;
+  }
+
+  .type-metric-label {
+    @apply text-sm font-normal leading-snug text-muted-foreground md:text-[0.9375rem] md:leading-[1.5];
+  }
+
+  .type-nav {
+    @apply font-nav text-[13px] font-semibold tracking-nav text-foreground/70 transition-colors duration-200;
+  }
+
+  .type-nav:hover {
+    @apply text-foreground;
+  }
+
+  .type-nav-active {
+    @apply font-nav text-[13px] font-semibold tracking-nav text-foreground;
+  }
+
+  .type-index {
+    @apply font-mono text-[11px] font-medium tabular-nums tracking-wide text-brand-cyan/75;
+  }
+
+  .type-button {
+    @apply font-heading text-[13px] font-semibold tracking-button;
+  }
+
+  .type-button-lg {
+    @apply font-heading text-[15px] font-semibold tracking-button;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+
+  .glass-panel {
+    @apply border border-white/10 bg-white/5 backdrop-blur-md;
+  }
+
+  .glass-panel-xl {
+    @apply border border-white/10 bg-white/[0.07] backdrop-blur-xl shadow-inner shadow-white/5;
+  }
+
+  .glass-pill {
+    @apply type-eyebrow inline-flex items-center rounded-full border border-brand-cyan/30 bg-brand-cyan/10 px-4 py-2 backdrop-blur-md;
+  }
+
+  .section-pad {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .cinematic-fade {
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  }
+
+  .section-dark {
+    @apply bg-brand-dark;
+  }
+
+  .section-elevated {
+    @apply bg-[#0a0f1a];
+  }
+
+  .section-gradient {
+    @apply bg-gradient-to-b from-[#0a0f1a] to-brand-dark;
+  }
+
+  .grid-bg {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .perspective-mock {
+    perspective: 1200px;
+  }
+
+  .tilt-card {
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+  }
+
+  .tilt-card:hover {
+    transform: rotateY(-4deg) rotateX(2deg) scale(1.02);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tilt-card:hover {
+      transform: none;
+    }
+    .animate-marquee,
+    .animate-marquee-slow,
+    .animate-pulse-soft,
+    .animate-orbit-slow,
+    .animate-flow-x {
+      animation: none;
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 35s linear infinite;
+  }
+
+  .animate-marquee-slow {
+    animation: marquee 50s linear infinite;
+  }
+
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2.5s ease-in-out infinite;
+  }
+
+  @keyframes orbit-slow {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  .animate-orbit-slow {
+    animation: orbit-slow 24s linear infinite;
+  }
+
+  @keyframes flow-x {
+    0% {
+      transform: translateX(-20%);
+    }
+    100% {
+      transform: translateX(120%);
+    }
+  }
+
+  .animate-flow-x {
+    animation: flow-x 2s ease-in-out infinite;
+  }
+
+  .glow-border {
+    box-shadow: 0 0 0 1px rgba(17, 211, 232, 0.2), 0 0 40px -10px rgba(17, 211, 232, 0.25);
+  }
+
+  .glow-cta {
+    box-shadow: 0 0 24px -4px rgba(17, 211, 232, 0.45);
+  }
+
+  .glow-cta:hover {
+    box-shadow: 0 0 32px -2px rgba(17, 211, 232, 0.55);
+  }
+
+  .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+  }
+
+  @keyframes mesh-drift {
+    0%,
+    100% {
+      opacity: 0.85;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.02);
+    }
+  }
+
+  .bg-mesh {
+    animation: mesh-drift 12s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bg-mesh {
+      animation: none;
+    }
+  }
+}
