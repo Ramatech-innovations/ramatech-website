@@ -7,6 +7,9 @@ import { AiAutomationBackground } from "@/components/ai-automation/ai-automation
 import { AiSystemCard } from "@/components/ai-automation/ai-system-card";
 import { aiAutomationShowcaseHome } from "@/content/enterprise";
 
+const HOME_CONTAINER =
+  "container relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8 2xl:max-w-[88rem]";
+
 export function AiAutomationSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
@@ -25,10 +28,10 @@ export function AiAutomationSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden section-dark py-16 md:py-20"
+      className="section-dark relative overflow-hidden border-t border-white/10 py-16 md:py-20"
     >
       <AiAutomationBackground active={inView} />
-      <div className="container relative z-10 mx-auto max-w-6xl px-4">
+      <div className={HOME_CONTAINER}>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-xl">
             <p className="type-eyebrow">AI automation</p>

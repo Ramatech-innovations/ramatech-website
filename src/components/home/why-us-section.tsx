@@ -9,7 +9,7 @@ const HOME_WHY = whyRamatech.slice(0, 3);
 
 export function WhyUsSection() {
   return (
-    <section className="relative section-dark py-10 md:py-14">
+    <section className="relative section-light on-light py-10 md:py-14">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="mx-auto max-w-4xl">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -34,7 +34,7 @@ export function WhyUsSection() {
             {HOME_WHY.map((item) => (
               <li
                 key={item.title}
-                className="flex gap-3 rounded-lg border border-white/10 bg-white/[0.03] p-4"
+                className="card-on-light flex gap-3 p-4"
               >
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-cyan" />
                 <div>

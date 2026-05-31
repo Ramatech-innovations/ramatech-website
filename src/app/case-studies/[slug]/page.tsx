@@ -69,7 +69,7 @@ export default async function CaseStudyPage({
               {study.stack.map((t) => (
                 <span
                   key={t}
-                  className="rounded-md border border-white/10 px-2 py-1 font-mono text-xs"
+                  className="rounded-md border border-slate-200 bg-white px-2 py-1 font-mono text-xs text-slate-700"
                 >
                   {t}
                 </span>

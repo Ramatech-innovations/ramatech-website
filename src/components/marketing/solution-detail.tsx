@@ -40,7 +40,7 @@ export function SolutionDetail({ solution }: { solution: Solution }) {
           </ul>
         </div>
       </MotionSection>
-      <MotionSection className="border-t border-white/5 py-20">
+      <MotionSection className="border-t border-slate-200 py-20">
         <div className="container mx-auto max-w-6xl px-4">
           <h2 className="font-heading text-2xl font-semibold">Approach</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
@@ -60,7 +60,7 @@ export function SolutionDetail({ solution }: { solution: Solution }) {
             {solution.stack.map((t) => (
               <span
                 key={t}
-                className="rounded-md border border-white/10 bg-white/5 px-3 py-1 font-mono text-sm"
+                className="rounded-md border border-slate-200 bg-white px-3 py-1 font-mono text-sm text-slate-700"
               >
                 {t}
               </span>
@@ -69,7 +69,7 @@ export function SolutionDetail({ solution }: { solution: Solution }) {
         </div>
       </MotionSection>
       {relatedCase && (
-        <MotionSection className="border-t border-white/5 py-20">
+        <MotionSection className="border-t border-slate-200 py-20">
           <div className="container mx-auto max-w-6xl px-4">
             <Card>
               <p className="font-mono text-xs text-brand-cyan">Case study</p>

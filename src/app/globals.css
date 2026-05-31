@@ -4,15 +4,15 @@
 
 @layer base {
   :root {
-    --background: 222 47% 7%;
-    --foreground: 210 40% 98%;
-    --card: 217 33% 12%;
-    --card-foreground: 210 40% 98%;
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 18% 72%;
-    --border: 217 33% 22%;
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --border: 214 32% 91%;
     --accent: 187 85% 49%;
-    --accent-foreground: 222 47% 7%;
+    --accent-foreground: 222 47% 11%;
     --radius: 0.625rem;
   }
 
@@ -32,7 +32,6 @@
 
   body {
     @apply bg-background text-foreground font-sans text-body-sm md:text-body;
-    background-color: #111827;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
@@ -139,6 +138,22 @@
     @apply type-eyebrow inline-flex items-center rounded-full border border-brand-cyan/30 bg-brand-cyan/10 px-4 py-2 backdrop-blur-md;
   }
 
+  .glass-pill-light {
+    @apply type-eyebrow inline-flex items-center rounded-full border border-brand-primary/25 bg-white px-4 py-2 text-brand-primary shadow-sm;
+  }
+
+  .glass-panel-light {
+    @apply border border-slate-200 bg-white shadow-sm backdrop-blur-md;
+  }
+
+  .glass-panel-xl-light {
+    @apply border border-slate-200 bg-white shadow-xl backdrop-blur-xl;
+  }
+
+  .card-on-light {
+    @apply rounded-xl border border-slate-200 bg-white shadow-sm transition-[border-color,box-shadow] hover:border-brand-cyan/40 hover:shadow-md;
+  }
+
   .section-pad {
     @apply py-20 md:py-28 lg:py-32;
   }
@@ -148,22 +163,71 @@
     -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
   }
 
+  .section-light {
+    @apply bg-brand-light;
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --muted-foreground: 215 16% 47%;
+    --border: 214 32% 91%;
+    --card: 0 0% 100%;
+  }
+
+  .section-light-elevated {
+    @apply bg-[#EEF2F7];
+    --background: 214 32% 95%;
+    --foreground: 222 47% 11%;
+    --muted-foreground: 215 16% 47%;
+    --border: 214 32% 88%;
+    --card: 0 0% 100%;
+  }
+
   .section-dark {
     @apply bg-brand-dark;
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+    --muted-foreground: 215 18% 72%;
+    --border: 217 33% 22%;
+    --card: 217 33% 12%;
+    --card-foreground: 210 40% 98%;
   }
 
   .section-elevated {
     @apply bg-[#0a0f1a];
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+    --muted-foreground: 215 18% 72%;
+    --border: 217 33% 22%;
+    --card: 217 33% 12%;
+    --card-foreground: 210 40% 98%;
   }
 
   .section-gradient {
     @apply bg-gradient-to-b from-[#0a0f1a] to-brand-dark;
+    --foreground: 210 40% 98%;
+    --muted-foreground: 215 18% 72%;
+  }
+
+  .on-light .type-body-muted,
+  .section-light .type-body-muted,
+  .section-light-elevated .type-body-muted {
+    @apply text-slate-600;
   }
 
   .grid-bg {
     background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 48px 48px;
+  }
+
+  .grid-bg-light {
+    background-image: linear-gradient(rgba(10, 76, 149, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10, 76, 149, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .hero-viz-feather {
+    mask-image: radial-gradient(ellipse 94% 90% at 50% 48%, black 62%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 94% 90% at 50% 48%, black 62%, transparent 100%);
   }
 
   .perspective-mock {

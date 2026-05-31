@@ -14,6 +14,8 @@ const buttonVariants = cva(
           "bg-brand-gradient text-white hover:opacity-95 shadow-lg shadow-brand-cyan/20 type-button",
         outline:
           "border border-white/20 bg-transparent hover:bg-white/[0.06] hover:border-white/30 text-foreground type-button",
+        outlineLight:
+          "border border-slate-300 bg-transparent text-brand-primary hover:border-brand-primary/40 hover:bg-slate-50 type-button",
         ghost: "hover:bg-white/5 text-foreground type-button",
         secondary: "bg-white/10 text-foreground hover:bg-white/15 type-button",
       },

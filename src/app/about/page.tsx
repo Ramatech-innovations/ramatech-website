@@ -39,7 +39,7 @@ export default function AboutPage() {
         </div>
       </MotionSection>
 
-      <MotionSection className="border-t border-white/5 py-20">
+      <MotionSection className="border-t border-slate-200 py-20">
         <div className="container mx-auto max-w-6xl px-4">
           <SectionHeader
             title="Business outcomes we deliver"
@@ -63,7 +63,7 @@ export default function AboutPage() {
         </div>
       </MotionSection>
 
-      <MotionSection className="border-t border-white/5 py-20">
+      <MotionSection className="border-t border-slate-200 py-20">
         <div className="container mx-auto max-w-6xl px-4">
           <SectionHeader
             title="How we deliver"

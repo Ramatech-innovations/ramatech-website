@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { getContactEmail } from "@/lib/seo";
 
 const contactSchema = z.object({
   name: z.string().min(2),
@@ -65,7 +66,7 @@ export async function POST(request: Request) {
     }
 
     const emailBody = `
-New ${data.intent ?? "contact"} inquiry from Ramatech Website v2
+New ${data.intent ?? "contact"} inquiry from Ramatech Website
 
 Name: ${data.name}
 Email: ${data.email}
@@ -77,7 +78,7 @@ Message:
 ${data.message}
 `.trim();
 
-    const contactEmail = process.env.CONTACT_EMAIL;
+    const contactEmail = getContactEmail();
     const resendKey = process.env.RESEND_API_KEY;
 
     if (resendKey && contactEmail) {

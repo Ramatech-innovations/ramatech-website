@@ -1,10 +1,25 @@
 "use client";
 
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 import * as THREE from "three";
-import { SATELLITES, getSatellitePositions } from "./nodes";
+import { HUB, SATELLITES, getSatellitePositions } from "./nodes";
+import { useOrchestrationPalette } from "./orchestration-palette-context";
+
+const HUB_LABEL_MIN_DIST = 1.85;
+
+function labelPositionFor(position: THREE.Vector3): [number, number, number] {
+  const dist = position.distanceTo(HUB);
+  const away = position.clone().sub(HUB);
+  away.y *= 0.6;
+  if (away.lengthSq() < 0.01) {
+    return [0, -0.55, 0];
+  }
+  away.normalize();
+  const push = dist < HUB_LABEL_MIN_DIST ? 0.75 : 0.55;
+  return [away.x * push, -0.38 + away.y * 0.14, away.z * push];
+}
 
 function SatelliteNode({
   label,
@@ -19,7 +34,9 @@ function SatelliteNode({
   index: number;
   showLabels: boolean;
 }) {
+  const palette = useOrchestrationPalette();
   const ref = useRef<THREE.Mesh>(null);
+  const htmlPos = useMemo(() => labelPositionFor(position), [position]);
 
   useFrame((state) => {
     if (!ref.current) return;
@@ -41,13 +58,17 @@ function SatelliteNode({
       </mesh>
       {showLabels && (
         <Html
-          position={[0, -0.42, 0]}
+          position={htmlPos}
           center
           distanceFactor={5.5}
           style={{ pointerEvents: "none", userSelect: "none", whiteSpace: "nowrap" }}
         >
           <span
-            className="rounded-md border border-brand-cyan/40 bg-[#030B1A]/95 px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_0_14px_rgba(17,211,232,0.2)] backdrop-blur-sm"
+            className={
+              palette.labelsOnLight
+                ? "rounded-md border border-slate-200 bg-white px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-primary shadow-sm"
+                : "rounded-md border border-brand-cyan/40 bg-[#030B1A]/95 px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-white shadow-[0_0_14px_rgba(17,211,232,0.2)] backdrop-blur-sm"
+            }
             style={{ borderLeftColor: color, borderLeftWidth: 2 }}
           >
             {label}

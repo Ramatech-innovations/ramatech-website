@@ -5,14 +5,17 @@ import { EnterpriseOsViz } from "@/components/command-center/enterprise-os-viz";
 import { LogoWatermark } from "@/components/brand/logo-watermark";
 import { commandCenter } from "@/content/enterprise";
 
+const HOME_CONTAINER =
+  "container relative mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8 2xl:max-w-[88rem]";
+
 export function CommandCenterSection() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden section-gradient py-16 md:py-20 lg:py-24">
-      <LogoWatermark className="right-[-8%] top-1/2 -translate-y-1/2" />
+    <section className="section-gradient relative overflow-hidden border-t border-white/10 py-16 md:py-20 lg:min-h-[min(520px,70vh)] lg:py-24">
+      <LogoWatermark className="right-[-8%] top-1/2 -translate-y-1/2 opacity-[0.03]" />
       <div className="noise-overlay pointer-events-none absolute inset-0 opacity-30" aria-hidden />
-      <div className="container relative mx-auto max-w-6xl px-4">
+      <div className={HOME_CONTAINER}>
         <div className="grid items-center gap-16 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
           <motion.div
             initial={reduce ? false : { opacity: 0, x: -32 }}

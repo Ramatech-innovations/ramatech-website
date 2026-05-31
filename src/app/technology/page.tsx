@@ -30,7 +30,7 @@ export default function TechnologyPage() {
                   {cat.tools.map((tool) => (
                     <span
                       key={tool}
-                      className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 font-mono text-sm text-muted-foreground"
+                      className="rounded-lg border border-slate-200 bg-white px-3 py-2 font-mono text-sm text-slate-600 shadow-sm"
                     >
                       {tool}
                     </span>

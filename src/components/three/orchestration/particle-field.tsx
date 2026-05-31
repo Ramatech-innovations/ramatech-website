@@ -3,9 +3,10 @@
 import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { BRAND } from "./nodes";
+import { useOrchestrationPalette } from "./orchestration-palette-context";
 
 export function ParticleField({ count }: { count: number }) {
+  const palette = useOrchestrationPalette();
   const ref = useRef<THREE.Points>(null);
 
   const positions = useMemo(() => {
@@ -31,10 +32,10 @@ export function ParticleField({ count }: { count: number }) {
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
       <pointsMaterial
-        color={BRAND.cyan}
-        size={0.04}
+        color={palette.particles.color}
+        size={palette.particles.size}
         transparent
-        opacity={0.35}
+        opacity={palette.particles.opacity}
         sizeAttenuation
         depthWrite={false}
       />

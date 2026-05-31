@@ -7,13 +7,23 @@ import { CommandFallback } from "./command-fallback";
 import { HeroFallback } from "./hero-fallback";
 import { useParallax } from "./orchestration/use-parallax";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import type { OrchestrationQuality } from "./orchestration/nodes";
+import type { OrchestrationQuality, SceneTone } from "./orchestration/nodes";
 
 const OrchestrationR3F = dynamic(
   () =>
     import("./orchestration/orchestration-r3f").then((m) => m.OrchestrationR3F),
   { ssr: false, loading: () => null }
 );
+
+export const HERO_VIZ_FRAME =
+  "hero-viz-frame hero-viz-feather h-full w-full overflow-hidden rounded-2xl border border-slate-200/80 bg-gradient-to-br from-slate-50 via-white to-brand-primary/[0.06] shadow-[0_20px_60px_-24px_rgba(10,76,149,0.18)]";
+
+/** Hero viz — fills right grid column; medium size on desktop, no overlap into copy */
+export const HERO_VIZ_SHELL =
+  "pointer-events-none relative z-0 mx-auto mt-10 w-full max-w-xl sm:max-w-2xl lg:mt-0 lg:mx-0 lg:max-w-none lg:w-full";
+
+export const HERO_VIZ_ASPECT =
+  "relative aspect-square w-full min-h-[min(72vw,320px)] max-h-[min(48vh,400px)] sm:min-h-[340px] sm:max-h-[min(50vh,440px)] lg:min-h-[380px] lg:max-h-[min(58vh,520px)] xl:min-h-[420px] xl:max-h-[min(62vh,560px)]";
 
 type Props = {
   quality: OrchestrationQuality;
@@ -29,6 +39,7 @@ export function OrchestrationCanvas({ quality, variant = "command" }: Props) {
   const isLg = useMediaQuery("(min-width: 1024px)");
   const enableParallax = quality === "full" && isLg;
   const { groupRef, applyParallax } = useParallax(enableParallax, containerRef);
+  const sceneTone: SceneTone = variant === "hero" ? "heroOnLight" : "dark";
 
   useEffect(() => {
     try {
@@ -52,25 +63,43 @@ export function OrchestrationCanvas({ quality, variant = "command" }: Props) {
 
   const Fallback = variant === "hero" ? HeroFallback : CommandFallback;
 
+  if (variant === "hero") {
+    const shell = (
+      <div ref={containerRef} className={HERO_VIZ_SHELL} aria-hidden>
+        <div className={`${HERO_VIZ_ASPECT} relative ${HERO_VIZ_FRAME}`}>
+          {reduce || !webgl ? (
+            <Fallback tone="heroOnLight" />
+          ) : (
+            <div
+              className="absolute inset-0 size-full transition-opacity duration-700"
+              style={{ opacity: visible ? 1 : 0.15 }}
+            >
+              {visible && (
+                <OrchestrationR3F
+                  quality="full"
+                  sceneTone={sceneTone}
+                  frameloop={visible ? "always" : "never"}
+                  parallaxGroupRef={groupRef}
+                  applyParallax={applyParallax}
+                />
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    );
+    return shell;
+  }
+
   if (reduce || !webgl) {
     return (
       <div
         ref={containerRef}
-        className={
-          variant === "hero"
-            ? "pointer-events-none relative z-0 mx-auto mt-8 h-64 w-full max-w-md lg:absolute lg:inset-0 lg:mt-0 lg:flex lg:max-w-none lg:items-center lg:justify-end"
-            : "relative h-[min(360px,50vw)] w-full max-h-[420px]"
-        }
+        className="relative h-[min(360px,50vw)] w-full max-h-[420px]"
         aria-hidden
       >
-        <div
-          className={
-            variant === "hero"
-              ? "h-full w-full px-4 lg:mr-[-5%] lg:h-[75%] lg:w-[65%] lg:max-w-2xl"
-              : "h-full w-full"
-          }
-        >
-          <Fallback />
+        <div className="h-full w-full">
+          <Fallback tone="dark" />
         </div>
       </div>
     );
@@ -78,59 +107,6 @@ export function OrchestrationCanvas({ quality, variant = "command" }: Props) {
 
   const sceneOpacity = visible ? 1 : 0.15;
   const frameloop = visible ? "always" : "never";
-
-  if (variant === "hero") {
-    return (
-      <div
-        ref={containerRef}
-        className="relative z-0 mx-auto mt-6 h-[min(42vh,380px)] w-full max-w-lg overflow-hidden lg:pointer-events-auto lg:absolute lg:inset-0 lg:mt-0 lg:h-auto lg:max-w-none pointer-events-none"
-        aria-hidden
-      >
-        <div
-          className="absolute inset-0 transition-opacity duration-700 lg:hidden"
-          style={{
-            opacity: sceneOpacity,
-            maskImage:
-              "radial-gradient(ellipse 90% 80% at 50% 55%, black 15%, transparent 70%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 90% 80% at 50% 55%, black 15%, transparent 70%)",
-          }}
-        >
-          <div className="absolute inset-2">
-            {visible && (
-              <OrchestrationR3F
-                quality="full"
-                frameloop={frameloop}
-                parallaxGroupRef={groupRef}
-                applyParallax={applyParallax}
-              />
-            )}
-          </div>
-        </div>
-        <div
-          className="absolute inset-0 hidden transition-opacity duration-700 lg:block"
-          style={{
-            opacity: sceneOpacity,
-            maskImage:
-              "radial-gradient(ellipse 75% 70% at 65% 45%, black 20%, transparent 72%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 75% 70% at 65% 45%, black 20%, transparent 72%)",
-          }}
-        >
-          <div className="absolute inset-y-[8%] right-[-5%] left-[38%]">
-            {visible && (
-              <OrchestrationR3F
-                quality="full"
-                frameloop={frameloop}
-                parallaxGroupRef={groupRef}
-                applyParallax={applyParallax}
-              />
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div
@@ -149,7 +125,7 @@ export function OrchestrationCanvas({ quality, variant = "command" }: Props) {
         }}
       >
         {visible && (
-          <OrchestrationR3F quality="lite" frameloop={frameloop} />
+          <OrchestrationR3F quality="lite" sceneTone="dark" frameloop={frameloop} />
         )}
       </div>
     </div>

@@ -31,6 +31,13 @@ const config: Config = {
           dark: "#111827",
           gray: "#6B7280",
           light: "#F8FAFC",
+          ink: "#0A1628",
+          surface: {
+            light: "#F8FAFC",
+            lightElevated: "#EEF2F7",
+            dark: "#111827",
+            darkElevated: "#0a0f1a",
+          },
         },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

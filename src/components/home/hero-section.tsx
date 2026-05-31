@@ -6,6 +6,11 @@ import { BrandLogo } from "@/components/brand/brand-logo";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { HeroFallback } from "@/components/three/hero-fallback";
+import {
+  HERO_VIZ_ASPECT,
+  HERO_VIZ_FRAME,
+  HERO_VIZ_SHELL,
+} from "@/components/three/orchestration-canvas";
 import { heroItem, heroStagger } from "@/lib/motion";
 
 const OrchestrationCanvas = dynamic(
@@ -16,12 +21,9 @@ const OrchestrationCanvas = dynamic(
 
 function HeroCanvasPlaceholder() {
   return (
-    <div
-      className="relative z-0 mx-auto mt-6 h-[min(42vh,380px)] w-full max-w-lg overflow-hidden lg:pointer-events-none lg:absolute lg:inset-0 lg:mt-0 lg:h-auto lg:max-w-none"
-      aria-hidden
-    >
-      <div className="absolute inset-2">
-        <HeroFallback />
+    <div className={HERO_VIZ_SHELL} aria-hidden>
+      <div className={`${HERO_VIZ_ASPECT} relative ${HERO_VIZ_FRAME}`}>
+        <HeroFallback tone="heroOnLight" />
       </div>
     </div>
   );
@@ -31,64 +33,59 @@ export function HeroSection() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden section-dark lg:min-h-[min(88vh,820px)]">
-      <div className="noise-overlay pointer-events-none absolute inset-0" aria-hidden />
+    <section className="relative overflow-hidden section-light on-light">
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_70%_40%,rgba(17,211,232,0.08),transparent)] lg:block hidden"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_72%_38%,rgba(10,76,149,0.09),transparent_55%)]"
         aria-hidden
       />
 
-      <div className="container relative z-10 mx-auto max-w-6xl px-4 pb-8 pt-20 lg:grid lg:min-h-[min(88vh,820px)] lg:grid-cols-[minmax(0,1fr)_1.05fr] lg:items-center lg:gap-8 lg:py-20">
-        <motion.div
-          className="max-w-xl"
-          variants={reduce ? undefined : heroStagger}
-          initial={reduce ? false : "hidden"}
-          animate="visible"
-        >
-          <motion.div variants={reduce ? undefined : heroItem} className="mb-6 flex flex-wrap items-center gap-3">
-            <BrandLogo
-              variant="heroBadge"
-              alt=""
-              className="drop-shadow-[0_0_18px_rgba(17,211,232,0.45)]"
-            />
-            <span className="glass-pill">AI-Powered Technology Company</span>
-          </motion.div>
-          <motion.h1
-            variants={reduce ? undefined : heroItem}
-            className="type-display-lg"
-          >
-            AI-Powered Technology for{" "}
-            <span className="text-gradient">Product & Platform</span> Teams
-          </motion.h1>
-          <motion.p
-            variants={reduce ? undefined : heroItem}
-            className="type-body-muted mt-6 max-w-lg"
-          >
-            We engineer intelligent systems, cloud platforms, and automation that scale
-            with your business—not slide decks or staff augmentation.
-          </motion.p>
+      <div className="container relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8 2xl:max-w-[88rem]">
+        <div className="flex flex-col gap-10 pb-12 pt-16 sm:pt-20 lg:grid lg:min-h-[min(78vh,720px)] lg:grid-cols-2 lg:items-center lg:gap-x-10 lg:gap-y-8 lg:pb-16 lg:pt-20 xl:gap-x-14 xl:gap-y-10 2xl:gap-x-16">
           <motion.div
-            variants={reduce ? undefined : heroItem}
-            className="mt-10 flex flex-wrap gap-4"
+            className="relative z-10 min-w-0 lg:max-w-[34rem] xl:max-w-[36rem]"
+            variants={reduce ? undefined : heroStagger}
+            initial={reduce ? false : "hidden"}
+            animate="visible"
           >
-            <Button asChild size="lg" className="glow-cta">
-              <Link href="/book-consultation">Book Consultation</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/solutions">Explore Solutions</Link>
-            </Button>
+            <motion.div
+              variants={reduce ? undefined : heroItem}
+              className="mb-6 flex flex-wrap items-center gap-3.5 sm:gap-4"
+            >
+              <BrandLogo variant="heroBadge" theme="light" alt="" />
+              <span className="glass-pill-light">AI-Powered Technology Company</span>
+            </motion.div>
+            <motion.h1
+              variants={reduce ? undefined : heroItem}
+              className="type-display-lg text-brand-ink xl:text-[3.5rem]"
+            >
+              AI-Powered Technology for{" "}
+              <span className="text-gradient">Product & Platform</span> Teams
+            </motion.h1>
+            <motion.p
+              variants={reduce ? undefined : heroItem}
+              className="mt-6 max-w-xl text-body-sm leading-[1.7] text-slate-600 md:text-body-lg lg:max-w-lg"
+            >
+              We engineer intelligent systems, cloud platforms, and automation that scale
+              with your business—not slide decks or staff augmentation.
+            </motion.p>
+            <motion.div
+              variants={reduce ? undefined : heroItem}
+              className="mt-10 flex flex-wrap gap-4"
+            >
+              <Button asChild size="lg" className="glow-cta">
+                <Link href="/book-consultation">Book Consultation</Link>
+              </Button>
+              <Button asChild variant="outlineLight" size="lg">
+                <Link href="/solutions">Explore Solutions</Link>
+              </Button>
+            </motion.div>
           </motion.div>
-        </motion.div>
 
-        <OrchestrationCanvas quality="full" variant="hero" />
-
-        <div className="hidden lg:block" aria-hidden />
+          <div className="relative z-0 min-h-0 min-w-0 w-full lg:flex lg:items-center lg:justify-center xl:justify-end">
+            <OrchestrationCanvas quality="full" variant="hero" />
+          </div>
+        </div>
       </div>
-
-      <div
-        className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0f1a] to-transparent lg:h-32"
-        aria-hidden
-      />
     </section>
   );
 }

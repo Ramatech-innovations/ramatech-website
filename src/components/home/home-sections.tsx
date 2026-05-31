@@ -27,7 +27,7 @@ export function HomePageSections() {
       <AiAutomationSection />
       <CaseStudiesShowcase limit={2} />
 
-      <SectionShell variant="elevated" className="border-y border-white/5 !py-8 md:!py-10">
+      <SectionShell variant="lightElevated" className="border-y border-slate-200 !py-8 md:!py-10">
         <div className="container mx-auto max-w-6xl px-4">
           <p className="mb-3 text-center text-sm font-medium tracking-wide text-muted-foreground lg:text-left">
             Production stack expertise
@@ -36,13 +36,13 @@ export function HomePageSections() {
         </div>
       </SectionShell>
 
-      <SectionShell variant="default" className={HOME_PAD}>
+      <SectionShell variant="light" className={HOME_PAD}>
         <div className="container mx-auto max-w-6xl px-4">
           <SolutionsGrid />
         </div>
       </SectionShell>
 
-      <SectionShell variant="elevated" className={HOME_PAD_COMPACT}>
+      <SectionShell variant="lightElevated" className={HOME_PAD_COMPACT}>
         <div className="container mx-auto max-w-6xl px-4">
           <IndustriesPillRow />
         </div>
@@ -50,7 +50,7 @@ export function HomePageSections() {
 
       <WhyUsSection />
 
-      <SectionShell variant="elevated" className={HOME_PAD_COMPACT}>
+      <SectionShell variant="lightElevated" className={HOME_PAD_COMPACT}>
         <div className="container mx-auto max-w-6xl px-4">
           <StackTeaser />
         </div>

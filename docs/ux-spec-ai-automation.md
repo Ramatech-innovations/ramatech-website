@@ -1,6 +1,6 @@
 # UX Spec — AI Automation Interactive Cards
 
-**Project:** Ramatech Website v2  
+**Project:** Ramatech Website  
 **Date:** 2026-05-30  
 **Status:** implemented
 

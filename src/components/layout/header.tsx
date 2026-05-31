@@ -8,6 +8,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navLinks } from "@/content/site";
+import { siteConfig } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 function navIsActive(pathname: string, href: string) {
@@ -32,14 +33,14 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50">
-      <div className="hidden border-b border-white/5 bg-brand-primary/40 md:block">
-        <div className="container mx-auto flex max-w-6xl items-center justify-between px-4 py-2 text-[12px] text-muted-foreground">
+      <div className="hidden border-b border-slate-200 bg-slate-50 md:block">
+        <div className="container mx-auto flex max-w-6xl items-center justify-between px-4 py-2 text-[12px] text-slate-600">
           <span className="tracking-wide">Engineering intelligent systems at scale</span>
           <Link
-            href="/contact"
-            className="font-medium tracking-wide transition-colors hover:text-brand-cyan"
+            href={`mailto:${siteConfig.email}`}
+            className="font-medium tracking-wide text-brand-primary transition-colors hover:text-brand-cyan"
           >
-            hello@ramatech.co.in
+            {siteConfig.email}
           </Link>
         </div>
       </div>
@@ -47,20 +48,17 @@ export function Header() {
         className={cn(
           "border-b transition-all duration-300",
           scrolled
-            ? "border-white/10 bg-brand-dark/95 backdrop-blur-xl shadow-lg shadow-black/25 h-14"
-            : "border-white/5 bg-brand-dark/80 backdrop-blur-xl h-16"
+            ? "h-14 border-slate-200 bg-white/90 shadow-md shadow-slate-200/40 backdrop-blur-xl"
+            : "h-16 border-slate-200/80 bg-white/70 backdrop-blur-xl"
         )}
       >
         <div className="container mx-auto flex h-full max-w-6xl items-center justify-between px-4">
           <Link
             href="/"
-            className="flex shrink-0 items-center rounded-md p-1 transition-opacity hover:opacity-90"
+            className="flex shrink-0 items-center py-0.5 pr-1 transition-opacity hover:opacity-90"
             aria-label="Ramatech Innovation home"
           >
-            <BrandLogo
-              variant={scrolled ? "headerScrolled" : "header"}
-              className="drop-shadow-[0_0_14px_rgba(17,211,232,0.4)] transition-all"
-            />
+            <BrandLogo variant={scrolled ? "headerScrolled" : "header"} theme="light" />
           </Link>
 
           <nav className="hidden items-center gap-8 lg:flex">
@@ -75,14 +73,14 @@ export function Header() {
                   <button
                     type="button"
                     className={cn(
-                      "type-nav flex items-center gap-1",
-                      solutionsActive && "type-nav-active"
+                      "flex items-center gap-1 font-nav text-[13px] font-semibold tracking-nav text-slate-600 transition-colors hover:text-brand-primary",
+                      solutionsActive && "text-brand-primary"
                     )}
                   >
                     {link.label}
                     <ChevronDown
                       className={cn(
-                        "h-4 w-4 transition-transform duration-200",
+                        "inline h-4 w-4 transition-transform duration-200",
                         solutionsOpen && "rotate-180"
                       )}
                     />
@@ -96,7 +94,7 @@ export function Header() {
                         exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="glass-panel-xl min-w-[300px] rounded-xl p-2 shadow-2xl shadow-brand-cyan/10">
+                        <div className="glass-panel-xl-light min-w-[300px] rounded-xl p-2">
                           {link.children.map((child) => (
                             <Link
                               key={child.href}
@@ -104,8 +102,8 @@ export function Header() {
                               className={cn(
                                 "block rounded-lg px-3 py-2.5 font-heading text-[13px] font-medium tracking-wide transition-colors",
                                 navIsActive(pathname, child.href)
-                                  ? "bg-white/5 text-brand-cyan"
-                                  : "text-foreground/65 hover:bg-white/5 hover:text-foreground"
+                                  ? "bg-brand-cyan/10 text-brand-primary"
+                                  : "text-slate-600 hover:bg-slate-50 hover:text-brand-primary"
                               )}
                             >
                               {child.label}
@@ -113,7 +111,7 @@ export function Header() {
                           ))}
                           <Link
                             href="/solutions"
-                            className="type-nav-active mt-1 block rounded-lg border-t border-white/10 px-3 py-2.5"
+                            className="mt-1 block rounded-lg border-t border-slate-200 px-3 py-2.5 font-heading text-[13px] font-semibold text-brand-primary"
                           >
                             View all solutions
                           </Link>
@@ -127,8 +125,8 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "type-nav",
-                    navIsActive(pathname, link.href) && "type-nav-active"
+                    "font-nav text-[13px] font-semibold tracking-nav text-slate-600 transition-colors hover:text-brand-primary",
+                    navIsActive(pathname, link.href) && "text-brand-primary"
                   )}
                 >
                   {link.label}
@@ -145,7 +143,7 @@ export function Header() {
 
           <button
             type="button"
-            className="text-foreground lg:hidden"
+            className="text-brand-primary lg:hidden"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
             aria-expanded={open}
@@ -158,7 +156,7 @@ export function Header() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="border-b border-white/10 bg-brand-dark/98 backdrop-blur-xl lg:hidden"
+            className="border-b border-slate-200 bg-white/98 backdrop-blur-xl lg:hidden"
             initial={reduce ? false : { height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -167,14 +165,14 @@ export function Header() {
               {navLinks.map((link) =>
                 "children" in link ? (
                   <div key={link.label} className="flex flex-col gap-1">
-                    <span className="text-xs font-medium uppercase text-muted-foreground">
+                    <span className="text-xs font-medium uppercase text-slate-500">
                       {link.label}
                     </span>
                     {link.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="py-1 pl-2 text-sm text-foreground"
+                        className="py-1 pl-2 text-sm text-slate-700"
                         onClick={() => setOpen(false)}
                       >
                         {child.label}
@@ -185,7 +183,7 @@ export function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="py-2 text-sm text-foreground"
+                    className="py-2 text-sm text-slate-700"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}

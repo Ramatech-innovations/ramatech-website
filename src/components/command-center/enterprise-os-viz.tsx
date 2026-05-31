@@ -48,7 +48,7 @@ export function EnterpriseOsViz() {
   return (
     <div
       ref={containerRef}
-      className="relative min-h-[min(420px,72vw)] w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[#030B1A]/90 shadow-2xl shadow-black/30"
+      className="relative min-h-[min(420px,72vw)] w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[#030B1A]/90 shadow-2xl shadow-black/30 lg:min-h-[440px] lg:max-h-[520px]"
       aria-hidden
     >
       <div
