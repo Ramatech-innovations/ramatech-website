@@ -3,12 +3,12 @@ import { Button } from "@/components/ui/button";
 import { PageHero } from "@/components/marketing/page-hero";
 import { MotionSection } from "@/components/motion/motion-section";
 import { createMetadata } from "@/lib/seo";
+import { pageMeta } from "@/content/page-meta";
 import { stackCategories } from "@/content/stack";
 
 export const metadata = createMetadata({
-  title: "Technology",
-  description:
-    "Production technology stack: Kubernetes, OpenShift, cloud, AI, observability, and enterprise platforms.",
+  title: pageMeta.technology.title,
+  description: pageMeta.technology.description,
   path: "/technology",
 });
 

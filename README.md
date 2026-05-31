@@ -35,3 +35,10 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Contact form
 
 Set the public contact address in `siteConfig.email` (`src/lib/seo.ts`). Optionally set `CONTACT_EMAIL` in `.env.local` to override the form delivery inbox, and `RESEND_API_KEY` for production email delivery.
+
+### SEO (after deploy)
+
+- Regenerate OG image: `npm run og:image` → `public/og-image.png`
+- Confirm `NEXT_PUBLIC_SITE_URL` matches production (e.g. `https://www.ramatech.co.in`)
+- Google Search Console: submit `/sitemap.xml`, request indexing for homepage
+- Validate share preview: [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) with your live URL

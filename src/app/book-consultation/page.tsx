@@ -2,10 +2,11 @@ import { ContactForm } from "@/components/forms/contact-form";
 import { PageHero } from "@/components/marketing/page-hero";
 import { MotionSection } from "@/components/motion/motion-section";
 import { createMetadata } from "@/lib/seo";
+import { pageMeta } from "@/content/page-meta";
 
 export const metadata = createMetadata({
-  title: "Book Consultation",
-  description: "Book a technical consultation with Ramatech engineering leaders.",
+  title: pageMeta.bookConsultation.title,
+  description: pageMeta.bookConsultation.description,
   path: "/book-consultation",
 });
 

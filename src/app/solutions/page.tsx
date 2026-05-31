@@ -3,12 +3,12 @@ import { PageHero } from "@/components/marketing/page-hero";
 import { Card } from "@/components/ui/card";
 import { MotionSection } from "@/components/motion/motion-section";
 import { createMetadata } from "@/lib/seo";
+import { pageMeta } from "@/content/page-meta";
 import { solutions } from "@/content/solutions";
 
 export const metadata = createMetadata({
-  title: "Solutions",
-  description:
-    "Cloud infrastructure, DevOps, AI solutions, business automation, and software development for technology companies.",
+  title: pageMeta.solutions.title,
+  description: pageMeta.solutions.description,
   path: "/solutions",
 });
 

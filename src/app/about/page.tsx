@@ -6,13 +6,13 @@ import { MotionSection } from "@/components/motion/motion-section";
 import { PageHero } from "@/components/marketing/page-hero";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { createMetadata } from "@/lib/seo";
+import { pageMeta } from "@/content/page-meta";
 import { whyRamatech, deliveryModel } from "@/content/site";
 import { businessOutcomes } from "@/content/enterprise";
 
 export const metadata = createMetadata({
-  title: "About",
-  description:
-    "Ramatech Innovation — AI-powered technology company engineering platforms, automation, and cloud systems.",
+  title: pageMeta.about.title,
+  description: pageMeta.about.description,
   path: "/about",
 });
 

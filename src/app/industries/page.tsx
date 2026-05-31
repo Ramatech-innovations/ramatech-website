@@ -4,12 +4,12 @@ import { Card } from "@/components/ui/card";
 import { PageHero } from "@/components/marketing/page-hero";
 import { MotionSection } from "@/components/motion/motion-section";
 import { createMetadata } from "@/lib/seo";
+import { pageMeta } from "@/content/page-meta";
 import { industries } from "@/content/industries";
 
 export const metadata = createMetadata({
-  title: "Industries",
-  description:
-    "Technology solutions for SaaS, logistics, healthcare, fintech, and legal technology companies.",
+  title: pageMeta.industries.title,
+  description: pageMeta.industries.description,
   path: "/industries",
 });
 
