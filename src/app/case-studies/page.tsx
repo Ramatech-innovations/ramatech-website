@@ -3,11 +3,12 @@ import { PageHero } from "@/components/marketing/page-hero";
 import { Card } from "@/components/ui/card";
 import { MotionSection } from "@/components/motion/motion-section";
 import { createMetadata } from "@/lib/seo";
+import { pageMeta } from "@/content/page-meta";
 import { caseStudies } from "@/content/case-studies";
 
 export const metadata = createMetadata({
-  title: "Case Studies",
-  description: "Production outcomes from observability, OpenShift, and AI automation engagements.",
+  title: pageMeta.caseStudies.title,
+  description: pageMeta.caseStudies.description,
   path: "/case-studies",
 });
 

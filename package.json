@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "icons": "node scripts/generate-icons.mjs",
-    "brand:logos": "node scripts/process-brand-logos.mjs && node scripts/generate-icons.mjs"
+    "brand:logos": "node scripts/process-brand-logos.mjs && node scripts/generate-icons.mjs",
+    "og:image": "node scripts/generate-og-image.mjs"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.1",

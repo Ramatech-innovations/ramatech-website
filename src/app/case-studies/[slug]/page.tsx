@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { MotionSection } from "@/components/motion/motion-section";
 import { PageHero } from "@/components/marketing/page-hero";
-import { createMetadata } from "@/lib/seo";
+import { createMetadata, metaDescription } from "@/lib/seo";
 import { caseStudies, getCaseStudy } from "@/content/case-studies";
 
 export function generateStaticParams() {
@@ -21,7 +21,7 @@ export async function generateMetadata({
   if (!study) return {};
   return createMetadata({
     title: study.title,
-    description: study.summary,
+    description: metaDescription(study.summary),
     path: `/case-studies/${slug}`,
   });
 }

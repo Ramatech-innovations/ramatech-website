@@ -2,10 +2,11 @@ import { ContactForm } from "@/components/forms/contact-form";
 import { PageHero } from "@/components/marketing/page-hero";
 import { MotionSection } from "@/components/motion/motion-section";
 import { createMetadata, siteConfig } from "@/lib/seo";
+import { pageMeta } from "@/content/page-meta";
 
 export const metadata = createMetadata({
-  title: "Contact",
-  description: "Contact Ramatech engineering team. Response within 4 business hours.",
+  title: pageMeta.contact.title,
+  description: pageMeta.contact.description,
   path: "/contact",
 });
 
