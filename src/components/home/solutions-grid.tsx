@@ -21,10 +21,10 @@ export function SolutionsGrid() {
               aria-label={`${s.title}: ${s.tagline}`}
             >
               <div>
-                <h3 className="font-heading text-base font-semibold group-hover:text-brand-cyan">
+                <h3 className="font-heading text-[1.05rem] font-semibold text-brand-ink group-hover:text-brand-cyan">
                   {s.title}
                 </h3>
-                <p className="mt-1.5 line-clamp-2 text-sm leading-snug text-muted-foreground">
+                <p className="type-body-card mt-1.5 line-clamp-2">
                   {s.tagline}
                 </p>
               </div>

@@ -3,8 +3,7 @@
 import { AnimatedCounter } from "@/components/marketing/animated-counter";
 import { enterpriseKpis } from "@/content/enterprise";
 
-const HOME_CONTAINER =
-  "container relative mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8 2xl:max-w-[88rem]";
+import { PAGE_CONTAINER } from "@/lib/layout";
 
 export function EnterpriseKpisSection() {
   return (
@@ -17,7 +16,7 @@ export function EnterpriseKpisSection() {
         }}
         aria-hidden
       />
-      <div className={HOME_CONTAINER}>
+      <div className={PAGE_CONTAINER}>
         <p className="type-eyebrow text-center">Enterprise metrics</p>
         <h2 className="type-h2 mx-auto mt-5 max-w-3xl text-center md:mt-6">
           Proof at production scale

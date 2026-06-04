@@ -5,6 +5,7 @@ import { MotionSection } from "@/components/motion/motion-section";
 import { createMetadata } from "@/lib/seo";
 import { pageMeta } from "@/content/page-meta";
 import { stackCategories } from "@/content/stack";
+import { PAGE_CONTAINER } from "@/lib/layout";
 
 export const metadata = createMetadata({
   title: pageMeta.technology.title,
@@ -20,12 +21,12 @@ export default function TechnologyPage() {
         title="Stack we run in production"
         description="Tools and platforms our engineers deploy—not a logo wall for a pitch deck."
       />
-      <MotionSection className="py-20">
-        <div className="container mx-auto max-w-6xl px-4">
+      <MotionSection className="py-16 md:py-20">
+        <div className={PAGE_CONTAINER}>
           <div className="grid gap-12 md:grid-cols-2">
             {stackCategories.map((cat) => (
               <div key={cat.name}>
-                <h2 className="font-heading text-xl font-semibold">{cat.name}</h2>
+                <h2 className="type-h3 text-brand-ink">{cat.name}</h2>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {cat.tools.map((tool) => (
                     <span

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { BookConsultationLink } from "@/components/analytics/tracked-link";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
@@ -9,6 +10,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navLinks } from "@/content/site";
 import { siteConfig } from "@/lib/seo";
+import { PAGE_CONTAINER } from "@/lib/layout";
 import { cn } from "@/lib/utils";
 
 function navIsActive(pathname: string, href: string) {
@@ -34,7 +36,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50">
       <div className="hidden border-b border-slate-200 bg-slate-50 md:block">
-        <div className="container mx-auto flex max-w-6xl items-center justify-between px-4 py-2 text-[12px] text-slate-600">
+        <div className={`${PAGE_CONTAINER} flex items-center justify-between py-2 text-sm text-slate-600`}>
           <span className="tracking-wide">Engineering intelligent systems at scale</span>
           <Link
             href={`mailto:${siteConfig.email}`}
@@ -52,7 +54,7 @@ export function Header() {
             : "h-16 border-slate-200/80 bg-white/70 backdrop-blur-xl"
         )}
       >
-        <div className="container mx-auto flex h-full max-w-6xl items-center justify-between px-4">
+        <div className={`${PAGE_CONTAINER} flex h-full items-center justify-between`}>
           <Link
             href="/"
             className="flex shrink-0 items-center py-0.5 pr-1 transition-opacity hover:opacity-90"
@@ -137,7 +139,7 @@ export function Header() {
 
           <div className="hidden lg:block">
             <Button asChild size="sm" className="glow-cta">
-              <Link href="/book-consultation">Book Consultation</Link>
+              <BookConsultationLink>Book Consultation</BookConsultationLink>
             </Button>
           </div>
 
@@ -165,7 +167,7 @@ export function Header() {
               {navLinks.map((link) =>
                 "children" in link ? (
                   <div key={link.label} className="flex flex-col gap-1">
-                    <span className="text-xs font-medium uppercase text-slate-500">
+                    <span className="text-sm font-medium uppercase text-slate-500">
                       {link.label}
                     </span>
                     {link.children.map((child) => (
@@ -191,9 +193,9 @@ export function Header() {
                 )
               )}
               <Button asChild className="mt-2 glow-cta">
-                <Link href="/book-consultation" onClick={() => setOpen(false)}>
+                <BookConsultationLink onClick={() => setOpen(false)}>
                   Book Consultation
-                </Link>
+                </BookConsultationLink>
               </Button>
             </div>
           </motion.div>

@@ -1,4 +1,5 @@
 import { BrandLogo } from "@/components/brand/brand-logo";
+import { PAGE_CONTAINER } from "@/lib/layout";
 import { cn } from "@/lib/utils";
 
 export function PageHero({
@@ -26,7 +27,7 @@ export function PageHero({
         className
       )}
     >
-      <div className="container mx-auto max-w-6xl px-4">
+      <div className={PAGE_CONTAINER}>
         {isLight && (
           <BrandLogo variant="heroBadge" theme="light" alt="" className="mb-6" />
         )}
@@ -37,8 +38,8 @@ export function PageHero({
         {description && (
           <p
             className={cn(
-              "mt-6 max-w-2xl text-body-sm leading-[1.7] md:text-body-lg",
-              isLight ? "text-slate-600" : "type-body-muted"
+              "mt-6 max-w-2xl type-body-muted",
+              isLight && "text-slate-600"
             )}
           >
             {description}

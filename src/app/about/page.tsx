@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { BookConsultationLink } from "@/components/analytics/tracked-link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { FrameworkStrip } from "@/components/home/framework-strip";
@@ -9,6 +9,7 @@ import { createMetadata } from "@/lib/seo";
 import { pageMeta } from "@/content/page-meta";
 import { whyRamatech, deliveryModel } from "@/content/site";
 import { businessOutcomes } from "@/content/enterprise";
+import { PAGE_CONTAINER } from "@/lib/layout";
 
 export const metadata = createMetadata({
   title: pageMeta.about.title,
@@ -25,22 +26,22 @@ export default function AboutPage() {
         description="Ramatech is an AI-powered technology company—not an IT agency. We engineer platforms, intelligent automation, and cloud infrastructure for product and platform teams."
       />
 
-      <MotionSection className="py-20">
-        <div className="container mx-auto max-w-6xl px-4">
+      <MotionSection className="py-16 md:py-20">
+        <div className={PAGE_CONTAINER}>
           <SectionHeader title="What we believe" align="left" />
           <div className="grid gap-6 md:grid-cols-2">
             {whyRamatech.map((item) => (
               <Card key={item.title}>
                 <h3 className="font-heading font-semibold">{item.title}</h3>
-                <p className="mt-2 text-muted-foreground">{item.description}</p>
+                <p className="type-body-card mt-2">{item.description}</p>
               </Card>
             ))}
           </div>
         </div>
       </MotionSection>
 
-      <MotionSection className="border-t border-slate-200 py-20">
-        <div className="container mx-auto max-w-6xl px-4">
+      <MotionSection className="border-t border-slate-200 py-16 md:py-20">
+        <div className={PAGE_CONTAINER}>
           <SectionHeader
             title="Business outcomes we deliver"
             description="How enterprise leaders measure success with Ramatech."
@@ -50,21 +51,21 @@ export default function AboutPage() {
             {businessOutcomes.map((item) => (
               <Card key={item.id} className="p-6">
                 <h3 className="font-heading font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
+                <p className="type-body-card mt-2">{item.description}</p>
               </Card>
             ))}
           </div>
         </div>
       </MotionSection>
 
-      <MotionSection className="py-20">
-        <div className="container mx-auto max-w-6xl px-4">
+      <MotionSection className="py-16 md:py-20">
+        <div className={PAGE_CONTAINER}>
           <FrameworkStrip />
         </div>
       </MotionSection>
 
-      <MotionSection className="border-t border-slate-200 py-20">
-        <div className="container mx-auto max-w-6xl px-4">
+      <MotionSection className="border-t border-slate-200 py-16 md:py-20">
+        <div className={PAGE_CONTAINER}>
           <SectionHeader
             title="How we deliver"
             description="AI-accelerated scaffolding with senior engineer ownership—the same model we use on every engagement."
@@ -72,7 +73,7 @@ export default function AboutPage() {
           <div className="grid gap-6 md:grid-cols-2">
             <Card>
               <h3 className="font-mono text-sm text-brand-cyan">AI handles</h3>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <ul className="type-body-card mt-4 space-y-2">
                 {deliveryModel.ai.map((i) => (
                   <li key={i}>— {i}</li>
                 ))}
@@ -80,7 +81,7 @@ export default function AboutPage() {
             </Card>
             <Card>
               <h3 className="font-mono text-sm text-brand-cyan">Engineers handle</h3>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <ul className="type-body-card mt-4 space-y-2">
                 {deliveryModel.engineers.map((i) => (
                   <li key={i}>— {i}</li>
                 ))}
@@ -89,7 +90,7 @@ export default function AboutPage() {
           </div>
           <div className="mt-12 text-center">
             <Button asChild size="lg">
-              <Link href="/book-consultation">Book Consultation</Link>
+              <BookConsultationLink>Book Consultation</BookConsultationLink>
             </Button>
           </div>
         </div>

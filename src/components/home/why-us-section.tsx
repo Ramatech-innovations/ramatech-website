@@ -4,13 +4,14 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { whyRamatech } from "@/content/site";
+import { PAGE_CONTAINER } from "@/lib/layout";
 
 const HOME_WHY = whyRamatech.slice(0, 3);
 
 export function WhyUsSection() {
   return (
-    <section className="relative section-light on-light py-10 md:py-14">
-      <div className="container mx-auto max-w-6xl px-4">
+    <section className="section-light on-light relative py-10 md:py-14">
+      <div className={PAGE_CONTAINER}>
         <div className="mx-auto max-w-4xl">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <SectionHeader
@@ -32,16 +33,13 @@ export function WhyUsSection() {
 
           <ul className="mt-6 grid gap-3 md:grid-cols-3">
             {HOME_WHY.map((item) => (
-              <li
-                key={item.title}
-                className="card-on-light flex gap-3 p-4"
-              >
+              <li key={item.title} className="card-on-light flex gap-3 p-4">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-cyan" />
                 <div>
-                  <h3 className="font-heading text-base font-semibold">{item.title}</h3>
-                  <p className="mt-1 text-sm leading-snug text-muted-foreground">
-                    {item.description}
-                  </p>
+                  <h3 className="font-heading text-base font-semibold text-brand-ink">
+                    {item.title}
+                  </h3>
+                  <p className="type-body-card mt-1 leading-snug">{item.description}</p>
                 </div>
               </li>
             ))}

@@ -13,6 +13,9 @@ export const siteConfig = {
   url: siteUrl,
   tagline: "Engineering intelligent systems at scale.",
   email: "info@ramatech.co.in",
+  whatsappUrl:
+    "https://wa.me/919828241244?text=Hi%20Ramatech%2C%20I%20want%20to%20discuss%20a%20project",
+  whatsappE164: "+919828241244",
 };
 
 /** Inbox for contact form delivery; optional CONTACT_EMAIL env override */
@@ -31,12 +34,18 @@ export function createMetadata({
   title,
   description,
   path = "",
+  useExactTitle = false,
 }: {
   title: string;
   description: string;
   path?: string;
+  useExactTitle?: boolean;
 }): Metadata {
-  const fullTitle = title === siteConfig.name ? title : `${title} | ${siteConfig.name}`;
+  const fullTitle = useExactTitle
+    ? title
+    : title === siteConfig.name
+      ? title
+      : `${title} | ${siteConfig.name}`;
   const desc = metaDescription(description);
   const canonical = path ? `${siteConfig.url}${path}` : siteConfig.url;
 

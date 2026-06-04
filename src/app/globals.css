@@ -46,9 +46,14 @@
 }
 
 @layer components {
-  /* Section labels — enterprise uppercase */
+  /*
+   * Section scopes: section-light / section-light-elevated / on-light for light UI;
+   * section-dark / section-gradient / section-elevated for dark UI.
+   * Use light cards (card-on-light) on light sections; glass-panel only on dark sections.
+   */
+
   .type-eyebrow {
-    @apply font-heading text-[11px] font-semibold uppercase tracking-eyebrow text-brand-cyan;
+    @apply font-heading text-xs font-semibold uppercase tracking-[0.16em] text-brand-cyan;
   }
 
   .type-display-lg {
@@ -73,7 +78,15 @@
   }
 
   .type-metric-home {
-    @apply font-mono text-4xl font-medium tabular-nums tracking-[-0.04em] text-gradient md:text-5xl;
+    @apply font-mono text-4xl font-medium tabular-nums tracking-[-0.04em] text-brand-primary md:text-5xl;
+  }
+
+  .type-caption {
+    @apply text-sm font-medium text-slate-500;
+  }
+
+  .type-body-card {
+    @apply text-[0.9375rem] leading-relaxed text-slate-600;
   }
 
   .type-h3 {
@@ -182,7 +195,7 @@
   }
 
   .section-dark {
-    @apply bg-brand-dark;
+    @apply bg-brand-dark text-foreground;
     --background: 222 47% 7%;
     --foreground: 210 40% 98%;
     --muted-foreground: 215 18% 72%;
@@ -202,7 +215,7 @@
   }
 
   .section-gradient {
-    @apply bg-gradient-to-b from-[#0a0f1a] to-brand-dark;
+    @apply bg-gradient-to-b from-[#0a0f1a] to-brand-dark text-foreground;
     --foreground: 210 40% 98%;
     --muted-foreground: 215 18% 72%;
   }
@@ -211,6 +224,25 @@
   .section-light .type-body-muted,
   .section-light-elevated .type-body-muted {
     @apply text-slate-600;
+  }
+
+  .on-light .type-metric-label,
+  .section-light .type-metric-label,
+  .section-light-elevated .type-metric-label {
+    @apply text-slate-600;
+  }
+
+  .on-light .type-h2,
+  .on-light .type-h2-section,
+  .section-light .type-h2,
+  .section-light .type-h2-section,
+  .section-light-elevated .type-h2,
+  .section-light-elevated .type-h2-section {
+    @apply text-brand-ink;
+  }
+
+  .card-elevated-light {
+    @apply card-on-light;
   }
 
   .grid-bg {
