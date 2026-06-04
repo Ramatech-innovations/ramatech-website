@@ -1,7 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import {
+  BookConsultationLink,
+  ExploreSolutionsLink,
+} from "@/components/analytics/tracked-link";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -73,11 +76,31 @@ export function HeroSection() {
               className="mt-10 flex flex-wrap gap-4"
             >
               <Button asChild size="lg" className="glow-cta">
-                <Link href="/book-consultation">Book Consultation</Link>
+                <BookConsultationLink>Book Consultation</BookConsultationLink>
               </Button>
               <Button asChild variant="outlineLight" size="lg">
-                <Link href="/solutions">Explore Solutions</Link>
+                <ExploreSolutionsLink>Explore Solutions</ExploreSolutionsLink>
               </Button>
+            </motion.div>
+            <motion.div
+              variants={reduce ? undefined : heroItem}
+              className="mt-6 flex flex-wrap items-center gap-2"
+            >
+              {[
+                "SaaS Startups",
+                "Restaurants",
+                "Law Firms",
+                "Clinics",
+                "SMEs",
+                "Manufacturers",
+              ].map((label) => (
+                <span
+                  key={label}
+                  className="rounded-full border border-slate-200/80 bg-slate-50/80 px-3 py-1.5 text-sm text-slate-600"
+                >
+                  {label}
+                </span>
+              ))}
             </motion.div>
           </motion.div>
 

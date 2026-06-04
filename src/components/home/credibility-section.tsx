@@ -3,13 +3,14 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { founderCredibility } from "@/content/enterprise";
+import { PAGE_CONTAINER } from "@/lib/layout";
 
 export function CredibilitySection() {
   const reduce = useReducedMotion();
 
   return (
     <section className="relative section-dark py-24 md:py-32">
-      <div className="container mx-auto max-w-6xl px-4">
+      <div className={PAGE_CONTAINER}>
         <div className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <motion.div
             initial={reduce ? false : { opacity: 0, x: -24 }}

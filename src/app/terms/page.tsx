@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { PageHero } from "@/components/marketing/page-hero";
 import { createMetadata, siteConfig } from "@/lib/seo";
 import { pageMeta } from "@/content/page-meta";
+import { PAGE_CONTAINER_NARROW } from "@/lib/layout";
 
 export const metadata = createMetadata({
   title: pageMeta.terms.title,
@@ -14,8 +15,8 @@ const LAST_UPDATED = "1 June 2026";
 function LegalSection({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="mt-10">
-      <h2 className="font-heading text-lg font-semibold text-brand-ink">{title}</h2>
-      <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-600">{children}</div>
+      <h2 className="type-h3 text-brand-ink">{title}</h2>
+      <div className="type-body-card mt-3 space-y-3">{children}</div>
     </section>
   );
 }
@@ -27,7 +28,7 @@ export default function TermsPage() {
         title="Terms of Service"
         description="Terms for using the Ramatech Innovation website and related materials."
       />
-      <div className="container mx-auto max-w-3xl px-4 py-16 pb-24">
+      <div className={`${PAGE_CONTAINER_NARROW} py-16 pb-24`}>
         <p className="text-sm text-slate-500">Last updated: {LAST_UPDATED}</p>
 
         <LegalSection title="Agreement">

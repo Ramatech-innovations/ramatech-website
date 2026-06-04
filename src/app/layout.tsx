@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { AnalyticsScripts } from "@/components/analytics/analytics-scripts";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { WhatsAppFloatButton } from "@/components/layout/whatsapp-float-button";
 import { createMetadata, organizationJsonLd, siteConfig } from "@/lib/seo";
 import "./globals.css";
 
@@ -37,6 +39,9 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
+  verification: {
+    google: "3MmQZsez8Baiul6Fj3QiWrGsJMW1aC6NwuvunyA_VBM",
+  },
 };
 
 export default function RootLayout({
@@ -57,9 +62,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        <AnalyticsScripts />
         <Header />
         <main>{children}</main>
         <Footer />
+        <WhatsAppFloatButton />
       </body>
     </html>
   );

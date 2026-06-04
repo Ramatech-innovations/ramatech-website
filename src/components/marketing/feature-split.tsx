@@ -8,6 +8,7 @@ import {
   CapabilityVisual,
   hrefToVisualVariant,
 } from "@/components/marketing/capability-visual";
+import { PAGE_CONTAINER } from "@/lib/layout";
 import { cn } from "@/lib/utils";
 
 export function FeatureSplit({
@@ -32,7 +33,7 @@ export function FeatureSplit({
   const content = (
     <div className={cn("flex flex-col justify-center", reverse ? "lg:order-2" : "lg:order-1")}>
       {eyebrow && (
-        <p className="font-mono text-xs uppercase tracking-widest text-brand-cyan">{eyebrow}</p>
+        <p className="font-mono text-sm uppercase tracking-widest text-brand-cyan">{eyebrow}</p>
       )}
       <h3
         className={cn(
@@ -42,7 +43,7 @@ export function FeatureSplit({
       >
         {title}
       </h3>
-      <p className="mt-3 max-w-prose text-sm leading-relaxed text-muted-foreground md:text-base">
+      <p className="type-body-card mt-3 max-w-prose md:text-base">
         {description}
       </p>
       {href && linkLabel && (
@@ -75,7 +76,7 @@ export function FeatureSplit({
 
   return (
     <MotionSection className={cn("py-12 md:py-16", className)}>
-      <div className="container mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2 lg:gap-16">
+      <div className={`${PAGE_CONTAINER} grid items-center gap-12 lg:grid-cols-2 lg:gap-16`}>
         {content}
         {visual}
       </div>
