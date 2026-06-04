@@ -7,6 +7,7 @@ import { PageHero } from "@/components/marketing/page-hero";
 import type { Solution } from "@/content/solutions";
 import { caseStudies } from "@/content/case-studies";
 import { getSolutionAccent } from "@/lib/solution-accents";
+import { PAGE_CONTAINER } from "@/lib/layout";
 import { cn } from "@/lib/utils";
 
 export function SolutionDetail({ solution }: { solution: Solution }) {
@@ -28,34 +29,34 @@ export function SolutionDetail({ solution }: { solution: Solution }) {
         title={solution.title}
         description={solution.description}
       />
-      <MotionSection className="py-20">
-        <div className="container mx-auto max-w-6xl px-4">
-          <h2 className="font-heading text-2xl font-semibold">Outcomes</h2>
+      <MotionSection className="py-16 md:py-20">
+        <div className={PAGE_CONTAINER}>
+          <h2 className="type-h2-section text-brand-ink">Outcomes</h2>
           <ul className="mt-6 grid gap-4 md:grid-cols-3">
             {solution.outcomes.map((o) => (
               <Card key={o}>
-                <p className="text-sm text-muted-foreground">{o}</p>
+                <p className="type-body-card">{o}</p>
               </Card>
             ))}
           </ul>
         </div>
       </MotionSection>
-      <MotionSection className="border-t border-slate-200 py-20">
-        <div className="container mx-auto max-w-6xl px-4">
-          <h2 className="font-heading text-2xl font-semibold">Approach</h2>
+      <MotionSection className="border-t border-slate-200 py-16 md:py-20">
+        <div className={PAGE_CONTAINER}>
+          <h2 className="type-h2-section text-brand-ink">Approach</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {solution.approach.map((a) => (
               <Card key={a.title}>
-                <h3 className="font-heading font-semibold">{a.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{a.description}</p>
+                <h3 className="type-h3 text-brand-ink">{a.title}</h3>
+                <p className="type-body-card mt-2">{a.description}</p>
               </Card>
             ))}
           </div>
         </div>
       </MotionSection>
-      <MotionSection className="py-20">
-        <div className="container mx-auto max-w-6xl px-4">
-          <h2 className="font-heading text-2xl font-semibold">Stack</h2>
+      <MotionSection className="py-16 md:py-20">
+        <div className={PAGE_CONTAINER}>
+          <h2 className="type-h2-section text-brand-ink">Stack</h2>
           <div className="mt-6 flex flex-wrap gap-2">
             {solution.stack.map((t) => (
               <span
@@ -69,12 +70,12 @@ export function SolutionDetail({ solution }: { solution: Solution }) {
         </div>
       </MotionSection>
       {relatedCase && (
-        <MotionSection className="border-t border-slate-200 py-20">
-          <div className="container mx-auto max-w-6xl px-4">
+        <MotionSection className="border-t border-slate-200 py-16 md:py-20">
+          <div className={PAGE_CONTAINER}>
             <Card>
-              <p className="font-mono text-xs text-brand-cyan">Case study</p>
-              <h3 className="mt-2 font-heading text-xl font-semibold">{relatedCase.title}</h3>
-              <p className="mt-2 text-muted-foreground">{relatedCase.summary}</p>
+              <p className="font-mono text-sm text-brand-cyan">Case study</p>
+              <h3 className="type-h3 mt-2 text-brand-ink">{relatedCase.title}</h3>
+              <p className="type-body-card mt-2">{relatedCase.summary}</p>
               <Button asChild variant="ghost" className="mt-4 px-0">
                 <Link href={`/case-studies/${relatedCase.slug}`}>
                   Read case study <ArrowRight className="ml-2 h-4 w-4" />
@@ -84,8 +85,8 @@ export function SolutionDetail({ solution }: { solution: Solution }) {
           </div>
         </MotionSection>
       )}
-      <section className="py-20">
-        <div className="container mx-auto max-w-6xl px-4 text-center">
+      <section className="py-16 md:py-20">
+        <div className={`${PAGE_CONTAINER} text-center`}>
           <Button asChild size="lg">
             <Link href="/book-consultation">Discuss {solution.shortTitle}</Link>
           </Button>

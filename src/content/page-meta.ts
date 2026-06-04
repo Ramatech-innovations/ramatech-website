@@ -2,9 +2,9 @@
 
 export const pageMeta = {
   home: {
-    title: "AI-Powered Technology for Product & Platform Teams",
+    title: "AI-Powered Cloud, DevOps & Automation Services",
     description:
-      "Ramatech Innovation engineers AI systems, cloud platforms, DevOps, and enterprise automation for product and platform teams worldwide.",
+      "Ramatech delivers cloud infrastructure, DevOps, AI automation, and custom software for SaaS startups, SMEs, restaurants, and law firms. Fixed-scope. Fast delivery.",
   },
   about: {
     title: "About",

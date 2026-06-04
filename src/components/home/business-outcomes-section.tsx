@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { businessOutcomes } from "@/content/enterprise";
 import { LogoWatermark } from "@/components/brand/logo-watermark";
+import { PAGE_CONTAINER } from "@/lib/layout";
 
 export function BusinessOutcomesSection() {
   const reduce = useReducedMotion();
@@ -10,7 +11,7 @@ export function BusinessOutcomesSection() {
   return (
     <section className="relative section-dark py-16 md:py-20">
       <LogoWatermark className="left-[-12%] top-8 rotate-[-12deg]" />
-      <div className="container relative mx-auto max-w-6xl px-4">
+      <div className={`${PAGE_CONTAINER} relative`}>
         <div className="max-w-2xl">
           <p className="type-eyebrow">Outcomes</p>
           <h2 className="type-h2 mt-5">What enterprise leaders measure</h2>

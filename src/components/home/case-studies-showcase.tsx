@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { CaseStudyArchitecture } from "@/components/illustrations/case-study-architecture";
 import { caseStudies } from "@/content/case-studies";
+import { PAGE_CONTAINER } from "@/lib/layout";
 
 export function CaseStudiesShowcase({ limit }: { limit?: number }) {
   const reduce = useReducedMotion();
@@ -12,7 +13,7 @@ export function CaseStudiesShowcase({ limit }: { limit?: number }) {
 
   return (
     <section className="section-gradient py-14 md:py-16">
-      <div className="container mx-auto max-w-6xl px-4">
+      <div className={PAGE_CONTAINER}>
         <div className="mx-auto max-w-2xl text-center md:text-left">
           <p className="type-eyebrow">Case studies</p>
           <h2 className="type-h2-section mt-3">Real architectures. Measurable outcomes.</h2>
@@ -36,7 +37,7 @@ export function CaseStudiesShowcase({ limit }: { limit?: number }) {
               </div>
 
               <div className={i % 2 === 1 ? "lg:pr-6" : "lg:pl-2"}>
-                <span className="font-mono text-xs text-muted-foreground">
+                <span className="font-mono text-sm text-foreground/70">
                   {study.client} · {study.industry}
                 </span>
                 <h3 className="mt-1 font-heading text-xl font-semibold md:text-2xl">{study.title}</h3>
@@ -44,13 +45,13 @@ export function CaseStudiesShowcase({ limit }: { limit?: number }) {
                 <div className="mt-5 space-y-4">
                   <div>
                     <p className="type-eyebrow text-[10px] opacity-90">Problem</p>
-                    <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
+                    <p className="mt-1 line-clamp-2 text-[0.9375rem] leading-relaxed text-foreground/80">
                       {study.challenge}
                     </p>
                   </div>
                   <div>
                     <p className="type-eyebrow text-[10px] opacity-90">Approach</p>
-                    <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
+                    <p className="mt-1 line-clamp-2 text-[0.9375rem] leading-relaxed text-foreground/80">
                       {study.solutionDetail}
                     </p>
                   </div>
@@ -62,7 +63,7 @@ export function CaseStudiesShowcase({ limit }: { limit?: number }) {
                           <span className="font-mono text-xl font-semibold tabular-nums tracking-tight text-gradient md:text-2xl">
                             {r.metric}
                           </span>
-                          <p className="type-metric-label mt-0.5 text-xs">{r.label}</p>
+                          <p className="mt-0.5 text-sm text-foreground/75">{r.label}</p>
                         </li>
                       ))}
                     </ul>

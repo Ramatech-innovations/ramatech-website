@@ -3,6 +3,7 @@ import { PageHero } from "@/components/marketing/page-hero";
 import { MotionSection } from "@/components/motion/motion-section";
 import { createMetadata, siteConfig } from "@/lib/seo";
 import { pageMeta } from "@/content/page-meta";
+import { PAGE_CONTAINER } from "@/lib/layout";
 
 export const metadata = createMetadata({
   title: pageMeta.contact.title,
@@ -18,8 +19,8 @@ export default function ContactPage() {
         title="Start a technical conversation"
         description="Tell us about your platform, AI initiative, or automation goals. No spam, no generic sales pitch."
       />
-      <MotionSection className="py-20">
-        <div className="container mx-auto max-w-6xl px-4">
+      <MotionSection className="py-16 md:py-20">
+        <div className={PAGE_CONTAINER}>
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
               <ContactForm />
@@ -27,7 +28,7 @@ export default function ContactPage() {
             <div className="space-y-8">
               <div>
                 <h2 className="font-heading text-lg font-semibold">What happens next</h2>
-                <ol className="mt-4 space-y-4 text-sm text-muted-foreground">
+                <ol className="type-body-card mt-4 space-y-4">
                   <li>
                     <span className="text-brand-cyan">01</span> — We review your message within 4
                     business hours.
@@ -42,7 +43,7 @@ export default function ContactPage() {
                   </li>
                 </ol>
               </div>
-              <p className="text-sm text-muted-foreground">
+              <p className="type-body-card">
                 Email: {siteConfig.email} · Serving teams across US, UK, Europe, Southeast Asia,
                 and Middle East.
               </p>

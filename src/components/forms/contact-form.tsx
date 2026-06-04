@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { trackEvent } from "@/lib/analytics";
 import { solutions } from "@/content/solutions";
 
 const roles = [
@@ -49,6 +50,9 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? "Submission failed");
+      trackEvent("contact_form_submit", {
+        intent: String(defaultIntent ?? payload.intent ?? "contact"),
+      });
       setStatus("success");
       form.reset();
       setSelectedInterests([]);
@@ -137,7 +141,7 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
                 checked={selectedInterests.includes(s.slug)}
                 onChange={() => toggleInterest(s.slug)}
               />
-              <span className="inline-block rounded-full border border-slate-200 bg-white px-3 py-1 text-xs peer-checked:border-brand-cyan peer-checked:bg-brand-cyan/10">
+              <span className="inline-block rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm peer-checked:border-brand-cyan peer-checked:bg-brand-cyan/10">
                 {s.shortTitle}
               </span>
             </label>
@@ -155,7 +159,7 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
         />
       </div>
 
-      <label className="flex items-start gap-3 text-sm text-muted-foreground">
+      <label className="type-body-card flex items-start gap-3">
         <input type="checkbox" name="consent" required className="mt-1" />
         I agree to be contacted about my inquiry. No spam.
       </label>

@@ -1,29 +1,31 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand/brand-logo";
-import { Button } from "@/components/ui/button";
+import { FooterCtaBand } from "@/components/layout/footer-cta-band";
 import { footerLinks } from "@/content/site";
+import { PAGE_CONTAINER } from "@/lib/layout";
 import { siteConfig } from "@/lib/seo";
 
 export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-brand-light">
       <div className="border-b border-slate-200 bg-gradient-to-r from-brand-primary/5 to-brand-cyan/5">
-        <div className="container mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 py-12 md:flex-row">
-          <div>
+        <div
+          className={`${PAGE_CONTAINER} flex flex-col items-center justify-between gap-6 py-12 md:flex-row`}
+        >
+          <div className="text-center md:text-left">
             <h2 className="type-h3 text-brand-ink md:text-2xl">
-              Start a technical conversation
+              Ready to build what&apos;s next?
             </h2>
-            <p className="mt-2 text-sm text-slate-600">
-              Tell us about your platform, AI initiative, or automation goals.
+            <p className="type-body-card mt-2 max-w-xl">
+              Share your goals in a 30-minute call — websites, AI automation, or
+              custom systems.
             </p>
           </div>
-          <Button asChild size="lg" className="glow-cta shrink-0">
-            <Link href="/book-consultation">Book Consultation</Link>
-          </Button>
+          <FooterCtaBand />
         </div>
       </div>
 
-      <div className="container mx-auto max-w-6xl px-4 py-12 md:py-14">
+      <div className={`${PAGE_CONTAINER} py-12 md:py-14`}>
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5 lg:gap-12">
           <div className="lg:col-span-2">
             <Link
@@ -33,15 +35,15 @@ export function Footer() {
             >
               <BrandLogo variant="footer" theme="light" />
             </Link>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-600">
+            <p className="type-body-card mt-4 max-w-sm">
               {siteConfig.tagline}
             </p>
-            <p className="mt-4 text-sm text-slate-600">
+            <p className="type-body-card mt-4">
               <Link href={`mailto:${siteConfig.email}`} className="hover:text-brand-primary">
                 {siteConfig.email}
               </Link>
             </p>
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="type-body-card mt-2">
               <Link href="/contact" className="hover:text-brand-primary">
                 Contact form →
               </Link>
@@ -54,7 +56,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-sm text-slate-600 transition-colors hover:text-brand-primary"
+                    className="type-body-card transition-colors hover:text-brand-primary"
                   >
                     {l.label}
                   </Link>
@@ -69,7 +71,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-sm text-slate-600 transition-colors hover:text-brand-primary"
+                    className="type-body-card transition-colors hover:text-brand-primary"
                   >
                     {l.label}
                   </Link>
@@ -84,7 +86,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-sm text-slate-600 transition-colors hover:text-brand-primary"
+                    className="type-body-card transition-colors hover:text-brand-primary"
                   >
                     {l.label}
                   </Link>
