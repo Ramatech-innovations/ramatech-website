@@ -106,9 +106,9 @@ export const packageLandings: PackageLanding[] = [
       whatsappLabel: "Chat Now",
     },
     internalLinks: [
-      { href: "/industries", label: "Restaurants & cafes" },
-      { href: "/industries", label: "Law firms & consultants" },
-      { href: "/industries", label: "SMEs" },
+      { href: "/industries/restaurants", label: "Restaurants & cafes" },
+      { href: "/industries/law-firms", label: "Law firms & consultants" },
+      { href: "/industries/smes", label: "SMEs" },
       { href: "/packages/ai-automation-sprint", label: "AI Automation Sprint" },
     ],
   },
@@ -286,7 +286,7 @@ export const packageLandings: PackageLanding[] = [
     internalLinks: [
       { href: "/solutions/ai-solutions", label: "AI Solutions" },
       { href: "/solutions/business-automation", label: "Business Automation" },
-      { href: "/industries", label: "Law firms & consultants" },
+      { href: "/industries/law-firms", label: "Law firms & consultants" },
     ],
   },
   {
@@ -371,8 +371,8 @@ export const packageLandings: PackageLanding[] = [
       headline: "Ready to replace spreadsheets with software that fits?",
     },
     internalLinks: [
-      { href: "/industries", label: "Manufacturing" },
-      { href: "/industries", label: "Law firms & consultants" },
+      { href: "/industries/manufacturing", label: "Manufacturing" },
+      { href: "/industries/law-firms", label: "Law firms & consultants" },
       {
         href: "/solutions/software-development",
         label: "Software Development",

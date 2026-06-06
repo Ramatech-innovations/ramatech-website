@@ -1,30 +1,37 @@
 export const industries = [
   {
-    slug: "saas",
-    title: "SaaS & Product Companies",
+    slug: "restaurants",
+    title: "Restaurants & Cafes",
     description:
-      "Platform reliability, observability, and AI features that scale with your user base and roadmap.",
-    highlights: ["Multi-tenant infra", "Release velocity", "Cost-aware scale"],
+      "Websites, online ordering, WhatsApp automation, and digital menus that bring more orders without aggregator commissions.",
+    highlights: ["Online ordering", "WhatsApp bots", "Digital menus"],
   },
   {
-    slug: "logistics",
-    title: "Logistics & Supply Chain",
+    slug: "law-firms",
+    title: "Law Firms & Legal Consultants",
     description:
-      "Resilient systems, integration layers, and automation across ERP and real-time operations.",
-    highlights: ["OpenShift", "Integration", "High availability"],
+      "Client portals, document automation, and professional websites that cut admin time and improve client experience.",
+    highlights: ["Client portals", "Document automation", "Secure access"],
   },
   {
-    slug: "healthcare",
-    title: "Healthcare Platforms",
+    slug: "manufacturing",
+    title: "Manufacturing",
     description:
-      "Secure automation and AI workflows with audit trails and human-in-the-loop controls.",
-    highlights: ["Compliance-ready", "RAG pipelines", "Operational AI"],
+      "Inventory, production tracking, and operations dashboards that replace spreadsheets with real-time visibility.",
+    highlights: ["Inventory systems", "Production tracking", "ERP integration"],
   },
   {
-    slug: "fintech-legal",
-    title: "Fintech & Legal Technology",
+    slug: "startups",
+    title: "SaaS & AI Startups",
     description:
-      "Precision engineering for regulated environments—reliability, traceability, and performance.",
-    highlights: ["Policy-as-code", "Secure CI/CD", "Data boundaries"],
+      "Production-ready Kubernetes, CI/CD, and observability so your team ships faster without a full DevOps hire.",
+    highlights: ["Kubernetes", "CI/CD", "Cost optimization"],
+  },
+  {
+    slug: "smes",
+    title: "Small & Medium Businesses",
+    description:
+      "Websites, automation, and custom software for growing Indian businesses — professional tech without enterprise prices.",
+    highlights: ["Business websites", "WhatsApp automation", "Custom tools"],
   },
 ];
