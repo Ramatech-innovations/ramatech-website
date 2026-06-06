@@ -18,6 +18,10 @@ export const siteConfig = {
   whatsappE164: "+919828241244",
 };
 
+export function buildWhatsAppUrl(message: string): string {
+  return `https://wa.me/919828241244?text=${encodeURIComponent(message)}`;
+}
+
 /** Inbox for contact form delivery; optional CONTACT_EMAIL env override */
 export function getContactEmail(): string {
   return process.env.CONTACT_EMAIL ?? siteConfig.email;

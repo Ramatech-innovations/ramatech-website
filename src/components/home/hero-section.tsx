@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import {
   BookConsultationLink,
   ExploreSolutionsLink,
@@ -87,20 +88,32 @@ export function HeroSection() {
               className="mt-6 flex flex-wrap items-center gap-2"
             >
               {[
-                "SaaS Startups",
-                "Restaurants",
-                "Law Firms",
-                "Clinics",
-                "SMEs",
-                "Manufacturers",
-              ].map((label) => (
-                <span
-                  key={label}
-                  className="rounded-full border border-slate-200/80 bg-slate-50/80 px-3 py-1.5 text-sm text-slate-600"
-                >
-                  {label}
-                </span>
-              ))}
+                { label: "SaaS Startups", href: "/industries/startups" },
+                { label: "Restaurants", href: "/industries/restaurants" },
+                { label: "Law Firms", href: "/industries/law-firms" },
+                { label: "Clinics" },
+                { label: "SMEs", href: "/industries/smes" },
+                { label: "Manufacturers", href: "/industries/manufacturing" },
+              ].map((item) => {
+                const className =
+                  "rounded-full border border-slate-200/80 bg-slate-50/80 px-3 py-1.5 text-sm text-slate-600";
+                if (item.href) {
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className={`${className} transition-colors hover:border-brand-cyan/40 hover:text-brand-primary`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
+                return (
+                  <span key={item.label} className={className}>
+                    {item.label}
+                  </span>
+                );
+              })}
             </motion.div>
           </motion.div>
 

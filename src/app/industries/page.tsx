@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BookConsultationLink } from "@/components/analytics/tracked-link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { PageHero } from "@/components/marketing/page-hero";
@@ -19,15 +20,17 @@ export default function IndustriesPage() {
     <>
       <PageHero
         eyebrow="Industries"
-        title="Patterns proven in demanding environments"
-        description="We adapt platform, AI, and automation engineering to the compliance and scale constraints of your industry."
+        title="Technology built for how your business actually works"
+        description="Clear, practical solutions for restaurants, law firms, manufacturers, startups, and growing SMEs — no jargon, no oversized IT contracts."
       />
       <MotionSection className="py-16 md:py-20">
         <div className={PAGE_CONTAINER}>
           <div className="grid gap-8 md:grid-cols-2">
             {industries.map((ind) => (
-              <Card key={ind.slug} className="p-8">
-                <h2 className="font-heading text-2xl font-semibold">{ind.title}</h2>
+              <Card key={ind.slug} tone="light" className="p-8">
+                <h2 className="font-heading text-2xl font-semibold text-brand-ink">
+                  {ind.title}
+                </h2>
                 <p className="type-body-card mt-4">{ind.description}</p>
                 <ul className="mt-6 flex flex-wrap gap-2">
                   {ind.highlights.map((h) => (
@@ -39,12 +42,18 @@ export default function IndustriesPage() {
                     </li>
                   ))}
                 </ul>
+                <Link
+                  href={`/industries/${ind.slug}`}
+                  className="mt-6 inline-block text-sm font-medium text-brand-cyan hover:underline"
+                >
+                  Learn more →
+                </Link>
               </Card>
             ))}
           </div>
           <div className="mt-12 text-center">
-            <Button asChild size="lg">
-              <Link href="/contact">Discuss your industry</Link>
+            <Button asChild size="lg" className="glow-cta">
+              <BookConsultationLink>Book free consultation</BookConsultationLink>
             </Button>
           </div>
         </div>

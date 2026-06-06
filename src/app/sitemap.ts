@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/seo";
 import { solutions } from "@/content/solutions";
 import { caseStudies } from "@/content/case-studies";
 import { servicePackages } from "@/content/packages";
+import { industryLandings } from "@/content/industry-landings";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url.replace(/\/$/, "");
@@ -23,8 +24,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const solutionRoutes = solutions.map((s) => `/solutions/${s.slug}`);
   const caseRoutes = caseStudies.map((c) => `/case-studies/${c.slug}`);
   const packageRoutes = servicePackages.map((p) => `/packages/${p.slug}`);
+  const industryRoutes = industryLandings.map((i) => `/industries/${i.slug}`);
 
-  return [...staticRoutes, ...solutionRoutes, ...caseRoutes, ...packageRoutes].map(
+  return [
+    ...staticRoutes,
+    ...solutionRoutes,
+    ...caseRoutes,
+    ...packageRoutes,
+    ...industryRoutes,
+  ].map(
     (path) => ({
     url: `${base}${path}`,
     lastModified: new Date(),
