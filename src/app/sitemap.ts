@@ -4,6 +4,7 @@ import { solutions } from "@/content/solutions";
 import { caseStudies } from "@/content/case-studies";
 import { servicePackages } from "@/content/packages";
 import { industryLandings } from "@/content/industry-landings";
+import { openshiftServices } from "@/content/openshift/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url.replace(/\/$/, "");
@@ -25,6 +26,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const caseRoutes = caseStudies.map((c) => `/case-studies/${c.slug}`);
   const packageRoutes = servicePackages.map((p) => `/packages/${p.slug}`);
   const industryRoutes = industryLandings.map((i) => `/industries/${i.slug}`);
+  const openshiftRoutes = [
+    "/openshift",
+    ...openshiftServices.map((s) => `/openshift/${s.slug}`),
+  ];
 
   return [
     ...staticRoutes,
@@ -32,12 +37,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...caseRoutes,
     ...packageRoutes,
     ...industryRoutes,
-  ].map(
-    (path) => ({
+    ...openshiftRoutes,
+  ].map((path) => ({
     url: `${base}${path}`,
     lastModified: new Date(),
     changeFrequency: path === "" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : 0.8,
-    })
-  );
+    priority:
+      path === ""
+        ? 1
+        : path === "/openshift"
+          ? 0.9
+          : path.startsWith("/openshift/")
+            ? 0.85
+            : 0.8,
+  }));
 }

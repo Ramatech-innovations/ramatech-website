@@ -18,6 +18,7 @@ export const navLinks = [
 
 export const footerLinks = {
   solutions: [
+    { label: "OpenShift Services", href: "/openshift" },
     { label: "Cloud Infrastructure", href: "/solutions/cloud-infrastructure" },
     { label: "DevOps & Platform", href: "/solutions/devops-platform-engineering" },
     { label: "AI Solutions", href: "/solutions/ai-solutions" },
