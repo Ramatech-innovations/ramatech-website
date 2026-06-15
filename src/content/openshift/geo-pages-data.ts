@@ -251,6 +251,7 @@ export const openshiftGeoPages: OpenShiftGeoPage[] = [
       "Regional headquarters sometimes govern OpenShift standards while local Qatar teams execute day-two operations—handover packs and escalation matrices are written for that split so accountability stays clear when incidents span time zones and vendor boundaries.",
       "Qatar Financial Centre entities often require English-language runbooks and change evidence formatted for external audit—GitOps history and ITSM integration provide that traceability when platform changes affect regulated customer-facing services.",
       "Smaller OpenShift estates still need disciplined capacity planning when integration peaks arrive—support engagements include quarterly utilization reviews tied to node pool and storage expansion decisions.",
+      "Engagement kickoffs align stakeholders from infrastructure, security, and application teams so OpenShift scope reflects real operational ownership—not assumptions made in isolation by a single vendor.",
     ],
     serviceSummaries: qatarServiceSummaries,
     compliance: [
@@ -317,6 +318,7 @@ export const openshiftGeoPages: OpenShiftGeoPage[] = [
       "Regulated APAC subsidiaries often inherit Singapore HQ GitOps standards but require jurisdiction-specific logging and backup retention. Platform engineering templates parameterize PDPA and local retention defaults without forking entire pipeline libraries per market.",
       "MAS technology risk workshops increasingly scrutinize third-party container platform operators—managed service scope documents address sub-processors, data residency, and exit plans before production workloads depend on external lifecycle coverage.",
       "GitOps-mature Singapore teams still benefit from periodic fleet health reviews—ApplicationSet drift, orphaned policies, and stale operators are surfaced before TRM examinations or major version upgrades.",
+      "Regional HQ programs benefit when Singapore platform leadership receives concise monthly operational summaries—incidents, changes, capacity, and upgrade status—in formats suitable for TRM and vendor governance forums.",
     ],
     serviceSummaries: singaporeServiceSummaries,
     compliance: [
