@@ -1,14 +1,12 @@
 import { notFound } from "next/navigation";
 import { IndustryLandingPage } from "@/components/industries/industry-landing-page";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
+import { ServiceSchema } from "@/components/seo/ServiceSchema";
 import {
   getIndustryLanding,
   industryLandings,
 } from "@/content/industry-landings";
-import {
-  industryBreadcrumbJsonLd,
-  industryServiceJsonLd,
-} from "@/lib/industry-schema";
-import { createMetadata } from "@/lib/seo";
+import { createMetadata, siteConfig } from "@/lib/seo";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -33,18 +31,23 @@ export default async function IndustryPage({ params }: PageProps) {
   const landing = getIndustryLanding(slug);
   if (!landing) notFound();
 
-  const breadcrumbLd = industryBreadcrumbJsonLd(landing);
-  const serviceLd = industryServiceJsonLd(landing);
+  const base = siteConfig.url.replace(/\/$/, "");
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Industries", path: "/industries" },
+          { name: landing.industryName, path: `/industries/${landing.slug}` },
+        ]}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
+      <ServiceSchema
+        name={landing.serviceType}
+        serviceType={landing.h1}
+        description={landing.metaDescription}
+        url={`${base}/industries/${landing.slug}`}
+        areaServed={["IN"]}
       />
       <IndustryLandingPage landing={landing} />
     </>

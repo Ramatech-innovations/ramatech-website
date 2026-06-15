@@ -1,8 +1,10 @@
 import { OpenShiftHubPage } from "@/components/openshift/openshift-hub-page";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
+import { ServiceSchema } from "@/components/seo/ServiceSchema";
 import { openshiftHub } from "@/content/openshift/hub";
 import {
-  openshiftHubBreadcrumbJsonLd,
-  openshiftHubServiceJsonLd,
+  openshiftHubBreadcrumbItems,
+  openshiftHubServiceSchemaProps,
 } from "@/lib/openshift-schema";
 import { createMetadata } from "@/lib/seo";
 
@@ -14,19 +16,12 @@ export const metadata = createMetadata({
 });
 
 export default function OpenShiftHubRoute() {
-  const breadcrumbLd = openshiftHubBreadcrumbJsonLd();
-  const serviceLd = openshiftHubServiceJsonLd();
+  const serviceProps = openshiftHubServiceSchemaProps();
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
-      />
+      <BreadcrumbSchema items={openshiftHubBreadcrumbItems()} />
+      <ServiceSchema {...serviceProps} />
       <OpenShiftHubPage />
     </>
   );

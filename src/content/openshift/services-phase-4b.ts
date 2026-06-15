@@ -1,3 +1,4 @@
+// TODO: content review — whats-included sections scaffolded for SEO parity
 import type { OpenShiftService } from "./services-types";
 
 const areaServed = ["India", "UAE", "Saudi Arabia", "Qatar", "Singapore"];
@@ -176,6 +177,30 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
                   "Operational handover with runbooks, training, and leadership reporting",
                 ],
               },
+            ],
+          },
+        ],
+      },
+      {
+        id: "whats-included",
+        title: "What's Included",
+        variant: "dark",
+        blocks: [
+          {
+            type: "prose",
+            paragraphs: [
+              "Deployment engagements deliver production-ready workload patterns, release governance, and handover artifacts—not one-off manifest application.",
+            ],
+          },
+          {
+            type: "bulletList",
+            items: [
+              "Workload-class deployment templates (Deploy, Helm, GitOps, Operators)",
+              "CI/CD and Argo CD integration with promotion and rollback controls",
+              "Production readiness gates: probes, resources, PDBs, and policy compliance",
+              "Multi-tenant namespace templates with RBAC and quota guardrails",
+              "Release runbooks and incident-informed rollback playbooks",
+              "Team enablement workshops on GitOps and OpenShift-safe defaults",
             ],
           },
         ],
@@ -392,6 +417,30 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
               "Continuous readiness is the long-term goal. We help teams maintain version awareness, dependency hygiene, and test readiness between upgrade windows so future transitions require less emergency remediation. This transforms upgrades from high-stress events into planned operational milestones aligned with platform strategy and business reliability commitments.",
               "We additionally maintain a readiness backlog that tracks deferred remediations, dependency upgrades, and automation improvements discovered during each upgrade cycle. Managing this backlog with clear ownership prevents technical debt from accumulating silently between version changes. Over successive cycles, this approach improves upgrade speed, reduces incident exposure, and strengthens confidence in the platform lifecycle program.",
               "Where organizations run many clusters, we also introduce upgrade wave scorecards that compare readiness and outcome quality across regions and environments. These scorecards help leaders identify recurring blockers, replicate successful practices, and improve forecasting for future cycles. The result is a lifecycle program that gets measurably stronger with every execution, instead of repeating the same avoidable risks.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "whats-included",
+        title: "What's Included",
+        variant: "light",
+        blocks: [
+          {
+            type: "prose",
+            paragraphs: [
+              "Upgrade engagements include readiness assessment, controlled execution, and post-change validation evidence aligned to your support and compliance obligations.",
+            ],
+          },
+          {
+            type: "bulletList",
+            items: [
+              "Pre-upgrade health, etcd, and capacity assessment",
+              "API deprecation and operator compatibility analysis",
+              "Backup integrity and rollback procedure validation",
+              "Controlled upgrade execution with checkpoint communication",
+              "Post-upgrade operator and workload stabilization review",
+              "Updated runbooks and lifecycle roadmap for next EUS anchor",
             ],
           },
         ],
@@ -636,6 +685,30 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
               "Higher release consistency via shared deployment templates",
               "Lower policy drift through codified governance automation",
               "Transparent platform KPIs for engineering and leadership review",
+            ],
+          },
+        ],
+      },
+      {
+        id: "whats-included",
+        title: "What's Included",
+        variant: "light",
+        blocks: [
+          {
+            type: "prose",
+            paragraphs: [
+              "Platform engineering engagements deliver self-service paths, golden templates, and governance automation your product teams can adopt without platform bottlenecks.",
+            ],
+          },
+          {
+            type: "bulletList",
+            items: [
+              "Golden path templates for common workload types",
+              "Self-service namespace and RBAC provisioning workflows",
+              "GitOps onboarding standards with ApplicationSet patterns",
+              "Developer catalog integration (Backstage or Developer Hub where scoped)",
+              "Policy automation for tenancy, network, and quota guardrails",
+              "Platform KPIs: onboarding lead time, deployment success, policy exception trends",
             ],
           },
         ],
@@ -905,6 +978,31 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
               "Ansible automation for repeatable patching and maintenance actions",
               "Monthly service reviews with KPI and risk trend reporting",
               "Quarterly lifecycle planning for upgrades and security posture",
+            ],
+          },
+        ],
+      },
+      {
+        id: "whats-included",
+        title: "What's Included",
+        variant: "light",
+        blocks: [
+          {
+            type: "prose",
+            paragraphs: [
+              "Managed service engagements cover full lifecycle operations with transparent SLA reporting and structured handover when scope changes.",
+            ],
+          },
+          {
+            type: "bulletList",
+            items: [
+              "24/7 or agreed-window incident response and escalation",
+              "Cluster health monitoring and proactive capacity reviews",
+              "z-stream and major version upgrade execution",
+              "Security patching and change management with audit evidence",
+              "Operator lifecycle and certificate rotation management",
+              "Monthly service reviews with KPI and risk trend reporting",
+              "Structured exit handover with runbooks and knowledge transfer",
             ],
           },
         ],

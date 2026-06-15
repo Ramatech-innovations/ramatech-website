@@ -1,3 +1,4 @@
+// TODO: content review — migration, support, and consulting sections scaffolded for SEO parity
 import type { OpenShiftService } from "./services-types";
 import { openshiftServicesPhase4B } from "./services-phase-4b";
 
@@ -368,6 +369,31 @@ export const openshiftServices: OpenShiftService[] = [
         ],
       },
       {
+        id: "whats-included",
+        title: "What's Included",
+        variant: "dark",
+        blocks: [
+          {
+            type: "prose",
+            paragraphs: [
+              "Every migration engagement includes the operational artifacts required for controlled cutover—not only workload movement. We deliver wave plans, rollback checkpoints, validation evidence, and handover documentation so platform and application teams can operate confidently after legacy decommission.",
+            ],
+          },
+          {
+            type: "bulletList",
+            items: [
+              "Workload inventory and dependency mapping with risk scoring",
+              "Migration wave sequencing with rollback criteria per wave",
+              "Target cluster readiness validation (GitOps, registry, policy baselines)",
+              "Pilot migration execution with observability and performance benchmarks",
+              "Production cutover runbooks and communication protocols",
+              "Post-migration SLO validation and stabilization review",
+              "Legacy decommission checklist and documentation handover",
+            ],
+          },
+        ],
+      },
+      {
         id: "risks-mitigated",
         title: "Risks We Mitigate",
         variant: "dark",
@@ -423,6 +449,16 @@ export const openshiftServices: OpenShiftService[] = [
         question: "What about existing CI/CD pipelines?",
         answer:
           "We re-point and validate all CI/CD pipelines (Jenkins, GitLab, GitHub Actions) as part of the migration. We also upgrade to GitOps where appropriate.",
+      },
+      {
+        question: "How do you handle persistent volume and stateful workload migration?",
+        answer:
+          "We design storage migration paths with explicit consistency models, replication validation, and cutover windows aligned to your RPO/RTO requirements. Stateful workloads receive dedicated rehearsal before production waves.",
+      },
+      {
+        question: "Can you migrate OpenShift 3.x workloads to OpenShift 4.x?",
+        answer:
+          "Yes. We assess DeploymentConfig, route, and SCC compatibility gaps, then sequence remediation and wave migration with rollback checkpoints at each phase.",
       },
     ],
     internalLinks: [
@@ -495,6 +531,101 @@ export const openshiftServices: OpenShiftService[] = [
               "For high-change environments, we additionally track operational readiness signals before major release events so potential platform risks are surfaced early. This pre-release support posture reduces surprise incidents and protects delivery commitments during peak business periods.",
               "This proactive reliability posture helps support teams prevent many incidents before they become customer-visible disruptions.",
               "It also improves confidence for business stakeholders who depend on predictable platform behavior during critical periods.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "deployment-models",
+        title: "Support Coverage Models",
+        variant: "dark",
+        blocks: [
+          {
+            type: "prose",
+            paragraphs: [
+              "Support depth should match how critical OpenShift is to your delivery model. Shared-cluster environments often need monitoring and first-response coverage with clear escalation to internal platform teams. Dedicated SRE support suits production clusters where node failures, operator issues, and certificate lifecycle must be handled within defined response windows. Fully managed operations fit organizations that want lifecycle ownership—including upgrades, patching, and change governance—without building a large internal platform team.",
+            ],
+          },
+          {
+            type: "bulletList",
+            items: [
+              "Shared cluster monitoring with alert routing and monthly health reviews",
+              "Dedicated platform SRE coverage with incident response and patch coordination",
+              "Fully managed OpenShift operations including upgrades and 24/7 escalation",
+              "Co-managed models blending internal ownership with Ramatech escalation paths",
+            ],
+          },
+        ],
+      },
+      {
+        id: "support-process",
+        title: "Support Process",
+        variant: "light",
+        blocks: [
+          {
+            type: "prose",
+            paragraphs: [
+              "Our support process is designed for predictable incident handling and continuous platform improvement. Each phase produces evidence—baselines, runbooks, and review outputs—so reliability gains compound over the engagement rather than resetting after each incident.",
+            ],
+          },
+          {
+            type: "numberedSteps",
+            steps: [
+              {
+                title: "Step 1: Onboard and discover",
+                description:
+                  "Review cluster topology, alert profiles, runbook quality, access controls, and known risk inventory to establish an operational baseline.",
+              },
+              {
+                title: "Step 2: Baseline and stabilize",
+                description:
+                  "Address immediate gaps—expiring certificates, etcd backup confidence, operator drift, and capacity headroom—before accepting full support scope.",
+              },
+              {
+                title: "Step 3: Monitor and alert",
+                description:
+                  "Configure control plane, worker, storage, and ingress signals with severity-aligned routing and on-call escalation paths.",
+              },
+              {
+                title: "Step 4: Respond and restore",
+                description:
+                  "Execute incident command with structured communication, root-cause analysis, and documented restoration steps tied to SLA targets.",
+              },
+              {
+                title: "Step 5: Patch and maintain",
+                description:
+                  "Coordinate z-stream and security patches with change windows, rollback readiness, and post-change validation evidence.",
+              },
+              {
+                title: "Step 6: Review and improve",
+                description:
+                  "Run periodic health reviews, capacity planning, and preventive backlog prioritization to reduce recurring incident patterns.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "whats-included",
+        title: "What's Included",
+        variant: "dark",
+        blocks: [
+          {
+            type: "prose",
+            paragraphs: [
+              "Support engagements include the operational coverage and documentation required for auditable platform reliability—not only ticket response.",
+            ],
+          },
+          {
+            type: "bulletList",
+            items: [
+              "Control plane, etcd, and worker node health monitoring",
+              "Incident classification, escalation, and response runbooks",
+              "Certificate rotation and ingress/route lifecycle management",
+              "OperatorHub operator update coordination",
+              "Persistent volume and storage health reviews",
+              "RBAC and audit log review for governance alignment",
+              "Monthly health reports and capacity trend analysis",
             ],
           },
         ],
@@ -624,6 +755,16 @@ export const openshiftServices: OpenShiftService[] = [
         answer:
           "Yes - we support managed OpenShift variants including ROSA, ARO, and IBM ROKS.",
       },
+      {
+        question: "How do you handle patch and z-stream update coordination?",
+        answer:
+          "We define patch cadence, change windows, and rollback criteria aligned to your release calendar. Updates are validated in non-production where available before production application with post-change health checks.",
+      },
+      {
+        question: "What observability do you require for effective support?",
+        answer:
+          "We integrate with your existing monitoring stack—Prometheus, Alertmanager, and cluster logging—and establish baseline alert profiles for control plane, worker, storage, and ingress signals during onboarding.",
+      },
     ],
     internalLinks: [
       {
@@ -692,6 +833,79 @@ export const openshiftServices: OpenShiftService[] = [
               "Where executive alignment is required, we facilitate decision workshops that convert technical options into clear investment choices with explicit trade-offs and implementation impact.",
               "By combining architecture depth, operating model clarity, and leadership alignment, consulting engagements create durable momentum. Teams gain a roadmap they can execute, leaders gain confidence in platform direction, and cross-functional stakeholders gain a common frame for decision making. This shared direction is often the difference between fragmented modernization efforts and a coherent platform program that continuously delivers value.",
               "The result is faster decisions, cleaner execution, and lower long-term platform risk.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "consulting-process",
+        title: "Consulting Process",
+        variant: "dark",
+        blocks: [
+          {
+            type: "prose",
+            paragraphs: [
+              "Consulting engagements follow a structured sequence so findings translate into prioritized, executable recommendations—not open-ended analysis.",
+            ],
+          },
+          {
+            type: "numberedSteps",
+            steps: [
+              {
+                title: "Step 1: Scope and stakeholder alignment",
+                description:
+                  "Define objectives, decision timelines, and participant roles across platform, security, and application teams.",
+              },
+              {
+                title: "Step 2: Discovery and evidence collection",
+                description:
+                  "Review cluster topology, networking, storage, RBAC, operators, observability, and GitOps maturity against stated goals.",
+              },
+              {
+                title: "Step 3: Assessment and risk prioritization",
+                description:
+                  "Classify findings by reliability, security, and delivery impact; map remediation to effort and dependency order.",
+              },
+              {
+                title: "Step 4: Recommendations and roadmap",
+                description:
+                  "Deliver written findings with sequenced initiatives, ownership boundaries, and measurable success criteria.",
+              },
+              {
+                title: "Step 5: Workshop and decision facilitation",
+                description:
+                  "Run architecture reviews and leadership sessions to resolve trade-offs and approve next-step investments.",
+              },
+              {
+                title: "Step 6: Handover and optional embedded support",
+                description:
+                  "Transfer decision rationale, runbooks, and implementation guidance; extend to hands-on execution where scoped.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: "whats-included",
+        title: "What's Included",
+        variant: "light",
+        blocks: [
+          {
+            type: "prose",
+            paragraphs: [
+              "Consulting deliverables are designed for immediate action—architecture decisions, governance alignment, and implementation sequencing your teams can execute.",
+            ],
+          },
+          {
+            type: "bulletList",
+            items: [
+              "Written assessment report with prioritized findings",
+              "Architecture decision records and recommended target states",
+              "Security and SCC/RBAC review with remediation sequencing",
+              "GitOps and deployment maturity evaluation",
+              "Multi-cluster and tenancy strategy recommendations",
+              "Migration or upgrade readiness scoring where applicable",
+              "Executive summary aligned to business and compliance objectives",
             ],
           },
         ],
@@ -790,6 +1004,16 @@ export const openshiftServices: OpenShiftService[] = [
         question: "Do you offer remote consulting?",
         answer:
           "Yes. All consulting engagements can be delivered remotely. We work across India, UAE, Saudi Arabia, Qatar, and Singapore.",
+      },
+      {
+        question: "How long does a typical architecture review take?",
+        answer:
+          "Fixed-scope assessments usually run 1–2 weeks depending on cluster count and integration depth. We define scope and deliverable format during onboarding.",
+      },
+      {
+        question: "Do you provide implementation support after the assessment?",
+        answer:
+          "Yes. We offer embedded consulting and advisory retainers to help teams execute recommendations—installation, migration, GitOps, and platform engineering engagements can follow assessment findings.",
       },
     ],
     internalLinks: [
