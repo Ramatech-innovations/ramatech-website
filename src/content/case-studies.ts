@@ -9,6 +9,8 @@ export type CaseStudy = {
   solutionDetail: string;
   results: { metric: string; label: string }[];
   stack: string[];
+  /** Composite/illustrative profile — show disclaimer on detail page */
+  illustrative?: boolean;
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -72,6 +74,7 @@ export const caseStudies: CaseStudy[] = [
   // TODO: content review — illustrative client and metrics; replace before marketing publish
   {
     slug: "openshift-gitops-automation",
+    illustrative: true,
     title: "OpenShift Automation Case Study",
     client: "Regional Financial Services",
     industry: "Financial Services",
@@ -93,6 +96,7 @@ export const caseStudies: CaseStudy[] = [
   // TODO: content review — illustrative client and metrics; replace before marketing publish
   {
     slug: "openshift-platform-engineering-golden-paths",
+    illustrative: true,
     title: "Platform Engineering Case Study",
     client: "Enterprise Product Group",
     industry: "Technology",

@@ -11,6 +11,7 @@ export const navLinks = [
     ],
   },
   { label: "Industries", href: "/industries" },
+  { label: "OpenShift", href: "/openshift" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Technology", href: "/technology" },
   { label: "About", href: "/about" },
@@ -27,6 +28,7 @@ export const footerLinks = {
   ],
   company: [
     { label: "About", href: "/about" },
+    { label: "Packages", href: "/packages" },
     { label: "Case Studies", href: "/case-studies" },
     { label: "Technology", href: "/technology" },
     { label: "Insights", href: "/insights" },

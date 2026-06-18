@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { ContactForm } from "@/components/forms/contact-form";
 import { PageHero } from "@/components/marketing/page-hero";
 import { MotionSection } from "@/components/motion/motion-section";
@@ -23,7 +24,9 @@ export default function ContactPage() {
         <div className={PAGE_CONTAINER}>
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
-              <ContactForm />
+              <Suspense fallback={<div className="h-96 animate-pulse rounded-xl bg-slate-100" />}>
+                <ContactForm />
+              </Suspense>
             </div>
             <div className="space-y-8">
               <div>

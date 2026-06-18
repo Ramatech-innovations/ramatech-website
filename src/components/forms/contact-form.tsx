@@ -1,13 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { trackEvent } from "@/lib/analytics";
-import { solutions } from "@/content/solutions";
+import {
+  contactInterestOptions,
+  contactInterestSlugs,
+  type ContactInterestOption,
+} from "@/lib/contact-interests";
+import { formatContactApiError } from "@/lib/validations";
 
 const roles = [
   "Founder",
@@ -19,15 +25,44 @@ const roles = [
   "Other",
 ];
 
+const interestGroups: { key: ContactInterestOption["group"]; label: string }[] = [
+  { key: "solutions", label: "Solutions" },
+  { key: "openshift", label: "OpenShift" },
+  { key: "packages", label: "Packages" },
+];
+
 export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
+  const searchParams = useSearchParams();
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+  const [sourcePage, setSourcePage] = useState("");
+
+  useEffect(() => {
+    const interest = searchParams.get("interest");
+    const source = searchParams.get("source");
+    if (interest && contactInterestSlugs.has(interest)) {
+      setSelectedInterests((prev) =>
+        prev.includes(interest) ? prev : [...prev, interest]
+      );
+    }
+    if (source) {
+      setSourcePage(source);
+    }
+  }, [searchParams]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("loading");
     setError(null);
+
+    if (selectedInterests.length === 0) {
+      setStatus("error");
+      setError("Select at least one area of interest.");
+      trackEvent("contact_form_error", { reason: "missing_interests" });
+      return;
+    }
+
+    setStatus("loading");
     const form = e.currentTarget;
     const data = new FormData(form);
     const payload = {
@@ -35,11 +70,13 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
       email: data.get("email"),
       company: data.get("company"),
       role: data.get("role"),
+      phone: data.get("phone") || undefined,
       interests: selectedInterests,
       message: data.get("message"),
       consent: data.get("consent") === "on",
       website: data.get("website") ?? "",
       intent: defaultIntent ?? data.get("intent") ?? "contact",
+      source: sourcePage || undefined,
     };
 
     try {
@@ -49,9 +86,16 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
         body: JSON.stringify(payload),
       });
       const json = await res.json();
-      if (!res.ok) throw new Error(json.error ?? "Submission failed");
+      if (!res.ok) {
+        trackEvent("contact_form_error", {
+          reason: "api_validation",
+          status: String(res.status),
+        });
+        throw new Error(formatContactApiError(json.error));
+      }
       trackEvent("contact_form_submit", {
         intent: String(defaultIntent ?? payload.intent ?? "contact"),
+        source: sourcePage || "direct",
       });
       setStatus("success");
       form.reset();
@@ -82,7 +126,7 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
             <Link href="/case-studies">Case studies</Link>
           </Button>
           <Button asChild variant="outlineLight">
-            <Link href="/technology">Technology</Link>
+            <Link href="/openshift">OpenShift services</Link>
           </Button>
         </div>
       </div>
@@ -90,25 +134,26 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
       <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
       {defaultIntent && <input type="hidden" name="intent" value={defaultIntent} />}
+      {sourcePage && <input type="hidden" name="source" value={sourcePage} />}
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="name">Name</Label>
-          <Input id="name" name="name" required />
+          <Input id="name" name="name" required autoComplete="name" />
         </div>
         <div className="space-y-2">
           <Label htmlFor="email">Work email</Label>
-          <Input id="email" name="email" type="email" required />
+          <Input id="email" name="email" type="email" required autoComplete="email" />
         </div>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="company">Company</Label>
-          <Input id="company" name="company" required />
+          <Input id="company" name="company" required autoComplete="organization" />
         </div>
         <div className="space-y-2">
           <Label htmlFor="role">Role</Label>
@@ -129,24 +174,40 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
       </div>
 
       <div className="space-y-2">
-        <Label>Areas of interest</Label>
-        <div className="flex flex-wrap gap-2">
-          {solutions.map((s) => (
-            <label key={s.slug} className="cursor-pointer">
-              <input
-                type="checkbox"
-                name="interests"
-                value={s.slug}
-                className="peer sr-only"
-                checked={selectedInterests.includes(s.slug)}
-                onChange={() => toggleInterest(s.slug)}
-              />
-              <span className="inline-block rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm peer-checked:border-brand-cyan peer-checked:bg-brand-cyan/10">
-                {s.shortTitle}
-              </span>
-            </label>
-          ))}
-        </div>
+        <Label htmlFor="phone">Phone (optional)</Label>
+        <Input id="phone" name="phone" type="tel" autoComplete="tel" />
+      </div>
+
+      <div className="space-y-3">
+        <Label>
+          Areas of interest <span className="text-red-500">*</span>
+        </Label>
+        {interestGroups.map((group) => {
+          const options = contactInterestOptions.filter((o) => o.group === group.key);
+          if (options.length === 0) return null;
+          return (
+            <div key={group.key}>
+              <p className="type-caption mb-2 text-muted-foreground">{group.label}</p>
+              <div className="flex flex-wrap gap-2">
+                {options.map((option) => (
+                  <label key={option.slug} className="cursor-pointer">
+                    <input
+                      type="checkbox"
+                      name="interests"
+                      value={option.slug}
+                      className="peer sr-only"
+                      checked={selectedInterests.includes(option.slug)}
+                      onChange={() => toggleInterest(option.slug)}
+                    />
+                    <span className="inline-block rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm peer-checked:border-brand-cyan peer-checked:bg-brand-cyan/10">
+                      {option.label}
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       <div className="space-y-2">
@@ -155,6 +216,7 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
           id="message"
           name="message"
           required
+          minLength={10}
           placeholder="Describe your platform, timeline, and goals..."
         />
       </div>
@@ -164,7 +226,11 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
         I agree to be contacted about my inquiry. No spam.
       </label>
 
-      {error && <p className="text-sm text-red-400">{error}</p>}
+      {error && (
+        <p className="text-sm text-red-600" role="alert">
+          {error}
+        </p>
+      )}
 
       <Button type="submit" disabled={status === "loading"} className="w-full sm:w-auto">
         {status === "loading" ? "Sending..." : "Send message"}
