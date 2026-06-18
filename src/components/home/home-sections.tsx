@@ -10,6 +10,7 @@ import { AiAutomationSection } from "@/components/home/ai-automation-section";
 import { CaseStudiesShowcase } from "@/components/home/case-studies-showcase";
 import { WhyUsSection } from "@/components/home/why-us-section";
 import { StackTeaser } from "@/components/home/stack-teaser";
+import { HomeResourceHubs } from "@/components/home/home-resource-hubs";
 import { IndustriesPillRow } from "@/components/home/industries-pill-row";
 import { SolutionsGrid } from "@/components/home/solutions-grid";
 import { TagMarquee } from "@/components/marketing/tag-marquee";
@@ -28,7 +29,8 @@ export function HomePageSections() {
       <ServicePackagesSection />
       <EnterpriseKpisSection />
       <AiAutomationSection />
-      <CaseStudiesShowcase limit={2} />
+      <CaseStudiesShowcase limit={3} />
+      <HomeResourceHubs />
 
       <SectionShell variant="lightElevated" className="border-y border-slate-200 !py-8 md:!py-10">
         <div className={PAGE_CONTAINER}>
@@ -74,7 +76,7 @@ export function HomePageSections() {
             variant="secondary"
             className="mt-8 bg-white text-brand-dark shadow-xl hover:bg-white/90"
           >
-            <BookConsultationLink>Book Consultation</BookConsultationLink>
+            <BookConsultationLink pageSource="/">Book Consultation</BookConsultationLink>
           </Button>
         </div>
       </section>

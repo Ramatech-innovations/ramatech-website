@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { BookConsultationLink } from "@/components/analytics/tracked-link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { MotionSection } from "@/components/motion/motion-section";
@@ -88,7 +89,12 @@ export function SolutionDetail({ solution }: { solution: Solution }) {
       <section className="py-16 md:py-20">
         <div className={`${PAGE_CONTAINER} text-center`}>
           <Button asChild size="lg">
-            <Link href="/book-consultation">Discuss {solution.shortTitle}</Link>
+            <BookConsultationLink
+              pageSource={`/solutions/${solution.slug}`}
+              interest={solution.slug}
+            >
+              Discuss {solution.shortTitle}
+            </BookConsultationLink>
           </Button>
         </div>
       </section>

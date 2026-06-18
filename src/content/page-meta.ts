@@ -19,7 +19,7 @@ export const pageMeta = {
   industries: {
     title: "Industries",
     description:
-      "Ramatech serves SaaS, logistics, healthcare, fintech, and legal technology teams with cloud, platform, and AI engineering tailored to each industry.",
+      "Ramatech serves restaurants, law firms, manufacturing, startups, and SMEs with websites, automation, cloud, and platform engineering tailored to each vertical.",
   },
   caseStudies: {
     title: "Case Studies",

@@ -13,7 +13,7 @@ export function FooterCtaBand() {
         <BookConsultationLink>Book free consultation</BookConsultationLink>
       </Button>
       <Button asChild size="lg" variant="outline">
-        <WhatsAppLink>Chat on WhatsApp</WhatsAppLink>
+        <WhatsAppLink source="footer_cta">Chat on WhatsApp</WhatsAppLink>
       </Button>
     </div>
   );

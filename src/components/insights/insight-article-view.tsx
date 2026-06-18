@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { InsightArticle } from "@/content/insights/insight-types";
+import { BookConsultationLink } from "@/components/analytics/tracked-link";
 import { PackageSection } from "@/components/packages/package-section";
 import { OpenShiftProse } from "@/components/openshift/openshift-content-blocks";
 import { InsightRelatedBoxes } from "@/components/insights/insight-related-boxes";
@@ -61,6 +62,33 @@ export function InsightArticleView({ article }: { article: InsightArticle }) {
               </PackageSection>
             )}
 
+            <PackageSection
+              title="Need help implementing this?"
+              variant="light"
+              embedded
+              className="!py-8"
+            >
+              <p className="type-body-card max-w-2xl">
+                Talk to engineers who deploy these patterns on OpenShift in production—not generic
+                advisory decks.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-4">
+                <BookConsultationLink
+                  pageSource={`/insights/openshift/${article.slug}`}
+                  interest="openshift"
+                  className="inline-flex items-center justify-center rounded-lg bg-brand-primary px-6 py-3 text-sm font-semibold text-white hover:bg-brand-primary/90"
+                >
+                  Get an OpenShift assessment
+                </BookConsultationLink>
+                <Link
+                  href="/openshift"
+                  className="inline-flex items-center justify-center rounded-lg border border-slate-200 px-6 py-3 text-sm font-semibold text-brand-primary hover:border-brand-cyan"
+                >
+                  OpenShift services
+                </Link>
+              </div>
+            </PackageSection>
+
             {article.sections.map((section, i) => (
               <PackageSection
                 key={section.id}
@@ -97,7 +125,12 @@ export function InsightArticleView({ article }: { article: InsightArticle }) {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button asChild size="lg">
-              <Link href="/book-consultation">Book a consultation</Link>
+              <BookConsultationLink
+                pageSource={`/insights/openshift/${article.slug}`}
+                interest="openshift"
+              >
+                Book a consultation
+              </BookConsultationLink>
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link href="/openshift">OpenShift services</Link>

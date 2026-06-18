@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { TechnologyPage } from "@/content/technology-types";
+import { BookConsultationLink } from "@/components/analytics/tracked-link";
 import { PackageSection } from "@/components/packages/package-section";
 import { OpenShiftProse } from "@/components/openshift/openshift-content-blocks";
 import {
@@ -27,7 +28,9 @@ export function TechnologyPageView({ page }: { page: TechnologyPage }) {
           <p className="type-body-muted mt-6 max-w-2xl">{page.heroSubtext}</p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Button asChild size="lg">
-              <Link href="/book-consultation">Request a consultation</Link>
+              <BookConsultationLink pageSource={`/technology/${page.slug}`} interest="openshift">
+                Request a consultation
+              </BookConsultationLink>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
               <Link href="/openshift">OpenShift services</Link>
@@ -86,7 +89,9 @@ export function TechnologyPageView({ page }: { page: TechnologyPage }) {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button asChild size="lg">
-              <Link href="/book-consultation">Book a consultation</Link>
+              <BookConsultationLink pageSource={`/technology/${page.slug}`} interest="openshift">
+                Book a consultation
+              </BookConsultationLink>
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link href="/openshift">Explore OpenShift services</Link>

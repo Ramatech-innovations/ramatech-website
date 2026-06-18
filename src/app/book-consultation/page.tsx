@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { ContactForm } from "@/components/forms/contact-form";
 import { PageHero } from "@/components/marketing/page-hero";
 import { MotionSection } from "@/components/motion/motion-section";
@@ -11,6 +12,10 @@ export const metadata = createMetadata({
   path: "/book-consultation",
 });
 
+function ContactFormFallback() {
+  return <div className="h-96 animate-pulse rounded-xl bg-slate-100" aria-hidden />;
+}
+
 export default function BookConsultationPage() {
   return (
     <>
@@ -21,7 +26,9 @@ export default function BookConsultationPage() {
       />
       <MotionSection className="py-16 md:py-20">
         <div className={PAGE_CONTAINER_NARROW}>
-          <ContactForm defaultIntent="consultation" />
+          <Suspense fallback={<ContactFormFallback />}>
+            <ContactForm defaultIntent="consultation" />
+          </Suspense>
         </div>
       </MotionSection>
     </>

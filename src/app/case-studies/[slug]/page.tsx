@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BookConsultationLink } from "@/components/analytics/tracked-link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { MotionSection } from "@/components/motion/motion-section";
@@ -66,6 +66,16 @@ export default async function CaseStudyPage({
         title={study.title}
         description={study.summary}
       />
+      {study.illustrative && (
+        <div className="border-b border-amber-200 bg-amber-50">
+          <div className={PAGE_CONTAINER_NARROW}>
+            <p className="py-3 text-center text-sm text-amber-900">
+              Representative outcomes from a composite engagement profile—not a single named
+              client publication. Metrics are illustrative pending marketing verification.
+            </p>
+          </div>
+        </div>
+      )}
       <MotionSection className="py-16 md:py-20">
         <div className={`${PAGE_CONTAINER_NARROW} space-y-12`}>
           <div className="overflow-hidden rounded-2xl border border-slate-200 bg-[#060a12] p-5 md:p-6">
@@ -105,7 +115,12 @@ export default async function CaseStudyPage({
             </div>
           </div>
           <Button asChild size="lg">
-            <Link href="/book-consultation">Start a similar engagement</Link>
+            <BookConsultationLink
+              pageSource={`/case-studies/${slug}`}
+              interest={study.solution}
+            >
+              Start a similar engagement
+            </BookConsultationLink>
           </Button>
         </div>
       </MotionSection>
