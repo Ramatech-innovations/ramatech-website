@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:links": "npx tsx scripts/check-internal-links.ts",
     "icons": "node scripts/generate-icons.mjs",
     "brand:logos": "node scripts/process-brand-logos.mjs && node scripts/generate-icons.mjs",
     "og:image": "node scripts/generate-og-image.mjs"
@@ -43,6 +44,7 @@
     "postcss": "^8.4.49",
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.4",
     "typescript": "^5.7.2"
   }
 }

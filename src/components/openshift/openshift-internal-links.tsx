@@ -1,40 +1,38 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { PAGE_CONTAINER } from "@/lib/layout";
+import {
+  RelatedResources,
+  linksToResources,
+} from "@/components/marketing/related-resources";
 
 export function OpenShiftInternalLinks({
   links,
+  insightLinks = [],
 }: {
   links: { href: string; label: string }[];
+  insightLinks?: { href: string; label: string }[];
 }) {
+  const serviceResources = [
+    { title: "All OpenShift services", href: "/openshift", type: "service" as const },
+    ...linksToResources(links, "service"),
+  ];
+
   return (
     <section className="border-t border-white/10 bg-brand-dark py-10">
       <div className={PAGE_CONTAINER}>
-        <p className="type-caption font-medium text-muted-foreground">
-          Related OpenShift services
-        </p>
-        <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
-          <li>
-            <Link
-              href="/openshift"
-              className="inline-flex items-center gap-1.5 text-sm text-brand-cyan hover:underline"
-            >
-              All OpenShift services
-              <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-            </Link>
-          </li>
-          {links.map((link) => (
-            <li key={`${link.href}-${link.label}`}>
-              <Link
-                href={link.href}
-                className="inline-flex items-center gap-1.5 text-sm text-brand-cyan hover:underline"
-              >
-                {link.label}
-                <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <RelatedResources
+          heading="Related OpenShift services"
+          resources={serviceResources}
+          variant="dark"
+        />
+        {insightLinks.length > 0 && (
+          <div className="mt-8">
+            <RelatedResources
+              heading="From our Insights hub"
+              resources={linksToResources(insightLinks, "insight")}
+              variant="dark"
+            />
+          </div>
+        )}
       </div>
     </section>
   );

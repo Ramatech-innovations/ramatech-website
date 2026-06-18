@@ -238,6 +238,12 @@ export const openshiftServices: OpenShiftService[] = [
         label: "Return to the OpenShift services hub",
       },
     ],
+    insightLinks: [
+      {
+        href: "/insights/openshift/installation-guide",
+        label: "OpenShift installation guide",
+      },
+    ],
     finalCta: {
       headline: "Plan Your OpenShift Installation",
       bookLabel: "Request Installation Quote",
@@ -481,6 +487,12 @@ export const openshiftServices: OpenShiftService[] = [
       {
         href: "/case-studies/openshift-enterprise-migration",
         label: "Read the enterprise migration case study",
+      },
+    ],
+    insightLinks: [
+      {
+        href: "/insights/openshift/virtualization",
+        label: "OpenShift virtualization guide",
       },
     ],
     finalCta: {
@@ -784,6 +796,20 @@ export const openshiftServices: OpenShiftService[] = [
         label: "View all OpenShift services",
       },
     ],
+    insightLinks: [
+      {
+        href: "/insights/openshift/monitoring",
+        label: "OpenShift monitoring guide",
+      },
+      {
+        href: "/insights/openshift/security",
+        label: "OpenShift security best practices",
+      },
+      {
+        href: "/insights/openshift/disaster-recovery",
+        label: "OpenShift disaster recovery guide",
+      },
+    ],
     finalCta: {
       headline: "Get OpenShift Support Coverage",
       bookLabel: "Request Support Quote",
@@ -1032,6 +1058,24 @@ export const openshiftServices: OpenShiftService[] = [
       {
         href: "/openshift",
         label: "Return to the OpenShift hub",
+      },
+    ],
+    insightLinks: [
+      {
+        href: "/insights/openshift/openshift-vs-kubernetes",
+        label: "OpenShift vs Kubernetes comparison",
+      },
+      {
+        href: "/insights/openshift/security",
+        label: "OpenShift security best practices",
+      },
+      {
+        href: "/insights/openshift/cost-optimization",
+        label: "OpenShift cost optimization guide",
+      },
+      {
+        href: "/insights/openshift/ai-integration",
+        label: "OpenShift AI integration guide",
       },
     ],
     finalCta: {

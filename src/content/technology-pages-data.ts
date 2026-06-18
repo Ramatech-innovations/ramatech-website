@@ -49,6 +49,13 @@ export const technologyPages: TechnologyPage[] = [
         label: "Case study: Enterprise OpenShift Migration",
       },
     ],
+    insightLinks: [
+      { href: "/insights/openshift/installation-guide", label: "OpenShift installation guide" },
+      { href: "/insights/openshift/virtualization", label: "OpenShift virtualization guide" },
+      { href: "/insights/openshift/openshift-vs-kubernetes", label: "OpenShift vs Kubernetes comparison" },
+      { href: "/insights/openshift/disaster-recovery", label: "OpenShift disaster recovery guide" },
+      { href: "/insights/openshift/ai-integration", label: "OpenShift AI integration guide" },
+    ],
   },
   {
     slug: "kubernetes",
@@ -82,6 +89,9 @@ export const technologyPages: TechnologyPage[] = [
     relatedLinks: [
       { href: "/openshift/consulting-services", label: "OpenShift Consulting Services" },
       { href: "/openshift/migration-services", label: "OpenShift Migration Services" },
+    ],
+    insightLinks: [
+      { href: "/insights/openshift/openshift-vs-kubernetes", label: "OpenShift vs Kubernetes comparison" },
     ],
   },
   {
@@ -121,6 +131,11 @@ export const technologyPages: TechnologyPage[] = [
         label: "Case study: Enterprise OpenShift Migration (100% GitOps coverage)",
       },
     ],
+    insightLinks: [
+      { href: "/insights/openshift/deployment-best-practices", label: "OpenShift deployment best practices" },
+      { href: "/insights/openshift/gitops", label: "OpenShift GitOps guide" },
+      { href: "/insights/openshift/multi-cluster-management", label: "OpenShift multi-cluster management guide" },
+    ],
   },
   {
     slug: "prometheus",
@@ -159,6 +174,9 @@ export const technologyPages: TechnologyPage[] = [
         label: "Case study: Observability Platform at Scale",
       },
     ],
+    insightLinks: [
+      { href: "/insights/openshift/monitoring", label: "OpenShift monitoring guide" },
+    ],
   },
   {
     slug: "grafana",
@@ -196,6 +214,9 @@ export const technologyPages: TechnologyPage[] = [
         label: "Case study: Observability Platform at Scale",
       },
     ],
+    insightLinks: [
+      { href: "/insights/openshift/monitoring", label: "OpenShift monitoring guide" },
+    ],
   },
   {
     slug: "red-hat",
@@ -228,6 +249,13 @@ export const technologyPages: TechnologyPage[] = [
       "Disconnected lifecycle: mirror registries and staged operator bundles for sovereign zones where public catalog access is prohibited—paired with Ansible or approved manual runbooks for z-stream updates.",
     ],
     relatedLinks: openshiftServiceLinks,
+    insightLinks: [
+      { href: "/insights/openshift/installation-guide", label: "OpenShift installation guide" },
+      { href: "/insights/openshift/upgrade-planning", label: "OpenShift upgrade planning guide" },
+      { href: "/insights/openshift/security", label: "OpenShift security best practices" },
+      { href: "/insights/openshift/cost-optimization", label: "OpenShift cost optimization guide" },
+      { href: "/insights/openshift/ai-integration", label: "OpenShift AI integration guide" },
+    ],
   },
   {
     slug: "ansible",

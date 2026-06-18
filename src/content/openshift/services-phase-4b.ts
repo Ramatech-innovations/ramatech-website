@@ -255,6 +255,16 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
         label: "Return to the OpenShift services hub",
       },
     ],
+    insightLinks: [
+      {
+        href: "/insights/openshift/deployment-best-practices",
+        label: "OpenShift deployment best practices",
+      },
+      {
+        href: "/insights/openshift/gitops",
+        label: "OpenShift GitOps guide",
+      },
+    ],
     finalCta: {
       headline: "Plan Your OpenShift Deployments",
       bookLabel: "Request Deployment Quote",
@@ -493,6 +503,12 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
       {
         href: "/openshift",
         label: "Return to the OpenShift services hub",
+      },
+    ],
+    insightLinks: [
+      {
+        href: "/insights/openshift/upgrade-planning",
+        label: "OpenShift upgrade planning guide",
       },
     ],
     finalCta: {
@@ -769,6 +785,24 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
       {
         href: "/openshift",
         label: "Return to the OpenShift services hub",
+      },
+    ],
+    insightLinks: [
+      {
+        href: "/insights/openshift/virtualization",
+        label: "OpenShift virtualization guide",
+      },
+      {
+        href: "/insights/openshift/gitops",
+        label: "OpenShift GitOps guide",
+      },
+      {
+        href: "/insights/openshift/multi-cluster-management",
+        label: "OpenShift multi-cluster management guide",
+      },
+      {
+        href: "/insights/openshift/ai-integration",
+        label: "OpenShift AI integration guide",
       },
     ],
     finalCta: {
@@ -1063,6 +1097,24 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
       {
         href: "/openshift",
         label: "Return to the OpenShift services hub",
+      },
+    ],
+    insightLinks: [
+      {
+        href: "/insights/openshift/monitoring",
+        label: "OpenShift monitoring guide",
+      },
+      {
+        href: "/insights/openshift/multi-cluster-management",
+        label: "OpenShift multi-cluster management guide",
+      },
+      {
+        href: "/insights/openshift/disaster-recovery",
+        label: "OpenShift disaster recovery guide",
+      },
+      {
+        href: "/insights/openshift/cost-optimization",
+        label: "OpenShift cost optimization guide",
       },
     ],
     finalCta: {

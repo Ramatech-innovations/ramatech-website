@@ -1,3 +1,5 @@
+import type { OpenShiftGeoCityCoverage } from "./india-city-types";
+
 export type OpenShiftGeoPage = {
   slug: string;
   countryName: string;
@@ -28,4 +30,7 @@ export type OpenShiftGeoPage = {
     bookLabel: string;
     whatsappLabel: string;
   };
+  cityCoverage?: OpenShiftGeoCityCoverage[];
 };
+
+export type { OpenShiftGeoCityCoverage } from "./india-city-types";

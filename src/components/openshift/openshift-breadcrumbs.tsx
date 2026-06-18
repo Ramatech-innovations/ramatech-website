@@ -4,9 +4,13 @@ import { PAGE_CONTAINER } from "@/lib/layout";
 
 export function OpenShiftBreadcrumbs({
   pageName,
+  trail = [],
 }: {
   pageName?: string;
+  trail?: { name: string; path: string }[];
 }) {
+  const openshiftIsLink = Boolean(pageName || trail.length > 0);
+
   return (
     <nav
       aria-label="Breadcrumb"
@@ -21,7 +25,7 @@ export function OpenShiftBreadcrumbs({
           </li>
           <ChevronRight className="h-3.5 w-3.5 shrink-0 opacity-50" aria-hidden />
           <li>
-            {pageName ? (
+            {openshiftIsLink ? (
               <Link href="/openshift" className="hover:text-brand-cyan">
                 OpenShift
               </Link>
@@ -29,6 +33,17 @@ export function OpenShiftBreadcrumbs({
               <span className="font-medium text-foreground">OpenShift</span>
             )}
           </li>
+          {trail.map((item) => (
+            <li key={item.path} className="flex items-center gap-1.5">
+              <ChevronRight
+                className="h-3.5 w-3.5 shrink-0 opacity-50"
+                aria-hidden
+              />
+              <Link href={item.path} className="hover:text-brand-cyan">
+                {item.name}
+              </Link>
+            </li>
+          ))}
           {pageName && (
             <>
               <ChevronRight

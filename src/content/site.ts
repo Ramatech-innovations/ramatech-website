@@ -29,6 +29,7 @@ export const footerLinks = {
     { label: "About", href: "/about" },
     { label: "Case Studies", href: "/case-studies" },
     { label: "Technology", href: "/technology" },
+    { label: "Insights", href: "/insights" },
     { label: "Contact", href: "/contact" },
   ],
   legal: [

@@ -31,6 +31,11 @@ export const pageMeta = {
     description:
       "Production technology stack: Kubernetes, OpenShift, AWS, Azure, Terraform, AI platforms, observability, and enterprise automation tools we deploy.",
   },
+  insights: {
+    title: "Insights",
+    description:
+      "Operator-level OpenShift guides on installation, GitOps, security, monitoring, upgrades, and platform engineering from Ramatech engineering teams.",
+  },
   contact: {
     title: "Contact",
     description:

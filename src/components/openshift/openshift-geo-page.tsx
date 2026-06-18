@@ -66,6 +66,28 @@ export function OpenShiftGeoPageView({ geo }: { geo: OpenShiftGeoPage }) {
         <OpenShiftProse paragraphs={geo.compliance} />
       </PackageSection>
 
+      {geo.cityCoverage && geo.cityCoverage.length > 0 && (
+        <PackageSection title="City coverage" variant="dark">
+          <ul className="grid gap-6 sm:grid-cols-2">
+            {geo.cityCoverage.map((city) => (
+              <li key={city.slug}>
+                <h3 className="font-heading text-lg font-semibold text-white">
+                  <Link
+                    href={`/openshift/india/${city.slug}`}
+                    className="hover:text-brand-cyan"
+                  >
+                    {city.name}
+                  </Link>
+                </h3>
+                <p className="mt-2 text-base leading-relaxed text-slate-300">
+                  {city.description}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </PackageSection>
+      )}
+
       <PackageSection
         title={`Deployment models we support in ${geo.countryName}`}
         variant="dark"
@@ -82,7 +104,7 @@ export function OpenShiftGeoPageView({ geo }: { geo: OpenShiftGeoPage }) {
       </PackageSection>
 
       <PackageSection title="Frequently asked questions" variant="dark">
-        <PackageFaqAccordion faqs={geo.faqs} />
+        <PackageFaqAccordion faqs={geo.faqs} variant="dark" />
       </PackageSection>
 
       <OpenShiftFinalCta

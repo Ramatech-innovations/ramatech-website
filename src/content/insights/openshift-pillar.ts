@@ -1,0 +1,17 @@
+import type { OpenShiftPillar } from "./insight-types";
+
+export const openshiftPillar: OpenShiftPillar = {
+  metaTitle: "OpenShift Insights — Guides for Enterprise Platform Teams | Ramatech",
+  metaDescription:
+    "Operator-level OpenShift guides on installation, GitOps, security, monitoring, upgrades, and platform engineering from Ramatech engineering teams.",
+  h1: "OpenShift Insights for Enterprise Platform Teams",
+  heroSubtext:
+    "Practical guides on OpenShift installation, deployment, GitOps, security, and day-two operations—written for platform engineers and CTOs who need production detail, not marketing gloss.",
+  body: [
+    "Ramatech's view on OpenShift is simple: the platform succeeds when day-two operations are designed before the first production workload lands—not after an audit or a P1 incident forces the conversation. OpenShift Container Platform is an enterprise Kubernetes distribution with opinionated defaults—Security Context Constraints, integrated registry and Routes, OperatorHub, and supported upgrade paths—that reduce integration risk for regulated and hybrid estates. Our Insights hub collects the patterns we use on real engagements: how to plan IPI/UPI installs, sequence upgrades without etcd surprises, implement GitOps with Argo CD ApplicationSets, and build observability baselines that satisfy internal risk functions without freezing release velocity.",
+    "These articles are written in the same operator-level register as our OpenShift service pages. We focus on configuration and architecture decisions—tenancy models, mirror registries for disconnected segments, promotion gates, policy-as-code with Kyverno or OPA Gatekeeper, Prometheus Operator scrape boundaries, and multi-cluster fleet governance. We phrase compliance and residency guidance as operational requirements organizations must satisfy, not unverified certification claims. When a topic depends on client-specific scope—on-site support, timezone coverage, subscription sizing—we describe the decision framework rather than inventing SLAs or office locations.",
+    "The cluster below covers the OpenShift topics platform teams ask us about most often during consulting and managed-services engagements across India, UAE, Saudi Arabia, Qatar, and Singapore. Each guide links to relevant commercial services and technology deep-dives so you can move from reading to engagement with clear context. If you need hands-on delivery—installation, migration, support, platform engineering, or fully managed operations—start at the OpenShift services hub after reading.",
+    "We update these guides as OpenShift minor versions, operator compatibility matrices, and managed-service models evolve. Treat them as engineering references to discuss with your platform and security stakeholders—not as substitutes for Red Hat support entitlements, vendor oversight documentation, or environment-specific architecture assessments. For regulated workloads, always validate backup, DR, and data-flow assumptions against your sector supervisors and internal audit before production dependence.",
+    "Whether you are standing up a first cluster in ap-south-1, consolidating OpenShift 3.x estates, or scaling a GitOps-managed fleet across APAC subsidiaries, the articles here are meant to shorten the path from procurement approval to reliable production—without skipping the governance steps that prevent expensive rework six months later.",
+  ],
+};

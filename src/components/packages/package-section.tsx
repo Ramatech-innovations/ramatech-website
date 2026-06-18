@@ -6,11 +6,16 @@ export function PackageSection({
   children,
   variant = "dark",
   className,
+  headingId,
+  embedded = false,
 }: {
   title: string;
   children: React.ReactNode;
   variant?: "dark" | "light";
   className?: string;
+  headingId?: string;
+  /** When true, skip PAGE_CONTAINER (parent supplies horizontal padding). */
+  embedded?: boolean;
 }) {
   const isDark = variant === "dark";
 
@@ -24,11 +29,12 @@ export function PackageSection({
     >
       <div
         className={cn(
-          PAGE_CONTAINER,
+          embedded ? "w-full" : PAGE_CONTAINER,
           isDark && "text-foreground"
         )}
       >
         <h2
+          id={headingId}
           className={cn(
             "type-h2-section",
             isDark ? "text-white" : "text-brand-ink"

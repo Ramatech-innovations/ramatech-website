@@ -32,6 +32,7 @@ export type OpenShiftService = {
   sections: ServiceSection[];
   faqs: { question: string; answer: string }[];
   internalLinks: { href: string; label: string }[];
+  insightLinks?: { href: string; label: string }[];
   finalCta: {
     headline: string;
     bookLabel: string;
