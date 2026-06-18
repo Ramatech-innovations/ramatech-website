@@ -57,6 +57,24 @@ export function TechnologyPageView({ page }: { page: TechnologyPage }) {
             ))}
           </ul>
         )}
+        {page.insightLinks && page.insightLinks.length > 0 && (
+          <div className="mt-8 border-t border-slate-200 pt-8">
+            <p className="type-caption font-medium text-slate-500">From our Insights hub</p>
+            <ul className="mt-4 space-y-3">
+              {page.insightLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-primary hover:text-brand-cyan hover:underline"
+                  >
+                    {link.label}
+                    <ArrowRight className="h-4 w-4" aria-hidden />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </PackageSection>
 
       <PackageSection title="Use cases & architecture" variant="dark">

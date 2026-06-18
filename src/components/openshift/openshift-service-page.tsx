@@ -67,7 +67,7 @@ export function OpenShiftServicePage({ service }: { service: OpenShiftService })
       )}
 
       <OpenShiftServiceFinalCta service={service} />
-      <OpenShiftInternalLinks links={service.internalLinks} />
+      <OpenShiftInternalLinks links={service.internalLinks} insightLinks={service.insightLinks} />
     </>
   );
 }

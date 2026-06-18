@@ -10,4 +10,5 @@ export type TechnologyPage = {
   ramatechExpertise: string[];
   useCases: string[];
   relatedLinks: { href: string; label: string }[];
+  insightLinks?: { href: string; label: string }[];
 };
