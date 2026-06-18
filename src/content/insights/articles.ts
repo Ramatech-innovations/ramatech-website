@@ -12,8 +12,7 @@ export const insightArticles: InsightArticle[] = [
   ...openshiftArticlesBatch3,
 ];
 
-/** India city pages under /openshift/india/{city} — populated in Prompt 4 */
-export const openshiftIndiaCityPages: { slug: string }[] = [];
+export { openshiftIndiaCityPages } from "@/content/openshift/india-city-pages";
 
 export function getInsightArticle(slug: string) {
   return insightArticles.find((a) => a.slug === slug);

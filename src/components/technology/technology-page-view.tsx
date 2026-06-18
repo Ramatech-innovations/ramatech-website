@@ -1,8 +1,14 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import type { TechnologyPage } from "@/content/technology-types";
 import { PackageSection } from "@/components/packages/package-section";
 import { OpenShiftProse } from "@/components/openshift/openshift-content-blocks";
+import {
+  RelatedResources,
+  linksWithInferredType,
+  linksToResources,
+} from "@/components/marketing/related-resources";
+import { ComparisonTable } from "@/components/marketing/comparison-table";
+import { openshiftKubernetesComparison } from "@/content/openshift-kubernetes-comparison";
 import { Button } from "@/components/ui/button";
 import { PAGE_CONTAINER } from "@/lib/layout";
 
@@ -43,39 +49,28 @@ export function TechnologyPageView({ page }: { page: TechnologyPage }) {
       <PackageSection title="Ramatech expertise" variant="light">
         <OpenShiftProse paragraphs={page.ramatechExpertise} />
         {page.relatedLinks.length > 0 && (
-          <ul className="mt-8 space-y-3 border-t border-slate-200 pt-8">
-            {page.relatedLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-primary hover:text-brand-cyan hover:underline"
-                >
-                  {link.label}
-                  <ArrowRight className="h-4 w-4" aria-hidden />
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-8 border-t border-slate-200 pt-8">
+            <RelatedResources
+              heading="Related resources"
+              resources={linksWithInferredType(page.relatedLinks)}
+            />
+          </div>
         )}
         {page.insightLinks && page.insightLinks.length > 0 && (
           <div className="mt-8 border-t border-slate-200 pt-8">
-            <p className="type-caption font-medium text-slate-500">From our Insights hub</p>
-            <ul className="mt-4 space-y-3">
-              {page.insightLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-primary hover:text-brand-cyan hover:underline"
-                  >
-                    {link.label}
-                    <ArrowRight className="h-4 w-4" aria-hidden />
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <RelatedResources
+              heading="From our Insights hub"
+              resources={linksToResources(page.insightLinks, "insight")}
+            />
           </div>
         )}
       </PackageSection>
+
+      {page.slug === "kubernetes" && (
+        <PackageSection title="OpenShift vs Kubernetes at a glance" variant="dark">
+          <ComparisonTable data={openshiftKubernetesComparison} variant="dark" />
+        </PackageSection>
+      )}
 
       <PackageSection title="Use cases & architecture" variant="dark">
         <div className="text-slate-300">

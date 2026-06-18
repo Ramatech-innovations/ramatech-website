@@ -72,6 +72,34 @@ export function openshiftGeoServiceSchemaProps(geo: {
   };
 }
 
+export function openshiftIndiaCityBreadcrumbItems(
+  cityName: string,
+  citySlug: string
+): BreadcrumbSchemaItem[] {
+  return [
+    { name: "Home", path: "/" },
+    { name: "OpenShift", path: "/openshift" },
+    { name: "India", path: "/openshift/india" },
+    { name: cityName, path: `/openshift/india/${citySlug}` },
+  ];
+}
+
+export function openshiftIndiaCityServiceSchemaProps(city: {
+  h1: string;
+  metaDescription: string;
+  slug: string;
+  cityName: string;
+}) {
+  return {
+    name: city.h1,
+    serviceType: city.h1,
+    description: city.metaDescription,
+    url: `${base()}/openshift/india/${city.slug}`,
+    areaServed: ["IN"],
+    addressLocality: city.cityName,
+  };
+}
+
 /** @deprecated Use OrganizationSchema component in layout */
 export const organizationJsonLd = {
   "@context": "https://schema.org",

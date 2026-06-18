@@ -88,6 +88,32 @@ export const openshiftGeoPages: OpenShiftGeoPage[] = [
       summary:
         "Global logistics operator migrated legacy workloads to OpenShift with Argo CD GitOps and automated compliance checks in CI. Results: 60% deploy time reduction, 100% GitOps coverage, and zero critical rollback incidents during production cutover.",
     },
+    cityCoverage: [
+      {
+        slug: "bangalore",
+        name: "Bangalore",
+        description:
+          "SaaS and product engineering teams—platform engineering, GitOps delivery, and day-two support for high Kubernetes maturity estates.",
+      },
+      {
+        slug: "hyderabad",
+        name: "Hyderabad",
+        description:
+          "BFSI, pharma, and GCC campuses—compliance-aware migration and managed OpenShift operations.",
+      },
+      {
+        slug: "mumbai",
+        name: "Mumbai",
+        description:
+          "Financial headquarters and NBFCs—security consulting, RBI-aligned controls, and disaster recovery planning.",
+      },
+      {
+        slug: "noida",
+        name: "Noida",
+        description:
+          "Government, PSU, and IT services—on-prem and air-gapped installation plus legacy migration.",
+      },
+    ],
     faqs: buildFaqs(
       "India",
       "We deploy to AWS ap-south-1 (Mumbai), Azure India regions, and customer on-prem data centers across Mumbai, Pune, Hyderabad, Bangalore, and NCR based on residency and latency requirements."

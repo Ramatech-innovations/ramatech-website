@@ -7,13 +7,31 @@ export function ServiceSchema({
   description,
   url,
   areaServed,
+  addressLocality,
 }: {
   name: string;
   serviceType: string;
   description: string;
   url: string;
   areaServed: string[];
+  addressLocality?: string;
 }) {
+  const areaServedSchema = addressLocality
+    ? [
+        {
+          "@type": "City",
+          name: addressLocality,
+          containedInPlace: {
+            "@type": "Country",
+            name: areaServed[0] ?? "IN",
+          },
+        },
+      ]
+    : areaServed.map((code) => ({
+        "@type": "Country",
+        name: code,
+      }));
+
   const data = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -26,10 +44,7 @@ export function ServiceSchema({
       name: "Ramatech Innovation Pvt Ltd",
       url: siteConfig.url,
     },
-    areaServed: areaServed.map((code) => ({
-      "@type": "Country",
-      name: code,
-    })),
+    areaServed: areaServedSchema,
   };
 
   return <JsonLdScript data={data} />;

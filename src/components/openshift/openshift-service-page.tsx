@@ -62,7 +62,7 @@ export function OpenShiftServicePage({ service }: { service: OpenShiftService })
 
       {service.faqs.length > 0 && (
         <PackageSection title="Frequently asked questions" variant="dark">
-          <PackageFaqAccordion faqs={service.faqs} />
+          <PackageFaqAccordion faqs={service.faqs} variant="dark" />
         </PackageSection>
       )}
 
