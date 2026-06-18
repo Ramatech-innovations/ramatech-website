@@ -87,10 +87,16 @@ export function createMetadata({
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: siteConfig.name,
+  name: "Ramatech Innovation Pvt Ltd",
   url: siteConfig.url,
   description: siteConfig.description,
   email: siteConfig.email,
-  logo: `${siteConfig.url}/brand/logo-icon.png`,
+  logo: `${siteConfig.url}/brand/logo-dark.png`,
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: siteConfig.email,
+    contactType: "sales",
+  },
+  areaServed: ["IN", "AE", "SA", "QA", "SG"],
   sameAs: ["https://www.linkedin.com/company/ramatechinnovation"],
 };

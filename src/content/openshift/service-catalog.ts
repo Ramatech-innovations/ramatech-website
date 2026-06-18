@@ -71,34 +71,34 @@ export const openshiftGeoRegions: CatalogItem[] = [
     title: "India",
     description:
       "Primary delivery hub — on-prem, hybrid, and cloud OpenShift for Indian enterprises.",
-    comingSoon: true,
+    href: "/openshift/india",
   },
   {
     slug: "uae",
     title: "UAE",
     description:
       "OpenShift services for UAE enterprises — regulated sectors and hybrid cloud.",
-    comingSoon: true,
+    href: "/openshift/uae",
   },
   {
     slug: "saudi-arabia",
     title: "Saudi Arabia",
     description:
       "Enterprise OpenShift consulting and operations for KSA platform teams.",
-    comingSoon: true,
+    href: "/openshift/saudi-arabia",
   },
   {
     slug: "qatar",
     title: "Qatar",
     description:
       "OpenShift installation, migration, and support for Qatar-based organisations.",
-    comingSoon: true,
+    href: "/openshift/qatar",
   },
   {
     slug: "singapore",
     title: "Singapore",
     description:
       "APAC OpenShift expertise for financial services and regulated workloads.",
-    comingSoon: true,
+    href: "/openshift/singapore",
   },
 ];

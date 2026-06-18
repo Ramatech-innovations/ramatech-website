@@ -5,7 +5,8 @@ import { AnalyticsScripts } from "@/components/analytics/analytics-scripts";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFloatButton } from "@/components/layout/whatsapp-float-button";
-import { createMetadata, organizationJsonLd, siteConfig } from "@/lib/seo";
+import { OrganizationSchema } from "@/components/seo/OrganizationSchema";
+import { createMetadata, siteConfig } from "@/lib/seo";
 import "./globals.css";
 
 const satoshi = localFont({
@@ -58,10 +59,7 @@ export default function RootLayout({
         <link rel="preload" href="/brand/logo-icon.png" as="image" />
       </head>
       <body className="min-h-screen font-sans antialiased">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
+        <OrganizationSchema />
         <AnalyticsScripts />
         <Header />
         <main>{children}</main>

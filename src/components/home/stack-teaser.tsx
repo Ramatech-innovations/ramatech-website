@@ -4,7 +4,7 @@ import { SectionHeader } from "@/components/marketing/section-header";
 import { stackCategories } from "@/content/stack";
 
 const STACK_CHIPS = [
-  ...new Set(stackCategories.flatMap((c) => c.tools)),
+  ...new Set(stackCategories.flatMap((c) => c.tools.map((t) => t.name))),
 ].slice(0, 10);
 
 export function StackTeaser() {

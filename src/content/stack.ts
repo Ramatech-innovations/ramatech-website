@@ -1,26 +1,78 @@
-export const stackCategories = [
+export type StackTool = {
+  name: string;
+  href?: string;
+};
+
+export type StackCategory = {
+  name: string;
+  tools: StackTool[];
+};
+
+export const stackCategories: StackCategory[] = [
   {
     name: "Cloud & Infrastructure",
-    tools: ["AWS", "Azure", "GCP", "Terraform", "Pulumi", "Docker"],
+    tools: [
+      { name: "AWS" },
+      { name: "Azure" },
+      { name: "GCP" },
+      { name: "Terraform" },
+      { name: "Pulumi" },
+      { name: "Docker" },
+    ],
   },
   {
     name: "Platform & Kubernetes",
-    tools: ["Kubernetes", "OpenShift", "Helm", "Argo CD", "Istio"],
+    tools: [
+      { name: "Kubernetes", href: "/technology/kubernetes" },
+      { name: "OpenShift", href: "/technology/openshift" },
+      { name: "Red Hat", href: "/technology/red-hat" },
+      { name: "Helm" },
+      { name: "Argo CD", href: "/technology/argocd" },
+      { name: "Istio" },
+    ],
   },
   {
     name: "Observability",
-    tools: ["Prometheus", "Grafana", "VictoriaMetrics", "Loki", "OpenTelemetry"],
+    tools: [
+      { name: "Prometheus", href: "/technology/prometheus" },
+      { name: "Grafana", href: "/technology/grafana" },
+      { name: "VictoriaMetrics" },
+      { name: "Loki" },
+      { name: "OpenTelemetry" },
+    ],
+  },
+  {
+    name: "Automation",
+    tools: [{ name: "Ansible", href: "/technology/ansible" }],
   },
   {
     name: "AI & Data",
-    tools: ["OpenAI", "Anthropic", "PostgreSQL", "pgvector", "Redis", "Python"],
+    tools: [
+      { name: "OpenAI" },
+      { name: "Anthropic" },
+      { name: "PostgreSQL" },
+      { name: "pgvector" },
+      { name: "Redis" },
+      { name: "Python" },
+    ],
   },
   {
     name: "Application Engineering",
-    tools: ["Next.js", "TypeScript", "NestJS", "FastAPI", "Node.js"],
+    tools: [
+      { name: "Next.js" },
+      { name: "TypeScript" },
+      { name: "NestJS" },
+      { name: "FastAPI" },
+      { name: "Node.js" },
+    ],
   },
   {
     name: "Enterprise Systems",
-    tools: ["SAP S/4HANA", "Kafka", "REST", "Event-driven pipelines"],
+    tools: [
+      { name: "SAP S/4HANA" },
+      { name: "Kafka" },
+      { name: "REST" },
+      { name: "Event-driven pipelines" },
+    ],
   },
 ];
