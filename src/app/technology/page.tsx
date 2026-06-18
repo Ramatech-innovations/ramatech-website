@@ -28,14 +28,24 @@ export default function TechnologyPage() {
               <div key={cat.name}>
                 <h2 className="type-h3 text-brand-ink">{cat.name}</h2>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {cat.tools.map((tool) => (
-                    <span
-                      key={tool}
-                      className="rounded-lg border border-slate-200 bg-white px-3 py-2 font-mono text-sm text-slate-600 shadow-sm"
-                    >
-                      {tool}
-                    </span>
-                  ))}
+                  {cat.tools.map((tool) =>
+                    tool.href ? (
+                      <Link
+                        key={tool.name}
+                        href={tool.href}
+                        className="rounded-lg border border-slate-200 bg-white px-3 py-2 font-mono text-sm text-slate-600 shadow-sm transition-colors hover:border-brand-cyan hover:text-brand-primary"
+                      >
+                        {tool.name}
+                      </Link>
+                    ) : (
+                      <span
+                        key={tool.name}
+                        className="rounded-lg border border-slate-200 bg-white px-3 py-2 font-mono text-sm text-slate-600 shadow-sm"
+                      >
+                        {tool.name}
+                      </span>
+                    )
+                  )}
                 </div>
               </div>
             ))}

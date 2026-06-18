@@ -3,11 +3,15 @@
 import { ObservabilityTelemetryViz } from "@/components/case-studies/observability-telemetry-viz";
 import { OpenshiftMigrationViz } from "@/components/case-studies/openshift-migration-viz";
 import { AiOperationsViz } from "@/components/case-studies/ai-operations-viz";
+import { GitopsAutomationViz } from "@/components/case-studies/gitops-automation-viz";
+import { PlatformEngineeringViz } from "@/components/case-studies/platform-engineering-viz";
 
 const VIZ: Record<string, React.ComponentType<{ className?: string }>> = {
   "observability-platform-scale": ObservabilityTelemetryViz,
   "openshift-enterprise-migration": OpenshiftMigrationViz,
   "ai-automation-operations": AiOperationsViz,
+  "openshift-gitops-automation": GitopsAutomationViz,
+  "openshift-platform-engineering-golden-paths": PlatformEngineeringViz,
 };
 
 export function CaseStudyArchitecture({ slug, className }: { slug: string; className?: string }) {

@@ -247,6 +247,10 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
         label: "Need architecture guidance before rollout? Talk to consulting experts",
       },
       {
+        href: "/case-studies/openshift-gitops-automation",
+        label: "See GitOps automation outcomes in our case study",
+      },
+      {
         href: "/openshift",
         label: "Return to the OpenShift services hub",
       },
@@ -753,6 +757,14 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
       {
         href: "/openshift/support-services",
         label: "Need reliability coverage for day-two operations? See support services",
+      },
+      {
+        href: "/case-studies/openshift-gitops-automation",
+        label: "Read how GitOps automation reduced deployment errors",
+      },
+      {
+        href: "/case-studies/openshift-platform-engineering-golden-paths",
+        label: "See platform engineering golden-path outcomes",
       },
       {
         href: "/openshift",

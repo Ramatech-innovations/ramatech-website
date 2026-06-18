@@ -1,2 +1,6 @@
-/** Technology deep-dive pages — populated in Prompt 2 */
-export const technologyPages: { slug: string }[] = [];
+export type { TechnologyPage } from "./technology-types";
+export {
+  technologyPages,
+  getTechnologyPage,
+  getAllTechnologySlugs,
+} from "./technology-pages-data";
