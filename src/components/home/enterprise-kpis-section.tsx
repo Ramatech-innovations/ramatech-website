@@ -1,8 +1,4 @@
-"use client";
-
-import { AnimatedCounter } from "@/components/marketing/animated-counter";
-import { enterpriseKpis } from "@/content/enterprise";
-
+import { deliveryTrustSignals } from "@/content/enterprise";
 import { PAGE_CONTAINER } from "@/lib/layout";
 
 export function EnterpriseKpisSection() {
@@ -17,25 +13,21 @@ export function EnterpriseKpisSection() {
         aria-hidden
       />
       <div className={PAGE_CONTAINER}>
-        <p className="type-eyebrow text-center">Enterprise metrics</p>
+        <p className="type-eyebrow text-center">How we work</p>
         <h2 className="type-h2 mx-auto mt-5 max-w-3xl text-center md:mt-6">
-          Proof at production scale
+          Delivery signals you can verify
         </h2>
 
-        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-          {enterpriseKpis.map((kpi) => (
-            <div key={kpi.label} className="text-center lg:text-left">
-              <p className="type-metric-home">
-                <AnimatedCounter
-                  value={kpi.value}
-                  decimals={kpi.decimals}
-                  prefix={kpi.prefix}
-                  suffix={kpi.suffix}
-                />
-              </p>
-              <p className="type-metric-label mx-auto mt-2 max-w-[240px] lg:mx-0">
-                {kpi.label}
-              </p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          {deliveryTrustSignals.map((signal) => (
+            <div
+              key={signal.title}
+              className="rounded-xl border border-slate-200 bg-white/80 p-5 text-center lg:text-left"
+            >
+              <h3 className="font-heading text-base font-semibold text-brand-ink">
+                {signal.title}
+              </h3>
+              <p className="type-body-card mt-2 text-slate-600">{signal.description}</p>
             </div>
           ))}
         </div>

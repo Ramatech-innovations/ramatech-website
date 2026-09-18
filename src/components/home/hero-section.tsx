@@ -56,21 +56,22 @@ export function HeroSection() {
               className="mb-6 flex flex-wrap items-center gap-3.5 sm:gap-4"
             >
               <BrandLogo variant="heroBadge" theme="light" alt="" />
-              <span className="glass-pill-light">AI-Powered Technology Company</span>
+              <span className="glass-pill-light">Engineering services firm</span>
             </motion.div>
             <motion.h1
               variants={reduce ? undefined : heroItem}
               className="type-display-lg text-brand-ink xl:text-[3.5rem]"
             >
-              AI-Powered Technology for{" "}
-              <span className="text-gradient">Product & Platform</span> Teams
+              Engineering services for{" "}
+              <span className="text-gradient">platform teams</span>
             </motion.h1>
             <motion.p
               variants={reduce ? undefined : heroItem}
               className="mt-6 max-w-xl text-body-sm leading-[1.7] text-slate-600 md:text-body-lg lg:max-w-lg"
             >
-              We engineer intelligent systems, cloud platforms, and automation that scale
-              with your business—not slide decks or staff augmentation.
+              OpenShift excellence plus cloud, DevOps, monitoring, and AI—delivered by
+              engineers who install, operate, and hand over production systems, not slide
+              decks.
             </motion.p>
             <motion.div
               variants={reduce ? undefined : heroItem}
@@ -88,32 +89,23 @@ export function HeroSection() {
               className="mt-6 flex flex-wrap items-center gap-2"
             >
               {[
-                { label: "SaaS Startups", href: "/industries/startups" },
-                { label: "Restaurants", href: "/industries/restaurants" },
-                { label: "Law Firms", href: "/industries/law-firms" },
-                { label: "Clinics" },
-                { label: "SMEs", href: "/industries/smes" },
-                { label: "Manufacturers", href: "/industries/manufacturing" },
-              ].map((item) => {
-                const className =
-                  "rounded-full border border-slate-200/80 bg-slate-50/80 px-3 py-1.5 text-sm text-slate-600";
-                if (item.href) {
-                  return (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      className={`${className} transition-colors hover:border-brand-cyan/40 hover:text-brand-primary`}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                }
-                return (
-                  <span key={item.label} className={className}>
-                    {item.label}
-                  </span>
-                );
-              })}
+                { label: "OpenShift", href: "/openshift" },
+                { label: "Cloud", href: "/solutions/cloud-infrastructure" },
+                {
+                  label: "DevOps & Platform",
+                  href: "/solutions/devops-platform-engineering",
+                },
+                { label: "Monitoring", href: "/technology/prometheus" },
+                { label: "AI", href: "/solutions/ai-solutions" },
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="rounded-full border border-slate-200/80 bg-slate-50/80 px-3 py-1.5 text-sm text-slate-600 transition-colors hover:border-brand-cyan/40 hover:text-brand-primary"
+                >
+                  {item.label}
+                </Link>
+              ))}
             </motion.div>
           </motion.div>
 
