@@ -32,6 +32,9 @@ export function OpenShiftHubPage() {
             whatsappLabel={openshiftHub.finalCta.whatsappLabel}
             className="mt-10"
           />
+          <p className="mt-6 max-w-3xl border-l-2 border-brand-primary/30 pl-4 text-sm leading-relaxed text-slate-600">
+            {openshiftHub.licensesDisclaimer}
+          </p>
         </div>
       </section>
 

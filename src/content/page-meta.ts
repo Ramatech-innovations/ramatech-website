@@ -2,9 +2,9 @@
 
 export const pageMeta = {
   home: {
-    title: "AI-Powered Cloud, DevOps & Automation Services",
+    title: "OpenShift, Cloud, DevOps & AI Engineering Services",
     description:
-      "Ramatech delivers cloud infrastructure, DevOps, AI automation, and custom software for SaaS startups, SMEs, restaurants, and law firms. Fixed-scope. Fast delivery.",
+      "Ramatech is an engineering services firm: OpenShift excellence plus cloud, DevOps, monitoring, and AI—production delivery for platform and product teams.",
   },
   about: {
     title: "About",

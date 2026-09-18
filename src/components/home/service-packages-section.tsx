@@ -12,8 +12,8 @@ export function ServicePackagesSection() {
     <section className="section-light on-light relative overflow-hidden border-t border-slate-200 py-16 md:py-20">
       <div className={PAGE_CONTAINER}>
         <SectionHeader
-          title="Service Packages Built for Speed"
-          description="Fixed-scope. Fixed-timeline. No surprises."
+          title="Fixed-scope packages"
+          description="Optional secondary path for defined website, startup, and automation sprints—not our primary enterprise services offering."
           align="center"
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2">

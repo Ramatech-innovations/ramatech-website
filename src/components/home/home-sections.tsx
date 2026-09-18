@@ -3,6 +3,7 @@
 import { BookConsultationLink } from "@/components/analytics/tracked-link";
 import { Button } from "@/components/ui/button";
 import { HeroSection } from "@/components/home/hero-section";
+import { ServiceDomainsStrip } from "@/components/home/service-domains-strip";
 import { CommandCenterSection } from "@/components/home/command-center-section";
 import { ServicePackagesSection } from "@/components/home/service-packages-section";
 import { EnterpriseKpisSection } from "@/components/home/enterprise-kpis-section";
@@ -25,8 +26,8 @@ export function HomePageSections() {
   return (
     <>
       <HeroSection />
+      <ServiceDomainsStrip />
       <CommandCenterSection />
-      <ServicePackagesSection />
       <EnterpriseKpisSection />
       <AiAutomationSection />
       <CaseStudiesShowcase limit={3} />
@@ -47,12 +48,6 @@ export function HomePageSections() {
         </div>
       </SectionShell>
 
-      <SectionShell variant="lightElevated" className={HOME_PAD_COMPACT}>
-        <div className={PAGE_CONTAINER}>
-          <IndustriesPillRow />
-        </div>
-      </SectionShell>
-
       <WhyUsSection />
 
       <SectionShell variant="lightElevated" className={HOME_PAD_COMPACT}>
@@ -61,14 +56,25 @@ export function HomePageSections() {
         </div>
       </SectionShell>
 
+      {/* Secondary path — fixed-scope packages, not the firm identity */}
+      <ServicePackagesSection />
+
+      <SectionShell variant="lightElevated" className={HOME_PAD_COMPACT}>
+        <div className={PAGE_CONTAINER}>
+          <IndustriesPillRow />
+        </div>
+      </SectionShell>
+
       <section className="relative overflow-hidden py-16 md:py-20">
         <div className="absolute inset-0 bg-brand-gradient opacity-95" aria-hidden />
         <div className="noise-overlay absolute inset-0 opacity-20" aria-hidden />
         <div className={`${PAGE_CONTAINER} relative text-center`}>
-          <h2 className="type-h2-section text-white md:text-3xl">Ready to build serious technology?</h2>
+          <h2 className="type-h2-section text-white md:text-3xl">
+            Ready to engage an engineering services team?
+          </h2>
           <p className="type-body mx-auto mt-4 max-w-xl text-white/90">
-            Partner with an AI-powered engineering team trusted by product and platform leaders
-            worldwide.
+            Talk to Ramatech about OpenShift, cloud, DevOps, monitoring, or AI delivery—scoped
+            work with clear handover.
           </p>
           <Button
             asChild

@@ -71,6 +71,30 @@ export const enterpriseKpis = [
   },
 ];
 
+/** Honest delivery signals for homepage trust band (no animated fake metrics) */
+export const deliveryTrustSignals = [
+  {
+    title: "Engineering-led delivery",
+    description:
+      "Senior engineers own architecture, install, and handover—not slide-only advisory.",
+  },
+  {
+    title: "Remote-capable, on-site when needed",
+    description:
+      "Primary delivery is remote; workshops or cutover support scoped when risk warrants it.",
+  },
+  {
+    title: "Reply within 4 business hours",
+    description:
+      "Consultation and contact requests get a focused next step from the delivery team.",
+  },
+  {
+    title: "OpenShift + cloud + platform depth",
+    description:
+      "Flagship OpenShift services alongside cloud, DevOps, monitoring, and AI domains.",
+  },
+];
+
 export const aiAutomationShowcase = [
   {
     id: "support-agents",
