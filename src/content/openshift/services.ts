@@ -218,10 +218,6 @@ export const openshiftServices: OpenShiftService[] = [
     ],
     internalLinks: [
       {
-        href: "/openshift/deployment-services",
-        label: "Ready to deploy workloads? See deployment services",
-      },
-      {
         href: "/openshift/migration-services",
         label: "Planning a platform move? Explore OpenShift migration services",
       },
@@ -234,8 +230,12 @@ export const openshiftServices: OpenShiftService[] = [
         label: "Want full cluster operations? Explore managed services",
       },
       {
-        href: "/openshift",
-        label: "Return to the OpenShift services hub",
+        href: "/openshift/platform-engineering",
+        label: "Building developer golden paths? See platform engineering",
+      },
+      {
+        href: "/openshift/deployment-services",
+        label: "Ready to deploy workloads? See deployment services",
       },
     ],
     insightLinks: [
@@ -469,20 +469,20 @@ export const openshiftServices: OpenShiftService[] = [
     ],
     internalLinks: [
       {
-        href: "/openshift/upgrade-services",
-        label: "On OCP 3.x or older 4.x? Plan your upgrade path",
+        href: "/openshift/installation-services",
+        label: "Need a new cluster baseline first? Explore installation services",
       },
       {
-        href: "/openshift/consulting-services",
-        label: "Need architecture input before migration? Start with consulting",
+        href: "/openshift/support-services",
+        label: "Need day-two reliability after cutover? See support services",
       },
       {
-        href: "/openshift/deployment-services",
-        label: "Post-migration deployments? See deployment services",
+        href: "/openshift/managed-services",
+        label: "Want full lifecycle operations? Explore managed services",
       },
       {
-        href: "/openshift",
-        label: "Explore the full OpenShift services portfolio",
+        href: "/openshift/platform-engineering",
+        label: "Building self-service platforms after migration? See platform engineering",
       },
       {
         href: "/case-studies/openshift-enterprise-migration",

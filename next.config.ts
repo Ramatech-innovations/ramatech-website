@@ -4,6 +4,20 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/index.html",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/assets/favicon.ico",
+        destination: "/favicon.ico",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
