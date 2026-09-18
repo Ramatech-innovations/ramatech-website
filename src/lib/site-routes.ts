@@ -18,6 +18,9 @@ export type SitemapEntry = {
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
 };
 
+/** Stable sitemap lastmod — bump only when content meaningfully changes */
+export const SITEMAP_LAST_MODIFIED = new Date("2026-09-18T00:00:00.000Z");
+
 const STATIC_ROUTES = [
   "",
   "/about",
@@ -34,12 +37,33 @@ const STATIC_ROUTES = [
 
 const INSIGHT_STATIC_ROUTES = ["/insights", "/insights/openshift"];
 
+/** Highest-intent OpenShift service / geo money pages */
+const OPENSHIFT_MONEY_PATHS = new Set([
+  "/openshift/installation-services",
+  "/openshift/migration-services",
+  "/openshift/support-services",
+  "/openshift/managed-services",
+  "/openshift/platform-engineering",
+  "/openshift/india",
+]);
+
+const PRIORITY_INSIGHT_PATHS = new Set([
+  "/insights/openshift/security",
+  "/insights/openshift/installation-guide",
+  "/insights/openshift/gitops",
+  "/insights/openshift/openshift-vs-kubernetes",
+  "/insights/openshift/multi-cluster-management",
+]);
+
 const OPENSHIFT_SERVICE_SLUGS = new Set(openshiftServices.map((s) => s.slug));
 const OPENSHIFT_GEO_SLUGS = new Set(openshiftGeoPages.map((g) => g.slug));
 
 function getPriority(path: string): number {
   if (path === "" || path === "/openshift") return 1.0;
-  if (path.startsWith("/openshift/india/")) return 0.6;
+  if (OPENSHIFT_MONEY_PATHS.has(path)) return 0.95;
+  if (path === "/openshift/india/bangalore") return 0.75;
+  if (path.startsWith("/openshift/india/")) return 0.65;
+  if (PRIORITY_INSIGHT_PATHS.has(path)) return 0.8;
   if (
     path.startsWith("/openshift/") &&
     (OPENSHIFT_SERVICE_SLUGS.has(path.slice("/openshift/".length)) ||
@@ -48,6 +72,7 @@ function getPriority(path: string): number {
     return 0.9;
   }
   if (path === "/insights/openshift" || path === "/technology") return 0.8;
+  if (path.startsWith("/industries/")) return 0.4;
   if (
     path.startsWith("/insights/openshift/") ||
     path.startsWith("/technology/") ||
@@ -60,6 +85,9 @@ function getPriority(path: string): number {
 
 function getChangeFrequency(path: string): SitemapEntry["changeFrequency"] {
   if (path === "" || path === "/openshift") return "weekly";
+  if (OPENSHIFT_MONEY_PATHS.has(path) || PRIORITY_INSIGHT_PATHS.has(path)) {
+    return "weekly";
+  }
   return "monthly";
 }
 
@@ -91,7 +119,7 @@ export function buildSitemap(): MetadataRoute.Sitemap {
 
   return getSitemapEntries().map(({ path, priority, changeFrequency }) => ({
     url: `${base}${path}`,
-    lastModified: new Date(),
+    lastModified: SITEMAP_LAST_MODIFIED,
     changeFrequency,
     priority,
   }));

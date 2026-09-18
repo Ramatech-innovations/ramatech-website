@@ -8,6 +8,7 @@ import { OpenShiftCtaGroup } from "@/components/openshift/openshift-cta-group";
 import { OpenShiftServiceCards } from "@/components/openshift/openshift-service-cards";
 import { OpenShiftGeoCards } from "@/components/openshift/openshift-geo-cards";
 import { OpenShiftTrustBand } from "@/components/openshift/openshift-trust-band";
+import { OpenShiftMostRequested } from "@/components/openshift/openshift-most-requested";
 import { OpenShiftHubFinalCta } from "@/components/openshift/openshift-final-cta";
 import { OpenShiftProse, OpenShiftBulletList } from "@/components/openshift/openshift-content-blocks";
 import { PackageSection } from "@/components/packages/package-section";
@@ -33,6 +34,8 @@ export function OpenShiftHubPage() {
           />
         </div>
       </section>
+
+      <OpenShiftMostRequested />
 
       <PackageSection title="OpenShift services" variant="light">
         <OpenShiftServiceCards items={openshiftServices} />
