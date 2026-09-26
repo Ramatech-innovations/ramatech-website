@@ -1,4 +1,6 @@
 import { sourceLabel, type Touch } from "@/lib/attribution";
+import { BOOKING_URL } from "@/lib/booking";
+import { buildWhatsAppUrl, siteConfig } from "@/lib/seo";
 import { contactInterestOptions } from "@/lib/contact-interests";
 import type { ContactApiData } from "@/lib/validations";
 
@@ -97,4 +99,38 @@ export function buildInternalEmail(
     .join("\n");
 
   return { subject, text };
+}
+
+export function buildAutoReply(
+  data: ContactApiData,
+  leadId: string
+): { subject: string; text: string } {
+  const firstName = data.name.trim().split(/\s+/)[0] || "there";
+  const whatsapp = buildWhatsAppUrl(`Hi Ramatech, following up on my inquiry ${leadId}.`);
+
+  const text = [
+    `Hi ${firstName},`,
+    "",
+    `Thanks for contacting Ramatech Innovation about ${serviceLabel(data)}. Your inquiry has reached our engineering team.`,
+    "",
+    `Reference: ${leadId}`,
+    "",
+    "What happens next:",
+    "  1. We review your message and reply within 4 business hours (Mon-Sat, IST).",
+    "  2. We schedule a focused technical call to understand your platform and goals.",
+    "  3. You get a clear next-step recommendation, with no obligation.",
+    "",
+    BOOKING_URL ? `Prefer to pick a time now? Book a 30-minute call: ${BOOKING_URL}` : null,
+    `Need a quicker answer? WhatsApp us: ${whatsapp}`,
+    "",
+    "You can reply to this email with any extra details (current setup, timelines, constraints).",
+    "",
+    "Regards,",
+    "Ramatech Innovation",
+    `${siteConfig.url} | ${siteConfig.email}`,
+  ]
+    .filter((line) => line !== null)
+    .join("\n");
+
+  return { subject: `We received your inquiry - Ramatech (${leadId})`, text };
 }

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { contactApiSchema } from "@/lib/validations";
 import { getContactEmail } from "@/lib/seo";
-import { buildInternalEmail, generateLeadId } from "@/lib/lead-emails";
+import { buildAutoReply, buildInternalEmail, generateLeadId } from "@/lib/lead-emails";
 import { sendEmail } from "@/lib/resend";
 import { storageStatusText, storeLead } from "@/lib/leads-store";
 
@@ -98,6 +98,20 @@ export async function POST(request: Request) {
       console.error("[contact] internal email failed", leadId, emailResult.error);
       if (!stored.ok) {
         return NextResponse.json({ error: DELIVERY_FAILED_MESSAGE }, { status: 500 });
+      }
+    }
+
+    if (process.env.AUTOREPLY_ENABLED === "true") {
+      const reply = buildAutoReply(data, leadId);
+      const replyResult = await sendEmail({
+        from: process.env.AUTOREPLY_FROM_EMAIL ?? `Ramatech Innovation <${getContactEmail()}>`,
+        to: [data.email],
+        subject: reply.subject,
+        text: reply.text,
+        replyTo: getContactEmail(),
+      });
+      if (!replyResult.ok) {
+        console.error("[contact] auto-reply failed", leadId, replyResult.error);
       }
     }
 
