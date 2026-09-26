@@ -49,7 +49,7 @@ export const pageMeta = {
   privacy: {
     title: "Privacy Policy",
     description:
-      "How Ramatech Innovation collects and uses contact form data, hosting information, and your rights. Questions: info@ramatech.co.in.",
+      "How Ramatech Innovation collects and uses contact form data, analytics and cookies, and your rights. Questions: info@ramatech.co.in.",
   },
   terms: {
     title: "Terms of Service",
