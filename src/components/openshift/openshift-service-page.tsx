@@ -8,6 +8,7 @@ import { OpenShiftCaseStudyCallout } from "@/components/openshift/openshift-case
 import { OpenShiftMidCta } from "@/components/openshift/openshift-mid-cta";
 import { OpenShiftServiceFinalCta } from "@/components/openshift/openshift-final-cta";
 import { OpenShiftInternalLinks } from "@/components/openshift/openshift-internal-links";
+import { OpenShiftLeadForm } from "@/components/openshift/openshift-lead-form";
 import { OpenshiftMigrationViz } from "@/components/case-studies/openshift-migration-viz";
 
 function renderSection(service: OpenShiftService, section: OpenShiftService["sections"][number]) {
@@ -65,6 +66,8 @@ export function OpenShiftServicePage({ service }: { service: OpenShiftService })
           <PackageFaqAccordion faqs={service.faqs} variant="dark" />
         </PackageSection>
       )}
+
+      <OpenShiftLeadForm slug={service.slug} />
 
       <OpenShiftServiceFinalCta service={service} />
       <OpenShiftInternalLinks links={service.internalLinks} insightLinks={service.insightLinks} />

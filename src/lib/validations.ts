@@ -30,7 +30,10 @@ export const contactApiSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Valid work email required"),
   company: z.string().min(2, "Company is required"),
-  role: z.string().min(1, "Role is required"),
+  role: z
+    .string()
+    .optional()
+    .transform((v) => v?.trim() || "Not specified"),
   interests: z
     .union([z.array(z.string()), z.string()])
     .transform((v) => (Array.isArray(v) ? v : v ? [v] : [])),

@@ -33,13 +33,27 @@ const interestGroups: { key: ContactInterestOption["group"]; label: string }[] =
   { key: "packages", label: "Packages" },
 ];
 
-export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
+export function ContactForm({
+  defaultIntent,
+  variant = "full",
+  presetInterest,
+  service,
+}: {
+  defaultIntent?: string;
+  /** "short" hides role and interests; used on ad landing pages */
+  variant?: "full" | "short";
+  presetInterest?: string;
+  service?: string;
+}) {
+  const isShort = variant === "short";
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
-  const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+  const [selectedInterests, setSelectedInterests] = useState<string[]>(
+    presetInterest ? [presetInterest] : []
+  );
   const [sourcePage, setSourcePage] = useState("");
 
   useEffect(() => {
@@ -66,22 +80,30 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
       return;
     }
 
-    setStatus("loading");
     const form = e.currentTarget;
     const data = new FormData(form);
+    if (!isShort && !data.get("role")) {
+      setStatus("error");
+      setError("Select your role.");
+      trackEvent("contact_form_error", { reason: "missing_role" });
+      return;
+    }
+
+    setStatus("loading");
     const attribution = getAttribution();
     const payload = {
       name: data.get("name"),
       email: data.get("email"),
       company: data.get("company"),
-      role: data.get("role"),
+      role: isShort ? undefined : data.get("role"),
       phone: data.get("phone") || undefined,
       interests: selectedInterests,
       message: data.get("message"),
       consent: data.get("consent") === "on",
       website: data.get("website") ?? "",
       intent: defaultIntent ?? data.get("intent") ?? "contact",
-      source: sourcePage || undefined,
+      source: sourcePage || (isShort ? pathname : undefined),
+      service,
       attribution,
     };
 
@@ -109,10 +131,12 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
       if (leadId) {
         const pending: PendingLead = {
           leadId,
-          service: contactInterestOptions
-            .filter((o) => selectedInterests.includes(o.slug))
-            .map((o) => o.label)
-            .join(", "),
+          service:
+            service ??
+            contactInterestOptions
+              .filter((o) => selectedInterests.includes(o.slug))
+              .map((o) => o.label)
+              .join(", "),
           intent,
           page: sourcePage || pathname,
           lead_source: sourceLabel(attribution?.last ?? attribution?.first),
@@ -184,60 +208,71 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
           <Label htmlFor="company">Company</Label>
           <Input id="company" name="company" required autoComplete="organization" />
         </div>
+        {isShort ? (
+          <div className="space-y-2">
+            <Label htmlFor="phone">Phone (optional)</Label>
+            <Input id="phone" name="phone" type="tel" autoComplete="tel" />
+          </div>
+        ) : (
+          <div className="space-y-2">
+            <Label htmlFor="role">Role</Label>
+            <select
+              id="role"
+              name="role"
+              required
+              className="flex h-10 w-full rounded-md border border-border bg-card px-3 text-sm text-foreground"
+            >
+              <option value="">Select role</option>
+              {roles.map((r) => (
+                <option key={r} value={r}>
+                  {r}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+      </div>
+
+      {!isShort && (
         <div className="space-y-2">
-          <Label htmlFor="role">Role</Label>
-          <select
-            id="role"
-            name="role"
-            required
-            className="flex h-10 w-full rounded-md border border-border bg-card px-3 text-sm text-foreground"
-          >
-            <option value="">Select role</option>
-            {roles.map((r) => (
-              <option key={r} value={r}>
-                {r}
-              </option>
-            ))}
-          </select>
+          <Label htmlFor="phone">Phone (optional)</Label>
+          <Input id="phone" name="phone" type="tel" autoComplete="tel" />
         </div>
-      </div>
+      )}
 
-      <div className="space-y-2">
-        <Label htmlFor="phone">Phone (optional)</Label>
-        <Input id="phone" name="phone" type="tel" autoComplete="tel" />
-      </div>
-
-      <div className="space-y-3">
-        <Label>
-          Areas of interest <span className="text-red-500">*</span>
-        </Label>
-        {interestGroups.map((group) => {
-          const options = contactInterestOptions.filter((o) => o.group === group.key);
-          if (options.length === 0) return null;
-          return (
-            <div key={group.key}>
-              <p className="type-caption mb-2 text-muted-foreground">{group.label}</p>
-              <div className="flex flex-wrap gap-2">
-                {options.map((option) => (
-                  <label key={option.slug} className="cursor-pointer">
-                    <input
-                      type="checkbox"
-                      name="interests"
-                      value={option.slug}
-                      className="peer sr-only"
-                      checked={selectedInterests.includes(option.slug)}
-                      onChange={() => toggleInterest(option.slug)}
-                    />
-                    <span className="inline-block rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm peer-checked:border-brand-cyan peer-checked:bg-brand-cyan/10">
-                      {option.label}
-                    </span>
-                  </label>
-                ))}
+      {!isShort && (
+        <div className="space-y-3">
+          <Label>
+            Areas of interest <span className="text-red-500">*</span>
+          </Label>
+          {interestGroups.map((group) => {
+            const options = contactInterestOptions.filter((o) => o.group === group.key);
+            if (options.length === 0) return null;
+            return (
+              <div key={group.key}>
+                <p className="type-caption mb-2 text-muted-foreground">{group.label}</p>
+                <div className="flex flex-wrap gap-2">
+                  {options.map((option) => (
+                    <label key={option.slug} className="cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="interests"
+                        value={option.slug}
+                        className="peer sr-only"
+                        checked={selectedInterests.includes(option.slug)}
+                        onChange={() => toggleInterest(option.slug)}
+                      />
+                      <span className="inline-block rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm peer-checked:border-brand-cyan peer-checked:bg-brand-cyan/10">
+                        {option.label}
+                      </span>
+                    </label>
+                  ))}
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      )}
 
       <div className="space-y-2">
         <Label htmlFor="message">Message</Label>
@@ -246,7 +281,11 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
           name="message"
           required
           minLength={10}
-          placeholder="Describe your platform, timeline, and goals..."
+          placeholder={
+            isShort
+              ? "Current platform, cluster size, and target timeline..."
+              : "Describe your platform, timeline, and goals..."
+          }
         />
       </div>
 
