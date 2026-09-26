@@ -35,8 +35,8 @@ export function buildLeadRow(data: ContactApiData, leadId: string): Record<strin
     gclid: lt.gclid ?? ft.gclid ?? "",
     gbraid: lt.gbraid ?? ft.gbraid ?? "",
     wbraid: lt.wbraid ?? ft.wbraid ?? "",
-    "Landing page": ft.landing_page ?? "",
-    Referrer: ft.referrer ?? lt.referrer ?? "",
+    "Landing page": lt.landing_page ?? ft.landing_page ?? "",
+    Referrer: lt.referrer ?? ft.referrer ?? "",
     Device: data.attribution?.device ?? "",
     Status: isTestLead(data) ? "TEST" : "New",
   };
