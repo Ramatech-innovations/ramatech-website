@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { trackEvent } from "@/lib/analytics";
-import { getAttribution } from "@/lib/attribution";
+import { getAttribution, sourceLabel } from "@/lib/attribution";
+import { PENDING_LEAD_KEY, type PendingLead } from "@/components/forms/thank-you-content";
 import {
   contactInterestOptions,
   contactInterestSlugs,
@@ -34,6 +35,8 @@ const interestGroups: { key: ContactInterestOption["group"]; label: string }[] =
 
 export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
@@ -66,6 +69,7 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
     setStatus("loading");
     const form = e.currentTarget;
     const data = new FormData(form);
+    const attribution = getAttribution();
     const payload = {
       name: data.get("name"),
       email: data.get("email"),
@@ -78,7 +82,7 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
       website: data.get("website") ?? "",
       intent: defaultIntent ?? data.get("intent") ?? "contact",
       source: sourcePage || undefined,
-      attribution: getAttribution(),
+      attribution,
     };
 
     try {
@@ -95,10 +99,33 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
         });
         throw new Error(formatContactApiError(json.error));
       }
+      const intent = String(defaultIntent ?? payload.intent ?? "contact");
       trackEvent("contact_form_submit", {
-        intent: String(defaultIntent ?? payload.intent ?? "contact"),
+        intent,
         source: sourcePage || "direct",
       });
+
+      const leadId: string | undefined = json.leadId;
+      if (leadId) {
+        const pending: PendingLead = {
+          leadId,
+          service: contactInterestOptions
+            .filter((o) => selectedInterests.includes(o.slug))
+            .map((o) => o.label)
+            .join(", "),
+          intent,
+          page: sourcePage || pathname,
+          lead_source: sourceLabel(attribution?.last ?? attribution?.first),
+        };
+        try {
+          window.sessionStorage.setItem(PENDING_LEAD_KEY, JSON.stringify(pending));
+        } catch {
+          // conversion event will be skipped; lead is already delivered
+        }
+        router.push(`/thank-you?lead=${encodeURIComponent(leadId)}`);
+        return;
+      }
+
       setStatus("success");
       form.reset();
       setSelectedInterests([]);
