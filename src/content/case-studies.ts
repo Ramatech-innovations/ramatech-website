@@ -16,7 +16,7 @@ export type CaseStudy = {
 };
 
 export const PHARMA_MIGRATION_SUMMARY =
-  "Pharmaceutical enterprise (name withheld) migrated legacy workloads to OpenShift in governed phases, with Argo CD GitOps and automated compliance checks in CI for regulated operations.";
+  "Pharmaceutical enterprise (name withheld): on-prem bare-metal OpenShift with legacy VMs brought onto the platform through OpenShift Virtualization, dynamic PV/PVC storage, and Argo CD GitOps replacing manual deployments.";
 
 export const caseStudies: CaseStudy[] = [
   {
@@ -42,22 +42,28 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "openshift-enterprise-migration",
     anonymised: true,
-    title: "Enterprise OpenShift Migration",
+    title: "Pharma OpenShift Platform on Bare Metal",
     client: "Pharmaceutical enterprise (name withheld)",
     industry: "Pharmaceuticals / Life sciences",
     solution: "cloud-infrastructure",
     summary:
-      "Migrated legacy workloads to OpenShift for a pharmaceutical enterprise, with GitOps and policy guardrails for regulated operations.",
+      "Built an on-prem bare-metal OpenShift platform for a pharmaceutical enterprise and moved legacy VM-based workloads onto it: containerised where possible, and run on OpenShift Virtualization where not. Every deployment is managed through Argo CD GitOps.",
     challenge:
-      "On-prem constraints, manual deployments, and strict validation and audit expectations slowed platform teams and made change evidence hard to produce.",
+      "Legacy applications ran on standalone virtual machines on on-prem infrastructure. Deployments were manual, storage was provisioned by ticket, and strict validation and audit expectations made change evidence slow to produce.",
     solutionDetail:
-      "Designed the cluster topology, migrated workloads in phases with explicit cutover criteria, implemented Argo CD GitOps workflows, and added automated compliance checks to CI.",
+      "Installed OpenShift on on-prem bare metal and enabled OpenShift Virtualization so existing VMs run alongside containers on one platform. Set up dynamic provisioning of persistent volumes (PV/PVC) through storage classes, containerised suitable applications, and moved deployments from manual steps to Argo CD GitOps, with every change recorded in Git.",
     results: [
-      { metric: "Phased", label: "Cutover with defined go/no-go criteria" },
-      { metric: "GitOps", label: "Argo CD-managed deployments" },
-      { metric: "Audit-ready", label: "Compliance checks built into CI" },
+      { metric: "Bare metal", label: "On-prem OpenShift platform, installed and configured" },
+      { metric: "GitOps", label: "Deployments moved from manual to Argo CD" },
+      { metric: "VMs + containers", label: "One platform with OpenShift Virtualization" },
     ],
-    stack: ["OpenShift", "Argo CD", "GitOps", "CI/CD policy checks"],
+    stack: [
+      "OpenShift",
+      "OpenShift Virtualization",
+      "Argo CD",
+      "Bare metal",
+      "Dynamic PV/PVC storage",
+    ],
   },
   {
     slug: "ai-automation-operations",
@@ -124,6 +130,9 @@ export const caseStudies: CaseStudy[] = [
     stack: ["OpenShift", "Argo CD", "Backstage", "Helm"],
   },
 ];
+
+/** Case studies shown in listings and the sitemap; illustrative profiles stay reachable but unlisted */
+export const publishedCaseStudies = caseStudies.filter((c) => !c.illustrative);
 
 export function getCaseStudy(slug: string) {
   return caseStudies.find((c) => c.slug === slug);

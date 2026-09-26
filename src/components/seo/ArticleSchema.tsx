@@ -24,12 +24,12 @@ export function ArticleSchema({
     dateModified,
     author: {
       "@type": "Organization",
-      name: "Ramatech Innovation Pvt Ltd",
+      name: "Ramatech Innovation",
       url: siteConfig.url,
     },
     publisher: {
       "@type": "Organization",
-      name: "Ramatech Innovation Pvt Ltd",
+      name: "Ramatech Innovation",
       url: siteConfig.url,
       logo: {
         "@type": "ImageObject",

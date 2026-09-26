@@ -1,6 +1,6 @@
 import { siteConfig } from "@/lib/seo";
 
-const COMPANY = "Ramatech Innovation Pvt Ltd";
+const COMPANY = "Ramatech Innovation";
 const TAGLINE = "AI • Cloud • DevOps • Automation";
 const SERVICES = "Enterprise AI Solutions | Cloud Infrastructure | Scalable Software Systems";
 const MISSION = "Building intelligent, reliable, and scalable technology for modern businesses.";

@@ -1,4 +1,5 @@
 // TODO: content review — geo country pages generated for Phase 1 SEO rollout
+import { PHARMA_MIGRATION_SUMMARY } from "@/content/case-studies";
 import type { OpenShiftGeoPage } from "./geo-types";
 import {
   indiaServiceSummaries,
@@ -84,9 +85,8 @@ export const openshiftGeoPages: OpenShiftGeoPage[] = [
     ],
     caseStudy: {
       href: "/case-studies/openshift-enterprise-migration",
-      title: "Enterprise OpenShift Migration",
-      summary:
-        "Pharmaceutical enterprise (name withheld) migrated legacy workloads to OpenShift in governed phases, with Argo CD GitOps and automated compliance checks in CI for regulated operations.",
+      title: "Pharma OpenShift Platform on Bare Metal",
+      summary: PHARMA_MIGRATION_SUMMARY,
     },
     cityCoverage: [
       {
@@ -171,9 +171,8 @@ export const openshiftGeoPages: OpenShiftGeoPage[] = [
     ],
     caseStudy: {
       href: "/case-studies/openshift-enterprise-migration",
-      title: "Enterprise OpenShift Migration",
-      summary:
-        "Pharmaceutical enterprise (name withheld) migrated legacy workloads to OpenShift in governed phases, with Argo CD GitOps and automated compliance checks in CI for regulated operations.",
+      title: "Pharma OpenShift Platform on Bare Metal",
+      summary: PHARMA_MIGRATION_SUMMARY,
     },
     faqs: buildFaqs(
       "the UAE",
@@ -235,9 +234,8 @@ export const openshiftGeoPages: OpenShiftGeoPage[] = [
     ],
     caseStudy: {
       href: "/case-studies/openshift-enterprise-migration",
-      title: "Enterprise OpenShift Migration",
-      summary:
-        "Pharmaceutical enterprise (name withheld) migrated legacy workloads to OpenShift in governed phases, with Argo CD GitOps and automated compliance checks in CI for regulated operations.",
+      title: "Pharma OpenShift Platform on Bare Metal",
+      summary: PHARMA_MIGRATION_SUMMARY,
     },
     faqs: buildFaqs(
       "Saudi Arabia",
@@ -300,10 +298,9 @@ export const openshiftGeoPages: OpenShiftGeoPage[] = [
       "ROSA/ARO where residency and provider approvals align",
     ],
     caseStudy: {
-      href: "/case-studies/observability-platform-scale",
-      title: "Observability Platform at Scale",
-      summary:
-        "Series B SaaS platform unified metrics, logs, and traces with VictoriaMetrics, structured logging, and SLO-based alerting. Results: 40% faster MTTR, 99.95% uptime target met, and 2-week delivery timeline.",
+      href: "/case-studies/openshift-enterprise-migration",
+      title: "Pharma OpenShift Platform on Bare Metal",
+      summary: PHARMA_MIGRATION_SUMMARY,
     },
     faqs: buildFaqs(
       "Qatar",
@@ -367,10 +364,9 @@ export const openshiftGeoPages: OpenShiftGeoPage[] = [
       "Platform engineering golden paths for high-velocity product teams",
     ],
     caseStudy: {
-      href: "/case-studies/observability-platform-scale",
-      title: "Observability Platform at Scale",
-      summary:
-        "Series B SaaS platform unified metrics, logs, and traces with VictoriaMetrics, structured logging, and SLO-based alerting. Results: 40% faster MTTR, 99.95% uptime target met, and 2-week delivery timeline.",
+      href: "/case-studies/openshift-enterprise-migration",
+      title: "Pharma OpenShift Platform on Bare Metal",
+      summary: PHARMA_MIGRATION_SUMMARY,
     },
     faqs: buildFaqs(
       "Singapore",

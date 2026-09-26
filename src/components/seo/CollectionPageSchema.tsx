@@ -20,7 +20,7 @@ export function CollectionPageSchema({
     url,
     publisher: {
       "@type": "Organization",
-      name: "Ramatech Innovation Pvt Ltd",
+      name: "Ramatech Innovation",
       url: siteConfig.url,
     },
     hasPart: hasPart.map((part) => ({

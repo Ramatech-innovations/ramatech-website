@@ -104,7 +104,7 @@ export function openshiftIndiaCityServiceSchemaProps(city: {
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Ramatech Innovation Pvt Ltd",
+  name: "Ramatech Innovation",
   url: "https://www.ramatech.co.in",
   logo: "https://www.ramatech.co.in/brand/logo-dark.png",
   contactPoint: {
@@ -155,7 +155,7 @@ export function openshiftHubServiceJsonLd() {
     ...props,
     provider: {
       "@type": "Organization",
-      name: "Ramatech Innovation Pvt Ltd",
+      name: "Ramatech Innovation",
       url: base(),
     },
     areaServed: props.areaServed.map((code) => ({

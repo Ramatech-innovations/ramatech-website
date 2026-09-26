@@ -26,11 +26,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const study = getCaseStudy(slug);
   if (!study) return {};
-  return createMetadata({
+  const metadata = createMetadata({
     title: study.title,
     description: metaDescription(study.summary),
     path: `/case-studies/${slug}`,
   });
+  return study.illustrative
+    ? { ...metadata, robots: { index: false, follow: true } }
+    : metadata;
 }
 
 export default async function CaseStudyPage({
