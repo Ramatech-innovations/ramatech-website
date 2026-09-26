@@ -5,16 +5,16 @@ import { Card } from "@/components/ui/card";
 export function OpenShiftTrustBand() {
   return (
     <Card tone="light" className="p-8 md:p-10">
-      <p className="type-caption text-brand-primary">Proven outcomes</p>
+      <p className="type-caption text-brand-primary">Delivery experience</p>
       <h3 className="type-h3 mt-2 text-brand-ink">
         Enterprise OpenShift Migration
       </h3>
       <p className="type-body-card mt-3">
-        Migrated legacy workloads to OpenShift with GitOps and policy guardrails
-        for regulated operations —{" "}
-        <strong className="text-brand-ink">60% deploy time reduction</strong>,{" "}
-        <strong className="text-brand-ink">100% GitOps coverage</strong>, and{" "}
-        <strong className="text-brand-ink">0 critical rollback incidents</strong>.
+        Migrated legacy workloads to OpenShift for a pharmaceutical enterprise, with
+        GitOps and policy guardrails for regulated operations —{" "}
+        <strong className="text-brand-ink">phased cutover</strong>,{" "}
+        <strong className="text-brand-ink">Argo CD-managed deployments</strong>, and{" "}
+        <strong className="text-brand-ink">compliance checks built into CI</strong>.
       </p>
       <Link
         href="/case-studies/openshift-enterprise-migration"

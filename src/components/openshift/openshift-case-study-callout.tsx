@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { PHARMA_MIGRATION_SUMMARY } from "@/content/case-studies";
 
 type CaseStudyCalloutProps = {
   href?: string;
@@ -11,7 +12,7 @@ type CaseStudyCalloutProps = {
 export function OpenShiftCaseStudyCallout({
   href = "/case-studies/openshift-enterprise-migration",
   title = "Enterprise OpenShift Migration",
-  summary = "Global logistics operator migrated legacy workloads to OpenShift with Argo CD GitOps and automated compliance checks in CI. Results: 60% deploy time reduction, 100% GitOps coverage, and zero critical rollback incidents during production cutover.",
+  summary = PHARMA_MIGRATION_SUMMARY,
 }: CaseStudyCalloutProps) {
   return (
     <Card tone="light" className="p-8 md:p-10">

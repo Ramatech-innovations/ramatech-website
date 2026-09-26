@@ -86,7 +86,7 @@ export const openshiftGeoPages: OpenShiftGeoPage[] = [
       href: "/case-studies/openshift-enterprise-migration",
       title: "Enterprise OpenShift Migration",
       summary:
-        "Global logistics operator migrated legacy workloads to OpenShift with Argo CD GitOps and automated compliance checks in CI. Results: 60% deploy time reduction, 100% GitOps coverage, and zero critical rollback incidents during production cutover.",
+        "Pharmaceutical enterprise (name withheld) migrated legacy workloads to OpenShift in governed phases, with Argo CD GitOps and automated compliance checks in CI for regulated operations.",
     },
     cityCoverage: [
       {
@@ -173,7 +173,7 @@ export const openshiftGeoPages: OpenShiftGeoPage[] = [
       href: "/case-studies/openshift-enterprise-migration",
       title: "Enterprise OpenShift Migration",
       summary:
-        "Global logistics operator migrated legacy workloads to OpenShift with Argo CD GitOps and automated compliance checks in CI. Results: 60% deploy time reduction, 100% GitOps coverage, and zero critical rollback incidents during production cutover.",
+        "Pharmaceutical enterprise (name withheld) migrated legacy workloads to OpenShift in governed phases, with Argo CD GitOps and automated compliance checks in CI for regulated operations.",
     },
     faqs: buildFaqs(
       "the UAE",
@@ -237,7 +237,7 @@ export const openshiftGeoPages: OpenShiftGeoPage[] = [
       href: "/case-studies/openshift-enterprise-migration",
       title: "Enterprise OpenShift Migration",
       summary:
-        "Global logistics operator migrated legacy workloads to OpenShift with Argo CD GitOps and automated compliance checks in CI. Results: 60% deploy time reduction, 100% GitOps coverage, and zero critical rollback incidents during production cutover.",
+        "Pharmaceutical enterprise (name withheld) migrated legacy workloads to OpenShift in governed phases, with Argo CD GitOps and automated compliance checks in CI for regulated operations.",
     },
     faqs: buildFaqs(
       "Saudi Arabia",

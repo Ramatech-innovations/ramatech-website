@@ -76,6 +76,16 @@ export default async function CaseStudyPage({
           </div>
         </div>
       )}
+      {study.anonymised && (
+        <div className="border-b border-slate-200 bg-slate-50">
+          <div className={PAGE_CONTAINER_NARROW}>
+            <p className="py-3 text-center text-sm text-slate-700">
+              Anonymised engagement. Based on hands-on OpenShift delivery experience of the
+              Ramatech team. Client name withheld under confidentiality.
+            </p>
+          </div>
+        </div>
+      )}
       <MotionSection className="py-16 md:py-20">
         <div className={`${PAGE_CONTAINER_NARROW} space-y-12`}>
           <div className="overflow-hidden rounded-2xl border border-slate-200 bg-[#060a12] p-5 md:p-6">

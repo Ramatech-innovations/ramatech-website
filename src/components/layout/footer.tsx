@@ -17,8 +17,8 @@ export function Footer() {
               Ready to build what&apos;s next?
             </h2>
             <p className="type-body-card mt-2 max-w-xl">
-              Share your goals in a 30-minute call — websites, AI automation, or
-              custom systems.
+              Share your goals in a 30-minute call — OpenShift, cloud, DevOps,
+              monitoring, or AI engineering.
             </p>
           </div>
           <FooterCtaBand />
