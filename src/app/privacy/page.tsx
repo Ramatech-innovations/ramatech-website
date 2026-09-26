@@ -10,7 +10,8 @@ export const metadata = createMetadata({
   path: "/privacy",
 });
 
-const LAST_UPDATED = "26 September 2026";
+const LAST_UPDATED = "27 September 2026";
+const EXTERNAL_LINK = "text-brand-primary hover:underline";
 
 function LegalSection({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -48,6 +49,7 @@ export default function PrivacyPage() {
           <ul className="list-disc space-y-2 pl-5">
             <li>Name and work email address</li>
             <li>Company name and job role</li>
+            <li>Phone number (optional)</li>
             <li>Areas of interest you select</li>
             <li>Message content and optional consultation intent</li>
           </ul>
@@ -59,6 +61,52 @@ export default function PrivacyPage() {
             To understand how you found us, your browser stores the campaign or referring source of
             your visit (for example UTM parameters or an ad click ID) and sends it with any inquiry
             you submit. We use it only to handle your inquiry and measure which channels work.
+          </p>
+        </LegalSection>
+
+        <LegalSection title="Analytics and cookies">
+          <p>
+            We use Google Analytics and Microsoft Clarity to understand how visitors use this
+            website, for example which pages are viewed, how people navigate, and which device and
+            browser they use. Clarity also records anonymised session replays and heatmaps showing
+            clicks, scrolling and mouse movement. Text typed into form fields is masked and is not
+            captured in these recordings.
+          </p>
+          <p>
+            These tools set cookies, such as Google Analytics <code>_ga</code> cookies and Clarity{" "}
+            <code>_clck</code>/<code>_clsk</code> cookies, to recognise returning visits. We use
+            this data only in aggregate to improve the website. We do not use it to identify you,
+            and we do not sell it.
+          </p>
+          <p>
+            You can opt out by blocking cookies in your browser, by using the{" "}
+            <a
+              href="https://tools.google.com/dlpage/gaoptout"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={EXTERNAL_LINK}
+            >
+              Google Analytics opt-out add-on
+            </a>
+            , or by using a tracking-blocking browser extension. For details, see the{" "}
+            <a
+              href="https://policies.google.com/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={EXTERNAL_LINK}
+            >
+              Google Privacy Policy
+            </a>{" "}
+            and the{" "}
+            <a
+              href="https://privacy.microsoft.com/privacystatement"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={EXTERNAL_LINK}
+            >
+              Microsoft Privacy Statement
+            </a>
+            .
           </p>
         </LegalSection>
 
@@ -83,9 +131,12 @@ export default function PrivacyPage() {
 
         <LegalSection title="Third-party services">
           <p>
-            Our website is hosted on Vercel. Form notifications may be delivered via Resend or
-            similar email providers. These processors handle data according to their own privacy
-            policies and our instructions for delivery and security.
+            Our website is hosted on Vercel. Inquiry emails are delivered through Resend, and
+            inquiries are stored in Google Workspace (Google Sheets), which we also use for email
+            and calendar bookings through Google Calendar. We use Google Analytics and Microsoft
+            Clarity for website analytics. If you choose to contact us on WhatsApp, that
+            conversation is handled by WhatsApp (Meta) under its own privacy policy. These
+            providers process data under their own privacy policies and our instructions.
           </p>
         </LegalSection>
 
