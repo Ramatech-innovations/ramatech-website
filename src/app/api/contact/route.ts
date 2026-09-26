@@ -3,6 +3,7 @@ import { contactApiSchema } from "@/lib/validations";
 import { getContactEmail } from "@/lib/seo";
 import { buildInternalEmail, generateLeadId } from "@/lib/lead-emails";
 import { sendEmail } from "@/lib/resend";
+import { storageStatusText, storeLead } from "@/lib/leads-store";
 
 const DELIVERY_FAILED_MESSAGE =
   "We could not deliver your message right now. Please email info@ramatech.co.in or message us on WhatsApp.";
@@ -60,12 +61,17 @@ export async function POST(request: Request) {
     }
 
     const leadId = generateLeadId();
-    const contactEmail = getContactEmail();
     const isProduction = process.env.NODE_ENV === "production";
 
+    const stored = await storeLead(data, leadId);
+    if (!stored.ok && !stored.skipped) {
+      console.error("[contact] sheet store failed", leadId, stored.error);
+    }
+
     if (!process.env.RESEND_API_KEY) {
+      if (stored.ok) return NextResponse.json({ success: true, leadId });
       if (isProduction) {
-        console.error("[contact] RESEND_API_KEY not configured");
+        console.error("[contact] RESEND_API_KEY not configured and sheet unavailable", leadId);
         return NextResponse.json({ error: DELIVERY_FAILED_MESSAGE }, { status: 503 });
       }
       console.info("[contact] dev mode — email not sent:", {
@@ -79,10 +85,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true, leadId });
     }
 
-    const internal = buildInternalEmail(data, leadId, "email only");
+    const internal = buildInternalEmail(data, leadId, storageStatusText(stored));
     const emailResult = await sendEmail({
       from: process.env.RESEND_FROM_EMAIL ?? "Ramatech Website <onboarding@resend.dev>",
-      to: [contactEmail],
+      to: [getContactEmail()],
       subject: internal.subject,
       text: internal.text,
       replyTo: data.email,
@@ -90,7 +96,9 @@ export async function POST(request: Request) {
 
     if (!emailResult.ok) {
       console.error("[contact] internal email failed", leadId, emailResult.error);
-      return NextResponse.json({ error: DELIVERY_FAILED_MESSAGE }, { status: 500 });
+      if (!stored.ok) {
+        return NextResponse.json({ error: DELIVERY_FAILED_MESSAGE }, { status: 500 });
+      }
     }
 
     return NextResponse.json({ success: true, leadId });
