@@ -1,5 +1,7 @@
 import { Suspense } from "react";
 import { ContactForm } from "@/components/forms/contact-form";
+import { BookingLink } from "@/components/marketing/booking-link";
+import { BOOKING_URL } from "@/lib/booking";
 import { PageHero } from "@/components/marketing/page-hero";
 import { MotionSection } from "@/components/motion/motion-section";
 import { createMetadata, siteConfig } from "@/lib/seo";
@@ -46,6 +48,12 @@ export default function ContactPage() {
                   </li>
                 </ol>
               </div>
+              {BOOKING_URL && (
+                <div className="space-y-3">
+                  <p className="type-body-card">Prefer to pick a time directly?</p>
+                  <BookingLink />
+                </div>
+              )}
               <p className="type-body-card">
                 Email: {siteConfig.email} · Serving teams across US, UK, Europe, Southeast Asia,
                 and Middle East.

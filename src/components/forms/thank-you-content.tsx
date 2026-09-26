@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { WhatsAppLink } from "@/components/analytics/tracked-link";
+import { BookingLink } from "@/components/marketing/booking-link";
 import { trackEvent } from "@/lib/analytics";
 
 export const PENDING_LEAD_KEY = "rt_pending_lead";
@@ -66,6 +67,7 @@ export function ThankYouContent({ children }: { children?: React.ReactNode }) {
       </ol>
       {children}
       <div className="mt-8 flex flex-wrap gap-3">
+        <BookingLink label="Book a 30-min call now" variant="default" />
         <Button asChild>
           <WhatsAppLink
             source="thank_you"
