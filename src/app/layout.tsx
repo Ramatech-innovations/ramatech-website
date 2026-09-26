@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { AnalyticsScripts } from "@/components/analytics/analytics-scripts";
+import { AttributionCapture } from "@/components/analytics/attribution-capture";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFloatButton } from "@/components/layout/whatsapp-float-button";
@@ -62,6 +63,7 @@ export default function RootLayout({
       <body className="min-h-screen font-sans antialiased">
         <OrganizationSchema />
         <AnalyticsScripts />
+        <AttributionCapture />
         <Header />
         <main>{children}</main>
         <Footer />

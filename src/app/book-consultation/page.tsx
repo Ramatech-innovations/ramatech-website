@@ -1,5 +1,7 @@
 import { Suspense } from "react";
 import { ContactForm } from "@/components/forms/contact-form";
+import { BookingLink } from "@/components/marketing/booking-link";
+import { BOOKING_URL } from "@/lib/booking";
 import { PageHero } from "@/components/marketing/page-hero";
 import { MotionSection } from "@/components/motion/motion-section";
 import { createMetadata } from "@/lib/seo";
@@ -26,6 +28,12 @@ export default function BookConsultationPage() {
       />
       <MotionSection className="py-16 md:py-20">
         <div className={PAGE_CONTAINER_NARROW}>
+          {BOOKING_URL && (
+            <div className="card-on-light mb-8 flex flex-wrap items-center justify-between gap-4 rounded-xl p-5">
+              <p className="type-body-card">Want to skip the form? Pick a 30-minute slot directly.</p>
+              <BookingLink />
+            </div>
+          )}
           <Suspense fallback={<ContactFormFallback />}>
             <ContactForm defaultIntent="consultation" />
           </Suspense>

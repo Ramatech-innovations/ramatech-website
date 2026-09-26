@@ -11,11 +11,17 @@ export type CaseStudy = {
   stack: string[];
   /** Composite/illustrative profile — show disclaimer on detail page */
   illustrative?: boolean;
+  /** Real delivery with client name withheld — show confidentiality note on detail page */
+  anonymised?: boolean;
 };
+
+export const PHARMA_MIGRATION_SUMMARY =
+  "Pharmaceutical enterprise (name withheld) migrated legacy workloads to OpenShift in governed phases, with Argo CD GitOps and automated compliance checks in CI for regulated operations.";
 
 export const caseStudies: CaseStudy[] = [
   {
     slug: "observability-platform-scale",
+    illustrative: true,
     title: "Observability Platform at Scale",
     client: "Series B SaaS",
     industry: "SaaS",
@@ -35,25 +41,27 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "openshift-enterprise-migration",
+    anonymised: true,
     title: "Enterprise OpenShift Migration",
-    client: "Global Logistics",
-    industry: "Logistics",
+    client: "Pharmaceutical enterprise (name withheld)",
+    industry: "Pharmaceuticals / Life sciences",
     solution: "cloud-infrastructure",
     summary:
-      "Migrated legacy workloads to OpenShift with GitOps and policy guardrails for regulated operations.",
+      "Migrated legacy workloads to OpenShift for a pharmaceutical enterprise, with GitOps and policy guardrails for regulated operations.",
     challenge:
-      "On-prem constraints and manual deployments blocked platform team velocity and audit readiness.",
+      "On-prem constraints, manual deployments, and strict validation and audit expectations slowed platform teams and made change evidence hard to produce.",
     solutionDetail:
-      "Designed cluster topology, implemented Argo CD workflows, and automated compliance checks in CI.",
+      "Designed the cluster topology, migrated workloads in phases with explicit cutover criteria, implemented Argo CD GitOps workflows, and added automated compliance checks to CI.",
     results: [
-      { metric: "60%", label: "Deploy time reduction" },
-      { metric: "100%", label: "GitOps coverage" },
-      { metric: "0", label: "Critical rollback incidents" },
+      { metric: "Phased", label: "Cutover with defined go/no-go criteria" },
+      { metric: "GitOps", label: "Argo CD-managed deployments" },
+      { metric: "Audit-ready", label: "Compliance checks built into CI" },
     ],
-    stack: ["OpenShift", "Argo CD", "Terraform", "Vault"],
+    stack: ["OpenShift", "Argo CD", "GitOps", "CI/CD policy checks"],
   },
   {
     slug: "ai-automation-operations",
+    illustrative: true,
     title: "AI-Driven Operations Automation",
     client: "HealthTech Platform",
     industry: "Healthcare",

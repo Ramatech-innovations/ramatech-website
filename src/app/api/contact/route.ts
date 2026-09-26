@@ -1,6 +1,12 @@
 import { NextResponse } from "next/server";
 import { contactApiSchema } from "@/lib/validations";
 import { getContactEmail } from "@/lib/seo";
+import { buildAutoReply, buildInternalEmail, generateLeadId } from "@/lib/lead-emails";
+import { sendEmail } from "@/lib/resend";
+import { storageStatusText, storeLead } from "@/lib/leads-store";
+
+const DELIVERY_FAILED_MESSAGE =
+  "We could not deliver your message right now. Please email info@ramatech.co.in or message us on WhatsApp.";
 
 const rateLimit = new Map<string, { count: number; reset: number }>();
 const RATE_LIMIT = 5;
@@ -54,63 +60,62 @@ export async function POST(request: Request) {
       );
     }
 
-    const contactEmail = getContactEmail();
-    const resendKey = process.env.RESEND_API_KEY;
+    const leadId = generateLeadId();
     const isProduction = process.env.NODE_ENV === "production";
 
-    if (!resendKey || !contactEmail) {
+    const stored = await storeLead(data, leadId);
+    if (!stored.ok && !stored.skipped) {
+      console.error("[contact] sheet store failed", leadId, stored.error);
+    }
+
+    if (!process.env.RESEND_API_KEY) {
+      if (stored.ok) return NextResponse.json({ success: true, leadId });
       if (isProduction) {
-        console.error("[contact] RESEND_API_KEY or CONTACT_EMAIL not configured");
-        return NextResponse.json(
-          { error: "Lead delivery is temporarily unavailable. Please email info@ramatech.co.in or use WhatsApp." },
-          { status: 503 }
-        );
+        console.error("[contact] RESEND_API_KEY not configured and sheet unavailable", leadId);
+        return NextResponse.json({ error: DELIVERY_FAILED_MESSAGE }, { status: 503 });
       }
       console.info("[contact] dev mode — email not sent:", {
+        leadId,
         name: data.name,
         email: data.email,
         company: data.company,
         interests: data.interests,
-        source: data.source,
+        attribution: data.attribution,
       });
-      return NextResponse.json({ success: true });
+      return NextResponse.json({ success: true, leadId });
     }
 
-    const emailBody = `
-New ${data.intent ?? "contact"} inquiry from Ramatech Website
-
-Name: ${data.name}
-Email: ${data.email}
-Company: ${data.company}
-Role: ${data.role}
-${data.phone ? `Phone: ${data.phone}` : ""}
-Interests: ${data.interests.join(", ")}
-${data.source ? `Source page: ${data.source}` : ""}
-
-Message:
-${data.message}
-`.trim();
-
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${resendKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: process.env.RESEND_FROM_EMAIL ?? "Ramatech Website <onboarding@resend.dev>",
-        to: [contactEmail],
-        subject: `[Ramatech] ${data.intent === "consultation" ? "Consultation" : "Contact"}: ${data.company}`,
-        text: emailBody,
-      }),
+    const internal = buildInternalEmail(data, leadId, storageStatusText(stored));
+    const emailResult = await sendEmail({
+      from: process.env.RESEND_FROM_EMAIL ?? "Ramatech Website <onboarding@resend.dev>",
+      to: [getContactEmail()],
+      subject: internal.subject,
+      text: internal.text,
+      replyTo: data.email,
     });
 
-    if (!res.ok) {
-      console.error("Resend error", await res.text());
-      return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+    if (!emailResult.ok) {
+      console.error("[contact] internal email failed", leadId, emailResult.error);
+      if (!stored.ok) {
+        return NextResponse.json({ error: DELIVERY_FAILED_MESSAGE }, { status: 500 });
+      }
     }
 
-    return NextResponse.json({ success: true });
+    if (process.env.AUTOREPLY_ENABLED === "true") {
+      const reply = buildAutoReply(data, leadId);
+      const replyResult = await sendEmail({
+        from: process.env.AUTOREPLY_FROM_EMAIL ?? `Ramatech Innovation <${getContactEmail()}>`,
+        to: [data.email],
+        subject: reply.subject,
+        text: reply.text,
+        replyTo: getContactEmail(),
+      });
+      if (!replyResult.ok) {
+        console.error("[contact] auto-reply failed", leadId, replyResult.error);
+      }
+    }
+
+    return NextResponse.json({ success: true, leadId });
   } catch (e) {
     console.error(e);
     return NextResponse.json({ error: "Internal error" }, { status: 500 });

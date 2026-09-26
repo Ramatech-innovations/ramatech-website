@@ -1,10 +1,39 @@
 import { z } from "zod";
 
+const attrString = z.string().max(300).optional();
+
+const touchSchema = z
+  .object({
+    utm_source: attrString,
+    utm_medium: attrString,
+    utm_campaign: attrString,
+    utm_term: attrString,
+    utm_content: attrString,
+    gclid: attrString,
+    gbraid: attrString,
+    wbraid: attrString,
+    referrer: attrString,
+    landing_page: attrString,
+    ts: attrString,
+  })
+  .optional();
+
+export const attributionSchema = z
+  .object({
+    first: touchSchema,
+    last: touchSchema,
+    device: z.string().max(20).optional(),
+  })
+  .optional();
+
 export const contactApiSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Valid work email required"),
   company: z.string().min(2, "Company is required"),
-  role: z.string().min(1, "Role is required"),
+  role: z
+    .string()
+    .optional()
+    .transform((v) => v?.trim() || "Not specified"),
   interests: z
     .union([z.array(z.string()), z.string()])
     .transform((v) => (Array.isArray(v) ? v : v ? [v] : [])),
@@ -14,6 +43,8 @@ export const contactApiSchema = z.object({
   intent: z.string().optional(),
   source: z.string().optional(),
   phone: z.string().optional(),
+  service: z.string().max(120).optional(),
+  attribution: attributionSchema,
 });
 
 export type ContactApiData = z.infer<typeof contactApiSchema>;

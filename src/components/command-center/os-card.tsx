@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { AnimatedCounter } from "@/components/marketing/animated-counter";
 import type { OsCardConfig } from "@/content/command-center-os";
 
 export function OsCard({
@@ -48,13 +47,8 @@ export function OsCard({
       <p className="font-mono text-[9px] uppercase tracking-wider text-white/55 sm:text-[10px]">
         {card.label}
       </p>
-      <p className="type-metric mt-1 text-lg text-brand-cyan sm:text-xl">
-        <AnimatedCounter
-          value={card.value}
-          prefix={card.prefix}
-          suffix={card.suffix}
-          duration={1600}
-        />
+      <p className="mt-1 text-xs font-medium leading-snug text-brand-cyan sm:text-sm">
+        {card.detail}
       </p>
       <div className="mt-1.5 h-0.5 w-full overflow-hidden rounded-full bg-white/5">
         <motion.div

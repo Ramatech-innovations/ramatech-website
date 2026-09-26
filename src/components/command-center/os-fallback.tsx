@@ -1,6 +1,5 @@
 "use client";
 
-import { AnimatedCounter } from "@/components/marketing/animated-counter";
 import { commandCenterOsCards } from "@/content/command-center-os";
 import Image from "next/image";
 
@@ -26,9 +25,7 @@ export function OsFallback() {
           className="rounded-lg border border-white/10 bg-[#0a1224]/80 px-3 py-2.5"
         >
           <p className="font-mono text-[9px] uppercase tracking-wider text-white/55">{card.label}</p>
-          <p className="type-metric mt-1 text-brand-cyan">
-            <AnimatedCounter value={card.value} prefix={card.prefix} suffix={card.suffix} />
-          </p>
+          <p className="mt-1 text-sm font-medium text-brand-cyan">{card.detail}</p>
         </div>
       ))}
     </div>

@@ -8,6 +8,8 @@
 | `RESEND_FROM_EMAIL` | Verified sender (e.g. `Ramatech Website <noreply@ramatech.co.in>`) |
 | `CONTACT_EMAIL` | Inbox that receives leads (defaults to `info@ramatech.co.in` if unset) |
 | `NEXT_PUBLIC_SITE_URL` | `https://www.ramatech.co.in` |
+| `LEADS_WEBHOOK_URL` | Apps Script web app URL for the Ramatech Leads sheet |
+| `LEADS_WEBHOOK_SECRET` | Shared secret checked by the Apps Script |
 
 See [`.env.example`](../.env.example).
 
@@ -36,4 +38,4 @@ npm run verify:resend
 
 ## Development without Resend
 
-In `NODE_ENV=development`, missing keys log to console and return success — intentional for local dev only. Production **never** fakes success without email.
+In `NODE_ENV=development`, missing keys log to console and return success — intentional for local dev only. Production only returns success when the lead reached the leads sheet or the internal email (see [LEADS-SHEET-SETUP.md](./LEADS-SHEET-SETUP.md)).

@@ -128,7 +128,7 @@ export const technologyPages: TechnologyPage[] = [
       { href: "/openshift/platform-engineering", label: "OpenShift Platform Engineering" },
       {
         href: "/case-studies/openshift-enterprise-migration",
-        label: "Case study: Enterprise OpenShift Migration (100% GitOps coverage)",
+        label: "Case study: Enterprise OpenShift Migration (GitOps with Argo CD)",
       },
     ],
     insightLinks: [

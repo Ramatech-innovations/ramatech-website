@@ -1,7 +1,8 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { trackEvent } from "@/lib/analytics";
-import { siteConfig } from "@/lib/seo";
+import { buildWhatsAppUrl, siteConfig } from "@/lib/seo";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -18,13 +19,21 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 export function WhatsAppFloatButton() {
+  const pathname = usePathname();
+  const href =
+    pathname && pathname !== "/"
+      ? buildWhatsAppUrl(
+          `Hi Ramatech, I want to discuss a project (from ${siteConfig.url.replace(/^https?:\/\//, "")}${pathname}).`
+        )
+      : siteConfig.whatsappUrl;
+
   return (
     <a
-      href={siteConfig.whatsappUrl}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
-      onClick={() => trackEvent("whatsapp_click", { source: "float_button" })}
+      onClick={() => trackEvent("whatsapp_click", { source: "float_button", page: pathname })}
       className="group fixed bottom-6 right-6 z-[60] flex items-center gap-2 pb-[env(safe-area-inset-bottom)] pr-[env(safe-area-inset-right)] max-md:bottom-5 max-md:right-5 motion-safe:transition-transform motion-safe:hover:scale-105"
     >
       <span
