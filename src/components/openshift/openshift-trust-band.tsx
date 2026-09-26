@@ -7,14 +7,14 @@ export function OpenShiftTrustBand() {
     <Card tone="light" className="p-8 md:p-10">
       <p className="type-caption text-brand-primary">Delivery experience</p>
       <h3 className="type-h3 mt-2 text-brand-ink">
-        Enterprise OpenShift Migration
+        Pharma OpenShift Platform on Bare Metal
       </h3>
       <p className="type-body-card mt-3">
-        Migrated legacy workloads to OpenShift for a pharmaceutical enterprise, with
-        GitOps and policy guardrails for regulated operations —{" "}
-        <strong className="text-brand-ink">phased cutover</strong>,{" "}
-        <strong className="text-brand-ink">Argo CD-managed deployments</strong>, and{" "}
-        <strong className="text-brand-ink">compliance checks built into CI</strong>.
+        Built an on-prem OpenShift platform for a pharmaceutical enterprise —{" "}
+        <strong className="text-brand-ink">bare-metal installation</strong>,{" "}
+        <strong className="text-brand-ink">legacy VMs on OpenShift Virtualization</strong>,
+        dynamic PV/PVC storage, and{" "}
+        <strong className="text-brand-ink">Argo CD GitOps replacing manual deployments</strong>.
       </p>
       <Link
         href="/case-studies/openshift-enterprise-migration"

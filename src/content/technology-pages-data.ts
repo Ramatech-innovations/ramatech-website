@@ -46,7 +46,7 @@ export const technologyPages: TechnologyPage[] = [
       ...openshiftServiceLinks,
       {
         href: "/case-studies/openshift-enterprise-migration",
-        label: "Case study: Enterprise OpenShift Migration",
+        label: "Case study: Pharma OpenShift Platform on Bare Metal",
       },
     ],
     insightLinks: [
@@ -128,7 +128,7 @@ export const technologyPages: TechnologyPage[] = [
       { href: "/openshift/platform-engineering", label: "OpenShift Platform Engineering" },
       {
         href: "/case-studies/openshift-enterprise-migration",
-        label: "Case study: Enterprise OpenShift Migration (GitOps with Argo CD)",
+        label: "Case study: Pharma OpenShift Platform (GitOps with Argo CD)",
       },
     ],
     insightLinks: [
@@ -158,7 +158,7 @@ export const technologyPages: TechnologyPage[] = [
     ],
     ramatechExpertise: [
       "Support and managed services engagements baseline alert noise, tune recording rules, and align z-stream patch windows with observability behavior post-upgrade. We integrate Prometheus alerts with existing ITSM and produce evidence suitable for vendor oversight reviews.",
-      "Our observability platform case study unified metrics, logs, and traces with SLO-based alerting—illustrative of how Prometheus fits a broader telemetry strategy on Kubernetes-class platforms.",
+      "Monitoring is designed alongside installation and GitOps work rather than bolted on after go-live, so alert ownership, recording rules, and dashboards exist from day one.",
       "Capacity reviews connect utilization trends to architecture decisions—whether to expand node pools, consolidate tenants, or introduce burst capacity—using Prometheus history rather than point-in-time kubectl top snapshots.",
     ],
     useCases: [
@@ -170,8 +170,8 @@ export const technologyPages: TechnologyPage[] = [
       { href: "/openshift/support-services", label: "OpenShift Support Services" },
       { href: "/openshift/managed-services", label: "OpenShift Managed Services" },
       {
-        href: "/case-studies/observability-platform-scale",
-        label: "Case study: Observability Platform at Scale",
+        href: "/case-studies/openshift-enterprise-migration",
+        label: "Case study: Pharma OpenShift Platform on Bare Metal",
       },
     ],
     insightLinks: [
@@ -199,7 +199,7 @@ export const technologyPages: TechnologyPage[] = [
     ],
     ramatechExpertise: [
       "Support services tune dashboard libraries, reduce alert duplication, and align maintenance windows with observability gaps discovered during onboarding. We document which dashboards are authoritative for platform SLOs versus exploratory views.",
-      "Observability case study delivery included Grafana alongside VictoriaMetrics and structured logging—representative of how we connect visualization to SLO targets and faster MTTR.",
+      "We connect Grafana dashboards to agreed SLO targets so visualization supports incident response and capacity decisions, not just ad hoc exploration.",
       "Managed operations include periodic dashboard hygiene: retiring orphaned panels, fixing broken datasource references after upgrades, and adding panels when new operators join the cluster monitoring footprint.",
     ],
     useCases: [
@@ -210,8 +210,8 @@ export const technologyPages: TechnologyPage[] = [
     relatedLinks: [
       { href: "/openshift/support-services", label: "OpenShift Support Services" },
       {
-        href: "/case-studies/observability-platform-scale",
-        label: "Case study: Observability Platform at Scale",
+        href: "/case-studies/openshift-enterprise-migration",
+        label: "Case study: Pharma OpenShift Platform on Bare Metal",
       },
     ],
     insightLinks: [

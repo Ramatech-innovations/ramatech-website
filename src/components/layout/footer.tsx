@@ -96,7 +96,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t border-slate-200 pt-8 text-sm text-slate-500">
-          <p>© {new Date().getFullYear()} Ramatech Innovation Pvt Ltd. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Ramatech Innovation. All rights reserved.</p>
         </div>
       </div>
     </footer>

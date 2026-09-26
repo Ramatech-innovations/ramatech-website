@@ -247,8 +247,8 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
         label: "Need architecture guidance before rollout? Talk to consulting experts",
       },
       {
-        href: "/case-studies/openshift-gitops-automation",
-        label: "See GitOps automation outcomes in our case study",
+        href: "/case-studies/openshift-enterprise-migration",
+        label: "See how manual deployments moved to Argo CD GitOps in our pharma case study",
       },
       {
         href: "/openshift",
@@ -775,12 +775,8 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
         label: "Need reliability coverage for day-two operations? See support services",
       },
       {
-        href: "/case-studies/openshift-gitops-automation",
-        label: "Read how GitOps automation reduced deployment errors",
-      },
-      {
-        href: "/case-studies/openshift-platform-engineering-golden-paths",
-        label: "See platform engineering golden-path outcomes",
+        href: "/case-studies/openshift-enterprise-migration",
+        label: "Read the pharma OpenShift platform case study",
       },
       {
         href: "/openshift",
@@ -821,7 +817,7 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
       "Fully managed Red Hat OpenShift - cluster operations, upgrades, patching, monitoring, incident response, and capacity management. Focus on your product, not your platform.",
     h1: "OpenShift Managed Services — Your Cluster, Fully Operated",
     heroSubtext:
-      "End-to-end OpenShift operations for enterprises that need strong platform reliability, predictable lifecycle management, and accountable 24x7 support.",
+      "End-to-end OpenShift operations for enterprises that need strong platform reliability, predictable lifecycle management, and accountable support with response targets agreed per contract.",
     analyticsLabel: "managed-services",
     whatsappMessage:
       "Hi Ramatech, we want a fully managed OpenShift operations model.",
@@ -901,7 +897,7 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
               {
                 name: "Fully Managed Platform",
                 features: [
-                  "End-to-end daily operations and 24x7 incident response",
+                  "End-to-end daily operations and incident response in agreed coverage windows",
                   "Structured upgrades, patch cycles, and risk reporting",
                   "Runbook-backed ownership with measurable SLA commitments",
                 ],
@@ -976,15 +972,15 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
             rows: [
               {
                 priority: "P1 (Cluster down or critical outage)",
-                response: "Response < 30 min",
+                response: "Response target agreed per contract",
               },
               {
                 priority: "P2 (Degraded service or major component impact)",
-                response: "Response < 2 hours",
+                response: "Response target agreed per contract",
               },
               {
                 priority: "P3 (Non-critical request or advisory issue)",
-                response: "Response < 8 hours",
+                response: "Response target agreed per contract",
               },
               {
                 priority: "z-stream upgrade execution SLA",
@@ -1042,7 +1038,7 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
           {
             type: "bulletList",
             items: [
-              "24/7 or agreed-window incident response and escalation",
+              "Agreed-window incident response and escalation",
               "Cluster health monitoring and proactive capacity reviews",
               "z-stream and major version upgrade execution",
               "Security patching and change management with audit evidence",

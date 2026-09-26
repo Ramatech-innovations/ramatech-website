@@ -33,7 +33,7 @@ export default function PrivacyPage() {
 
         <LegalSection title="Who we are">
           <p>
-            Ramatech Innovation Pvt Ltd (&quot;Ramatech&quot;, &quot;we&quot;, &quot;us&quot;) operates
+            Ramatech Innovation (&quot;Ramatech&quot;, &quot;we&quot;, &quot;us&quot;) operates
             this website to describe our engineering services. Our contact address for privacy
             inquiries is{" "}
             <a href={`mailto:${siteConfig.email}`} className="text-brand-primary hover:underline">

@@ -11,7 +11,7 @@ type CaseStudyCalloutProps = {
 
 export function OpenShiftCaseStudyCallout({
   href = "/case-studies/openshift-enterprise-migration",
-  title = "Enterprise OpenShift Migration",
+  title = "Pharma OpenShift Platform on Bare Metal",
   summary = PHARMA_MIGRATION_SUMMARY,
 }: CaseStudyCalloutProps) {
   return (

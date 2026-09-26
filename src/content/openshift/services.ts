@@ -19,7 +19,7 @@ export const openshiftServices: OpenShiftService[] = [
     serviceType: "OpenShift Installation Services",
     metaTitle: "OpenShift Installation Services | Red Hat OCP Deployment | Ramatech India",
     metaDescription:
-      "Expert Red Hat OpenShift installation services - on-prem, baremetal, AWS ROSA, Azure ARO, and GCP. IPI and UPI deployment. Serving India and MENA enterprises.",
+      "Expert Red Hat OpenShift installation services - on-prem bare metal, VMware vSphere, KVM, AWS and air-gapped. IPI and UPI deployment. Serving India and MENA enterprises.",
     h1: "Red Hat OpenShift Installation Services",
     heroSubtext:
       "Production-grade OpenShift installation for enterprise teams that need predictable architecture, secure defaults, and clean handover from day one.",
@@ -66,9 +66,8 @@ export const openshiftServices: OpenShiftService[] = [
           {
             type: "bulletList",
             items: [
-              "Installer-Provisioned Infrastructure (IPI): AWS, GCP, Azure, vSphere, Bare Metal",
-              "User-Provisioned Infrastructure (UPI): Air-gapped, enterprise on-prem, custom networks",
-              "Managed OpenShift: AWS ROSA, Azure ARO, IBM ROKS",
+              "Installer-Provisioned Infrastructure (IPI): AWS, vSphere, Bare Metal",
+              "User-Provisioned Infrastructure (UPI): Air-gapped, enterprise on-prem (bare metal, VMware, KVM), custom networks",
               "Disconnected / Air-gapped installations",
             ],
           },
@@ -180,9 +179,8 @@ export const openshiftServices: OpenShiftService[] = [
             items: [
               "VMware vSphere",
               "Bare metal (RHEL/RHCOS)",
-              "AWS EC2 / ROSA",
-              "Azure / ARO",
-              "GCP",
+              "KVM",
+              "AWS",
               "On-premises air-gapped networks",
             ],
           },
@@ -312,7 +310,7 @@ export const openshiftServices: OpenShiftService[] = [
             items: [
               "OpenShift 3.x -> OpenShift 4.x",
               "Kubernetes (EKS, GKE, AKS) -> OpenShift",
-              "On-premises -> AWS ROSA / Azure ARO",
+              "On-premises -> AWS (self-managed OpenShift or ROSA)",
               "VMware Tanzu -> OpenShift",
               "Legacy VM workloads -> OpenShift Virtualization",
               "Multi-cluster consolidation",
@@ -433,7 +431,7 @@ export const openshiftServices: OpenShiftService[] = [
             type: "prose",
             paragraphs: [
               "A strong migration plan should translate into measurable business outcomes. In our enterprise OpenShift migration case study, a pharmaceutical enterprise (name withheld) moved from fragmented platform operations to a controlled OpenShift model with standardized deployment and governance practices. The transformation was not limited to moving workloads; it included architecture cleanup, pipeline modernization, and stronger operational accountability.",
-              "Workloads moved in governed phases with explicit go/no-go criteria, deployments came under Argo CD GitOps, and compliance checks were built into CI so change evidence was produced as part of delivery rather than after it. These outcomes came from disciplined phase execution and close alignment between platform, application, and operations teams, and they show that migration can improve delivery speed and reliability together when risk controls are built into each phase.",
+              "The team installed OpenShift on on-prem bare metal, brought existing virtual machines onto the platform with OpenShift Virtualization, containerised suitable applications, and set up dynamic PV/PVC storage provisioning. Deployments moved from manual steps to Argo CD GitOps, so every change is versioned and reviewable, which matters in a regulated pharmaceutical environment.",
               "We use the same principles across migration engagements: evidence-led planning, staged validation, transparent risk ownership, and practical runbooks for day-two operations. Teams that follow this model avoid reactive firefighting and gain a platform foundation that supports long-term scalability.",
             ],
           },
@@ -506,7 +504,7 @@ export const openshiftServices: OpenShiftService[] = [
     pageName: "Support Services",
     schemaName: "OpenShift Support Services",
     serviceType: "OpenShift Support Services",
-    metaTitle: "OpenShift Support Services | 24/7 OCP Platform Support | Ramatech India",
+    metaTitle: "OpenShift Support Services | OCP Platform Support | Ramatech India",
     metaDescription:
       "Managed OpenShift support services - cluster health monitoring, incident response, patch management, and expert escalation. India, UAE, and MENA.",
     h1: "OpenShift Support Services - Expert Platform Reliability for Your OCP Cluster",
@@ -563,7 +561,7 @@ export const openshiftServices: OpenShiftService[] = [
             items: [
               "Shared cluster monitoring with alert routing and monthly health reviews",
               "Dedicated platform SRE coverage with incident response and patch coordination",
-              "Fully managed OpenShift operations including upgrades and 24/7 escalation",
+              "Fully managed OpenShift operations including upgrades and escalation paths agreed per contract",
               "Co-managed models blending internal ownership with Ramatech escalation paths",
             ],
           },
@@ -661,7 +659,7 @@ export const openshiftServices: OpenShiftService[] = [
               {
                 name: "Tier 1 - Monitoring & Alerting",
                 features: [
-                  "8x5 cluster health monitoring",
+                  "Business-hours monitoring (Mon–Sat, 10:00–19:00 IST)",
                   "Alert routing and first response",
                   "Monthly health reports",
                 ],
@@ -669,20 +667,20 @@ export const openshiftServices: OpenShiftService[] = [
               {
                 name: "Tier 2 - Active Platform Support",
                 features: [
-                  "12x7 coverage",
+                  "Extended coverage on request",
                   "Node failure, pod crash, storage issue response",
                   "Patch coordination (OCP z-stream updates)",
                   "Capacity planning reviews",
                 ],
               },
               {
-                name: "Tier 3 - Managed OpenShift Operations (24/7)",
+                name: "Tier 3 - Managed OpenShift Operations",
                 features: [
                   "Full cluster lifecycle management",
                   "Upgrade execution",
                   "Security patching",
                   "Change management",
-                  "On-call escalation",
+                  "On-call escalation (scope agreed per contract)",
                 ],
               },
             ],
@@ -736,15 +734,15 @@ export const openshiftServices: OpenShiftService[] = [
             rows: [
               {
                 priority: "P1 (Cluster down)",
-                response: "Response < 30 min",
+                response: "Response target agreed per contract",
               },
               {
                 priority: "P2 (Degraded cluster)",
-                response: "Response < 2 hours",
+                response: "Response target agreed per contract",
               },
               {
                 priority: "P3 (Non-critical)",
-                response: "Response < 8 hours",
+                response: "Response target agreed per contract",
               },
             ],
           },
@@ -765,7 +763,7 @@ export const openshiftServices: OpenShiftService[] = [
       {
         question: "Do you provide support for AWS ROSA or Azure ARO?",
         answer:
-          "Yes - we support managed OpenShift variants including ROSA, ARO, and IBM ROKS.",
+          "We support OpenShift on AWS, including ROSA. Other managed variants are scoped case by case.",
       },
       {
         question: "How do you handle patch and z-stream update coordination?",

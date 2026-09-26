@@ -60,7 +60,7 @@ export const openshiftServices: CatalogItem[] = [
     slug: "managed-services",
     title: "OpenShift Managed Services",
     description:
-      "Full lifecycle cluster operations including upgrades, security, and 24/7 on-call.",
+      "Full lifecycle cluster operations including upgrades, security, and on-call escalation agreed per contract.",
     href: "/openshift/managed-services",
   },
 ];

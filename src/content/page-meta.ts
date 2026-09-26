@@ -24,7 +24,7 @@ export const pageMeta = {
   caseStudies: {
     title: "Case Studies",
     description:
-      "Production outcomes from observability, OpenShift migration, and AI automation engagements—metrics, timelines, and technology stacks.",
+      "Real OpenShift delivery from the Ramatech team—bare-metal platforms, OpenShift Virtualization, and Argo CD GitOps in a regulated pharmaceutical environment.",
   },
   technology: {
     title: "Technology",
@@ -49,7 +49,7 @@ export const pageMeta = {
   privacy: {
     title: "Privacy Policy",
     description:
-      "How Ramatech Innovation Pvt Ltd collects and uses contact form data, hosting information, and your rights. Questions: info@ramatech.co.in.",
+      "How Ramatech Innovation collects and uses contact form data, hosting information, and your rights. Questions: info@ramatech.co.in.",
   },
   terms: {
     title: "Terms of Service",

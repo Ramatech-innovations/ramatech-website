@@ -263,15 +263,9 @@ export const industryLandings: IndustryLanding[] = [
     caseStudyLinks: [
       {
         slug: "openshift-enterprise-migration",
-        title: "Enterprise OpenShift Migration",
+        title: "Pharma OpenShift Platform on Bare Metal",
         summary:
-          "Migrated legacy workloads to OpenShift with GitOps and policy guardrails for regulated operations.",
-      },
-      {
-        slug: "observability-platform-scale",
-        title: "Observability Platform at Scale",
-        summary:
-          "Unified metrics, logs, and traces for a multi-tenant platform serving 50k+ daily active users.",
+          "On-prem bare-metal OpenShift with OpenShift Virtualization for legacy VMs and Argo CD GitOps replacing manual deployments.",
       },
     ],
     faqs: [
