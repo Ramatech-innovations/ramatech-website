@@ -40,6 +40,7 @@ export const contactApiSchema = z.object({
   intent: z.string().optional(),
   source: z.string().optional(),
   phone: z.string().optional(),
+  service: z.string().max(120).optional(),
   attribution: attributionSchema,
 });
 
