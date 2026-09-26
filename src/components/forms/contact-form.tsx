@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { trackEvent } from "@/lib/analytics";
+import { getAttribution } from "@/lib/attribution";
 import {
   contactInterestOptions,
   contactInterestSlugs,
@@ -77,6 +78,7 @@ export function ContactForm({ defaultIntent }: { defaultIntent?: string }) {
       website: data.get("website") ?? "",
       intent: defaultIntent ?? data.get("intent") ?? "contact",
       source: sourcePage || undefined,
+      attribution: getAttribution(),
     };
 
     try {

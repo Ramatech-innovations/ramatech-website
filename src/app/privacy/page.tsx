@@ -10,7 +10,7 @@ export const metadata = createMetadata({
   path: "/privacy",
 });
 
-const LAST_UPDATED = "1 June 2026";
+const LAST_UPDATED = "26 September 2026";
 
 function LegalSection({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -54,6 +54,11 @@ export default function PrivacyPage() {
           <p>
             We also receive standard technical data from your browser and hosting logs (such as IP
             address, user agent, and timestamps) for security and reliability.
+          </p>
+          <p>
+            To understand how you found us, your browser stores the campaign or referring source of
+            your visit (for example UTM parameters or an ad click ID) and sends it with any inquiry
+            you submit. We use it only to handle your inquiry and measure which channels work.
           </p>
         </LegalSection>
 

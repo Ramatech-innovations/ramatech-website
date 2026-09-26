@@ -1,5 +1,31 @@
 import { z } from "zod";
 
+const attrString = z.string().max(300).optional();
+
+const touchSchema = z
+  .object({
+    utm_source: attrString,
+    utm_medium: attrString,
+    utm_campaign: attrString,
+    utm_term: attrString,
+    utm_content: attrString,
+    gclid: attrString,
+    gbraid: attrString,
+    wbraid: attrString,
+    referrer: attrString,
+    landing_page: attrString,
+    ts: attrString,
+  })
+  .optional();
+
+export const attributionSchema = z
+  .object({
+    first: touchSchema,
+    last: touchSchema,
+    device: z.string().max(20).optional(),
+  })
+  .optional();
+
 export const contactApiSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Valid work email required"),
@@ -14,6 +40,7 @@ export const contactApiSchema = z.object({
   intent: z.string().optional(),
   source: z.string().optional(),
   phone: z.string().optional(),
+  attribution: attributionSchema,
 });
 
 export type ContactApiData = z.infer<typeof contactApiSchema>;

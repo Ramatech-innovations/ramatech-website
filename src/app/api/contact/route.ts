@@ -89,6 +89,9 @@ ${data.source ? `Source page: ${data.source}` : ""}
 
 Message:
 ${data.message}
+
+Attribution:
+${JSON.stringify(data.attribution ?? {}, null, 2)}
 `.trim();
 
     const res = await fetch("https://api.resend.com/emails", {
