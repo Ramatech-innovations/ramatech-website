@@ -108,6 +108,7 @@ export async function POST(request: Request) {
         to: [data.email],
         subject: reply.subject,
         text: reply.text,
+        html: reply.html,
         replyTo: getContactEmail(),
       });
       if (!replyResult.ok) {

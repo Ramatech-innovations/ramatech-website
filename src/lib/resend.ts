@@ -3,6 +3,7 @@ type SendEmailInput = {
   to: string[];
   subject: string;
   text: string;
+  html?: string;
   replyTo?: string;
 };
 
@@ -24,6 +25,7 @@ export async function sendEmail(input: SendEmailInput): Promise<SendResult> {
         to: input.to,
         subject: input.subject,
         text: input.text,
+        ...(input.html ? { html: input.html } : {}),
         ...(input.replyTo ? { reply_to: input.replyTo } : {}),
       }),
     });
