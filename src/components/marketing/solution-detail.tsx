@@ -6,13 +6,13 @@ import { Card } from "@/components/ui/card";
 import { MotionSection } from "@/components/motion/motion-section";
 import { PageHero } from "@/components/marketing/page-hero";
 import type { Solution } from "@/content/solutions";
-import { publishedCaseStudies } from "@/content/case-studies";
+import { caseStudies } from "@/content/case-studies";
 import { getSolutionAccent } from "@/lib/solution-accents";
 import { PAGE_CONTAINER } from "@/lib/layout";
 import { cn } from "@/lib/utils";
 
 export function SolutionDetail({ solution }: { solution: Solution }) {
-  const relatedCase = publishedCaseStudies.find((c) => c.solution === solution.slug);
+  const relatedCase = caseStudies.find((c) => c.solution === solution.slug);
   const accent = getSolutionAccent(solution.slug);
 
   return (

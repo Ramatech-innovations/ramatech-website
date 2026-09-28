@@ -4,12 +4,12 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { CaseStudyArchitecture } from "@/components/illustrations/case-study-architecture";
-import { publishedCaseStudies } from "@/content/case-studies";
+import { caseStudies } from "@/content/case-studies";
 import { PAGE_CONTAINER } from "@/lib/layout";
 
 export function CaseStudiesShowcase({ limit }: { limit?: number }) {
   const reduce = useReducedMotion();
-  const items = limit ? publishedCaseStudies.slice(0, limit) : publishedCaseStudies;
+  const items = limit ? caseStudies.slice(0, limit) : caseStudies;
 
   return (
     <section className="section-gradient py-14 md:py-16">

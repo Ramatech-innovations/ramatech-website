@@ -62,6 +62,6 @@ Requires env vars locally or checks deployment platform settings.
 
 ## Content trust (monthly, before paid traffic)
 
-- [ ] Case studies with `illustrative: true` still show disclaimer banner
+- [ ] Every case study matches its "Allowed case study" section in `ramatech-ceo-os/company/CLAIMS.md`
 - [ ] Review geo/city FAQ TODOs with sales (on-site, timezone)
 - [ ] Confirm Red Hat partner tier wording on `/technology/red-hat`
