@@ -1,11 +1,12 @@
 import { JsonLdScript } from "@/components/seo/json-ld-script";
+import { schemaLogoUrl } from "@/lib/seo";
 
 const ORGANIZATION_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Ramatech Innovation",
   url: "https://www.ramatech.co.in",
-  logo: "https://www.ramatech.co.in/brand/logo-dark.png",
+  logo: schemaLogoUrl,
   contactPoint: {
     "@type": "ContactPoint",
     email: "info@ramatech.co.in",

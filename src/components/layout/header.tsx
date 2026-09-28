@@ -131,7 +131,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
       <div className={`${PAGE_CONTAINER} flex h-16 items-center justify-between gap-6`}>
-        <Link href="/" className="flex shrink-0 items-center" aria-label="Ramatech Innovation home">
+        <Link href="/" className="flex shrink-0 items-center">
           <BrandLogo />
         </Link>
 
