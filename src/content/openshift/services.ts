@@ -255,7 +255,7 @@ export const openshiftServices: OpenShiftService[] = [
     serviceType: "OpenShift Migration Services",
     metaTitle: "OpenShift Migration Services | Kubernetes to OCP Migration | Ramatech",
     metaDescription:
-      "Migrate from Kubernetes, OpenShift 3.x, or legacy infra to Red Hat OpenShift 4.x. Zero-downtime migration planning, execution, and validation.",
+      "Migrate from Kubernetes, OpenShift 3.x, or legacy infrastructure to Red Hat OpenShift 4.x with planned cutover, execution, and validation.",
     h1: "OpenShift Migration Services - From Legacy Infrastructure to OCP 4.x",
     heroSubtext:
       "Structured migration programs that reduce cutover risk, protect workload reliability, and move teams to OpenShift 4.x with controlled validation.",
@@ -440,14 +440,14 @@ export const openshiftServices: OpenShiftService[] = [
     ],
     faqs: [
       {
-        question: "Can you migrate with zero downtime?",
+        question: "How do you minimise downtime during migration?",
         answer:
-          "For stateless workloads, yes - we use blue-green migration patterns. Stateful workloads require a maintenance window, which we plan with your team to minimise impact.",
+          "Stateless workloads can usually move with blue-green migration patterns. Stateful workloads need a maintenance window, which we plan with your team in advance to minimise impact.",
       },
       {
         question: "How long does an OpenShift migration take?",
         answer:
-          "Small environments (10-20 workloads) typically take 3-6 weeks. Large enterprise migrations are planned in waves over 2-4 months.",
+          "It depends on the number of workloads, the data to move, and the integrations involved. We set a timeline after the assessment, and large estates are planned in waves.",
       },
       {
         question: "What about existing CI/CD pipelines?",
@@ -756,11 +756,6 @@ export const openshiftServices: OpenShiftService[] = [
           "Yes. We begin with a cluster assessment to understand the current state before taking over support.",
       },
       {
-        question: "What's the minimum commitment?",
-        answer:
-          "A 3-month minimum engagement applies for support services. Most clients run on 12-month retainers to align with platform lifecycle planning.",
-      },
-      {
         question: "Do you provide support for AWS ROSA or Azure ARO?",
         answer:
           "We support OpenShift on AWS, including ROSA. Other managed variants are scoped case by case.",
@@ -996,7 +991,7 @@ export const openshiftServices: OpenShiftService[] = [
           {
             type: "prose",
             paragraphs: [
-              "We offer multiple engagement models so organizations can choose the right depth of support for current priorities. Fixed-scope assessments are useful when a team needs clear findings and recommendations quickly. Workshops are ideal for focused design and decision sessions with cross-functional stakeholders. Advisory retainers support continuous guidance as platform complexity grows. Embedded consulting helps enterprises execute major transformations with hands-on leadership and technical stewardship.",
+              "We offer multiple engagement models so organizations can choose the right depth of support for current priorities. Architecture assessments are useful when a team needs clear findings and recommendations quickly. Workshops are ideal for focused design and decision sessions with cross-functional stakeholders. Ongoing advisory supports continuous guidance as platform complexity grows. Embedded consulting helps enterprises execute major transformations with hands-on leadership and technical stewardship.",
               "Selecting the right model depends on urgency, scope, and internal capacity. During scoping, we define desired outcomes, decision timelines, and ownership expectations so the engagement structure supports delivery rather than adding overhead. This upfront alignment keeps consulting work tightly connected to business goals and implementation realities.",
               "All models can be delivered remotely and are designed for distributed teams across India, UAE, Saudi Arabia, Qatar, and Singapore. We use structured communication, documented decision logs, and clear action ownership so progress remains transparent regardless of geography. The result is consulting that drives action, not just analysis.",
             ],
@@ -1004,10 +999,10 @@ export const openshiftServices: OpenShiftService[] = [
           {
             type: "bulletList",
             items: [
-              "Fixed-scope assessment (1-2 weeks)",
-              "Workshop (1-3 days)",
-              "Ongoing advisory retainer (monthly)",
-              "Embedded consulting (3-6 months)",
+              "Architecture assessment",
+              "Workshop",
+              "Ongoing advisory",
+              "Embedded consulting",
             ],
           },
         ],
@@ -1032,12 +1027,12 @@ export const openshiftServices: OpenShiftService[] = [
       {
         question: "How long does a typical architecture review take?",
         answer:
-          "Fixed-scope assessments usually run 1–2 weeks depending on cluster count and integration depth. We define scope and deliverable format during onboarding.",
+          "It depends on cluster count and integration depth. We agree the scope, timeline, and deliverable format during onboarding.",
       },
       {
         question: "Do you provide implementation support after the assessment?",
         answer:
-          "Yes. We offer embedded consulting and advisory retainers to help teams execute recommendations—installation, migration, GitOps, and platform engineering engagements can follow assessment findings.",
+          "Yes. We offer embedded consulting and ongoing advisory to help teams execute recommendations—installation, migration, GitOps, and platform engineering engagements can follow assessment findings.",
       },
     ],
     internalLinks: [

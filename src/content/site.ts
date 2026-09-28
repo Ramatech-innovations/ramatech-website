@@ -12,6 +12,7 @@ export const navLinks = [
   },
   { label: "Industries", href: "/industries" },
   { label: "OpenShift", href: "/openshift" },
+  { label: "AI", href: "/solutions/ai-solutions" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Technology", href: "/technology" },
   { label: "About", href: "/about" },
@@ -39,13 +40,6 @@ export const footerLinks = {
     { label: "Terms", href: "/terms" },
   ],
 };
-
-export const trustStats = [
-  { value: "99.95%", label: "Production uptime target" },
-  { value: "2 weeks", label: "Average delivery cycles" },
-  { value: "30%+", label: "Infra cost reduction" },
-  { value: "<15 min", label: "Incident response baseline" },
-];
 
 export const trustTags = [
   "Kubernetes",

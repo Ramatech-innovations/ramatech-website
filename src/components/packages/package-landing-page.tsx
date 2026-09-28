@@ -49,7 +49,7 @@ export function PackageLandingPage({ landing }: { landing: PackageLanding }) {
         <PackageTimeline timeline={landing.timeline} />
       </PackageSection>
 
-      <PackageSection title="Starting price" variant="light">
+      <PackageSection title="Scope" variant="light">
         <PackagePricing pricing={landing.pricing} />
       </PackageSection>
 

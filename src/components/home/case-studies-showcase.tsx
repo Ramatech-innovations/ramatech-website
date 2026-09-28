@@ -16,7 +16,7 @@ export function CaseStudiesShowcase({ limit }: { limit?: number }) {
       <div className={PAGE_CONTAINER}>
         <div className="mx-auto max-w-2xl text-center md:text-left">
           <p className="type-eyebrow">Case studies</p>
-          <h2 className="type-h2-section mt-3">Real architectures. Measurable outcomes.</h2>
+          <h2 className="type-h2-section mt-3">Real architectures. Delivered in production.</h2>
         </div>
 
         <div className="mt-8 space-y-10">

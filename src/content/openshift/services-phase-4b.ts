@@ -1052,14 +1052,9 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
     ],
     faqs: [
       {
-        question: "How is managed service pricing usually structured?",
+        question: "How is a managed service engagement scoped?",
         answer:
-          "Pricing is typically based on cluster scope, support window, and operations depth. We provide transparent commercial models for co-managed and fully managed engagements.",
-      },
-      {
-        question: "Is there a minimum engagement term?",
-        answer:
-          "Most managed service engagements run with a minimum three-month term, with longer retainers preferred for lifecycle planning and reliability continuity.",
+          "Scope is agreed during a consultation: cluster count, support window, and operations depth, for co-managed or fully managed operations.",
       },
       {
         question: "Do you get access to our application data?",

@@ -4,12 +4,12 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.ramatech.co.in"
 
 export const defaultOgImage = "/og-image.png";
 export const defaultOgAlt =
-  "Ramatech Innovation — AI-powered technology for product and platform teams";
+  "Ramatech Innovation — OpenShift platforms and production AI engineering";
 
 export const siteConfig = {
   name: "Ramatech Innovation",
   description:
-    "Ramatech Innovation engineers AI systems, cloud platforms, DevOps, and enterprise automation for product and platform teams worldwide.",
+    "Ramatech Innovation engineers Red Hat OpenShift platforms and production AI systems, plus cloud, DevOps, and automation, for teams worldwide.",
   url: siteUrl,
   tagline: "Engineering intelligent systems at scale.",
   email: "info@ramatech.co.in",

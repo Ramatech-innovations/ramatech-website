@@ -10,7 +10,7 @@ import { createMetadata } from "@/lib/seo";
 export const metadata = createMetadata({
   title: "Service Packages",
   description:
-    "Fixed-scope service packages from Ramatech Innovation — business websites, startup cloud deployment, AI automation, and custom business systems.",
+    "Service packages from Ramatech Innovation — business websites, startup cloud deployment, AI automation, and custom business systems, each with a clear scope.",
   path: "/packages",
 });
 
@@ -20,7 +20,7 @@ export default function PackagesIndexPage() {
       <PageHero
         eyebrow="Packages"
         title="Service Packages Built for Speed"
-        description="Fixed-scope. Fixed-timeline. No surprises."
+        description="Clear scope. Agreed timeline."
       />
       <MotionSection className="py-16 md:py-20">
         <div className={PAGE_CONTAINER}>

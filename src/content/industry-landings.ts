@@ -68,7 +68,7 @@ export const industryLandings: IndustryLanding[] = [
       {
         slug: "business-growth-website",
         title: "Business Growth Website",
-        tagline: "Your 24/7 digital storefront",
+        tagline: "Your digital storefront",
       },
       {
         slug: "ai-automation-sprint",
@@ -275,7 +275,7 @@ export const industryLandings: IndustryLanding[] = [
       },
       {
         question: "Do you offer ongoing DevOps support?",
-        answer: "Yes — retainer-based DevOps support available.",
+        answer: "Yes — ongoing DevOps support is available.",
       },
     ],
     finalCta: {
@@ -341,8 +341,8 @@ export const industryLandings: IndustryLanding[] = [
         answer: "Yes — we work remotely across India.",
       },
       {
-        question: "What's the minimum budget?",
-        answer: "Projects start from ₹49,999 depending on scope.",
+        question: "How is a project priced?",
+        answer: "Scope and cost are agreed per project after a free consultation.",
       },
     ],
     finalCta: {
