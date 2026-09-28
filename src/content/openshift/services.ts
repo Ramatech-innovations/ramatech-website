@@ -813,12 +813,12 @@ export const openshiftServices: OpenShiftService[] = [
     pageName: "Consulting Services",
     schemaName: "OpenShift Consulting Services",
     serviceType: "OpenShift Consulting Services",
-    metaTitle: "OpenShift Consulting Services | Red Hat OCP Experts | Ramatech Innovation",
+    metaTitle: "OpenShift Consulting Services and Implementation | Ramatech Innovation",
     metaDescription:
-      "Strategic OpenShift consulting - platform architecture, cluster design, GitOps adoption, security hardening, and migration planning. India and global.",
-    h1: "OpenShift Consulting Services - Architecture, Strategy, and Platform Expertise",
+      "OpenShift consultants who also do the implementation: architecture reviews, cluster design, migration planning, GitOps with Argo CD and security reviews, for teams in India and worldwide.",
+    h1: "OpenShift Consulting Services: Architecture Reviews and Implementation",
     heroSubtext:
-      "Advisory and architecture services for enterprise teams that need to make confident OpenShift decisions and execute with less platform risk.",
+      "OpenShift consultants who design your platform and then build it with your team. We install and operate; we do not sell Red Hat licenses.",
     analyticsLabel: "openshift_consulting_services",
     whatsappMessage:
       "Hi Ramatech, I want to book an OpenShift consulting session.",
@@ -832,25 +832,10 @@ export const openshiftServices: OpenShiftService[] = [
           {
             type: "prose",
             paragraphs: [
-              "OpenShift consulting is most valuable when organizations have momentum but need sharper platform decisions. Many teams already run clusters, yet they still face recurring questions: Is architecture aligned with growth targets? Are security and policy controls robust enough for regulated workloads? Is GitOps adoption improving release safety or creating process overhead? These questions require technical depth and business context, not generic best-practice slides. Our consulting model is designed to provide practical, decision-ready guidance that teams can apply immediately.",
-              "Consulting also helps enterprises avoid expensive architectural lock-in. Platform choices made under schedule pressure can work initially but become constraints as workload scale, compliance obligations, and team structures evolve. We assess where design assumptions no longer match operating reality, then prioritize improvements by risk reduction and execution feasibility. This allows teams to invest in changes that materially improve reliability and delivery outcomes instead of running broad but low-impact transformation programs.",
-              "Security and governance concerns are a frequent trigger for consulting engagements. Platform teams may need confidence that SCC usage, RBAC boundaries, audit visibility, and change controls are aligned with enterprise standards before expansion. We provide technical assessments with clear remediation priorities and practical implementation paths so compliance objectives can be met without slowing engineering flow unnecessarily.",
-              "Finally, consulting accelerates internal capability growth. Alongside recommendations, we work with platform and engineering teams through workshops, design reviews, and implementation coaching. The outcome is not dependency on external advisors, but stronger in-house decision making and a clearer long-term OpenShift operating strategy.",
-              "A major consulting advantage is the ability to create shared language between technical and business leadership. Platform teams often communicate in architecture details while executives focus on risk, speed, and cost outcomes. We bridge this gap by translating technical findings into business-relevant priorities and sequencing options. This helps leadership teams make investment decisions with confidence and enables engineering teams to execute against goals that are clearly understood across the organization.",
-              "Consulting engagements are also effective when organizations need to make irreversible decisions, such as selecting cluster tenancy models, defining multi-region strategy, or choosing between managed and self-managed operating approaches. These decisions influence talent requirements, budget planning, and operational resilience for years. We provide decision frameworks grounded in your workload profile, compliance obligations, and organizational maturity so choices are durable rather than reactive.",
-              "Many enterprises underestimate the operational implications of rapid platform adoption. Early success can lead to uncontrolled growth in namespaces, pipelines, and policy exceptions, which eventually slows delivery and increases risk. Our consulting approach includes governance and operating model design to ensure growth remains manageable. We help teams establish practical controls that scale with adoption while preserving developer productivity.",
-              "Where modernization programs involve multiple stakeholders, consulting also provides neutral technical arbitration. Different teams may advocate competing standards based on local priorities. We facilitate evidence-led architecture decisions that account for reliability, security, and delivery impact across the full platform ecosystem. This reduces decision deadlock and keeps transformation initiatives moving.",
-              "We place strong emphasis on implementation realism. Recommendations are only valuable when they can be delivered within existing release commitments and team capacity constraints. For every major finding, we define execution paths, ownership expectations, and risk trade-offs so teams can move from assessment to action without ambiguity. This makes consulting output immediately useful for roadmap planning and sprint-level execution.",
-              "Finally, consulting should leave your organization stronger than before the engagement began. We include coaching, design rationale transfer, and repeatable assessment methods so internal teams can continue improving the platform independently. The objective is long-term capability building: better decisions, stronger architecture discipline, and a platform strategy that remains effective as business demands evolve.",
-              "We also help teams prioritize sequencing, which is often the hardest part of platform improvement. Enterprises usually have more recommended actions than they can execute at once. By grouping initiatives into near-term stabilizers, medium-term enablers, and long-term strategic investments, we make roadmap decisions clearer and reduce execution friction.",
-              "In organizations with multiple engineering domains, consulting can align standards without forcing rigid uniformity. We define where common controls are non-negotiable and where domain-specific variation is acceptable. This balance protects governance while preserving team autonomy, which is critical for sustained adoption of platform practices.",
-              "Another frequent consulting outcome is improved decision velocity. When architecture principles, review mechanisms, and ownership boundaries are explicit, teams spend less time revisiting the same debates. This speeds up delivery and reduces the operational risk of inconsistent decisions made under deadline pressure.",
-              "Because platform strategy is never static, we also establish periodic reassessment practices so architecture and governance can evolve with workload changes, regulatory updates, and business priorities. This keeps your OpenShift program adaptive and prevents technical debt from accumulating unnoticed over multiple planning cycles.",
-              "Enterprises that gain the most from consulting treat recommendations as part of an ongoing platform operating system rather than a one-time report. We help teams embed architecture reviews, risk checkpoints, and governance feedback loops into normal planning and delivery cycles. This institutionalization improves consistency, makes adaptation easier when priorities shift, and ensures that platform direction remains aligned with measurable business outcomes over multiple years.",
-              "We also support leadership teams in defining success metrics for platform strategy itself, such as time-to-onboard new services, policy exception rates, incident recurrence, and upgrade predictability. With shared metrics, consulting recommendations can be tracked as operational improvements rather than abstract architectural intent.",
-              "Where executive alignment is required, we facilitate decision workshops that convert technical options into clear investment choices with explicit trade-offs and implementation impact.",
-              "By combining architecture depth, operating model clarity, and leadership alignment, consulting engagements create durable momentum. Teams gain a roadmap they can execute, leaders gain confidence in platform direction, and cross-functional stakeholders gain a common frame for decision making. This shared direction is often the difference between fragmented modernization efforts and a coherent platform program that continuously delivers value.",
-              "The result is faster decisions, cleaner execution, and lower long-term platform risk.",
+              "Teams bring in an OpenShift consultant when a platform decision is expensive to get wrong: how to install and size a new cluster, how to move VMware and legacy VMs onto OpenShift, how to adopt GitOps without slowing releases, or how to make an inherited cluster safe to run. We answer those questions with a review of your actual environment, not a generic best-practice deck.",
+              "An engagement starts with the platform as it runs today: cluster topology, networking, storage and persistent volumes, RBAC and security context constraints, operators, observability, the upgrade path, and how changes reach production. You get written findings with priorities, and a sequence your team can deliver within its current commitments.",
+              "The engineers who do the review also do the implementation. When the recommendations call for installation, migration, OpenShift Virtualization, GitOps with Argo CD, or platform engineering, the same people build it with your team and hand over runbooks and repositories. We install and operate; we do not sell Red Hat licenses, so you keep your own subscriptions.",
+              "We work on bare metal (RHEL and RHCOS), VMware vSphere, KVM, AWS with self-managed OpenShift or ROSA, and on-premises air-gapped networks, for teams in India and worldwide.",
             ],
           },
         ],
@@ -1006,6 +991,28 @@ export const openshiftServices: OpenShiftService[] = [
           },
         ],
       },
+      {
+        id: "implementation-experience",
+        title: "OpenShift Implementation Experience",
+        variant: "light",
+        blocks: [
+          {
+            type: "prose",
+            paragraphs: [
+              "Our consulting advice comes from delivery work. These are OpenShift projects delivered by the Ramatech team; client names are withheld under confidentiality.",
+            ],
+          },
+          {
+            type: "bulletList",
+            items: [
+              "A pharmaceutical enterprise: OpenShift on on-premises bare metal, with OpenShift Virtualization bringing legacy VMs onto the same platform as containers, and Argo CD GitOps",
+              "A telecom enterprise: Jenkins pipelines, Helm and Argo CD GitOps replacing manual builds and deployments on bare-metal OpenShift",
+              "A financial services enterprise: a production application moved to Helm and GitOps on an air-gapped OpenShift cluster without disrupting production",
+              "A financial services enterprise: automated team onboarding, monitoring setup, health checks and etcd backups with Ansible, Python, Jenkins and OpenShift Operators",
+            ],
+          },
+        ],
+      },
     ],
     faqs: [
       {
@@ -1033,6 +1040,26 @@ export const openshiftServices: OpenShiftService[] = [
         answer:
           "Yes. We offer embedded consulting and ongoing advisory to help teams execute recommendations—installation, migration, GitOps, and platform engineering engagements can follow assessment findings.",
       },
+      {
+        question: "What does an OpenShift consultant do?",
+        answer:
+          "An OpenShift consultant reviews how your platform is designed and run, then recommends what to change and in what order: architecture, security and RBAC, storage, upgrades, GitOps, and operations. With us, the same engineers can then carry out the work.",
+      },
+      {
+        question: "Do your consultants also implement?",
+        answer:
+          "Yes. The engineers who run the review also install, migrate, and automate: OpenShift installation (IPI and UPI), migration from VMware and legacy VMs, OpenShift Virtualization, GitOps with Argo CD, and platform engineering.",
+      },
+      {
+        question: "Can you help with business continuity and disaster recovery for OpenShift?",
+        answer:
+          "Yes. Disaster recovery planning is part of our consulting work: we review etcd and application backups, restore procedures, and failover design against the recovery targets your business sets.",
+      },
+      {
+        question: "Do you sell Red Hat licenses?",
+        answer:
+          "No. We install and operate; we do not sell Red Hat licenses. You keep your own Red Hat subscriptions.",
+      },
     ],
     internalLinks: [
       {
@@ -1048,11 +1075,19 @@ export const openshiftServices: OpenShiftService[] = [
         label: "Need cluster foundation work? Explore installation services",
       },
       {
+        href: "/case-studies",
+        label: "See OpenShift case studies from our delivery work",
+      },
+      {
         href: "/openshift",
         label: "Return to the OpenShift hub",
       },
     ],
     insightLinks: [
+      {
+        href: "/insights/openshift/disaster-recovery",
+        label: "OpenShift disaster recovery and business continuity guide",
+      },
       {
         href: "/insights/openshift/openshift-vs-kubernetes",
         label: "OpenShift vs Kubernetes comparison",
