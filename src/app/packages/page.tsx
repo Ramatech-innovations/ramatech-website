@@ -19,30 +19,30 @@ export default function PackagesIndexPage() {
     <>
       <PageHero
         eyebrow="Packages"
-        title="Service Packages Built for Speed"
-        description="Clear scope. Agreed timeline."
+        title="Service packages"
+        description="Packaged engagements for common projects, each with a clear scope. Details are agreed during the consultation."
       />
-      <MotionSection className="py-16 md:py-20">
+      <MotionSection className="section-light on-light py-14 md:py-16">
         <div className={PAGE_CONTAINER}>
           <div className="grid gap-6 md:grid-cols-2">
             {servicePackages.map((pkg) => {
               const Icon = getPackageIcon(pkg.icon);
               return (
-                <Link key={pkg.slug} href={`/packages/${pkg.slug}`}>
-                  <Card tone="light" className="group h-full">
+                <Link key={pkg.slug} href={`/packages/${pkg.slug}`} className="group">
+                  <Card className="h-full">
                     <div className="flex items-start gap-4">
                       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-brand-primary/20 bg-brand-primary/5 text-brand-primary">
                         <Icon className="h-5 w-5" aria-hidden />
                       </span>
                       <div>
-                        <h2 className="font-heading text-xl font-semibold text-brand-ink group-hover:text-brand-cyan">
+                        <h2 className="font-heading text-xl font-semibold text-brand-ink group-hover:text-brand-primary">
                           {pkg.title}
                         </h2>
                         <p className="type-body-card mt-2">{pkg.tagline}</p>
                         <p className="type-caption mt-3 uppercase tracking-wide text-brand-primary">
                           {pkg.timeline}
                         </p>
-                        <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-cyan">
+                        <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary">
                           View package
                           <ArrowRight className="h-4 w-4" />
                         </span>

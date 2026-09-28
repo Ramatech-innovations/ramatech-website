@@ -62,7 +62,6 @@ const config: Config = {
       },
       backgroundImage: {
         "brand-gradient": "linear-gradient(135deg, #0A4C95 0%, #11D3E8 100%)",
-        mesh: "radial-gradient(at 40% 20%, rgba(17, 211, 232, 0.15) 0px, transparent 50%), radial-gradient(at 80% 0%, rgba(10, 76, 149, 0.2) 0px, transparent 50%)",
       },
     },
   },

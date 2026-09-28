@@ -21,25 +21,12 @@ export function IndustryCtaGroup({
   className?: string;
 }) {
   return (
-    <div className={cn("flex flex-wrap gap-4", className)}>
-      <Button asChild size="lg" className="glow-cta">
-        <IndustryBookCta analyticsLabel={analyticsLabel}>
-          {bookLabel}
-        </IndustryBookCta>
+    <div className={cn("flex flex-wrap gap-3", className)}>
+      <Button asChild size="lg" variant={onDark ? "inverse" : "default"}>
+        <IndustryBookCta analyticsLabel={analyticsLabel}>{bookLabel}</IndustryBookCta>
       </Button>
-      <Button
-        asChild
-        variant="outline"
-        size="lg"
-        className={cn(
-          onDark &&
-            "border-white/30 text-white hover:bg-white/10 hover:text-white"
-        )}
-      >
-        <IndustryWhatsAppCta
-          analyticsLabel={analyticsLabel}
-          whatsappMessage={whatsappMessage}
-        >
+      <Button asChild size="lg" variant={onDark ? "inverseOutline" : "secondary"}>
+        <IndustryWhatsAppCta analyticsLabel={analyticsLabel} whatsappMessage={whatsappMessage}>
           {whatsappLabel}
         </IndustryWhatsAppCta>
       </Button>

@@ -1,4 +1,3 @@
-// TODO: content review — technology authority pages generated for Prompt 2 SEO rollout
 import type { TechnologyPage } from "./technology-types";
 
 const openshiftServiceLinks: TechnologyPage["relatedLinks"] = [
@@ -33,12 +32,12 @@ export const technologyPages: TechnologyPage[] = [
       "Hybrid and regulated enterprises benefit when the same deployment patterns work across on-prem IPI/UPI clusters and cloud burst capacity. OpenShift tenancy, SCC baselines, and operator lifecycles remain recognizable across environments—reducing retraining cost when workloads move between data center and regional cloud for residency or capacity reasons.",
     ],
     ramatechExpertise: [
-      "Ramatech delivers OpenShift across installation, deployment, migration, support, upgrade, consulting, platform engineering, and managed services. Engagements start from production constraints—RBI and IRDAI expectations in India, CBUAE and sovereign boundaries in UAE, SAMA and NDMO classification in KSA—not from generic reference architectures copied without local context.",
-      "We design cluster topology, GitOps maturity, and observability baselines so day-two operations are owned by your team or co-managed with explicit scope. Case study outcomes include enterprise migration with Argo CD GitOps and measurable deploy-time reduction—see our proven migration engagement for a representative pattern.",
+      "Ramatech delivers OpenShift across installation, deployment, migration, support, upgrade, consulting, platform engineering, and managed services. Engagements start from your production constraints—security, audit, and data-residency requirements—not from generic reference architectures copied without context.",
+      "We design cluster topology, GitOps maturity, and observability baselines so day-two operations are owned by your team or co-managed with explicit scope. Our case studies include a bare-metal OpenShift platform with legacy VMs on OpenShift Virtualization and deployments moved to Argo CD GitOps.",
       "Whether you are standing up a first production cluster or consolidating multiple legacy environments, we align delivery to your residency, sector regulation, and release calendars. The service links below map to how we typically phase work: install and validate, migrate waves, operationalize releases, and sustain lifecycle tasks.",
     ],
     useCases: [
-      "Hybrid BFSI pattern: on-prem control plane for regulated workloads with ROSA burst in ap-south-1 for product teams. Shared GitOps repos enforce promotion gates; SCC and network policy baselines are codified in golden-path templates so namespace onboarding does not reintroduce manual security exceptions.",
+      "Hybrid pattern: on-prem control plane for regulated workloads with ROSA burst in ap-south-1 for product teams. Shared GitOps repos enforce promotion gates; SCC and network policy baselines are codified in golden-path templates so namespace onboarding does not reintroduce manual security exceptions.",
       "PSU and air-gapped segment: disconnected operator lifecycles, mirror registries, and documented z-stream procedures replace ad hoc internet access during maintenance. Installation runbooks include LDAP/OIDC smoke tests and etcd backup validation before application cutover.",
       "Multi-cluster GitOps fleet: ApplicationSets manage environment promotion across non-prod and production with policy exceptions tracked as code. Upgrade waves respect operator compatibility matrices so version skew does not break DR failover confidence during phased rollouts.",
     ],
@@ -115,7 +114,7 @@ export const technologyPages: TechnologyPage[] = [
     ],
     ramatechExpertise: [
       "Deployment services standardize GitOps promotion with Argo CD or OpenShift GitOps—approval gates, rollout strategies, and rollback playbooks validated before go-live. Platform engineering engagements implement ApplicationSets, policy automation, and developer catalog integration to reduce ticket volume while preserving TRM-aligned controls.",
-      "Our enterprise migration case study achieved one hundred percent GitOps coverage with measurable deploy-time reduction—representative of how we connect GitOps design to business outcomes, not only to tooling installation.",
+      "Our case studies show Argo CD replacing manual deployments on bare-metal and air-gapped OpenShift, with Git as the record of every change—GitOps designed around how your teams release, not only tooling installation.",
       "Engagements include runbook handover so internal teams retain sync, rollback, and incident ownership. Related service and case study links below map to how we typically phase GitOps adoption on OpenShift.",
     ],
     useCases: [
@@ -163,8 +162,8 @@ export const technologyPages: TechnologyPage[] = [
     ],
     useCases: [
       "Cluster health SLOs: API server availability, scheduler latency, and etcd fsync duration alert before user-visible outages. Runbooks tie PromQL expressions to remediation steps owned by platform or vendor support.",
-      "Workload saturation: CPU throttling, memory pressure, and PVC utilization rules protect stateful services during batch peaks—common in energy and financial integration hubs.",
-      "Remote write fan-out: regional clusters forward metrics to a central TSDB for APAC HQ dashboards while keeping scrape paths in-region for residency-sensitive labels.",
+      "Workload saturation: CPU throttling, memory pressure, and PVC utilization rules protect stateful services during batch peaks.",
+      "Remote write fan-out: regional clusters forward metrics to a central TSDB for shared dashboards while keeping scrape paths in-region for residency-sensitive labels.",
     ],
     relatedLinks: [
       { href: "/openshift/support-services", label: "OpenShift Support Services" },

@@ -103,7 +103,7 @@ export function buildInternalEmail(
 }
 
 const NEXT_STEPS = [
-  "We review your message and reply within 4 business hours (Mon-Sat, IST).",
+  "We review your message and reply within one business day (Mon-Sat, 10:00-19:00 IST).",
   "We schedule a focused technical call to understand your platform and goals.",
   "You get a clear next-step recommendation, with no obligation.",
 ];

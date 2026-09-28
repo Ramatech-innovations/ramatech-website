@@ -6,7 +6,7 @@ import { buildWhatsAppUrl } from "@/lib/seo";
 
 export function OpenShiftBookCta({
   analyticsLabel,
-  children = "Request a Quote",
+  children = "Book Consultation",
   className,
 }: {
   analyticsLabel: string;

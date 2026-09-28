@@ -11,7 +11,7 @@ export function PackageProblemsGrid({
   return (
     <div className="grid gap-6 md:grid-cols-2">
       {problems.map((p) => (
-        <Card key={p.problem} tone="light">
+        <Card key={p.problem}>
           <p className="font-medium text-brand-ink">{p.problem}</p>
           <p className="mt-3 flex items-center gap-2 text-[0.9375rem] font-medium text-brand-primary">
             <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />

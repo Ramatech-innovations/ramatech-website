@@ -66,13 +66,13 @@ export function OpenShiftStickyEngineerBar() {
       role="complementary"
       aria-label="Talk to an OpenShift Engineer"
       className={cn(
-        "fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-brand-dark/95 backdrop-blur-md transition-transform duration-300 motion-reduce:transition-none",
+        "fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white shadow-[0_-4px_16px_rgba(15,23,42,0.06)] transition-transform duration-300 motion-reduce:transition-none",
         "pb-[env(safe-area-inset-bottom)]",
         visible ? "translate-y-0" : "translate-y-full pointer-events-none"
       )}
     >
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
-        <p className="font-heading text-sm font-semibold text-white sm:text-base">
+        <p className="font-heading text-sm font-semibold text-brand-ink sm:text-base">
           Talk to an OpenShift Engineer
         </p>
         <div className="flex flex-1 flex-wrap items-center justify-end gap-2 sm:gap-3">
@@ -81,13 +81,12 @@ export function OpenShiftStickyEngineerBar() {
             whatsappMessage={openshiftHub.whatsappMessage}
             bookLabel={openshiftHub.finalCta.bookLabel}
             whatsappLabel={openshiftHub.finalCta.whatsappLabel}
-            onDark
             className="gap-2 sm:gap-3 [&_a]:text-sm [&_button]:h-9 [&_button]:px-4 [&_button]:text-sm sm:[&_button]:h-10 sm:[&_button]:px-5"
           />
           <button
             type="button"
             onClick={dismiss}
-            className="rounded-md p-2 text-white/70 hover:bg-white/10 hover:text-white"
+            className="rounded-md p-2 text-slate-500 hover:bg-slate-100 hover:text-brand-ink"
             aria-label="Dismiss sticky bar"
           >
             <X className="h-4 w-4" aria-hidden />

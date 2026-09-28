@@ -15,7 +15,7 @@ export function IndustryPackages({
         const meta = getPackageBySlug(pkg.slug);
         return (
           <li key={pkg.slug}>
-            <Card tone="light" className="flex h-full flex-col p-6 md:p-8">
+            <Card className="flex h-full flex-col p-6">
               <h3 className="type-h3 text-brand-ink">{pkg.title}</h3>
               <p className="type-body-card mt-2">
                 {pkg.tagline ?? meta?.tagline}
@@ -27,7 +27,7 @@ export function IndustryPackages({
               )}
               <Link
                 href={`/packages/${pkg.slug}`}
-                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brand-cyan hover:underline"
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brand-primary hover:underline"
               >
                 View package
                 <ArrowRight className="h-4 w-4" aria-hidden />

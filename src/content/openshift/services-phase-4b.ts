@@ -279,7 +279,7 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
     metaTitle: "OpenShift Upgrade Services | OCP Version Upgrade Experts | Ramatech India",
     metaDescription:
       "Safe, zero-disruption OpenShift version upgrades - from 4.x to latest. Upgrade path planning, pre-upgrade checks, and rollback procedures.",
-    h1: "OpenShift Upgrade Services — Safe Version Upgrades Without Downtime",
+    h1: "OpenShift Upgrade Services — Planned, Low-Risk Version Upgrades",
     heroSubtext:
       "Structured OpenShift upgrade delivery that reduces outage risk, validates compatibility, and keeps production services stable through version changes.",
     analyticsLabel: "upgrade-services",
@@ -835,7 +835,7 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
               "Managed OpenShift means your cluster is operated as a production platform service, not supported only when incidents occur. We run daily platform operations, patch cycles, upgrade execution, monitoring, and on-call response with explicit accountability and documented procedures. This model is designed for enterprises where OpenShift reliability directly affects customer experience, release commitments, and compliance posture. By shifting platform operations to a dedicated specialist team, your internal engineers can focus on product delivery and architecture innovation.",
               "Daily operations include proactive health checks, alert triage, capacity trend reviews, backup assurance, and risk reporting. We do not wait for failures to become visible; we monitor leading indicators that commonly precede incidents, such as control plane pressure, certificate lifecycle drift, storage saturation trend, and operator degradation signals. This preventive posture reduces emergency work and improves platform stability over time. It also gives leadership better visibility into risk movement and operational readiness.",
               "Lifecycle management is another core advantage of full managed service. Platform patching and version upgrades are planned through governance cadence, tested with staged validation, and executed with rollback readiness. This avoids the common pattern where upgrades are repeatedly postponed until end-of-support pressure creates rushed production change. With managed operations, lifecycle work becomes steady and predictable, which lowers operational risk and improves long-term platform maintainability.",
-              "The model is especially valuable for organizations running lean platform teams. Hiring and retaining multiple senior OpenShift engineers for round-the-clock operations is difficult and expensive in many regions. Managed service provides equivalent or higher coverage with a structured operating model, documented runbooks, and escalation discipline. Your organization gains enterprise-grade platform operations without carrying full staffing overhead and single-point dependency risks.",
+              "The model is especially valuable for organizations running lean platform teams. Hiring and retaining multiple senior OpenShift engineers is difficult and expensive in many regions. Managed service provides coverage agreed per contract, with a structured operating model, documented runbooks, and escalation discipline. Your organization gains enterprise-grade platform operations without carrying full staffing overhead and single-point dependency risks.",
               "Managed service also improves consistency across environments when enterprises operate multiple clusters for development, production, and regional compliance. We standardize operating procedures while allowing controlled local variation for regulatory or business needs. This reduces fragmented practices that often lead to uneven reliability outcomes between teams. Consistent operations make incident response faster, lifecycle planning clearer, and audit preparation less disruptive.",
               "Another benefit is continuity of platform knowledge. Instead of depending on individual engineers to remember past incidents or one-time fixes, we maintain structured operational context in runbooks, risk registers, and review artifacts. This institutional memory improves diagnostic speed and prevents repeat failures caused by forgotten lessons. Over time, it creates a resilient operating model that remains stable through team changes and growth.",
             ],
@@ -899,7 +899,7 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
                 features: [
                   "End-to-end daily operations and incident response in agreed coverage windows",
                   "Structured upgrades, patch cycles, and risk reporting",
-                  "Runbook-backed ownership with measurable SLA commitments",
+                  "Runbook-backed ownership with response targets agreed per contract",
                 ],
               },
               {
@@ -962,7 +962,7 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
           {
             type: "prose",
             paragraphs: [
-              "SLA commitments are effective only when backed by operating discipline. Our SLA model combines incident response targets with upgrade execution commitments so both unplanned and planned risk are managed under the same governance framework. This is important because platform availability depends on how incidents are handled and how lifecycle changes are executed. We therefore track response performance, upgrade completion quality, and post-change stability as connected service outcomes.",
+              "SLA commitments are effective only when backed by operating discipline. Incident response targets and upgrade commitments are agreed per contract, so both unplanned and planned risk are managed under the same governance framework. This is important because platform availability depends on how incidents are handled and how lifecycle changes are executed. We therefore track response performance, upgrade completion quality, and post-change stability as connected service outcomes.",
               "Upgrade SLAs define planning lead time, maintenance communication expectations, and validation closure standards for z-stream and major version changes. These commitments help product and platform stakeholders coordinate confidently around change windows. By treating upgrades as SLA-governed operations, teams avoid uncertainty and reduce lifecycle drift.",
               "To keep SLA reporting meaningful, we correlate response and upgrade metrics with recurring incident patterns and change success trends. This allows teams to distinguish isolated events from systemic reliability issues and prioritize corrective actions effectively. Continuous SLA analytics turns service levels into an improvement engine rather than a static reporting exercise.",
             ],

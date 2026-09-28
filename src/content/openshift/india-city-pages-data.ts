@@ -101,7 +101,7 @@ export const openshiftIndiaCityPages: OpenShiftIndiaCityPage[] = [
     ],
     finalCta: {
       headline: "Discuss OpenShift for Your Bangalore Platform Team",
-      bookLabel: "Request a Quote",
+      bookLabel: "Book Consultation",
       whatsappLabel: "WhatsApp Us",
     },
   },
@@ -138,7 +138,7 @@ export const openshiftIndiaCityPages: OpenShiftIndiaCityPage[] = [
         href: "/openshift/managed-services",
         label: "OpenShift Managed Services",
         paragraphs: [
-          "GCC and enterprise campuses in Hyderabad often cannot sustain 24/7 platform SRE coverage internally while meeting parent-entity reliability expectations. Managed services cover patching, upgrades, incident response, and capacity reviews with scope, access boundaries, and change evidence defined during onboarding.",
+          "GCC and enterprise campuses in Hyderabad often cannot staff dedicated platform SRE coverage internally while meeting parent-entity reliability expectations. Managed services cover patching, upgrades, incident response, and capacity reviews with scope, access boundaries, and change evidence defined during onboarding.",
           "Co-managed models preserve internal ownership of architecture decisions and GitOps repositories while Ramatech handles escalation tiers, z-stream coordination, and recurring health reviews. Deliverables include monthly operational reports suitable for vendor oversight reviews—not opaque managed service black boxes.",
           "Onboarding baselines alert noise, patch lag, and recurring incident themes in the first weeks—then sequences stabilization work before broader optimization. Access reviews and break-glass procedures are documented for parent-entity third-party risk questionnaires common in Financial District technology programs.",
         ],
@@ -204,7 +204,7 @@ export const openshiftIndiaCityPages: OpenShiftIndiaCityPage[] = [
     ],
     finalCta: {
       headline: "Discuss OpenShift for Your Hyderabad Operations",
-      bookLabel: "Request a Quote",
+      bookLabel: "Book Consultation",
       whatsappLabel: "WhatsApp Us",
     },
   },
@@ -307,7 +307,7 @@ export const openshiftIndiaCityPages: OpenShiftIndiaCityPage[] = [
     ],
     finalCta: {
       headline: "Discuss OpenShift for Your Mumbai Financial Platform",
-      bookLabel: "Request a Quote",
+      bookLabel: "Book Consultation",
       whatsappLabel: "WhatsApp Us",
     },
   },
@@ -410,7 +410,7 @@ export const openshiftIndiaCityPages: OpenShiftIndiaCityPage[] = [
     ],
     finalCta: {
       headline: "Discuss OpenShift for Your Noida Estate",
-      bookLabel: "Request a Quote",
+      bookLabel: "Book Consultation",
       whatsappLabel: "WhatsApp Us",
     },
   },

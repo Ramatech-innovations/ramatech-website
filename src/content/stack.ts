@@ -10,25 +10,32 @@ export type StackCategory = {
 
 export const stackCategories: StackCategory[] = [
   {
-    name: "Cloud & Infrastructure",
+    name: "Platforms",
     tools: [
-      { name: "AWS" },
-      { name: "Azure" },
-      { name: "GCP" },
-      { name: "Terraform" },
-      { name: "Pulumi" },
-      { name: "Docker" },
+      { name: "OpenShift", href: "/technology/openshift" },
+      { name: "OpenShift Virtualization", href: "/openshift/migration-services" },
+      { name: "Kubernetes", href: "/technology/kubernetes" },
+      { name: "Red Hat", href: "/technology/red-hat" },
+      { name: "Helm" },
     ],
   },
   {
-    name: "Platform & Kubernetes",
+    name: "GitOps and CI/CD",
     tools: [
-      { name: "Kubernetes", href: "/technology/kubernetes" },
-      { name: "OpenShift", href: "/technology/openshift" },
-      { name: "Red Hat", href: "/technology/red-hat" },
-      { name: "Helm" },
       { name: "Argo CD", href: "/technology/argocd" },
-      { name: "Istio" },
+      { name: "Jenkins" },
+      { name: "GitLab" },
+      { name: "Bitbucket" },
+      { name: "Nexus" },
+      { name: "Quay" },
+    ],
+  },
+  {
+    name: "Automation",
+    tools: [
+      { name: "Ansible", href: "/technology/ansible" },
+      { name: "Python" },
+      { name: "Terraform" },
     ],
   },
   {
@@ -36,46 +43,45 @@ export const stackCategories: StackCategory[] = [
     tools: [
       { name: "Prometheus", href: "/technology/prometheus" },
       { name: "Grafana", href: "/technology/grafana" },
-      { name: "VictoriaMetrics" },
-      { name: "Loki" },
-      { name: "OpenTelemetry" },
+      { name: "Alertmanager" },
     ],
   },
   {
-    name: "Automation",
-    tools: [{ name: "Ansible", href: "/technology/ansible" }],
-  },
-  {
-    name: "AI & Data",
+    name: "Environments",
     tools: [
-      { name: "OpenAI" },
-      { name: "Anthropic" },
-      { name: "PostgreSQL" },
-      { name: "pgvector" },
-      { name: "Redis" },
-      { name: "Python" },
+      { name: "Bare metal" },
+      { name: "VMware vSphere" },
+      { name: "KVM" },
+      { name: "AWS and ROSA", href: "/solutions/cloud-infrastructure" },
+      { name: "Air-gapped networks" },
     ],
   },
   {
-    name: "Application Engineering",
+    name: "AI (capabilities)",
+    tools: [
+      { name: "LLM workflows", href: "/solutions/ai-solutions" },
+      { name: "RAG pipelines" },
+      { name: "AI agents" },
+      { name: "pgvector" },
+    ],
+  },
+  {
+    name: "Application engineering",
     tools: [
       { name: "Next.js" },
       { name: "TypeScript" },
-      { name: "NestJS" },
-      { name: "FastAPI" },
       { name: "Node.js" },
+      { name: "FastAPI" },
+      { name: "PostgreSQL" },
     ],
   },
   {
-    name: "Enterprise Systems",
+    name: "Enterprise systems (capabilities)",
     tools: [
-      { name: "SAP S/4HANA migration" },
+      { name: "SAP S/4HANA migration", href: "/solutions/business-automation" },
       { name: "SAP BTP" },
       { name: "SAP RAP" },
       { name: "SAP support" },
-      { name: "Kafka" },
-      { name: "REST" },
-      { name: "Event-driven pipelines" },
     ],
   },
 ];

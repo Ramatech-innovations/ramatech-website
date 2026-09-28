@@ -2,35 +2,27 @@ import { cn } from "@/lib/utils";
 
 export function SectionShell({
   children,
-  variant = "default",
+  variant = "light",
   className,
+  id,
 }: {
   children: React.ReactNode;
-  variant?: "default" | "elevated" | "gradient" | "light" | "lightElevated";
+  variant?: "light" | "lightElevated" | "dark";
   className?: string;
+  id?: string;
 }) {
-  const isLight = variant === "light" || variant === "lightElevated";
-
   return (
-    <div
+    <section
+      id={id}
       className={cn(
-        "section-pad relative",
-        variant === "elevated" && "section-elevated",
-        variant === "gradient" && "section-gradient",
-        variant === "default" && "section-dark",
+        "section-pad",
         variant === "light" && "section-light on-light",
         variant === "lightElevated" && "section-light-elevated on-light",
+        variant === "dark" && "section-dark",
         className
       )}
     >
-      <div
-        className={cn(
-          "pointer-events-none absolute inset-0 opacity-40",
-          isLight ? "grid-bg-light" : "grid-bg"
-        )}
-        aria-hidden
-      />
-      <div className="relative">{children}</div>
-    </div>
+      {children}
+    </section>
   );
 }

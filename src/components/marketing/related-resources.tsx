@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Card } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 
 export type RelatedResourceType =
   | "service"
@@ -25,61 +23,30 @@ const typeLabels: Record<RelatedResourceType, string> = {
 export function RelatedResources({
   heading,
   resources,
-  variant = "light",
 }: {
   heading?: string;
   resources: RelatedResource[];
-  variant?: "light" | "dark";
 }) {
   if (resources.length === 0) return null;
 
-  const isDark = variant === "dark";
-
   return (
     <div>
-      {heading && (
-        <p
-          className={cn(
-            "type-caption font-medium",
-            isDark ? "text-muted-foreground" : "text-slate-500"
-          )}
-        >
-          {heading}
-        </p>
-      )}
-      <ul
-        className={cn(
-          "flex flex-wrap gap-3",
-          heading && "mt-4"
-        )}
-      >
+      {heading && <h2 className="font-heading text-lg font-semibold text-brand-ink">{heading}</h2>}
+      <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {resources.map((resource) => (
           <li key={`${resource.href}-${resource.title}`}>
-            <Card
-              tone={isDark ? "dark" : "light"}
-              className="flex h-full min-w-[200px] max-w-xs flex-col p-4 transition-colors hover:border-brand-cyan/40"
+            <Link
+              href={resource.href}
+              className="card-on-light group flex h-full flex-col p-4"
             >
-              <span
-                className={cn(
-                  "font-mono text-[10px] uppercase tracking-wider",
-                  isDark ? "text-brand-cyan/80" : "text-brand-primary/80"
-                )}
-              >
+              <span className="text-xs font-medium uppercase tracking-wider text-slate-500">
                 {typeLabels[resource.type]}
               </span>
-              <Link
-                href={resource.href}
-                className={cn(
-                  "mt-2 inline-flex items-start gap-1.5 text-sm font-medium leading-snug hover:underline",
-                  isDark
-                    ? "text-brand-cyan hover:text-white"
-                    : "text-brand-primary hover:text-brand-cyan"
-                )}
-              >
+              <span className="mt-1.5 inline-flex items-start gap-1.5 text-sm font-semibold leading-snug text-brand-ink group-hover:text-brand-primary">
                 <span className="flex-1">{resource.title}</span>
                 <ArrowRight className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
-              </Link>
-            </Card>
+              </span>
+            </Link>
           </li>
         ))}
       </ul>

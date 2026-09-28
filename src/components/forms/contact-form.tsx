@@ -168,17 +168,17 @@ export function ContactForm({
   if (status === "success") {
     return (
       <div className="card-on-light rounded-xl p-8 text-center">
-        <h3 className="font-heading text-2xl font-semibold text-brand-cyan">
+        <h3 className="font-heading text-2xl font-semibold text-brand-ink">
           Message received
         </h3>
         <p className="mt-4 text-muted-foreground">
-          We respond within 4 business hours. Meanwhile, explore our proof and stack.
+          We reply within one business day. Meanwhile, explore our proof and stack.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-4">
-          <Button asChild variant="outlineLight">
+          <Button asChild variant="secondary">
             <Link href="/case-studies">Case studies</Link>
           </Button>
-          <Button asChild variant="outlineLight">
+          <Button asChild variant="secondary">
             <Link href="/openshift">OpenShift services</Link>
           </Button>
         </div>
@@ -262,7 +262,7 @@ export function ContactForm({
                         checked={selectedInterests.includes(option.slug)}
                         onChange={() => toggleInterest(option.slug)}
                       />
-                      <span className="inline-block rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm peer-checked:border-brand-cyan peer-checked:bg-brand-cyan/10">
+                      <span className="inline-block rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm peer-checked:border-brand-primary peer-checked:bg-brand-primary/10 peer-checked:text-brand-primary">
                         {option.label}
                       </span>
                     </label>

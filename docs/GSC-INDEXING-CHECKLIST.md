@@ -25,7 +25,7 @@ curl -s https://www.ramatech.co.in/robots.txt
 
 1. GSC → **Sitemaps**
 2. For each `demo.ramatech.co.in` row with **Couldn't fetch**, remove the sitemap
-3. Confirm only `https://www.ramatech.co.in/sitemap.xml` remains **Success** (~69 pages)
+3. Confirm only `https://www.ramatech.co.in/sitemap.xml` remains **Success** (68 URLs as of the MKT-2026-002 redesign)
 
 ## Step 2 — Confirm preferred host (2 min)
 
@@ -64,6 +64,22 @@ curl -s https://www.ramatech.co.in/robots.txt
 6. `https://www.ramatech.co.in/openshift/platform-engineering`
 7. `https://www.ramatech.co.in/openshift/india`
 8. `https://www.ramatech.co.in/openshift/india/bangalore`
+
+### Priority 1b — Services and case studies (rebuilt in MKT-2026-002)
+
+1. `https://www.ramatech.co.in/solutions`
+2. `https://www.ramatech.co.in/solutions/ai-solutions`
+3. `https://www.ramatech.co.in/solutions/cloud-infrastructure`
+4. `https://www.ramatech.co.in/solutions/devops-platform-engineering`
+5. `https://www.ramatech.co.in/solutions/business-automation`
+6. `https://www.ramatech.co.in/solutions/software-development`
+7. `https://www.ramatech.co.in/case-studies`
+8. `https://www.ramatech.co.in/case-studies/openshift-enterprise-migration`
+9. `https://www.ramatech.co.in/case-studies/openshift-jenkins-argocd-cicd`
+10. `https://www.ramatech.co.in/case-studies/openshift-helm-gitops-production`
+11. `https://www.ramatech.co.in/case-studies/openshift-operations-automation`
+
+Spread Priority 1 and 1b over several days; the daily request quota is small.
 
 ### Priority 2 — Insights already earning interest
 

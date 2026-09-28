@@ -1,5 +1,4 @@
 import type { PackageLanding } from "@/content/package-landings";
-import { PackageBreadcrumbs } from "@/components/packages/package-breadcrumbs";
 import { PackageHero } from "@/components/packages/package-hero";
 import { PackageSection } from "@/components/packages/package-section";
 import { PackageAudienceGrid } from "@/components/packages/package-audience-grid";
@@ -16,7 +15,6 @@ import { PackageInternalLinks } from "@/components/packages/package-internal-lin
 export function PackageLandingPage({ landing }: { landing: PackageLanding }) {
   return (
     <>
-      <PackageBreadcrumbs landing={landing} />
       <PackageHero landing={landing} />
 
       <PackageSection title="Who is this for" variant="dark">
@@ -42,7 +40,7 @@ export function PackageLandingPage({ landing }: { landing: PackageLanding }) {
       )}
 
       <PackageSection title="What's included" variant="light">
-        <PackageDeliverables items={landing.deliverables} variant="light" />
+        <PackageDeliverables items={landing.deliverables} />
       </PackageSection>
 
       <PackageSection title="Timeline" variant="dark">
@@ -57,8 +55,8 @@ export function PackageLandingPage({ landing }: { landing: PackageLanding }) {
         <PackageFaqAccordion faqs={landing.faqs} />
       </PackageSection>
 
-      <PackageFinalCta landing={landing} />
       <PackageInternalLinks links={landing.internalLinks} />
+      <PackageFinalCta landing={landing} />
     </>
   );
 }

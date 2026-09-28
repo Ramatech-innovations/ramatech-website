@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { PageHero } from "@/components/marketing/page-hero";
-import { Card } from "@/components/ui/card";
-import { MotionSection } from "@/components/motion/motion-section";
+import { Breadcrumbs } from "@/components/marketing/breadcrumbs";
+import { SectionShell } from "@/components/marketing/section-shell";
+import { ClosingCta } from "@/components/marketing/closing-cta";
+import { CaseStudyCards } from "@/components/case-studies/case-study-cards";
+import { BookConsultationLink } from "@/components/analytics/tracked-link";
+import { Button } from "@/components/ui/button";
 import { createMetadata } from "@/lib/seo";
 import { pageMeta } from "@/content/page-meta";
-import { caseStudies } from "@/content/case-studies";
 import { PAGE_CONTAINER } from "@/lib/layout";
 
 export const metadata = createMetadata({
@@ -17,39 +20,28 @@ export default function CaseStudiesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Proof"
-        title="Case studies"
-        description="Real engineering delivery—architecture, stack, and outcomes."
+        eyebrow="Case studies"
+        title="Delivery experience"
+        description="OpenShift platforms, CI/CD, GitOps, and automation delivered by the Ramatech team. Client names are withheld under confidentiality."
+        breadcrumbs={<Breadcrumbs items={[{ name: "Case Studies" }]} />}
       />
-      <MotionSection className="py-16 md:py-20">
+      <SectionShell variant="light">
         <div className={PAGE_CONTAINER}>
-          <div className="grid gap-6">
-            {caseStudies.map((c) => (
-              <Link key={c.slug} href={`/case-studies/${c.slug}`}>
-                <Card className="group p-8">
-                  <div className="type-caption flex flex-wrap items-center gap-3">
-                    <span>{c.client}</span>
-                    <span>·</span>
-                    <span>{c.industry}</span>
-                  </div>
-                  <h2 className="type-h3 mt-4 text-brand-ink group-hover:text-brand-cyan">
-                    {c.title}
-                  </h2>
-                  <p className="type-body-card mt-2">{c.summary}</p>
-                  <div className="mt-6 flex flex-wrap gap-6">
-                    {c.results.map((r) => (
-                      <div key={r.label}>
-                        <p className="font-heading text-xl font-bold text-brand-primary">{r.metric}</p>
-                        <p className="type-caption mt-0.5">{r.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                </Card>
-              </Link>
-            ))}
-          </div>
+          <CaseStudyCards />
         </div>
-      </MotionSection>
+      </SectionShell>
+      <ClosingCta headline="Planning similar work?">
+        <div className="flex flex-wrap gap-3">
+          <Button asChild size="lg" variant="inverse">
+            <BookConsultationLink pageSource="/case-studies" interest="openshift">
+              Book Consultation
+            </BookConsultationLink>
+          </Button>
+          <Button asChild size="lg" variant="inverseOutline">
+            <Link href="/openshift">OpenShift services</Link>
+          </Button>
+        </div>
+      </ClosingCta>
     </>
   );
 }

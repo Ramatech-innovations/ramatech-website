@@ -1,41 +1,25 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { getIndustryName } from "@/content/industry-landings";
 import { PAGE_CONTAINER } from "@/lib/layout";
+import { RelatedResources } from "@/components/marketing/related-resources";
 
 export function IndustryInternalLinks({
   relatedSlugs,
 }: {
   relatedSlugs: string[];
 }) {
+  const resources = [
+    { title: "All industries", href: "/industries", type: "service" as const },
+    ...relatedSlugs.map((slug) => ({
+      title: getIndustryName(slug) ?? slug,
+      href: `/industries/${slug}`,
+      type: "service" as const,
+    })),
+  ];
+
   return (
-    <section className="border-t border-white/10 bg-brand-dark py-10">
+    <section className="section-light on-light border-t border-slate-200 py-12 md:py-14">
       <div className={PAGE_CONTAINER}>
-        <p className="type-caption font-medium text-muted-foreground">
-          Other industries
-        </p>
-        <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
-          <li>
-            <Link
-              href="/industries"
-              className="inline-flex items-center gap-1.5 text-sm text-brand-cyan hover:underline"
-            >
-              All industries
-              <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-            </Link>
-          </li>
-          {relatedSlugs.map((slug) => (
-            <li key={slug}>
-              <Link
-                href={`/industries/${slug}`}
-                className="inline-flex items-center gap-1.5 text-sm text-brand-cyan hover:underline"
-              >
-                {getIndustryName(slug) ?? slug}
-                <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <RelatedResources heading="Other industries" resources={resources} />
       </div>
     </section>
   );

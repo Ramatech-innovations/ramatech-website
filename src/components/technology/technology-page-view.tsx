@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { TechnologyPage } from "@/content/technology-types";
+import { caseStudies } from "@/content/case-studies";
 import { BookConsultationLink } from "@/components/analytics/tracked-link";
 import { PackageSection } from "@/components/packages/package-section";
 import { OpenShiftProse } from "@/components/openshift/openshift-content-blocks";
@@ -9,96 +10,113 @@ import {
   linksToResources,
 } from "@/components/marketing/related-resources";
 import { ComparisonTable } from "@/components/marketing/comparison-table";
+import { PageHero } from "@/components/marketing/page-hero";
+import { Breadcrumbs } from "@/components/marketing/breadcrumbs";
+import { ClosingCta } from "@/components/marketing/closing-cta";
+import { CaseStudyCards } from "@/components/case-studies/case-study-cards";
 import { openshiftKubernetesComparison } from "@/content/openshift-kubernetes-comparison";
 import { Button } from "@/components/ui/button";
 import { PAGE_CONTAINER } from "@/lib/layout";
 
+/** Form interest preset and the case-study stack label to match, per technology. */
+const TECH_CONTEXT: Record<string, { interest: string; stackMatch?: string }> = {
+  openshift: { interest: "openshift", stackMatch: "OpenShift" },
+  kubernetes: { interest: "openshift", stackMatch: "OpenShift" },
+  "red-hat": { interest: "openshift", stackMatch: "OpenShift" },
+  argocd: { interest: "devops-platform-engineering", stackMatch: "Argo CD" },
+  ansible: { interest: "devops-platform-engineering", stackMatch: "Ansible" },
+  prometheus: { interest: "devops-platform-engineering" },
+  grafana: { interest: "devops-platform-engineering" },
+};
+
 export function TechnologyPageView({ page }: { page: TechnologyPage }) {
+  const context = TECH_CONTEXT[page.slug] ?? { interest: "openshift" };
+  const studySlugs = context.stackMatch
+    ? caseStudies.filter((c) => c.stack.includes(context.stackMatch!)).map((c) => c.slug)
+    : [];
+  const pageSource = `/technology/${page.slug}`;
+
   return (
     <>
-      <section className="section-dark relative overflow-hidden border-b border-white/5 py-16 md:py-24">
-        <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_80%_20%,rgba(10,76,149,0.25),transparent_55%)]"
-          aria-hidden
-        />
-        <div className="noise-overlay pointer-events-none absolute inset-0 opacity-20" aria-hidden />
-        <div className={`${PAGE_CONTAINER} relative`}>
-          <p className="type-eyebrow">Technology · {page.techName}</p>
-          <h1 className="type-display mt-4 max-w-4xl">{page.h1}</h1>
-          <p className="type-body-muted mt-6 max-w-2xl">{page.heroSubtext}</p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button asChild size="lg">
-              <BookConsultationLink pageSource={`/technology/${page.slug}`} interest="openshift">
-                Request a consultation
-              </BookConsultationLink>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
-              <Link href="/openshift">OpenShift services</Link>
-            </Button>
-          </div>
+      <PageHero
+        eyebrow={`Technology · ${page.techName}`}
+        title={page.h1}
+        description={page.heroSubtext}
+        breadcrumbs={
+          <Breadcrumbs
+            items={[{ name: "Technology", href: "/technology" }, { name: page.techName }]}
+          />
+        }
+      >
+        <div className="flex flex-wrap gap-3">
+          <Button asChild size="lg">
+            <BookConsultationLink pageSource={pageSource} interest={context.interest}>
+              Book Consultation
+            </BookConsultationLink>
+          </Button>
+          <Button asChild variant="secondary" size="lg">
+            <Link href="/openshift">OpenShift services</Link>
+          </Button>
         </div>
-      </section>
+      </PageHero>
 
-      <PackageSection title="What it is" variant="light">
+      <PackageSection title="What it is" variant="dark">
         <OpenShiftProse paragraphs={page.whatItIs} />
       </PackageSection>
 
-      <PackageSection title="Business value" variant="dark">
-        <div className="text-slate-300">
-          <OpenShiftProse paragraphs={page.businessValue} />
-        </div>
+      <PackageSection title="Business value" variant="light">
+        <OpenShiftProse paragraphs={page.businessValue} />
       </PackageSection>
 
-      <PackageSection title="Ramatech expertise" variant="light">
+      <PackageSection title="How we use it" variant="dark">
         <OpenShiftProse paragraphs={page.ramatechExpertise} />
-        {page.relatedLinks.length > 0 && (
-          <div className="mt-8 border-t border-slate-200 pt-8">
-            <RelatedResources
-              heading="Related resources"
-              resources={linksWithInferredType(page.relatedLinks)}
-            />
-          </div>
-        )}
-        {page.insightLinks && page.insightLinks.length > 0 && (
-          <div className="mt-8 border-t border-slate-200 pt-8">
-            <RelatedResources
-              heading="From our Insights hub"
-              resources={linksToResources(page.insightLinks, "insight")}
-            />
-          </div>
-        )}
       </PackageSection>
 
       {page.slug === "kubernetes" && (
-        <PackageSection title="OpenShift vs Kubernetes at a glance" variant="dark">
-          <ComparisonTable data={openshiftKubernetesComparison} variant="dark" />
+        <PackageSection title="OpenShift vs Kubernetes at a glance" variant="light">
+          <ComparisonTable data={openshiftKubernetesComparison} />
         </PackageSection>
       )}
 
-      <PackageSection title="Use cases & architecture" variant="dark">
-        <div className="text-slate-300">
-          <OpenShiftProse paragraphs={page.useCases} />
-        </div>
+      <PackageSection title="Use cases and architecture" variant={page.slug === "kubernetes" ? "dark" : "light"}>
+        <OpenShiftProse paragraphs={page.useCases} />
       </PackageSection>
 
-      <section className="border-t border-slate-200 bg-slate-50 py-16">
-        <div className={`${PAGE_CONTAINER} text-center`}>
-          <h2 className="type-h3 text-brand-ink">Discuss {page.techName} for your platform</h2>
-          <p className="type-body-muted mx-auto mt-4 max-w-xl">
-            Talk to engineers who deploy {page.techName} on OpenShift in production—not slide decks.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button asChild size="lg">
-              <BookConsultationLink pageSource={`/technology/${page.slug}`} interest="openshift">
-                Book a consultation
-              </BookConsultationLink>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/openshift">Explore OpenShift services</Link>
-            </Button>
+      {studySlugs.length > 0 && (
+        <PackageSection title={`Case studies using ${page.techName}`} variant={page.slug === "kubernetes" ? "light" : "dark"}>
+          <CaseStudyCards slugs={studySlugs} />
+        </PackageSection>
+      )}
+
+      {(page.relatedLinks.length > 0 || (page.insightLinks?.length ?? 0) > 0) && (
+        <section className="section-light on-light border-t border-slate-200 py-12 md:py-14">
+          <div className={`${PAGE_CONTAINER} space-y-10`}>
+            <RelatedResources
+              heading="Related services and technologies"
+              resources={linksWithInferredType(page.relatedLinks)}
+            />
+            {page.insightLinks && page.insightLinks.length > 0 && (
+              <RelatedResources
+                heading="Related reading"
+                resources={linksToResources(page.insightLinks, "insight")}
+              />
+            )}
           </div>
+        </section>
+      )}
+
+      <ClosingCta headline={`Discuss ${page.techName} for your platform`}>
+        <div className="flex flex-wrap gap-3">
+          <Button asChild size="lg" variant="inverse">
+            <BookConsultationLink pageSource={pageSource} interest={context.interest}>
+              Book Consultation
+            </BookConsultationLink>
+          </Button>
+          <Button asChild size="lg" variant="inverseOutline">
+            <Link href="/contact">Contact us</Link>
+          </Button>
         </div>
-      </section>
+      </ClosingCta>
     </>
   );
 }

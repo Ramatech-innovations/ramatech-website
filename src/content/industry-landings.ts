@@ -5,14 +5,11 @@ export type IndustryLanding = {
   metaTitle: string;
   metaDescription: string;
   analyticsLabel: string;
-  heroImage: string;
   h1: string;
   heroSubtext: string;
   painPoints: string[];
   solutions: string[];
   packages: { slug: string; title: string; tagline?: string }[];
-  socialProof?: { text: string; caseStudyHref?: string; caseStudyLabel?: string };
-  showcaseRef?: { title: string; description: string; href: string };
   caseStudyLinks?: { slug: string; title: string; summary: string }[];
   faqs: { question: string; answer: string }[];
   finalCta: {
@@ -46,7 +43,6 @@ export const industryLandings: IndustryLanding[] = [
     metaDescription:
       "Custom websites, online ordering, WhatsApp automation, and digital menus for restaurants. Get more orders and reduce staff workload.",
     analyticsLabel: "industry_restaurants",
-    heroImage: "/industries/restaurants.png",
     h1: "Modern Technology for Restaurants That Want to Grow",
     heroSubtext:
       "Get found online, take orders without paying aggregator commissions, and free your staff from juggling calls, WhatsApp, and walk-ins.",
@@ -76,9 +72,6 @@ export const industryLandings: IndustryLanding[] = [
         tagline: "Automate orders and customer messages",
       },
     ],
-    socialProof: {
-      text: "We've built ordering systems and websites for restaurants across India.",
-    },
     faqs: [
       {
         question: "Do you integrate with Swiggy/Zomato?",
@@ -108,8 +101,7 @@ export const industryLandings: IndustryLanding[] = [
     metaDescription:
       "Custom client portals, document automation, and case management systems for law firms and legal consultants. Reduce admin, focus on law.",
     analyticsLabel: "industry_law_firms",
-    heroImage: "/industries/law-firms.png",
-    h1: "Cut Legal Admin Time in Half with Smart Automation",
+    h1: "Less Legal Admin with Client Portals and Document Automation",
     heroSubtext:
       "Give clients a professional portal, automate intake and documents, and stop digging through email and WhatsApp for case updates.",
     painPoints: [
@@ -143,17 +135,11 @@ export const industryLandings: IndustryLanding[] = [
         tagline: "A credible firm presence online",
       },
     ],
-    showcaseRef: {
-      title: "LegalOS — Client Portal Architecture",
-      description:
-        "Reference architecture for secure client portals, document workflows, and role-based access.",
-      href: "/showcase/legalos",
-    },
     faqs: [
       {
         question: "Is client data kept secure?",
         answer:
-          "All systems include role-based access, encryption, and audit trails.",
+          "Yes. Systems are designed with role-based access, encryption, and audit trails, agreed in scope before build.",
       },
       {
         question: "Can this replace our current case management tool?",
@@ -178,7 +164,6 @@ export const industryLandings: IndustryLanding[] = [
     metaDescription:
       "Custom inventory, production tracking, and operations dashboards for manufacturing businesses. Replace spreadsheets with real systems.",
     analyticsLabel: "industry_manufacturing",
-    heroImage: "/industries/manufacturing.png",
     h1: "Real-Time Visibility for Your Manufacturing Operations",
     heroSubtext:
       "Replace error-prone spreadsheets with inventory, production, and dispatch systems your team can use on the factory floor.",
@@ -230,7 +215,6 @@ export const industryLandings: IndustryLanding[] = [
     metaDescription:
       "Production-ready Kubernetes, CI/CD, and AI infrastructure for SaaS and AI startups. Go from code to production in 3–4 weeks.",
     analyticsLabel: "industry_startups",
-    heroImage: "/industries/startups.png",
     h1: "Ship Faster. Scale Confidently. Focus on Product.",
     heroSubtext:
       "Get production-ready cloud infrastructure, CI/CD, and observability without hiring a full-time DevOps team.",
@@ -296,7 +280,6 @@ export const industryLandings: IndustryLanding[] = [
     metaDescription:
       "Websites, automation, and custom software for Indian SMEs. Professional technology without enterprise price tags.",
     analyticsLabel: "industry_smes",
-    heroImage: "/industries/smes.png",
     h1: "Enterprise-Grade Technology for Growing Indian Businesses",
     heroSubtext:
       "Professional websites, WhatsApp automation, and custom tools — without the enterprise price tag or jargon.",

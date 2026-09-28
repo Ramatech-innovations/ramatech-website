@@ -11,6 +11,8 @@ export type OpenShiftGeoPage = {
   heroSubtext: string;
   analyticsLabel: string;
   whatsappMessage: string;
+  /** Remote delivery from India, no local presence (DEC-2026-010) */
+  remote?: boolean;
   intro: string[];
   serviceSummaries: {
     href: string;

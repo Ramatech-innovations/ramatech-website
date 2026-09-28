@@ -7,11 +7,11 @@ import { BOOKING_URL } from "@/lib/booking";
 
 export function BookingLink({
   label = "Book a 30-min call",
-  variant = "outlineLight",
+  variant = "secondary",
   className,
 }: {
   label?: string;
-  variant?: "default" | "outlineLight";
+  variant?: "default" | "secondary";
   className?: string;
 }) {
   const pathname = usePathname();

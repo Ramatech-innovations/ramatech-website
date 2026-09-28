@@ -17,19 +17,14 @@ export function OpenShiftInternalLinks({
   ];
 
   return (
-    <section className="border-t border-white/10 bg-brand-dark py-10">
+    <section className="section-light on-light border-t border-slate-200 py-12 md:py-14">
       <div className={PAGE_CONTAINER}>
-        <RelatedResources
-          heading="Related OpenShift services"
-          resources={serviceResources}
-          variant="dark"
-        />
+        <RelatedResources heading="Related OpenShift services" resources={serviceResources} />
         {insightLinks.length > 0 && (
-          <div className="mt-8">
+          <div className="mt-10">
             <RelatedResources
-              heading="From our Insights hub"
+              heading="Related reading"
               resources={linksToResources(insightLinks, "insight")}
-              variant="dark"
             />
           </div>
         )}

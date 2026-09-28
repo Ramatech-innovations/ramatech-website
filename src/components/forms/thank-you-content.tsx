@@ -45,7 +45,7 @@ export function ThankYouContent({ children }: { children?: React.ReactNode }) {
 
   return (
     <div className="card-on-light rounded-xl p-8 md:p-10">
-      <h2 className="font-heading text-2xl font-semibold text-brand-cyan">Message received</h2>
+      <h2 className="font-heading text-2xl font-semibold text-brand-ink">Message received</h2>
       {leadId && (
         <p className="type-caption mt-2 text-muted-foreground">
           Reference: <span className="font-mono">{leadId}</span>
@@ -53,22 +53,22 @@ export function ThankYouContent({ children }: { children?: React.ReactNode }) {
       )}
       <ol className="type-body-card mt-6 space-y-3">
         <li>
-          <span className="text-brand-cyan">01</span> — We review your message within 4 business
-          hours.
+          <span className="font-mono text-brand-primary">01</span> — We reply within one business
+          day (Mon–Sat, 10:00–19:00 IST).
         </li>
         <li>
-          <span className="text-brand-cyan">02</span> — An engineer replies from
+          <span className="font-mono text-brand-primary">02</span> — An engineer replies from
           info@ramatech.co.in to schedule a focused technical call.
         </li>
         <li>
-          <span className="text-brand-cyan">03</span> — You get a clear next-step
+          <span className="font-mono text-brand-primary">03</span> — You get a clear next-step
           recommendation—no obligation.
         </li>
       </ol>
       {children}
       <div className="mt-8 flex flex-wrap gap-3">
         <BookingLink label="Book a 30-min call now" variant="default" />
-        <Button asChild>
+        <Button asChild variant="secondary">
           <WhatsAppLink
             source="thank_you"
             message={`Hi Ramatech, I just submitted an inquiry${leadId ? ` (${leadId})` : ""}.`}
@@ -76,10 +76,10 @@ export function ThankYouContent({ children }: { children?: React.ReactNode }) {
             Continue on WhatsApp
           </WhatsAppLink>
         </Button>
-        <Button asChild variant="outlineLight">
+        <Button asChild variant="link">
           <Link href="/openshift">OpenShift services</Link>
         </Button>
-        <Button asChild variant="outlineLight">
+        <Button asChild variant="link">
           <Link href="/case-studies">Case studies</Link>
         </Button>
       </div>
