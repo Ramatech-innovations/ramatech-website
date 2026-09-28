@@ -7,3 +7,6 @@ out
 next-env.d.ts
 ramatech-implementation-plan.md
 ramatech-openshift-seo-phases-4-10.md
+
+# Local Cursor rules (internal workflow; this repo is public)
+.cursor/
