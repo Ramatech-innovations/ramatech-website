@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { brandAssets } from "@/lib/brand";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.ramatech.co.in";
 
@@ -84,6 +85,8 @@ export function createMetadata({
   };
 }
 
+export const schemaLogoUrl = `${siteConfig.url.replace(/\/$/, "")}${brandAssets.schemaLogo}`;
+
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -91,7 +94,7 @@ export const organizationJsonLd = {
   url: siteConfig.url,
   description: siteConfig.description,
   email: siteConfig.email,
-  logo: `${siteConfig.url}/brand/logo-dark.png`,
+  logo: schemaLogoUrl,
   contactPoint: {
     "@type": "ContactPoint",
     email: siteConfig.email,

@@ -1,6 +1,6 @@
 import type { OpenShiftService } from "@/content/openshift/services";
 import type { BreadcrumbSchemaItem } from "@/components/seo/BreadcrumbSchema";
-import { siteConfig } from "@/lib/seo";
+import { schemaLogoUrl, siteConfig } from "@/lib/seo";
 
 const base = () => siteConfig.url.replace(/\/$/, "");
 
@@ -106,7 +106,7 @@ export const organizationJsonLd = {
   "@type": "Organization",
   name: "Ramatech Innovation",
   url: "https://www.ramatech.co.in",
-  logo: "https://www.ramatech.co.in/brand/logo-dark.png",
+  logo: schemaLogoUrl,
   contactPoint: {
     "@type": "ContactPoint",
     email: "info@ramatech.co.in",

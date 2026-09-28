@@ -52,7 +52,7 @@ TASKS:
    - Add OrganizationSchema once, in the root layout, with:
      name: "Ramatech Innovation"
      url: "https://www.ramatech.co.in"
-     logo: "https://www.ramatech.co.in/brand/logo-dark.png"
+     logo: "https://www.ramatech.co.in/brand/logo-mark.png"
      contactPoint: { email: "info@ramatech.co.in", contactType: "sales" }
      areaServed: ["IN","AE","SA","QA","SG"]
 

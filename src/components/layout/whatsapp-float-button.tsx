@@ -27,6 +27,9 @@ export function WhatsAppFloatButton() {
         )
       : siteConfig.whatsappUrl;
 
+  // OpenShift pages have a sticky bar with its own WhatsApp CTA; the float button would cover its dismiss control.
+  if (pathname?.startsWith("/openshift")) return null;
+
   return (
     <a
       href={href}

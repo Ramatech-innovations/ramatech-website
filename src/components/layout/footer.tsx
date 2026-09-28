@@ -10,7 +10,7 @@ export function Footer() {
       <div className={`${PAGE_CONTAINER} py-14`}>
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-6 lg:gap-8">
           <div className="lg:col-span-2">
-            <Link href="/" aria-label="Ramatech Innovation home" className="inline-block">
+            <Link href="/" className="inline-block">
               <BrandLogo tone="dark" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
@@ -56,7 +56,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 text-sm text-slate-500">
+        <div className="mt-12 border-t border-white/10 pt-6 text-sm text-slate-400">
           <p>© {new Date().getFullYear()} Ramatech Innovation. All rights reserved.</p>
         </div>
       </div>

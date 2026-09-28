@@ -1,5 +1,5 @@
 import { JsonLdScript } from "@/components/seo/json-ld-script";
-import { siteConfig } from "@/lib/seo";
+import { schemaLogoUrl, siteConfig } from "@/lib/seo";
 
 export function ArticleSchema({
   headline,
@@ -33,7 +33,7 @@ export function ArticleSchema({
       url: siteConfig.url,
       logo: {
         "@type": "ImageObject",
-        url: `${siteConfig.url.replace(/\/$/, "")}/brand/logo-dark.png`,
+        url: schemaLogoUrl,
       },
     },
   };
