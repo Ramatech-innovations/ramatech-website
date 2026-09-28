@@ -4,19 +4,19 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { CaseStudyArchitecture } from "@/components/illustrations/case-study-architecture";
-import { publishedCaseStudies } from "@/content/case-studies";
+import { caseStudies } from "@/content/case-studies";
 import { PAGE_CONTAINER } from "@/lib/layout";
 
 export function CaseStudiesShowcase({ limit }: { limit?: number }) {
   const reduce = useReducedMotion();
-  const items = limit ? publishedCaseStudies.slice(0, limit) : publishedCaseStudies;
+  const items = limit ? caseStudies.slice(0, limit) : caseStudies;
 
   return (
     <section className="section-gradient py-14 md:py-16">
       <div className={PAGE_CONTAINER}>
         <div className="mx-auto max-w-2xl text-center md:text-left">
           <p className="type-eyebrow">Case studies</p>
-          <h2 className="type-h2-section mt-3">Real architectures. Measurable outcomes.</h2>
+          <h2 className="type-h2-section mt-3">Real architectures. Delivered in production.</h2>
         </div>
 
         <div className="mt-8 space-y-10">

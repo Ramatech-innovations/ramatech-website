@@ -76,8 +76,8 @@ export const packageLandings: PackageLanding[] = [
       { week: "Week 3", label: "Testing + Launch" },
     ],
     pricing: {
-      display: "Starting from ₹49,999",
-      note: "Final pricing depends on scope and features",
+      display: "Scoped per project",
+      note: "We confirm scope after a free 30-minute consultation.",
     },
     faqs: [
       {
@@ -166,7 +166,8 @@ export const packageLandings: PackageLanding[] = [
       { week: "Week 4", label: "Testing + handover" },
     ],
     pricing: {
-      display: "Starting from ₹1,49,999",
+      display: "Scoped per project",
+      note: "We confirm scope after a free 30-minute consultation.",
     },
     faqs: [
       {
@@ -261,7 +262,8 @@ export const packageLandings: PackageLanding[] = [
       { week: "Week 5–6", label: "Test + deploy + train" },
     ],
     pricing: {
-      display: "Starting from ₹99,999",
+      display: "Scoped per project",
+      note: "We confirm scope after a free 30-minute consultation.",
     },
     faqs: [
       {
@@ -350,7 +352,8 @@ export const packageLandings: PackageLanding[] = [
       },
     ],
     pricing: {
-      display: "Starting from ₹1,99,999",
+      display: "Scoped per project",
+      note: "We confirm scope after a free 30-minute consultation.",
     },
     faqs: [
       {

@@ -9,8 +9,6 @@ export type CaseStudy = {
   solutionDetail: string;
   results: { metric: string; label: string }[];
   stack: string[];
-  /** Composite/illustrative profile — show disclaimer on detail page */
-  illustrative?: boolean;
   /** Real delivery with client name withheld — show confidentiality note on detail page */
   anonymised?: boolean;
 };
@@ -19,26 +17,6 @@ export const PHARMA_MIGRATION_SUMMARY =
   "Pharmaceutical enterprise (name withheld): on-prem bare-metal OpenShift with legacy VMs brought onto the platform through OpenShift Virtualization, dynamic PV/PVC storage, and Argo CD GitOps replacing manual deployments.";
 
 export const caseStudies: CaseStudy[] = [
-  {
-    slug: "observability-platform-scale",
-    illustrative: true,
-    title: "Observability Platform at Scale",
-    client: "Series B SaaS",
-    industry: "SaaS",
-    solution: "devops-platform-engineering",
-    summary:
-      "Unified metrics, logs, and traces for a multi-tenant platform serving 50k+ daily active users.",
-    challenge:
-      "Fragmented monitoring led to blind spots during releases and slow incident triage across microservices.",
-    solutionDetail:
-      "Deployed VictoriaMetrics, structured logging, and SLO-based alerting with AI-assisted runbook generation.",
-    results: [
-      { metric: "40%", label: "Faster MTTR" },
-      { metric: "99.95%", label: "Uptime target met" },
-      { metric: "2 wks", label: "Delivery timeline" },
-    ],
-    stack: ["Kubernetes", "VictoriaMetrics", "Grafana", "OpenTelemetry"],
-  },
   {
     slug: "openshift-enterprise-migration",
     anonymised: true,
@@ -66,73 +44,66 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    slug: "ai-automation-operations",
-    illustrative: true,
-    title: "AI-Driven Operations Automation",
-    client: "HealthTech Platform",
-    industry: "Healthcare",
-    solution: "ai-solutions",
-    summary:
-      "Intelligent triage and document processing integrated into clinical operations workflows.",
-    challenge:
-      "Manual review queues created backlog and inconsistent routing during peak intake periods.",
-    solutionDetail:
-      "Built RAG-backed classification, human-in-the-loop review UI, and cost-monitored LLM pipelines.",
-    results: [
-      { metric: "55%", label: "Queue time reduction" },
-      { metric: "<2s", label: "P95 inference latency" },
-      { metric: "Full", label: "Audit trail coverage" },
-    ],
-    stack: ["OpenAI", "PostgreSQL", "pgvector", "Next.js", "Python"],
-  },
-  // TODO: content review — illustrative client and metrics; replace before marketing publish
-  {
-    slug: "openshift-gitops-automation",
-    illustrative: true,
-    title: "OpenShift Automation Case Study",
-    client: "Regional Financial Services",
-    industry: "Financial Services",
+    slug: "openshift-jenkins-argocd-cicd",
+    anonymised: true,
+    title: "Telecom CI/CD on OpenShift with Jenkins and Argo CD",
+    client: "Telecom enterprise (name withheld)",
+    industry: "Telecom",
     solution: "devops-platform-engineering",
     summary:
-      "CI/CD pipeline automation with Argo CD ApplicationSets and policy-as-code reduced manual deploy steps across a multi-cluster OpenShift estate.",
+      "Replaced manual builds and deployments on a bare-metal OpenShift platform with Jenkins pipelines and Argo CD GitOps, so every release goes from commit to cluster the same way.",
     challenge:
-      "Manual promotion scripts and inconsistent namespace policies caused deployment errors, audit gaps, and slow release cycles across development and production clusters.",
+      "Applications were built and deployed to OpenShift by hand with oc, kubectl, and scripts. Releases depended on individual engineers, changes were hard to trace, and rolling back meant repeating manual steps.",
     solutionDetail:
-      "Implemented GitOps with Argo CD ApplicationSets, Kyverno policy-as-code for image registry and resource standards, and automated sync windows with approval gates for production promotion.",
-    // TODO: replace illustrative metrics with verified client data before publishing
+      "Built Jenkins pipelines that take code from Bitbucket, build it, and publish artifacts to Nexus and container images to the registry (Quay or the internal OpenShift registry). Packaged applications as Helm charts and set up Argo CD to sync them from Git to the bare-metal OpenShift cluster. Pipelines and runbooks were handed over to the client team.",
     results: [
-      { metric: "3×", label: "Deploy frequency increase" },
-      { metric: "72%", label: "Reduction in deployment errors" },
-      { metric: "100%", label: "Git-managed promotions" },
+      { metric: "Git", label: "Single source of truth for every deployment" },
+      { metric: "Automated", label: "Repeatable releases from commit to cluster, with a full audit trail" },
+      { metric: "Rollback", label: "Simpler rollback and fewer manual deployment errors" },
     ],
-    stack: ["OpenShift", "Argo CD", "Kyverno", "GitHub Actions"],
+    stack: ["OpenShift", "Bare metal", "Jenkins", "Argo CD", "Helm", "Bitbucket", "Nexus", "Quay"],
   },
-  // TODO: content review — illustrative client and metrics; replace before marketing publish
   {
-    slug: "openshift-platform-engineering-golden-paths",
-    illustrative: true,
-    title: "Platform Engineering Case Study",
-    client: "Enterprise Product Group",
-    industry: "Technology",
+    slug: "openshift-helm-gitops-production",
+    anonymised: true,
+    title: "Helm and GitOps for a Production App on Air-Gapped OpenShift",
+    client: "Financial services enterprise (name withheld)",
+    industry: "Financial services",
     solution: "devops-platform-engineering",
     summary:
-      "Internal developer platform with self-service namespaces and golden-path templates cut time-to-first-deploy for new product squads on OpenShift.",
+      "Packaged an application already running in production as a Helm chart and moved it to Argo CD GitOps on an air-gapped OpenShift cluster, without disrupting production.",
     challenge:
-      "Central platform team became a bottleneck—namespace requests, quota changes, and pipeline setup took weeks, blocking new teams from shipping on OpenShift.",
+      "A production application on an air-gapped OpenShift cluster was deployed with hand-maintained YAML and oc commands. Every production change was manual and risky, and configuration differed between environments.",
     solutionDetail:
-      "Built an internal developer platform with self-service namespace provisioning, SCC-safe golden-path Helm charts, OpenShift GitOps tenant onboarding, and a developer portal catalog for approved templates.",
-    // TODO: replace illustrative metrics with verified client data before publishing
+      "Created a Helm chart for the application from its running configuration, with per-environment values kept in GitLab. Set up Argo CD to sync the chart to the cluster, with Jenkins in the delivery path and container images served from a mirror registry inside the air-gapped network. The application moved to the new model while production kept running.",
     results: [
-      { metric: "85%", label: "Faster time-to-first-deploy" },
-      { metric: "60%", label: "Fewer platform tickets" },
-      { metric: "4 days", label: "Avg. squad onboarding" },
+      { metric: "Helm + GitOps", label: "Production app moved without disrupting production" },
+      { metric: "Consistent", label: "Same configuration model across environments" },
+      { metric: "Traceable", label: "Every production change recorded in Git, with simpler rollback" },
     ],
-    stack: ["OpenShift", "Argo CD", "Backstage", "Helm"],
+    stack: ["OpenShift", "Air-gapped", "Helm", "Argo CD", "GitLab", "Jenkins", "Mirror registry"],
+  },
+  {
+    slug: "openshift-operations-automation",
+    anonymised: true,
+    title: "OpenShift Operations and DevOps Automation",
+    client: "Financial services enterprise (name withheld)",
+    industry: "Financial services",
+    solution: "devops-platform-engineering",
+    summary:
+      "Automated routine OpenShift operations on a bare-metal platform—team onboarding, monitoring setup, health checks, and backups—so every team and environment is set up the same way.",
+    challenge:
+      "Routine platform work on a bare-metal OpenShift platform was done by hand: onboarding new teams, setting up monitoring and alerts, running health checks, and taking backups. Setups varied between teams and environments, and configuration errors crept in.",
+    solutionDetail:
+      "Built Ansible and Python automation, triggered from Jenkins, for project and namespace onboarding (quotas, limits, and RBAC), monitoring and alerting setup, routine health checks and reports, and backups including etcd. Platform configuration is applied through Argo CD and Helm, with OpenShift Operators handling day-2 components.",
+    results: [
+      { metric: "Repeatable", label: "Consistent setup for every team and environment" },
+      { metric: "Onboarding", label: "Faster onboarding of new teams and applications" },
+      { metric: "Fewer errors", label: "Less manual configuration, fewer configuration errors" },
+    ],
+    stack: ["OpenShift", "Bare metal", "Ansible", "Python", "Jenkins", "Argo CD", "Helm", "OpenShift Operators"],
   },
 ];
-
-/** Case studies shown in listings and the sitemap; illustrative profiles stay reachable but unlisted */
-export const publishedCaseStudies = caseStudies.filter((c) => !c.illustrative);
 
 export function getCaseStudy(slug: string) {
   return caseStudies.find((c) => c.slug === slug);

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { publishedCaseStudies } from "@/content/case-studies";
+import { caseStudies } from "@/content/case-studies";
 import { industryLandings } from "@/content/industry-landings";
 import {
   insightArticles,
@@ -96,7 +96,7 @@ export function getSitemapEntries(): SitemapEntry[] {
     ...STATIC_ROUTES,
     ...INSIGHT_STATIC_ROUTES,
     ...solutions.map((s) => `/solutions/${s.slug}`),
-    ...publishedCaseStudies.map((c) => `/case-studies/${c.slug}`),
+    ...caseStudies.map((c) => `/case-studies/${c.slug}`),
     ...servicePackages.map((p) => `/packages/${p.slug}`),
     ...industryLandings.map((i) => `/industries/${i.slug}`),
     "/openshift",

@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { MotionSection } from "@/components/motion/motion-section";
 import { createMetadata } from "@/lib/seo";
 import { pageMeta } from "@/content/page-meta";
-import { publishedCaseStudies } from "@/content/case-studies";
+import { caseStudies } from "@/content/case-studies";
 import { PAGE_CONTAINER } from "@/lib/layout";
 
 export const metadata = createMetadata({
@@ -24,7 +24,7 @@ export default function CaseStudiesPage() {
       <MotionSection className="py-16 md:py-20">
         <div className={PAGE_CONTAINER}>
           <div className="grid gap-6">
-            {publishedCaseStudies.map((c) => (
+            {caseStudies.map((c) => (
               <Link key={c.slug} href={`/case-studies/${c.slug}`}>
                 <Card className="group p-8">
                   <div className="type-caption flex flex-wrap items-center gap-3">

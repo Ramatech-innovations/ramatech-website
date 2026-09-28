@@ -50,7 +50,7 @@ TASKS:
    Each renders a <script type="application/ld+json"> block from props.
 
    - Add OrganizationSchema once, in the root layout, with:
-     name: "Ramatech Innovation Pvt Ltd"
+     name: "Ramatech Innovation"
      url: "https://www.ramatech.co.in"
      logo: "https://www.ramatech.co.in/brand/logo-dark.png"
      contactPoint: { email: "info@ramatech.co.in", contactType: "sales" }
@@ -58,7 +58,7 @@ TASKS:
 
    - Add ServiceSchema to each /openshift/{service} page with:
      serviceType = the page's H1 text
-     provider = { name: "Ramatech Innovation Pvt Ltd" }
+     provider = { name: "Ramatech Innovation" }
      areaServed = ["IN","AE","SA","QA","SG"]
      description = the page's existing meta description
      url = the page's canonical URL

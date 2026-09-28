@@ -80,7 +80,7 @@ export const solutions: Solution[] = [
     shortTitle: "Automation",
     tagline: "Connect systems and eliminate manual workflows.",
     description:
-      "We automate operations across ERP, CRM, and custom apps—event-driven pipelines that scale with your business, not brittle scripts.",
+      "We automate operations across ERP (including SAP S/4HANA and SAP BTP), CRM, and custom apps—event-driven pipelines that scale with your business, not brittle scripts.",
     outcomes: [
       "Hours reclaimed from manual processes",
       "Fewer errors at system boundaries",
@@ -91,7 +91,7 @@ export const solutions: Solution[] = [
       { title: "Orchestrate", description: "Workflows, queues, and idempotent jobs." },
       { title: "Measure", description: "Throughput and exception handling." },
     ],
-    stack: ["n8n", "Kafka", "REST", "SAP", "PostgreSQL"],
+    stack: ["n8n", "Kafka", "REST", "SAP S/4HANA", "SAP BTP", "PostgreSQL"],
     metaDescription:
       "Business process automation and intelligent workflows for enterprise operations.",
   },

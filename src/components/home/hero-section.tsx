@@ -62,14 +62,14 @@ export function HeroSection() {
               variants={reduce ? undefined : heroItem}
               className="type-display-lg text-brand-ink xl:text-[3.5rem]"
             >
-              Engineering services for{" "}
-              <span className="text-gradient">platform teams</span>
+              Engineering OpenShift platforms and{" "}
+              <span className="text-gradient">production AI</span>
             </motion.h1>
             <motion.p
               variants={reduce ? undefined : heroItem}
               className="mt-6 max-w-xl text-body-sm leading-[1.7] text-slate-600 md:text-body-lg lg:max-w-lg"
             >
-              OpenShift excellence plus cloud, DevOps, monitoring, and AI—delivered by
+              OpenShift and production AI, plus cloud, DevOps, and monitoring—delivered by
               engineers who install, operate, and hand over production systems, not slide
               decks.
             </motion.p>
@@ -90,13 +90,13 @@ export function HeroSection() {
             >
               {[
                 { label: "OpenShift", href: "/openshift" },
+                { label: "AI", href: "/solutions/ai-solutions" },
                 { label: "Cloud", href: "/solutions/cloud-infrastructure" },
                 {
                   label: "DevOps & Platform",
                   href: "/solutions/devops-platform-engineering",
                 },
                 { label: "Monitoring", href: "/technology/prometheus" },
-                { label: "AI", href: "/solutions/ai-solutions" },
               ].map((item) => (
                 <Link
                   key={item.label}

@@ -9,6 +9,11 @@ const serviceDomains = [
     description: "Install, migrate, operate, platform",
   },
   {
+    label: "AI",
+    href: "/solutions/ai-solutions",
+    description: "Production AI systems",
+  },
+  {
     label: "Cloud",
     href: "/solutions/cloud-infrastructure",
     description: "Multi-cloud foundations",
@@ -23,21 +28,16 @@ const serviceDomains = [
     href: "/technology/prometheus",
     description: "Metrics, alerts, SLOs",
   },
-  {
-    label: "AI",
-    href: "/solutions/ai-solutions",
-    description: "Production AI systems",
-  },
 ] as const;
 
-/** First-viewport domain map — OpenShift flagship, multi-domain services firm */
+/** First-viewport domain map — OpenShift and AI flagships, multi-domain services firm */
 export function ServiceDomainsStrip() {
   return (
     <section className="border-y border-slate-200 bg-slate-50 py-10 md:py-12">
       <div className={PAGE_CONTAINER}>
         <p className="type-eyebrow text-center md:text-left">Service domains</p>
         <h2 className="type-h2-section mt-3 text-center text-brand-ink md:text-left md:text-2xl">
-          OpenShift excellence across a full engineering stack
+          OpenShift and production AI across a full engineering stack
         </h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {serviceDomains.map((domain) => (

@@ -16,6 +16,16 @@ const nextConfig: NextConfig = {
         destination: "/favicon.ico",
         permanent: true,
       },
+      ...[
+        "observability-platform-scale",
+        "ai-automation-operations",
+        "openshift-gitops-automation",
+        "openshift-platform-engineering-golden-paths",
+      ].map((slug) => ({
+        source: `/case-studies/${slug}`,
+        destination: "/case-studies",
+        permanent: true,
+      })),
     ];
   },
   async headers() {

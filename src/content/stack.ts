@@ -69,7 +69,10 @@ export const stackCategories: StackCategory[] = [
   {
     name: "Enterprise Systems",
     tools: [
-      { name: "SAP S/4HANA" },
+      { name: "SAP S/4HANA migration" },
+      { name: "SAP BTP" },
+      { name: "SAP RAP" },
+      { name: "SAP support" },
       { name: "Kafka" },
       { name: "REST" },
       { name: "Event-driven pipelines" },

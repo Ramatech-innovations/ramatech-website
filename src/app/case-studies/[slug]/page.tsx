@@ -26,14 +26,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const study = getCaseStudy(slug);
   if (!study) return {};
-  const metadata = createMetadata({
+  return createMetadata({
     title: study.title,
     description: metaDescription(study.summary),
     path: `/case-studies/${slug}`,
   });
-  return study.illustrative
-    ? { ...metadata, robots: { index: false, follow: true } }
-    : metadata;
 }
 
 export default async function CaseStudyPage({
@@ -69,16 +66,6 @@ export default async function CaseStudyPage({
         title={study.title}
         description={study.summary}
       />
-      {study.illustrative && (
-        <div className="border-b border-amber-200 bg-amber-50">
-          <div className={PAGE_CONTAINER_NARROW}>
-            <p className="py-3 text-center text-sm text-amber-900">
-              Representative outcomes from a composite engagement profile—not a single named
-              client publication. Metrics are illustrative pending marketing verification.
-            </p>
-          </div>
-        </div>
-      )}
       {study.anonymised && (
         <div className="border-b border-slate-200 bg-slate-50">
           <div className={PAGE_CONTAINER_NARROW}>

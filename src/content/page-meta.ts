@@ -2,14 +2,14 @@
 
 export const pageMeta = {
   home: {
-    title: "OpenShift, Cloud, DevOps & AI Engineering Services",
+    title: "OpenShift & Production AI Engineering Services",
     description:
-      "Ramatech is an engineering services firm: OpenShift excellence plus cloud, DevOps, monitoring, and AI—production delivery for platform and product teams.",
+      "Ramatech is an engineering services firm for Red Hat OpenShift platforms and production AI, plus cloud, DevOps, and automation for platform and product teams.",
   },
   about: {
     title: "About",
     description:
-      "Learn how Ramatech Innovation delivers AI-powered platforms, cloud engineering, and automation for enterprises—senior engineers, production outcomes, global delivery.",
+      "Ramatech Innovation is an engineering firm for OpenShift platforms and production AI. We install, build, and hand over systems your team can run.",
   },
   solutions: {
     title: "Solutions",
@@ -39,7 +39,7 @@ export const pageMeta = {
   contact: {
     title: "Contact",
     description:
-      "Contact Ramatech engineering leaders about cloud, AI, or automation initiatives. We respond within four business hours—teams across US, UK, EU, and APAC.",
+      "Contact Ramatech engineering leaders about cloud, AI, or automation initiatives. We respond within four business hours—teams across India and worldwide.",
   },
   bookConsultation: {
     title: "Book Consultation",

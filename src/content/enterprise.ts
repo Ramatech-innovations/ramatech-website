@@ -40,37 +40,6 @@ export const businessOutcomes = [
   },
 ];
 
-export const enterpriseKpis = [
-  {
-    value: 99.95,
-    suffix: "%",
-    decimals: 2,
-    label: "Production availability targets",
-    prefix: "",
-  },
-  {
-    value: 30,
-    suffix: "%+",
-    decimals: 0,
-    label: "Average infrastructure cost reduction",
-    prefix: "",
-  },
-  {
-    value: 2,
-    suffix: " weeks",
-    decimals: 0,
-    label: "Typical delivery cycle length",
-    prefix: "",
-  },
-  {
-    value: 15,
-    suffix: " min",
-    decimals: 0,
-    label: "Incident response baseline",
-    prefix: "<",
-  },
-];
-
 /** Honest delivery signals for homepage trust band (no animated fake metrics) */
 export const deliveryTrustSignals = [
   {
@@ -139,7 +108,7 @@ export const founderCredibility = {
   description:
     "Ramatech is led by engineers who have shipped and operated enterprise platforms—not consultants who stop at architecture diagrams.",
   pillars: [
-    "4+ years enterprise OpenShift experience",
+    "Red Hat OpenShift installation, migration, and virtualization",
     "Production Kubernetes environments at scale",
     "DevOps automation and GitOps delivery expertise",
     "Enterprise platform operations and handover",

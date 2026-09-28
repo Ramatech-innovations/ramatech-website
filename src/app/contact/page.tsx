@@ -55,8 +55,7 @@ export default function ContactPage() {
                 </div>
               )}
               <p className="type-body-card">
-                Email: {siteConfig.email} · Serving teams across US, UK, Europe, Southeast Asia,
-                and Middle East.
+                Email: {siteConfig.email} · Serving teams across India and worldwide.
               </p>
             </div>
           </div>

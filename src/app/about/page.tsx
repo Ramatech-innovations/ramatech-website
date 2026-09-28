@@ -23,7 +23,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="We build systems that move businesses forward"
-        description="Ramatech is an AI-powered technology company—not an IT agency. We engineer platforms, intelligent automation, and cloud infrastructure for product and platform teams."
+        description="An engineering firm for OpenShift platforms and production AI. We install, build, and hand over systems your team can run."
       />
 
       <MotionSection className="py-16 md:py-20">
