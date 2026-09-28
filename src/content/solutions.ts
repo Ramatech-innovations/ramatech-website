@@ -13,6 +13,8 @@ export type Solution = {
   capabilityBlock?: { title: string; items: string[]; note: string };
   engagement: { title: string; description: string }[];
   openshiftLinks: SolutionLink[];
+  serviceLinks?: SolutionLink[];
+  guideLinks?: SolutionLink[];
   technologies: { name: string; href?: string }[];
   relatedCaseStudies: string[];
   faqs: { question: string; answer: string }[];
@@ -81,6 +83,12 @@ export const solutions: Solution[] = [
     openshiftLinks: [
       { label: "OpenShift platform engineering", href: "/openshift/platform-engineering" },
       { label: "OpenShift consulting", href: "/openshift/consulting-services" },
+    ],
+    serviceLinks: [
+      { label: "Business Automation", href: "/solutions/business-automation" },
+    ],
+    guideLinks: [
+      { label: "OpenShift AI Integration", href: "/insights/openshift/ai-integration" },
     ],
     technologies: [
       { name: "Python" },
@@ -161,6 +169,12 @@ export const solutions: Solution[] = [
       { label: "OpenShift installation services", href: "/openshift/installation-services" },
       { label: "OpenShift migration services", href: "/openshift/migration-services" },
       { label: "OpenShift managed services", href: "/openshift/managed-services" },
+    ],
+    guideLinks: [
+      { label: "OpenShift Installation Guide", href: "/insights/openshift/installation-guide" },
+      { label: "OpenShift Multi-Cluster Management", href: "/insights/openshift/multi-cluster-management" },
+      { label: "OpenShift Cost Optimization", href: "/insights/openshift/cost-optimization" },
+      { label: "OpenShift vs Kubernetes", href: "/insights/openshift/openshift-vs-kubernetes" },
     ],
     technologies: [
       { name: "AWS" },
@@ -253,6 +267,10 @@ export const solutions: Solution[] = [
       { label: "OpenShift deployment services", href: "/openshift/deployment-services" },
       { label: "OpenShift platform engineering", href: "/openshift/platform-engineering" },
       { label: "OpenShift support services", href: "/openshift/support-services" },
+    ],
+    guideLinks: [
+      { label: "OpenShift GitOps", href: "/insights/openshift/gitops" },
+      { label: "OpenShift Deployment Best Practices", href: "/insights/openshift/deployment-best-practices" },
     ],
     technologies: [
       { name: "Argo CD", href: "/technology/argocd" },
@@ -419,6 +437,12 @@ export const solutions: Solution[] = [
     openshiftLinks: [
       { label: "OpenShift deployment services", href: "/openshift/deployment-services" },
       { label: "OpenShift platform engineering", href: "/openshift/platform-engineering" },
+    ],
+    serviceLinks: [
+      { label: "Business Automation", href: "/solutions/business-automation" },
+    ],
+    guideLinks: [
+      { label: "OpenShift Deployment Best Practices", href: "/insights/openshift/deployment-best-practices" },
     ],
     technologies: [
       { name: "Next.js" },

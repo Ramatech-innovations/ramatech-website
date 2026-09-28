@@ -115,6 +115,22 @@ function technologiesBlock(solution: Solution): Block {
             />
           </div>
         )}
+        {solution.serviceLinks && solution.serviceLinks.length > 0 && (
+          <div className="mt-10">
+            <RelatedResources
+              heading="Related services"
+              resources={linksToResources(solution.serviceLinks, "service")}
+            />
+          </div>
+        )}
+        {solution.guideLinks && solution.guideLinks.length > 0 && (
+          <div className="mt-10">
+            <RelatedResources
+              heading="Related guides"
+              resources={linksToResources(solution.guideLinks, "insight")}
+            />
+          </div>
+        )}
       </>
     ),
   };

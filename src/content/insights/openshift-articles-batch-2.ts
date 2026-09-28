@@ -94,6 +94,7 @@ export const openshiftArticlesBatch2: InsightArticle[] = [
     ],
     relatedServices: [
       { href: "/openshift/consulting-services", label: "OpenShift Consulting Services" },
+      { href: "/solutions/cloud-infrastructure", label: "Cloud Infrastructure (AWS and ROSA)" },
     ],
     relatedTechnology: [
       { href: "/technology/openshift", label: "OpenShift" },
@@ -203,6 +204,7 @@ export const openshiftArticlesBatch2: InsightArticle[] = [
     relatedServices: [
       { href: "/openshift/deployment-services", label: "OpenShift Deployment Services" },
       { href: "/openshift/platform-engineering", label: "OpenShift Platform Engineering" },
+      { href: "/solutions/devops-platform-engineering", label: "DevOps & Platform Engineering" },
     ],
     relatedTechnology: [{ href: "/technology/argocd", label: "Argo CD" }],
     relatedReading: ["multi-cluster-management"],
@@ -212,11 +214,11 @@ export const openshiftArticlesBatch2: InsightArticle[] = [
   {
     slug: "monitoring",
     title: "OpenShift Monitoring",
-    h1: "OpenShift Monitoring: Metrics, Alerts, and SLOs on OCP",
+    h1: "OpenShift Monitoring: Cluster and Application Metrics, Alerts, and SLOs",
     primaryKeyword: "openshift monitoring",
-    metaTitle: "OpenShift Monitoring — OpenShift Guide | Ramatech Insights",
+    metaTitle: "OpenShift Monitoring and Application Monitoring Guide | Ramatech",
     metaDescription:
-      "OpenShift monitoring with Prometheus Operator, Grafana, Alertmanager, user-workload metrics, and SLO design for production cluster observability.",
+      "How to monitor OpenShift clusters and applications: built-in Prometheus, user workload monitoring, Grafana dashboards, Alertmanager routing and SLOs.",
     summary:
       "Operator-level OpenShift monitoring guidance — platform Prometheus, user-workload monitoring, Grafana dashboards, alerting hygiene, and tying metrics to disaster recovery.",
     intro: [
@@ -308,7 +310,7 @@ export const openshiftArticlesBatch2: InsightArticle[] = [
     ],
     relatedReading: ["disaster-recovery"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: INSIGHT_SCHEMA_DATE,
+    dateModified: "2026-09-28",
   },
   {
     slug: "security",

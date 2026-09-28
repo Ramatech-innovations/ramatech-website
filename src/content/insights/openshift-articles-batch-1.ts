@@ -84,6 +84,7 @@ export const openshiftArticlesBatch1: InsightArticle[] = [
     ],
     relatedServices: [
       { href: "/openshift/installation-services", label: "OpenShift Installation Services" },
+      { href: "/solutions/cloud-infrastructure", label: "Cloud Infrastructure (AWS and ROSA)" },
     ],
     relatedTechnology: [
       { href: "/technology/openshift", label: "OpenShift" },
@@ -183,6 +184,8 @@ export const openshiftArticlesBatch1: InsightArticle[] = [
     ],
     relatedServices: [
       { href: "/openshift/deployment-services", label: "OpenShift Deployment Services" },
+      { href: "/solutions/devops-platform-engineering", label: "DevOps & Platform Engineering" },
+      { href: "/solutions/software-development", label: "Software Development" },
     ],
     relatedTechnology: [{ href: "/technology/argocd", label: "Argo CD" }],
     relatedReading: ["gitops"],

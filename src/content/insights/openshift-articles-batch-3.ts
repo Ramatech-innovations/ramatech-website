@@ -94,6 +94,7 @@ export const openshiftArticlesBatch3: InsightArticle[] = [
     relatedServices: [
       { href: "/openshift/platform-engineering", label: "OpenShift Platform Engineering" },
       { href: "/openshift/managed-services", label: "OpenShift Managed Services" },
+      { href: "/solutions/cloud-infrastructure", label: "Cloud Infrastructure (AWS and ROSA)" },
     ],
     relatedTechnology: [{ href: "/technology/argocd", label: "Argo CD" }],
     relatedReading: ["gitops"],
@@ -103,11 +104,11 @@ export const openshiftArticlesBatch3: InsightArticle[] = [
   {
     slug: "disaster-recovery",
     title: "OpenShift Disaster Recovery",
-    h1: "OpenShift Disaster Recovery: RPO, RTO, and Tested Restore Paths",
+    h1: "OpenShift Disaster Recovery and Business Continuity: RPO, RTO, and Tested Restore Paths",
     primaryKeyword: "openshift disaster recovery",
-    metaTitle: "OpenShift Disaster Recovery — OpenShift Guide | Ramatech Insights",
+    metaTitle: "OpenShift Disaster Recovery and Business Continuity Guide | Ramatech",
     metaDescription:
-      "OpenShift disaster recovery — etcd backups, OADP, regional failover, restore testing, and RPO/RTO planning for production OCP clusters.",
+      "Business continuity for OpenShift: etcd backups, OADP, regional failover, restore testing and RPO/RTO planning for production clusters.",
     summary:
       "OpenShift disaster recovery planning with etcd backups, OADP application protection, regional failover patterns, and the restore drills that prove RPO and RTO claims.",
     intro: [
@@ -204,7 +205,7 @@ export const openshiftArticlesBatch3: InsightArticle[] = [
     relatedTechnology: [{ href: "/technology/openshift", label: "OpenShift" }],
     relatedReading: ["monitoring"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: INSIGHT_SCHEMA_DATE,
+    dateModified: "2026-09-28",
   },
   {
     slug: "cost-optimization",
@@ -306,6 +307,7 @@ export const openshiftArticlesBatch3: InsightArticle[] = [
     relatedServices: [
       { href: "/openshift/consulting-services", label: "OpenShift Consulting Services" },
       { href: "/openshift/managed-services", label: "OpenShift Managed Services" },
+      { href: "/solutions/cloud-infrastructure", label: "Cloud Infrastructure (AWS and ROSA)" },
     ],
     relatedTechnology: [{ href: "/technology/red-hat", label: "Red Hat" }],
     relatedReading: ["security"],
@@ -404,6 +406,7 @@ export const openshiftArticlesBatch3: InsightArticle[] = [
     relatedServices: [
       { href: "/openshift/consulting-services", label: "OpenShift Consulting Services" },
       { href: "/openshift/platform-engineering", label: "OpenShift Platform Engineering" },
+      { href: "/solutions/ai-solutions", label: "AI Solutions" },
     ],
     relatedTechnology: [
       { href: "/technology/openshift", label: "OpenShift" },

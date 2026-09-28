@@ -44,9 +44,9 @@ export const openshiftServices: CatalogItem[] = [
   },
   {
     slug: "consulting-services",
-    title: "OpenShift Consulting",
+    title: "OpenShift Consulting and Implementation",
     description:
-      "Architecture reviews, readiness assessments, security audits, and platform strategy.",
+      "Architecture reviews, readiness assessments, and security reviews, implemented by the same engineers.",
     href: "/openshift/consulting-services",
   },
   {

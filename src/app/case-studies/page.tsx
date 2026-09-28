@@ -40,6 +40,9 @@ export default function CaseStudiesPage() {
           <Button asChild size="lg" variant="inverseOutline">
             <Link href="/openshift">OpenShift services</Link>
           </Button>
+          <Button asChild size="lg" variant="inverseOutline">
+            <Link href="/openshift/consulting-services">OpenShift consulting</Link>
+          </Button>
         </div>
       </ClosingCta>
     </>
