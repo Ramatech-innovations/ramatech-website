@@ -1,101 +1,62 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand/brand-logo";
-import { FooterCtaBand } from "@/components/layout/footer-cta-band";
-import { footerLinks } from "@/content/site";
+import { contactDetails, footerColumns } from "@/content/site";
 import { PAGE_CONTAINER } from "@/lib/layout";
 import { siteConfig } from "@/lib/seo";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-brand-light">
-      <div className="border-b border-slate-200 bg-gradient-to-r from-brand-primary/5 to-brand-cyan/5">
-        <div
-          className={`${PAGE_CONTAINER} flex flex-col items-center justify-between gap-6 py-12 md:flex-row`}
-        >
-          <div className="text-center md:text-left">
-            <h2 className="type-h3 text-brand-ink md:text-2xl">
-              Ready to build what&apos;s next?
-            </h2>
-            <p className="type-body-card mt-2 max-w-xl">
-              Share your goals in a 30-minute call — OpenShift, cloud, DevOps,
-              monitoring, or AI engineering.
-            </p>
-          </div>
-          <FooterCtaBand />
-        </div>
-      </div>
-
-      <div className={`${PAGE_CONTAINER} py-12 md:py-14`}>
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5 lg:gap-12">
+    <footer className="section-dark border-t border-white/10">
+      <div className={`${PAGE_CONTAINER} py-14`}>
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-6 lg:gap-8">
           <div className="lg:col-span-2">
-            <Link
-              href="/"
-              className="inline-block leading-none transition-opacity hover:opacity-90"
-              aria-label="Ramatech Innovation home"
-            >
-              <BrandLogo variant="footer" theme="light" />
+            <Link href="/" aria-label="Ramatech Innovation home" className="inline-block">
+              <BrandLogo tone="dark" />
             </Link>
-            <p className="type-body-card mt-4 max-w-sm">
-              {siteConfig.tagline}
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
+              OpenShift platforms and production AI, plus cloud, DevOps, and automation.
+              Engineering for platform teams in India and worldwide.
             </p>
-            <p className="type-body-card mt-4">
-              <Link href={`mailto:${siteConfig.email}`} className="hover:text-brand-primary">
-                {siteConfig.email}
-              </Link>
-            </p>
-            <p className="type-body-card mt-2">
-              <Link href="/contact" className="hover:text-brand-primary">
-                Contact form →
-              </Link>
-            </p>
+            <address className="mt-6 space-y-2 text-sm not-italic text-slate-300">
+              <p>
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-white">
+                  {siteConfig.email}
+                </a>
+              </p>
+              <p>
+                <a
+                  href={siteConfig.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white"
+                >
+                  WhatsApp {contactDetails.whatsappDisplay}
+                </a>
+              </p>
+              <p className="text-slate-400">{contactDetails.hours}</p>
+            </address>
           </div>
-          <div>
-            <h3 className="type-eyebrow mb-4 text-brand-primary">Solutions</h3>
-            <ul className="space-y-2.5">
-              {footerLinks.solutions.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="type-body-card transition-colors hover:text-brand-primary"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="type-eyebrow mb-4 text-brand-primary">Company</h3>
-            <ul className="space-y-2.5">
-              {footerLinks.company.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="type-body-card transition-colors hover:text-brand-primary"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="type-eyebrow mb-4 text-brand-primary">Legal</h3>
-            <ul className="space-y-2.5">
-              {footerLinks.legal.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="type-body-card transition-colors hover:text-brand-primary"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+
+          {footerColumns.map((column) => (
+            <div key={column.title}>
+              <h2 className="text-sm font-semibold text-white">{column.title}</h2>
+              <ul className="mt-4 space-y-2.5">
+                {column.links.map((link) => (
+                  <li key={link.href + link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-slate-400 transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        <div className="mt-12 border-t border-slate-200 pt-8 text-sm text-slate-500">
+
+        <div className="mt-12 border-t border-white/10 pt-6 text-sm text-slate-500">
           <p>© {new Date().getFullYear()} Ramatech Innovation. All rights reserved.</p>
         </div>
       </div>

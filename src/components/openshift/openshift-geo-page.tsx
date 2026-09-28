@@ -10,51 +10,46 @@ import {
 } from "@/components/openshift/openshift-content-blocks";
 import { OpenShiftFinalCta } from "@/components/openshift/openshift-final-cta";
 import { OpenShiftCtaGroup } from "@/components/openshift/openshift-cta-group";
-import { PAGE_CONTAINER } from "@/lib/layout";
+import { PageHero } from "@/components/marketing/page-hero";
 
 export function OpenShiftGeoPageView({ geo }: { geo: OpenShiftGeoPage }) {
   return (
     <>
-      <OpenShiftBreadcrumbs pageName={geo.pageName} />
-
-      <section className="section-dark relative overflow-hidden border-b border-white/5 py-16 md:py-24">
-        <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_80%_20%,rgba(10,76,149,0.25),transparent_55%)]"
-          aria-hidden
+      <PageHero
+        eyebrow={`OpenShift · ${geo.countryName}`}
+        title={geo.h1}
+        description={geo.heroSubtext}
+        breadcrumbs={<OpenShiftBreadcrumbs pageName={geo.pageName} />}
+      >
+        <OpenShiftCtaGroup
+          analyticsLabel={geo.analyticsLabel}
+          whatsappMessage={geo.whatsappMessage}
+          bookLabel={geo.finalCta.bookLabel}
+          whatsappLabel={geo.finalCta.whatsappLabel}
         />
-        <div className="noise-overlay pointer-events-none absolute inset-0 opacity-20" aria-hidden />
-        <div className={`${PAGE_CONTAINER} relative`}>
-          <p className="type-eyebrow">OpenShift · {geo.countryName}</p>
-          <h1 className="type-display mt-4 max-w-4xl">{geo.h1}</h1>
-          <p className="type-body-muted mt-6 max-w-2xl">{geo.heroSubtext}</p>
-          <OpenShiftCtaGroup
-            analyticsLabel={geo.analyticsLabel}
-            whatsappMessage={geo.whatsappMessage}
-            bookLabel={geo.finalCta.bookLabel}
-            whatsappLabel={geo.finalCta.whatsappLabel}
-            onDark
-            className="mt-10"
-          />
-        </div>
-      </section>
+      </PageHero>
 
       <PackageSection title="Overview" variant="light">
         <OpenShiftProse paragraphs={geo.intro} />
       </PackageSection>
 
       <PackageSection
-        title={`OpenShift services we deliver in ${geo.countryName}`}
+        title={
+          geo.remote
+            ? `OpenShift services we deliver remotely to ${geo.countryName}`
+            : `OpenShift services we deliver in ${geo.countryName}`
+        }
         variant="dark"
       >
         <ul className="space-y-8">
           {geo.serviceSummaries.map((service) => (
             <li key={service.href}>
-              <h3 className="font-heading text-lg font-semibold text-white">
-                <Link href={service.href} className="hover:text-brand-cyan">
+              <h3 className="font-heading text-lg font-semibold text-brand-ink">
+                <Link href={service.href} className="hover:text-brand-primary">
                   {service.label}
                 </Link>
               </h3>
-              <div className="mt-3 text-slate-300">
+              <div className="mt-3">
                 <OpenShiftProse paragraphs={service.paragraphs} />
               </div>
             </li>
@@ -62,7 +57,10 @@ export function OpenShiftGeoPageView({ geo }: { geo: OpenShiftGeoPage }) {
         </ul>
       </PackageSection>
 
-      <PackageSection title="Compliance & regulatory landscape" variant="light">
+      <PackageSection
+        title={geo.remote ? "Requirements we design for" : "Compliance & regulatory landscape"}
+        variant="light"
+      >
         <OpenShiftProse paragraphs={geo.compliance} />
       </PackageSection>
 
@@ -71,15 +69,15 @@ export function OpenShiftGeoPageView({ geo }: { geo: OpenShiftGeoPage }) {
           <ul className="grid gap-6 sm:grid-cols-2">
             {geo.cityCoverage.map((city) => (
               <li key={city.slug}>
-                <h3 className="font-heading text-lg font-semibold text-white">
+                <h3 className="font-heading text-lg font-semibold text-brand-ink">
                   <Link
                     href={`/openshift/india/${city.slug}`}
-                    className="hover:text-brand-cyan"
+                    className="hover:text-brand-primary"
                   >
                     {city.name}
                   </Link>
                 </h3>
-                <p className="mt-2 text-base leading-relaxed text-slate-300">
+                <p className="mt-2 text-base leading-relaxed text-slate-600">
                   {city.description}
                 </p>
               </li>
@@ -89,22 +87,22 @@ export function OpenShiftGeoPageView({ geo }: { geo: OpenShiftGeoPage }) {
       )}
 
       <PackageSection
-        title={`Deployment models we support in ${geo.countryName}`}
+        title={
+          geo.remote
+            ? `Environments we work on for ${geo.countryName} teams`
+            : `Deployment models we support in ${geo.countryName}`
+        }
         variant="dark"
       >
-        <OpenShiftBulletList items={geo.deploymentModels} variant="dark" />
+        <OpenShiftBulletList items={geo.deploymentModels} columns={2} />
       </PackageSection>
 
-      <PackageSection title="Proven outcomes" variant="light">
-        <OpenShiftCaseStudyCallout
-          href={geo.caseStudy.href}
-          title={geo.caseStudy.title}
-          summary={geo.caseStudy.summary}
-        />
+      <PackageSection title="Related delivery experience" variant="light">
+        <OpenShiftCaseStudyCallout slugs={[geo.caseStudy.href.replace("/case-studies/", "")]} />
       </PackageSection>
 
       <PackageSection title="Frequently asked questions" variant="dark">
-        <PackageFaqAccordion faqs={geo.faqs} variant="dark" />
+        <PackageFaqAccordion faqs={geo.faqs} />
       </PackageSection>
 
       <OpenShiftFinalCta

@@ -1,17 +1,39 @@
 import Link from "next/link";
 import type { InsightArticle } from "@/content/insights/insight-types";
 import { BookConsultationLink } from "@/components/analytics/tracked-link";
-import { PackageSection } from "@/components/packages/package-section";
 import { OpenShiftProse } from "@/components/openshift/openshift-content-blocks";
 import { InsightRelatedBoxes } from "@/components/insights/insight-related-boxes";
 import { InsightArticleToc } from "@/components/insights/insight-article-toc";
 import { InsightReadingProgress } from "@/components/insights/insight-reading-progress";
 import { ComparisonTable } from "@/components/marketing/comparison-table";
+import { PageHero } from "@/components/marketing/page-hero";
+import { Breadcrumbs } from "@/components/marketing/breadcrumbs";
+import { ClosingCta } from "@/components/marketing/closing-cta";
 import { openshiftKubernetesComparison } from "@/content/openshift-kubernetes-comparison";
 import { Button } from "@/components/ui/button";
 import { PAGE_CONTAINER } from "@/lib/layout";
 
+function ArticleSection({
+  id,
+  title,
+  children,
+}: {
+  id?: string;
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="scroll-mt-24 border-t border-slate-200 py-10 first:border-t-0 first:pt-0">
+      <h2 id={id} className="type-h2-section text-brand-ink">
+        {title}
+      </h2>
+      <div className="mt-6">{children}</div>
+    </section>
+  );
+}
+
 export function InsightArticleView({ article }: { article: InsightArticle }) {
+  const pageSource = `/insights/openshift/${article.slug}`;
   const tocEntries = [
     { id: "overview", title: "Overview" },
     ...article.sections.map((s) => ({ id: s.id, title: s.title })),
@@ -22,122 +44,81 @@ export function InsightArticleView({ article }: { article: InsightArticle }) {
     <>
       <InsightReadingProgress />
 
-      <section className="section-dark relative overflow-hidden border-b border-white/5 py-16 md:py-24">
-        <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_80%_20%,rgba(10,76,149,0.25),transparent_55%)]"
-          aria-hidden
-        />
-        <div className="noise-overlay pointer-events-none absolute inset-0 opacity-20" aria-hidden />
-        <div className={`${PAGE_CONTAINER} relative`}>
-          <p className="type-eyebrow">Insights · OpenShift</p>
-          <h1 className="type-display mt-4 max-w-4xl">{article.h1}</h1>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Insights · OpenShift"
+        title={article.h1}
+        breadcrumbs={
+          <Breadcrumbs
+            items={[
+              { name: "Insights", href: "/insights" },
+              { name: "OpenShift", href: "/insights/openshift" },
+              { name: article.title },
+            ]}
+          />
+        }
+      />
 
-      <div className={`${PAGE_CONTAINER} py-8 lg:py-12`}>
+      <div className={`${PAGE_CONTAINER} section-light on-light py-12 lg:py-16`}>
         <div className="lg:grid lg:grid-cols-[minmax(0,220px)_1fr] lg:gap-12 xl:gap-16">
           <aside className="lg:col-start-1">
             <InsightArticleToc entries={tocEntries} />
           </aside>
 
-          <div className="min-w-0 lg:col-start-2">
-            <PackageSection
-              title="Overview"
-              variant="light"
-              headingId="overview"
-              embedded
-              className="!border-t-0 !py-0"
-            >
+          <article className="min-w-0 max-w-3xl lg:col-start-2">
+            <ArticleSection id="overview" title="Overview">
               <OpenShiftProse paragraphs={article.intro} />
-            </PackageSection>
+            </ArticleSection>
 
             {article.slug === "openshift-vs-kubernetes" && (
-              <PackageSection
-                title="OpenShift vs Kubernetes comparison"
-                variant="light"
-                embedded
-                className="!py-12"
-              >
+              <ArticleSection title="OpenShift vs Kubernetes comparison">
                 <ComparisonTable data={openshiftKubernetesComparison} />
-              </PackageSection>
+              </ArticleSection>
             )}
 
-            <PackageSection
-              title="Need help implementing this?"
-              variant="light"
-              embedded
-              className="!py-8"
-            >
-              <p className="type-body-card max-w-2xl">
-                Talk to engineers who deploy these patterns on OpenShift in production—not generic
-                advisory decks.
+            <aside className="my-4 rounded-lg border border-slate-200 bg-slate-50 p-6">
+              <p className="font-heading text-lg font-semibold text-brand-ink">
+                Need help implementing this?
               </p>
-              <div className="mt-6 flex flex-wrap gap-4">
-                <BookConsultationLink
-                  pageSource={`/insights/openshift/${article.slug}`}
-                  interest="openshift"
-                  className="inline-flex items-center justify-center rounded-lg bg-brand-primary px-6 py-3 text-sm font-semibold text-white hover:bg-brand-primary/90"
-                >
-                  Get an OpenShift assessment
-                </BookConsultationLink>
-                <Link
-                  href="/openshift"
-                  className="inline-flex items-center justify-center rounded-lg border border-slate-200 px-6 py-3 text-sm font-semibold text-brand-primary hover:border-brand-cyan"
-                >
-                  OpenShift services
-                </Link>
+              <p className="type-body-card mt-2">
+                Talk to engineers who deploy these patterns on OpenShift in production.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Button asChild>
+                  <BookConsultationLink pageSource={pageSource} interest="openshift">
+                    Book Consultation
+                  </BookConsultationLink>
+                </Button>
+                <Button asChild variant="secondary">
+                  <Link href="/openshift">OpenShift services</Link>
+                </Button>
               </div>
-            </PackageSection>
+            </aside>
 
-            {article.sections.map((section, i) => (
-              <PackageSection
-                key={section.id}
-                title={section.title}
-                variant={i % 2 === 0 ? "dark" : "light"}
-                headingId={section.id}
-                embedded
-                className="!py-12"
-              >
-                <div className={i % 2 === 0 ? "text-slate-300" : undefined}>
-                  <OpenShiftProse paragraphs={section.paragraphs} />
-                </div>
-              </PackageSection>
+            {article.sections.map((section) => (
+              <ArticleSection key={section.id} id={section.id} title={section.title}>
+                <OpenShiftProse paragraphs={section.paragraphs} />
+              </ArticleSection>
             ))}
 
-            <PackageSection
-              title="Explore further"
-              variant="light"
-              headingId="explore-further"
-              embedded
-              className="!py-12"
-            >
+            <ArticleSection id="explore-further" title="Explore further">
               <InsightRelatedBoxes article={article} />
-            </PackageSection>
-          </div>
+            </ArticleSection>
+          </article>
         </div>
       </div>
 
-      <section className="border-t border-slate-200 bg-slate-50 py-16">
-        <div className={`${PAGE_CONTAINER} text-center`}>
-          <h2 className="type-h3 text-brand-ink">Need help with OpenShift?</h2>
-          <p className="type-body-muted mx-auto mt-4 max-w-xl">
-            Talk to engineers who implement these patterns in production—not generic advisory decks.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button asChild size="lg">
-              <BookConsultationLink
-                pageSource={`/insights/openshift/${article.slug}`}
-                interest="openshift"
-              >
-                Book a consultation
-              </BookConsultationLink>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/openshift">OpenShift services</Link>
-            </Button>
-          </div>
+      <ClosingCta headline="Need help with OpenShift?">
+        <div className="flex flex-wrap gap-3">
+          <Button asChild size="lg" variant="inverse">
+            <BookConsultationLink pageSource={pageSource} interest="openshift">
+              Book Consultation
+            </BookConsultationLink>
+          </Button>
+          <Button asChild size="lg" variant="inverseOutline">
+            <Link href="/openshift">OpenShift services</Link>
+          </Button>
         </div>
-      </section>
+      </ClosingCta>
     </>
   );
 }

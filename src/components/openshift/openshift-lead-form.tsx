@@ -24,7 +24,7 @@ export function OpenShiftLeadForm({ slug }: { slug: string }) {
         <div className="type-body-card space-y-4 lg:col-span-2">
           <p>
             Tell us about your current platform and timeline. An engineer reviews every request and
-            replies within 4 business hours.
+            replies within one business day (Mon–Sat, 10:00–19:00 IST).
           </p>
           <ul className="list-disc space-y-2 pl-5">
             <li>Scope, approach, and timeline tailored to your environment</li>

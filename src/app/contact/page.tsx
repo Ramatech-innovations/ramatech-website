@@ -1,11 +1,12 @@
+import Link from "next/link";
 import { Suspense } from "react";
 import { ContactForm } from "@/components/forms/contact-form";
-import { BookingLink } from "@/components/marketing/booking-link";
-import { BOOKING_URL } from "@/lib/booking";
+import { WhatsAppLink } from "@/components/analytics/tracked-link";
 import { PageHero } from "@/components/marketing/page-hero";
-import { MotionSection } from "@/components/motion/motion-section";
+import { Breadcrumbs } from "@/components/marketing/breadcrumbs";
 import { createMetadata, siteConfig } from "@/lib/seo";
 import { pageMeta } from "@/content/page-meta";
+import { contactDetails } from "@/content/site";
 import { PAGE_CONTAINER } from "@/lib/layout";
 
 export const metadata = createMetadata({
@@ -19,48 +20,63 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Start a technical conversation"
-        description="Tell us about your platform, AI initiative, or automation goals. No spam, no generic sales pitch."
+        title="Contact us"
+        description="General enquiries, partnerships, or questions about our services. We reply within one business day (Mon–Sat, 10:00–19:00 IST)."
+        breadcrumbs={<Breadcrumbs items={[{ name: "Contact" }]} />}
       />
-      <MotionSection className="py-16 md:py-20">
-        <div className={PAGE_CONTAINER}>
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <Suspense fallback={<div className="h-96 animate-pulse rounded-xl bg-slate-100" />}>
+      <section className="section-light on-light py-14 md:py-16">
+        <div className={`${PAGE_CONTAINER} grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,22rem)]`}>
+          <div className="card-on-light p-6 md:p-8">
+            <h2 className="font-heading text-lg font-semibold text-brand-ink">Send an enquiry</h2>
+            <div className="mt-6">
+              <Suspense fallback={<div className="h-96 animate-pulse rounded-lg bg-slate-100" />}>
                 <ContactForm />
               </Suspense>
             </div>
-            <div className="space-y-8">
-              <div>
-                <h2 className="font-heading text-lg font-semibold">What happens next</h2>
-                <ol className="type-body-card mt-4 space-y-4">
-                  <li>
-                    <span className="text-brand-cyan">01</span> — We review your message within 4
-                    business hours.
-                  </li>
-                  <li>
-                    <span className="text-brand-cyan">02</span> — A senior engineer schedules a
-                    focused technical call.
-                  </li>
-                  <li>
-                    <span className="text-brand-cyan">03</span> — You receive a clear next-step
-                    recommendation—no obligation.
-                  </li>
-                </ol>
-              </div>
-              {BOOKING_URL && (
-                <div className="space-y-3">
-                  <p className="type-body-card">Prefer to pick a time directly?</p>
-                  <BookingLink />
-                </div>
-              )}
-              <p className="type-body-card">
-                Email: {siteConfig.email} · Serving teams across India and worldwide.
-              </p>
-            </div>
           </div>
+          <aside className="space-y-8">
+            <div>
+              <h2 className="font-heading text-lg font-semibold text-brand-ink">Reach us directly</h2>
+              <dl className="mt-4 space-y-4 text-[0.9375rem]">
+                <div>
+                  <dt className="text-sm text-slate-500">Email</dt>
+                  <dd>
+                    <a href={`mailto:${siteConfig.email}`} className="text-brand-primary hover:underline">
+                      {siteConfig.email}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-sm text-slate-500">WhatsApp</dt>
+                  <dd>
+                    <WhatsAppLink source="contact_page" className="text-brand-primary hover:underline">
+                      {contactDetails.whatsappDisplay}
+                    </WhatsAppLink>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-sm text-slate-500">Business hours</dt>
+                  <dd className="text-slate-800">{contactDetails.hours}</dd>
+                </div>
+              </dl>
+            </div>
+            <div className="rounded-lg border border-slate-200 bg-slate-50 p-5">
+              <h2 className="font-heading text-base font-semibold text-brand-ink">
+                Want to talk through a project?
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                Book a free 30-minute consultation with an engineer instead.
+              </p>
+              <Link
+                href="/book-consultation?source=/contact"
+                className="mt-3 inline-block text-sm font-semibold text-brand-primary hover:underline"
+              >
+                Book Consultation →
+              </Link>
+            </div>
+          </aside>
         </div>
-      </MotionSection>
+      </section>
     </>
   );
 }

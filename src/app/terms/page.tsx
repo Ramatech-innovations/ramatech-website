@@ -40,8 +40,8 @@ export default function TermsPage() {
 
         <LegalSection title="Services">
           <p>
-            Content on this Site describes engineering services offered by Ramatech Innovation Pvt
-            Ltd. Nothing on the Site constitutes a binding offer or contract until agreed in a
+            Content on this Site describes engineering services offered by Ramatech Innovation.
+            Nothing on the Site constitutes a binding offer or contract until agreed in a
             separate written statement of work or master services agreement.
           </p>
         </LegalSection>

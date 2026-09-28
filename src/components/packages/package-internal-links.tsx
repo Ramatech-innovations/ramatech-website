@@ -1,6 +1,8 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { PAGE_CONTAINER } from "@/lib/layout";
+import {
+  RelatedResources,
+  linksWithInferredType,
+} from "@/components/marketing/related-resources";
 
 export function PackageInternalLinks({
   links,
@@ -8,22 +10,9 @@ export function PackageInternalLinks({
   links: { href: string; label: string }[];
 }) {
   return (
-    <section className="border-t border-white/10 bg-brand-dark py-10">
+    <section className="section-light on-light border-t border-slate-200 py-12 md:py-14">
       <div className={PAGE_CONTAINER}>
-        <p className="type-caption font-medium text-muted-foreground">Related</p>
-        <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
-          {links.map((link) => (
-            <li key={`${link.href}-${link.label}`}>
-              <Link
-                href={link.href}
-                className="inline-flex items-center gap-1.5 text-sm text-brand-cyan hover:underline"
-              >
-                {link.label}
-                <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <RelatedResources heading="Related" resources={linksWithInferredType(links)} />
       </div>
     </section>
   );

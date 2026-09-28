@@ -6,7 +6,7 @@ import { OpenShiftBreadcrumbs } from "@/components/openshift/openshift-breadcrum
 import { OpenShiftProse } from "@/components/openshift/openshift-content-blocks";
 import { OpenShiftFinalCta } from "@/components/openshift/openshift-final-cta";
 import { OpenShiftCtaGroup } from "@/components/openshift/openshift-cta-group";
-import { PAGE_CONTAINER } from "@/lib/layout";
+import { PageHero } from "@/components/marketing/page-hero";
 
 function ComplianceNote({ text }: { text: string }) {
   const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/;
@@ -33,31 +33,24 @@ function ComplianceNote({ text }: { text: string }) {
 export function OpenShiftIndiaCityPageView({ city }: { city: OpenShiftIndiaCityPage }) {
   return (
     <>
-      <OpenShiftBreadcrumbs
-        trail={[{ name: "India", path: "/openshift/india" }]}
-        pageName={city.pageName}
-      />
-
-      <section className="section-dark relative overflow-hidden border-b border-white/5 py-16 md:py-24">
-        <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_80%_20%,rgba(10,76,149,0.25),transparent_55%)]"
-          aria-hidden
-        />
-        <div className="noise-overlay pointer-events-none absolute inset-0 opacity-20" aria-hidden />
-        <div className={`${PAGE_CONTAINER} relative`}>
-          <p className="type-eyebrow">OpenShift · India · {city.cityName}</p>
-          <h1 className="type-display mt-4 max-w-4xl">{city.h1}</h1>
-          <p className="type-body-muted mt-6 max-w-2xl">{city.heroSubtext}</p>
-          <OpenShiftCtaGroup
-            analyticsLabel={city.analyticsLabel}
-            whatsappMessage={city.whatsappMessage}
-            bookLabel={city.finalCta.bookLabel}
-            whatsappLabel={city.finalCta.whatsappLabel}
-            onDark
-            className="mt-10"
+      <PageHero
+        eyebrow={`OpenShift · India · ${city.cityName}`}
+        title={city.h1}
+        description={city.heroSubtext}
+        breadcrumbs={
+          <OpenShiftBreadcrumbs
+            trail={[{ name: "India", path: "/openshift/india" }]}
+            pageName={city.pageName}
           />
-        </div>
-      </section>
+        }
+      >
+        <OpenShiftCtaGroup
+          analyticsLabel={city.analyticsLabel}
+          whatsappMessage={city.whatsappMessage}
+          bookLabel={city.finalCta.bookLabel}
+          whatsappLabel={city.finalCta.whatsappLabel}
+        />
+      </PageHero>
 
       <PackageSection title={`OpenShift in ${city.cityName}`} variant="light">
         <OpenShiftProse paragraphs={city.localContext} />
@@ -70,12 +63,12 @@ export function OpenShiftIndiaCityPageView({ city }: { city: OpenShiftIndiaCityP
         <ul className="space-y-8">
           {city.serviceSummaries.map((service) => (
             <li key={service.href}>
-              <h3 className="font-heading text-lg font-semibold text-white">
-                <Link href={service.href} className="hover:text-brand-cyan">
+              <h3 className="font-heading text-lg font-semibold text-brand-ink">
+                <Link href={service.href} className="hover:text-brand-primary">
                   {service.label}
                 </Link>
               </h3>
-              <div className="mt-3 text-slate-300">
+              <div className="mt-3">
                 <OpenShiftProse paragraphs={service.paragraphs} />
               </div>
             </li>
@@ -88,7 +81,7 @@ export function OpenShiftIndiaCityPageView({ city }: { city: OpenShiftIndiaCityP
       </PackageSection>
 
       <PackageSection title="Frequently asked questions" variant="dark">
-        <PackageFaqAccordion faqs={city.faqs} variant="dark" />
+        <PackageFaqAccordion faqs={city.faqs} />
       </PackageSection>
 
       <OpenShiftFinalCta

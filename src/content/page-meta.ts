@@ -12,9 +12,9 @@ export const pageMeta = {
       "Ramatech Innovation is an engineering firm for OpenShift platforms and production AI. We install, build, and hand over systems your team can run.",
   },
   solutions: {
-    title: "Solutions",
+    title: "Services",
     description:
-      "Cloud infrastructure, DevOps and platform engineering, AI solutions, business automation, and custom software for technology-driven companies.",
+      "Red Hat OpenShift services and production AI, plus AWS cloud, DevOps and platform engineering, business automation, and software development.",
   },
   industries: {
     title: "Industries",
@@ -24,27 +24,27 @@ export const pageMeta = {
   caseStudies: {
     title: "Case Studies",
     description:
-      "Real OpenShift delivery from the Ramatech team—bare-metal platforms, OpenShift Virtualization, and Argo CD GitOps in a regulated pharmaceutical environment.",
+      "Four OpenShift case studies from the Ramatech team: bare-metal and air-gapped platforms, OpenShift Virtualization, Jenkins, Helm, Argo CD GitOps, and Ansible automation.",
   },
   technology: {
     title: "Technology",
     description:
-      "Production technology stack: Kubernetes, OpenShift, AWS, Azure, Terraform, AI platforms, observability, and enterprise automation tools we deploy.",
+      "Technologies we work with: OpenShift, Kubernetes, Argo CD, Helm, Jenkins, Ansible, Prometheus, Grafana, and AWS, plus AI and SAP capabilities.",
   },
   insights: {
     title: "Insights",
     description:
-      "Operator-level OpenShift guides on installation, GitOps, security, monitoring, upgrades, and platform engineering from Ramatech engineering teams.",
+      "OpenShift guides on installation, GitOps, security, monitoring, upgrades, and platform engineering, written by Ramatech engineers.",
   },
   contact: {
     title: "Contact",
     description:
-      "Contact Ramatech engineering leaders about cloud, AI, or automation initiatives. We respond within four business hours—teams across India and worldwide.",
+      "Contact Ramatech Innovation by email, WhatsApp, or the enquiry form. We reply within one business day (Mon–Sat, 10:00–19:00 IST).",
   },
   bookConsultation: {
     title: "Book Consultation",
     description:
-      "Book a technical consultation with Ramatech senior engineers. Discuss platform, AI, or automation goals—no generic sales pitch, engineering-led discovery.",
+      "Book a free 30-minute consultation with a Ramatech engineer to discuss OpenShift, AI, cloud, DevOps, or automation work. No obligation.",
   },
   privacy: {
     title: "Privacy Policy",

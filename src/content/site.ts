@@ -1,93 +1,142 @@
-export const navLinks = [
-  {
-    label: "Solutions",
-    href: "/solutions",
-    children: [
-      { label: "Cloud Infrastructure", href: "/solutions/cloud-infrastructure" },
-      { label: "DevOps & Platform Engineering", href: "/solutions/devops-platform-engineering" },
-      { label: "AI Solutions", href: "/solutions/ai-solutions" },
-      { label: "Business Automation", href: "/solutions/business-automation" },
-      { label: "Software Development", href: "/solutions/software-development" },
-    ],
-  },
-  { label: "Industries", href: "/industries" },
-  { label: "OpenShift", href: "/openshift" },
-  { label: "AI", href: "/solutions/ai-solutions" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "Technology", href: "/technology" },
-  { label: "About", href: "/about" },
-] as const;
+import { openshiftServices } from "@/content/openshift/service-catalog";
 
-export const footerLinks = {
-  solutions: [
-    { label: "OpenShift Services", href: "/openshift" },
-    { label: "Cloud Infrastructure", href: "/solutions/cloud-infrastructure" },
-    { label: "DevOps & Platform", href: "/solutions/devops-platform-engineering" },
-    { label: "AI Solutions", href: "/solutions/ai-solutions" },
-    { label: "Business Automation", href: "/solutions/business-automation" },
-    { label: "Software Development", href: "/solutions/software-development" },
-  ],
-  company: [
-    { label: "About", href: "/about" },
-    { label: "Packages", href: "/packages" },
-    { label: "Case Studies", href: "/case-studies" },
-    { label: "Technology", href: "/technology" },
-    { label: "Insights", href: "/insights" },
-    { label: "Contact", href: "/contact" },
-  ],
-  legal: [
-    { label: "Privacy", href: "/privacy" },
-    { label: "Terms", href: "/terms" },
-  ],
+export type NavChild = { label: string; href: string; description?: string };
+
+export type NavItem = {
+  label: string;
+  href: string;
+  children?: NavChild[];
+  viewAll?: NavChild;
 };
 
-export const trustTags = [
-  "Kubernetes",
-  "OpenShift",
-  "Terraform",
-  "AI/ML",
-  "Observability",
-  "GitOps",
+const openshiftNavChildren: NavChild[] = openshiftServices.map((s) => ({
+  label: s.title.replace(/^OpenShift /, ""),
+  href: s.href ?? `/openshift/${s.slug}`,
+}));
+
+export const serviceLinks: NavChild[] = [
+  {
+    label: "Cloud Infrastructure",
+    href: "/solutions/cloud-infrastructure",
+    description: "AWS foundations, ROSA, and on-prem to AWS moves",
+  },
+  {
+    label: "DevOps & Platform Engineering",
+    href: "/solutions/devops-platform-engineering",
+    description: "CI/CD, GitOps, and platform automation",
+  },
+  {
+    label: "Business Automation",
+    href: "/solutions/business-automation",
+    description: "Workflow automation and SAP capabilities",
+  },
+  {
+    label: "Software Development",
+    href: "/solutions/software-development",
+    description: "Web applications, APIs, and internal tools",
+  },
 ];
 
-export const whyRamatech = [
+export const navLinks: NavItem[] = [
   {
-    title: "Engineering-first",
-    description: "We ship production systems—not staffing hours or slide decks.",
+    label: "OpenShift",
+    href: "/openshift",
+    children: openshiftNavChildren,
+    viewAll: { label: "All OpenShift services", href: "/openshift" },
+  },
+  { label: "AI", href: "/solutions/ai-solutions" },
+  {
+    label: "Services",
+    href: "/solutions",
+    children: serviceLinks,
+    viewAll: { label: "All services", href: "/solutions" },
+  },
+  { label: "Case Studies", href: "/case-studies" },
+  {
+    label: "Resources",
+    href: "/insights",
+    children: [
+      { label: "Insights", href: "/insights", description: "OpenShift guides and articles" },
+      { label: "Technology", href: "/technology", description: "Technologies we work with" },
+    ],
+  },
+  { label: "About", href: "/about" },
+];
+
+export const footerColumns: { title: string; links: NavChild[] }[] = [
+  {
+    title: "OpenShift",
+    links: [
+      { label: "OpenShift services", href: "/openshift" },
+      ...openshiftNavChildren.slice(0, 6),
+    ],
   },
   {
-    title: "AI-accelerated, human-validated",
-    description: "Automation speeds delivery; senior engineers own architecture and security.",
+    title: "Services",
+    links: [
+      { label: "AI Solutions", href: "/solutions/ai-solutions" },
+      ...serviceLinks.map(({ label, href }) => ({ label, href })),
+      { label: "Industries", href: "/industries" },
+      { label: "Packages", href: "/packages" },
+    ],
   },
   {
-    title: "Outcome-owned",
-    description: "Reliability, scale, and automation metrics—not billable milestones.",
+    title: "Resources",
+    links: [
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Insights", href: "/insights" },
+      { label: "OpenShift guides", href: "/insights/openshift" },
+      { label: "Technology", href: "/technology" },
+    ],
   },
   {
-    title: "Enterprise discipline",
-    description: "Global delivery with runbooks, handover, and operational readiness built in.",
+    title: "Company",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "Book Consultation", href: "/book-consultation" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+    ],
   },
 ];
 
-export const deliveryModel = {
-  ai: [
-    "Code and infra scaffolding",
-    "Runbook and alert templates",
-    "Documentation drafts",
-    "L1 incident classification",
-  ],
-  engineers: [
-    "Architecture and security decisions",
-    "Client-specific customization",
-    "Production validation",
-    "L2/L3 escalations",
-  ],
+export const contactDetails = {
+  whatsappDisplay: "+91 98282 41244",
+  hours: "Mon–Sat, 10:00–19:00 IST",
 };
 
 export const frameworkSteps = [
-  { step: "01", title: "Discover", description: "Map systems, constraints, and highest-impact outcomes." },
-  { step: "02", title: "Architect", description: "Design platforms, data flows, and reliability targets." },
-  { step: "03", title: "Build", description: "AI-accelerated implementation with engineer-led review." },
-  { step: "04", title: "Validate", description: "Test, observe, and harden before production cutover." },
-  { step: "05", title: "Operate", description: "Handover, monitoring, and continuous improvement." },
+  {
+    step: "01",
+    title: "Discover",
+    description: "Review your environment, constraints, and what the platform must support.",
+  },
+  {
+    step: "02",
+    title: "Design",
+    description: "Agree the architecture, scope, and acceptance criteria before any build starts.",
+  },
+  {
+    step: "03",
+    title: "Build",
+    description: "Implement with infrastructure as code and GitOps, in small reviewed changes.",
+  },
+  {
+    step: "04",
+    title: "Validate",
+    description: "Test, observe, and harden before production cutover.",
+  },
+  {
+    step: "05",
+    title: "Hand over",
+    description: "Runbooks, documentation, and knowledge transfer so your team can operate it.",
+  },
+];
+
+export const deliveryPrinciples = [
+  "Engineers do the work: the people who scope your project are the people who build it.",
+  "Everything is handed over: runbooks, repositories, and documentation stay with your team.",
+  "Changes go through Git: infrastructure as code and GitOps, with a record of every change.",
+  "We install and operate; we do not sell Red Hat licenses. You keep your own subscriptions.",
 ];

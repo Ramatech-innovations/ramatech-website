@@ -2,205 +2,249 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { BookConsultationLink } from "@/components/analytics/tracked-link";
 import { BrandLogo } from "@/components/brand/brand-logo";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { navLinks } from "@/content/site";
-import { siteConfig } from "@/lib/seo";
+import { navLinks, type NavItem } from "@/content/site";
 import { PAGE_CONTAINER } from "@/lib/layout";
 import { cn } from "@/lib/utils";
 
-function navIsActive(pathname: string, href: string) {
+function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export function Header() {
-  const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const reduce = useReducedMotion();
-  const solutionsActive = pathname.startsWith("/solutions");
+function itemIsActive(pathname: string, item: NavItem) {
+  if (isActive(pathname, item.href)) return true;
+  return item.children?.some((c) => isActive(pathname, c.href)) ?? false;
+}
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+function DesktopDropdown({
+  item,
+  pathname,
+  open,
+  onOpenChange,
+}: {
+  item: NavItem;
+  pathname: string;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
+  const children = item.children ?? [];
+  const wide = children.length > 5;
 
   return (
-    <header className="sticky top-0 z-50">
-      <div className="hidden border-b border-slate-200 bg-slate-50 md:block">
-        <div className={`${PAGE_CONTAINER} flex items-center justify-between py-2 text-sm text-slate-600`}>
-          <span className="tracking-wide">Engineering intelligent systems at scale</span>
-          <Link
-            href={`mailto:${siteConfig.email}`}
-            className="font-medium tracking-wide text-brand-primary transition-colors hover:text-brand-cyan"
-          >
-            {siteConfig.email}
-          </Link>
-        </div>
-      </div>
-      <div
+    <div
+      className="relative"
+      onMouseEnter={() => onOpenChange(true)}
+      onMouseLeave={() => onOpenChange(false)}
+    >
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-haspopup="true"
+        onClick={() => onOpenChange(!open)}
         className={cn(
-          "border-b transition-all duration-300",
-          scrolled
-            ? "h-14 border-slate-200 bg-white/90 shadow-md shadow-slate-200/40 backdrop-blur-xl"
-            : "h-16 border-slate-200/80 bg-white/70 backdrop-blur-xl"
+          "flex items-center gap-1 py-2 font-nav text-sm font-semibold text-slate-700 transition-colors hover:text-brand-primary",
+          itemIsActive(pathname, item) && "text-brand-primary"
         )}
       >
-        <div className={`${PAGE_CONTAINER} flex h-full items-center justify-between`}>
-          <Link
-            href="/"
-            className="flex shrink-0 items-center py-0.5 pr-1 transition-opacity hover:opacity-90"
-            aria-label="Ramatech Innovation home"
+        {item.label}
+        <ChevronDown
+          className={cn("h-4 w-4 transition-transform duration-150", open && "rotate-180")}
+          aria-hidden
+        />
+      </button>
+      {open && (
+        <div className="absolute left-0 top-full pt-2">
+          <div
+            className={cn(
+              "rounded-lg border border-slate-200 bg-white p-2 shadow-lg",
+              wide ? "grid w-[34rem] grid-cols-2 gap-x-2" : "w-72"
+            )}
           >
-            <BrandLogo variant={scrolled ? "headerScrolled" : "header"} theme="light" />
-          </Link>
+            {children.map((child) => (
+              <Link
+                key={child.href + child.label}
+                href={child.href}
+                onClick={() => onOpenChange(false)}
+                className={cn(
+                  "block rounded-md px-3 py-2.5 transition-colors hover:bg-slate-50",
+                  isActive(pathname, child.href) && "bg-slate-50"
+                )}
+              >
+                <span className="block text-sm font-semibold text-brand-ink">{child.label}</span>
+                {child.description && (
+                  <span className="mt-0.5 block text-xs leading-snug text-slate-500">
+                    {child.description}
+                  </span>
+                )}
+              </Link>
+            ))}
+            {item.viewAll && (
+              <Link
+                href={item.viewAll.href}
+                onClick={() => onOpenChange(false)}
+                className={cn(
+                  "mt-1 block rounded-md border-t border-slate-100 px-3 py-2.5 text-sm font-semibold text-brand-primary hover:bg-slate-50",
+                  wide && "col-span-2"
+                )}
+              >
+                {item.viewAll.label} →
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
-          <nav className="hidden items-center gap-8 lg:flex">
-            {navLinks.map((link) =>
-              "children" in link ? (
-                <div
-                  key={link.label}
-                  className="relative"
-                  onMouseEnter={() => setSolutionsOpen(true)}
-                  onMouseLeave={() => setSolutionsOpen(false)}
-                >
+export function Header() {
+  const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [mobileSection, setMobileSection] = useState<string | null>(null);
+  const navRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    setMobileOpen(false);
+    setOpenMenu(null);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!openMenu) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpenMenu(null);
+    const onClick = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) setOpenMenu(null);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onClick);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onClick);
+    };
+  }, [openMenu]);
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
+      <div className={`${PAGE_CONTAINER} flex h-16 items-center justify-between gap-6`}>
+        <Link href="/" className="flex shrink-0 items-center" aria-label="Ramatech Innovation home">
+          <BrandLogo />
+        </Link>
+
+        <nav ref={navRef} className="hidden items-center gap-7 lg:flex" aria-label="Main">
+          {navLinks.map((item) =>
+            item.children ? (
+              <DesktopDropdown
+                key={item.label}
+                item={item}
+                pathname={pathname}
+                open={openMenu === item.label}
+                onOpenChange={(o) => setOpenMenu(o ? item.label : null)}
+              />
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "py-2 font-nav text-sm font-semibold text-slate-700 transition-colors hover:text-brand-primary",
+                  isActive(pathname, item.href) && "text-brand-primary"
+                )}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
+        </nav>
+
+        <div className="hidden lg:block">
+          <Button asChild size="sm">
+            <BookConsultationLink>Book Consultation</BookConsultationLink>
+          </Button>
+        </div>
+
+        <button
+          type="button"
+          className="rounded-md p-2 text-brand-ink lg:hidden"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
+        >
+          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </div>
+
+      {mobileOpen && (
+        <div
+          id="mobile-menu"
+          className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-slate-200 bg-white lg:hidden"
+        >
+          <nav className={`${PAGE_CONTAINER} flex flex-col py-3`} aria-label="Mobile">
+            {navLinks.map((item) =>
+              item.children ? (
+                <div key={item.label} className="border-b border-slate-100">
                   <button
                     type="button"
-                    className={cn(
-                      "flex items-center gap-1 font-nav text-[13px] font-semibold tracking-nav text-slate-600 transition-colors hover:text-brand-primary",
-                      solutionsActive && "text-brand-primary"
-                    )}
+                    className="flex w-full items-center justify-between py-3 text-left text-base font-semibold text-brand-ink"
+                    aria-expanded={mobileSection === item.label}
+                    onClick={() =>
+                      setMobileSection(mobileSection === item.label ? null : item.label)
+                    }
                   >
-                    {link.label}
+                    {item.label}
                     <ChevronDown
                       className={cn(
-                        "inline h-4 w-4 transition-transform duration-200",
-                        solutionsOpen && "rotate-180"
+                        "h-5 w-5 text-slate-500 transition-transform",
+                        mobileSection === item.label && "rotate-180"
                       )}
+                      aria-hidden
                     />
                   </button>
-                  <AnimatePresence>
-                    {solutionsOpen && (
-                      <motion.div
-                        className="absolute left-0 top-full pt-2"
-                        initial={reduce ? false : { opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 8 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <div className="glass-panel-xl-light min-w-[300px] rounded-xl p-2">
-                          {link.children.map((child) => (
-                            <Link
-                              key={child.href}
-                              href={child.href}
-                              className={cn(
-                                "block rounded-lg px-3 py-2.5 font-heading text-[13px] font-medium tracking-wide transition-colors",
-                                navIsActive(pathname, child.href)
-                                  ? "bg-brand-cyan/10 text-brand-primary"
-                                  : "text-slate-600 hover:bg-slate-50 hover:text-brand-primary"
-                              )}
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
+                  {mobileSection === item.label && (
+                    <ul className="pb-3">
+                      {item.children.map((child) => (
+                        <li key={child.href + child.label}>
                           <Link
-                            href="/solutions"
-                            className="mt-1 block rounded-lg border-t border-slate-200 px-3 py-2.5 font-heading text-[13px] font-semibold text-brand-primary"
+                            href={child.href}
+                            className="block py-2 pl-3 text-[0.9375rem] text-slate-700"
                           >
-                            View all solutions
+                            {child.label}
                           </Link>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                        </li>
+                      ))}
+                      {item.viewAll && (
+                        <li>
+                          <Link
+                            href={item.viewAll.href}
+                            className="block py-2 pl-3 text-[0.9375rem] font-semibold text-brand-primary"
+                          >
+                            {item.viewAll.label}
+                          </Link>
+                        </li>
+                      )}
+                    </ul>
+                  )}
                 </div>
               ) : (
                 <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "font-nav text-[13px] font-semibold tracking-nav text-slate-600 transition-colors hover:text-brand-primary",
-                    navIsActive(pathname, link.href) && "text-brand-primary"
-                  )}
+                  key={item.href}
+                  href={item.href}
+                  className="border-b border-slate-100 py-3 text-base font-semibold text-brand-ink"
                 >
-                  {link.label}
+                  {item.label}
                 </Link>
               )
             )}
-          </nav>
-
-          <div className="hidden lg:block">
-            <Button asChild size="sm" className="glow-cta">
+            <Button asChild className="mt-4">
               <BookConsultationLink>Book Consultation</BookConsultationLink>
             </Button>
-          </div>
-
-          <button
-            type="button"
-            className="text-brand-primary lg:hidden"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-            aria-expanded={open}
-          >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          </nav>
         </div>
-      </div>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            className="border-b border-slate-200 bg-white/98 backdrop-blur-xl lg:hidden"
-            initial={reduce ? false : { height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-          >
-            <div className="container mx-auto flex flex-col gap-2 px-4 py-4">
-              {navLinks.map((link) =>
-                "children" in link ? (
-                  <div key={link.label} className="flex flex-col gap-1">
-                    <span className="text-sm font-medium uppercase text-slate-500">
-                      {link.label}
-                    </span>
-                    {link.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="py-1 pl-2 text-sm text-slate-700"
-                        onClick={() => setOpen(false)}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                ) : (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="py-2 text-sm text-slate-700"
-                    onClick={() => setOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              )}
-              <Button asChild className="mt-2 glow-cta">
-                <BookConsultationLink onClick={() => setOpen(false)}>
-                  Book Consultation
-                </BookConsultationLink>
-              </Button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      )}
     </header>
   );
 }

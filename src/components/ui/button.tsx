@@ -6,23 +6,23 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/50 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/40 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default:
-          "bg-brand-gradient text-white hover:opacity-95 shadow-lg shadow-brand-cyan/20 type-button",
-        outline:
-          "border border-white/20 bg-transparent hover:bg-white/[0.06] hover:border-white/30 text-foreground type-button",
-        outlineLight:
-          "border border-slate-300 bg-transparent text-brand-primary hover:border-brand-primary/40 hover:bg-slate-50 type-button",
-        ghost: "hover:bg-white/5 text-foreground type-button",
-        secondary: "bg-white/10 text-foreground hover:bg-white/15 type-button",
+        default: "bg-brand-primary text-white hover:bg-[#083C77] type-button",
+        secondary:
+          "border border-slate-300 bg-white text-brand-ink hover:border-brand-primary/50 hover:text-brand-primary type-button",
+        link: "h-auto px-0 py-0 text-brand-primary underline-offset-4 hover:underline type-button",
+        /* Only for the navy closing CTA band and footer. */
+        inverse: "bg-white text-brand-ink hover:bg-slate-100 type-button",
+        inverseOutline:
+          "border border-white/40 bg-transparent text-white hover:border-white hover:bg-white/10 type-button",
       },
       size: {
         default: "h-10 px-5 py-2",
         sm: "h-9 rounded-md px-4 text-[12px] tracking-[0.05em]",
-        lg: "h-12 rounded-md px-9 type-button-lg",
+        lg: "h-12 rounded-md px-7 type-button-lg",
       },
     },
     defaultVariants: { variant: "default", size: "default" },

@@ -11,7 +11,7 @@ export const openshiftServices: CatalogItem[] = [
     slug: "installation-services",
     title: "OpenShift Installation Services",
     description:
-      "IPI and UPI cluster installation on cloud, bare metal, vSphere, and air-gapped environments.",
+      "IPI and UPI cluster installation on bare metal, VMware vSphere, KVM, AWS, and air-gapped environments.",
     href: "/openshift/installation-services",
   },
   {
@@ -25,7 +25,7 @@ export const openshiftServices: CatalogItem[] = [
     slug: "migration-services",
     title: "OpenShift Migration Services",
     description:
-      "Structured migration from OpenShift 3.x, Kubernetes, or legacy infrastructure to OCP 4.x.",
+      "VMware and legacy VMs to OpenShift, with OpenShift Virtualization for VMs that stay as VMs, and on-prem to AWS.",
     href: "/openshift/migration-services",
   },
   {
@@ -53,7 +53,7 @@ export const openshiftServices: CatalogItem[] = [
     slug: "platform-engineering",
     title: "OpenShift Platform Engineering",
     description:
-      "Golden paths, developer portals, self-service namespaces, and internal platform teams.",
+      "Golden paths, automated namespace onboarding, and reusable GitOps templates for product teams.",
     href: "/openshift/platform-engineering",
   },
   {
@@ -70,35 +70,31 @@ export const openshiftGeoRegions: CatalogItem[] = [
     slug: "india",
     title: "India",
     description:
-      "Primary delivery hub — on-prem, hybrid, and cloud OpenShift for Indian enterprises.",
+      "On-prem, hybrid, and cloud OpenShift for Indian enterprises.",
     href: "/openshift/india",
   },
   {
     slug: "uae",
     title: "UAE",
-    description:
-      "OpenShift services for UAE enterprises — regulated sectors and hybrid cloud.",
+    description: "Remote OpenShift engineering for UAE platform teams, delivered from India.",
     href: "/openshift/uae",
   },
   {
     slug: "saudi-arabia",
     title: "Saudi Arabia",
-    description:
-      "Enterprise OpenShift consulting and operations for KSA platform teams.",
+    description: "Remote OpenShift engineering for Saudi platform teams, delivered from India.",
     href: "/openshift/saudi-arabia",
   },
   {
     slug: "qatar",
     title: "Qatar",
-    description:
-      "OpenShift installation, migration, and support for Qatar-based organisations.",
+    description: "Remote OpenShift engineering for Qatar platform teams, delivered from India.",
     href: "/openshift/qatar",
   },
   {
     slug: "singapore",
     title: "Singapore",
-    description:
-      "APAC OpenShift expertise for financial services and regulated workloads.",
+    description: "Remote OpenShift engineering for Singapore platform teams, delivered from India.",
     href: "/openshift/singapore",
   },
 ];

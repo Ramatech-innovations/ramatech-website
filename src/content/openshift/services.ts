@@ -156,7 +156,7 @@ export const openshiftServices: OpenShiftService[] = [
               "RBAC and project setup",
               "Node autoscaling (MachineSet)",
               "Full documentation",
-              "30-day post-install support",
+              "Post-install support period agreed in scope",
             ],
           },
         ],
@@ -211,7 +211,7 @@ export const openshiftServices: OpenShiftService[] = [
       {
         question: "What happens after installation?",
         answer:
-          "We hand over full documentation, a runbook, and provide 30 days of post-install support. Ongoing managed services are available.",
+          "We hand over full documentation, a runbook, and provide a post-install support period agreed in the scope. Ongoing managed services are available.",
       },
     ],
     internalLinks: [
@@ -264,7 +264,6 @@ export const openshiftServices: OpenShiftService[] = [
       "Hi Ramatech, I need help planning and executing an OpenShift migration.",
     areaServed,
     showMigrationViz: true,
-    showCaseStudyCallout: true,
     sections: [
       {
         id: "intro",
@@ -506,7 +505,7 @@ export const openshiftServices: OpenShiftService[] = [
     serviceType: "OpenShift Support Services",
     metaTitle: "OpenShift Support Services | OCP Platform Support | Ramatech India",
     metaDescription:
-      "Managed OpenShift support services - cluster health monitoring, incident response, patch management, and expert escalation. India, UAE, and MENA.",
+      "Managed OpenShift support services - cluster health monitoring, incident response, patch management, and expert escalation. For teams in India and worldwide.",
     h1: "OpenShift Support Services - Expert Platform Reliability for Your OCP Cluster",
     heroSubtext:
       "Operational support that keeps OpenShift clusters healthy, secure, and predictable through incident response, patching, and lifecycle governance.",
@@ -724,7 +723,7 @@ export const openshiftServices: OpenShiftService[] = [
           {
             type: "prose",
             paragraphs: [
-              "Response targets only matter when paired with operating rigor. Our SLA commitments are backed by incident classification standards, on-call routing, and escalation governance so P1, P2, and P3 issues are handled consistently. We define these protocols during onboarding to ensure everyone understands decision authority, communication expectations, and handoff procedures before incidents occur.",
+              "Response targets only matter when paired with operating rigor. Response targets are agreed per contract and backed by incident classification standards, on-call routing, and escalation governance so P1, P2, and P3 issues are handled consistently. We define these protocols during onboarding to ensure everyone understands decision authority, communication expectations, and handoff procedures before incidents occur.",
               "Incident response quality is also improved through context continuity. We maintain environment-specific operational knowledge, runbook references, and issue history so responders can diagnose faster and avoid repeated missteps. For high-severity events, we run structured incident command and provide clear status communication to technical and business stakeholders. This reduces confusion and shortens time to stabilization.",
               "SLA reporting is transparent and action-oriented. We track response and resolution trends, identify recurring risk patterns, and recommend preventive measures that improve reliability over time. The goal is not only to meet response metrics, but to steadily reduce incident volume and severity as platform operations mature.",
             ],
@@ -993,7 +992,7 @@ export const openshiftServices: OpenShiftService[] = [
             paragraphs: [
               "We offer multiple engagement models so organizations can choose the right depth of support for current priorities. Architecture assessments are useful when a team needs clear findings and recommendations quickly. Workshops are ideal for focused design and decision sessions with cross-functional stakeholders. Ongoing advisory supports continuous guidance as platform complexity grows. Embedded consulting helps enterprises execute major transformations with hands-on leadership and technical stewardship.",
               "Selecting the right model depends on urgency, scope, and internal capacity. During scoping, we define desired outcomes, decision timelines, and ownership expectations so the engagement structure supports delivery rather than adding overhead. This upfront alignment keeps consulting work tightly connected to business goals and implementation realities.",
-              "All models can be delivered remotely and are designed for distributed teams across India, UAE, Saudi Arabia, Qatar, and Singapore. We use structured communication, documented decision logs, and clear action ownership so progress remains transparent regardless of geography. The result is consulting that drives action, not just analysis.",
+              "All models can be delivered remotely and are designed for distributed teams in India and worldwide. We use structured communication, documented decision logs, and clear action ownership so progress remains transparent regardless of geography. The result is consulting that drives action, not just analysis.",
             ],
           },
           {
@@ -1022,7 +1021,7 @@ export const openshiftServices: OpenShiftService[] = [
       {
         question: "Do you offer remote consulting?",
         answer:
-          "Yes. All consulting engagements can be delivered remotely. We work across India, UAE, Saudi Arabia, Qatar, and Singapore.",
+          "Yes. All consulting engagements can be delivered remotely. We work with teams across India and worldwide.",
       },
       {
         question: "How long does a typical architecture review take?",

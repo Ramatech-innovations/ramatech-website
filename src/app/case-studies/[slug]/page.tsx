@@ -1,18 +1,45 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BookConsultationLink } from "@/components/analytics/tracked-link";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { MotionSection } from "@/components/motion/motion-section";
 import { PageHero } from "@/components/marketing/page-hero";
+import { Breadcrumbs } from "@/components/marketing/breadcrumbs";
+import { ClosingCta } from "@/components/marketing/closing-cta";
+import { RelatedResources } from "@/components/marketing/related-resources";
 import { CaseStudyArchitecture } from "@/components/illustrations/case-study-architecture";
 import { ArticleSchema } from "@/components/seo/ArticleSchema";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { createMetadata, metaDescription, siteConfig } from "@/lib/seo";
-import { caseStudies, getCaseStudy } from "@/content/case-studies";
-import { PAGE_CONTAINER_NARROW } from "@/lib/layout";
+import { caseStudies, getCaseStudy, type CaseStudy } from "@/content/case-studies";
+import { getSolution } from "@/content/solutions";
+import { PAGE_CONTAINER, PAGE_CONTAINER_NARROW } from "@/lib/layout";
 
-/** ISO dates for Article schema on case study pages */
-const CASE_STUDY_SCHEMA_DATE = "2026-06-14";
+const RELATED_OPENSHIFT: Record<string, { title: string; href: string }[]> = {
+  "openshift-enterprise-migration": [
+    { title: "OpenShift installation services", href: "/openshift/installation-services" },
+    { title: "OpenShift migration services", href: "/openshift/migration-services" },
+  ],
+  "openshift-jenkins-argocd-cicd": [
+    { title: "OpenShift deployment services", href: "/openshift/deployment-services" },
+    { title: "OpenShift platform engineering", href: "/openshift/platform-engineering" },
+  ],
+  "openshift-helm-gitops-production": [
+    { title: "OpenShift deployment services", href: "/openshift/deployment-services" },
+    { title: "OpenShift migration services", href: "/openshift/migration-services" },
+  ],
+  "openshift-operations-automation": [
+    { title: "OpenShift managed services", href: "/openshift/managed-services" },
+    { title: "OpenShift platform engineering", href: "/openshift/platform-engineering" },
+  ],
+};
+
+function relatedServices(study: CaseStudy) {
+  const solution = getSolution(study.solution);
+  return [
+    ...(RELATED_OPENSHIFT[study.slug] ?? []),
+    ...(solution ? [{ title: solution.title, href: `/solutions/${solution.slug}` }] : []),
+  ].map((r) => ({ ...r, type: "service" as const }));
+}
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -44,6 +71,7 @@ export default async function CaseStudyPage({
 
   const base = siteConfig.url.replace(/\/$/, "");
   const pageUrl = `${base}/case-studies/${slug}`;
+  const others = caseStudies.filter((c) => c.slug !== slug);
 
   return (
     <>
@@ -58,72 +86,93 @@ export default async function CaseStudyPage({
         headline={study.title}
         description={study.summary}
         url={pageUrl}
-        datePublished={CASE_STUDY_SCHEMA_DATE}
-        dateModified={CASE_STUDY_SCHEMA_DATE}
+        datePublished={study.publishedAt}
+        dateModified={study.publishedAt}
       />
       <PageHero
-        eyebrow={`${study.client} · ${study.industry}`}
+        eyebrow={`${study.industry} · ${study.environment}`}
         title={study.title}
         description={study.summary}
+        breadcrumbs={
+          <Breadcrumbs items={[{ name: "Case Studies", href: "/case-studies" }, { name: study.title }]} />
+        }
       />
-      {study.anonymised && (
-        <div className="border-b border-slate-200 bg-slate-50">
-          <div className={PAGE_CONTAINER_NARROW}>
-            <p className="py-3 text-center text-sm text-slate-700">
-              Anonymised engagement. Based on hands-on OpenShift delivery experience of the
-              Ramatech team. Client name withheld under confidentiality.
-            </p>
-          </div>
-        </div>
-      )}
-      <MotionSection className="py-16 md:py-20">
+
+      <section className="section-light on-light py-14 md:py-16">
         <div className={`${PAGE_CONTAINER_NARROW} space-y-12`}>
-          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-[#060a12] p-5 md:p-6">
-            <p className="type-eyebrow text-[10px] text-slate-400">Architecture</p>
-            <CaseStudyArchitecture slug={study.slug} className="mt-3 min-h-[200px] md:min-h-[220px]" />
-          </div>
+          {study.anonymised && (
+            <p className="rounded-md border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
+              {study.client}. Delivery experience of the Ramatech team; the client name is withheld
+              under confidentiality.
+            </p>
+          )}
+          <figure>
+            <CaseStudyArchitecture slug={study.slug} className="min-h-[200px] md:min-h-[220px]" />
+            <figcaption className="mt-2 text-xs text-slate-500">
+              Architecture overview. Hover to animate the flow.
+            </figcaption>
+          </figure>
           <div>
             <h2 className="type-h3 text-brand-ink">Challenge</h2>
             <p className="type-body-card mt-4">{study.challenge}</p>
           </div>
           <div>
-            <h2 className="type-h3 text-brand-ink">Solution</h2>
+            <h2 className="type-h3 text-brand-ink">What we did</h2>
             <p className="type-body-card mt-4">{study.solutionDetail}</p>
           </div>
           <div>
             <h2 className="type-h3 text-brand-ink">Results</h2>
-            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            <ul className="mt-6 grid gap-4 sm:grid-cols-3">
               {study.results.map((r) => (
-                <Card key={r.label} className="text-center">
-                  <p className="font-heading text-2xl font-bold text-brand-primary">{r.metric}</p>
-                  <p className="type-caption mt-1">{r.label}</p>
-                </Card>
+                <li key={r.label} className="card-on-light p-5">
+                  <p className="font-heading text-lg font-semibold text-brand-primary">{r.metric}</p>
+                  <p className="mt-1 text-sm text-slate-600">{r.label}</p>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
           <div>
             <h2 className="type-h3 text-brand-ink">Stack</h2>
-            <div className="mt-4 flex flex-wrap gap-2">
+            <ul className="mt-4 flex flex-wrap gap-2">
               {study.stack.map((t) => (
-                <span
+                <li
                   key={t}
-                  className="rounded-md border border-slate-200 bg-white px-2 py-1 font-mono text-sm text-slate-700"
+                  className="rounded-md border border-slate-200 bg-white px-2.5 py-1 font-mono text-sm text-slate-700"
                 >
                   {t}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
-          <Button asChild size="lg">
-            <BookConsultationLink
-              pageSource={`/case-studies/${slug}`}
-              interest={study.solution}
-            >
-              Start a similar engagement
+        </div>
+      </section>
+
+      <section className="section-light-elevated on-light border-t border-slate-200 py-12 md:py-14">
+        <div className={`${PAGE_CONTAINER} space-y-10`}>
+          <RelatedResources heading="Related services" resources={relatedServices(study)} />
+          <RelatedResources
+            heading="Other case studies"
+            resources={others.map((c) => ({
+              title: c.title,
+              href: `/case-studies/${c.slug}`,
+              type: "case-study" as const,
+            }))}
+          />
+        </div>
+      </section>
+
+      <ClosingCta headline="Planning similar work?">
+        <div className="flex flex-wrap gap-3">
+          <Button asChild size="lg" variant="inverse">
+            <BookConsultationLink pageSource={`/case-studies/${slug}`} interest={study.solution}>
+              Book Consultation
             </BookConsultationLink>
           </Button>
+          <Button asChild size="lg" variant="inverseOutline">
+            <Link href="/case-studies">All case studies</Link>
+          </Button>
         </div>
-      </MotionSection>
+      </ClosingCta>
     </>
   );
 }

@@ -33,7 +33,7 @@ export function InsightReadingProgress() {
       aria-label="Reading progress"
     >
       <div
-        className="h-full bg-brand-cyan transition-[width] duration-150 motion-reduce:transition-none"
+        className="h-full bg-brand-primary transition-[width] duration-150 motion-reduce:transition-none"
         style={{ width: `${progress}%` }}
       />
     </div>

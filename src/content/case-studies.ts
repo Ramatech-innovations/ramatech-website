@@ -3,12 +3,16 @@ export type CaseStudy = {
   title: string;
   client: string;
   industry: string;
+  /** Where the platform runs, e.g. "On-prem bare metal" */
+  environment: string;
   solution: string;
   summary: string;
   challenge: string;
   solutionDetail: string;
   results: { metric: string; label: string }[];
   stack: string[];
+  /** ISO date the page was first published, for Article schema */
+  publishedAt: string;
   /** Real delivery with client name withheld — show confidentiality note on detail page */
   anonymised?: boolean;
 };
@@ -19,10 +23,12 @@ export const PHARMA_MIGRATION_SUMMARY =
 export const caseStudies: CaseStudy[] = [
   {
     slug: "openshift-enterprise-migration",
+    publishedAt: "2026-06-14",
     anonymised: true,
     title: "Pharma OpenShift Platform on Bare Metal",
     client: "Pharmaceutical enterprise (name withheld)",
     industry: "Pharmaceuticals / Life sciences",
+    environment: "On-prem bare metal",
     solution: "cloud-infrastructure",
     summary:
       "Built an on-prem bare-metal OpenShift platform for a pharmaceutical enterprise and moved legacy VM-based workloads onto it: containerised where possible, and run on OpenShift Virtualization where not. Every deployment is managed through Argo CD GitOps.",
@@ -45,10 +51,12 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "openshift-jenkins-argocd-cicd",
+    publishedAt: "2026-09-28",
     anonymised: true,
     title: "Telecom CI/CD on OpenShift with Jenkins and Argo CD",
     client: "Telecom enterprise (name withheld)",
     industry: "Telecom",
+    environment: "On-prem bare metal",
     solution: "devops-platform-engineering",
     summary:
       "Replaced manual builds and deployments on a bare-metal OpenShift platform with Jenkins pipelines and Argo CD GitOps, so every release goes from commit to cluster the same way.",
@@ -65,10 +73,12 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "openshift-helm-gitops-production",
+    publishedAt: "2026-09-28",
     anonymised: true,
     title: "Helm and GitOps for a Production App on Air-Gapped OpenShift",
     client: "Financial services enterprise (name withheld)",
     industry: "Financial services",
+    environment: "On-prem air-gapped network",
     solution: "devops-platform-engineering",
     summary:
       "Packaged an application already running in production as a Helm chart and moved it to Argo CD GitOps on an air-gapped OpenShift cluster, without disrupting production.",
@@ -85,10 +95,12 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "openshift-operations-automation",
+    publishedAt: "2026-09-28",
     anonymised: true,
     title: "OpenShift Operations and DevOps Automation",
     client: "Financial services enterprise (name withheld)",
     industry: "Financial services",
+    environment: "On-prem bare metal",
     solution: "devops-platform-engineering",
     summary:
       "Automated routine OpenShift operations on a bare-metal platform—team onboarding, monitoring setup, health checks, and backups—so every team and environment is set up the same way.",

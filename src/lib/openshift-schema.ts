@@ -41,7 +41,7 @@ export function openshiftHubServiceSchemaProps() {
     name: "OpenShift Consulting and Professional Services",
     serviceType: "OpenShift Consulting and Professional Services",
     description:
-      "Red Hat OpenShift installation, deployment, migration, support, upgrade, and managed services for enterprise clients across India, UAE, Saudi Arabia, Qatar, and Singapore.",
+      "Red Hat OpenShift installation, deployment, migration, support, upgrade, and managed services for teams across India and worldwide.",
     url: `${base()}/openshift`,
     areaServed: [...OPENSHIFT_AREA_SERVED],
   };

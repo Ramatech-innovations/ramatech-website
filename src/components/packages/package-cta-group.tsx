@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import {
   PackageBookCta,
   PackageWhatsAppCta,
@@ -15,22 +14,12 @@ export function PackageCtaGroup({
   onDark?: boolean;
 }) {
   return (
-    <div className="mt-10 flex flex-wrap gap-4">
-      <Button asChild size="lg" className="glow-cta">
+    <div className="flex flex-wrap gap-3">
+      <Button asChild size="lg" variant={onDark ? "inverse" : "default"}>
         <PackageBookCta analyticsLabel={analyticsLabel} />
       </Button>
-      <Button
-        asChild
-        variant="outline"
-        size="lg"
-        className={cn(
-          onDark &&
-            "border-white/30 text-white hover:bg-white/10 hover:text-white"
-        )}
-      >
-        <PackageWhatsAppCta analyticsLabel={analyticsLabel}>
-          {whatsappLabel}
-        </PackageWhatsAppCta>
+      <Button asChild size="lg" variant={onDark ? "inverseOutline" : "secondary"}>
+        <PackageWhatsAppCta analyticsLabel={analyticsLabel}>{whatsappLabel}</PackageWhatsAppCta>
       </Button>
     </div>
   );
