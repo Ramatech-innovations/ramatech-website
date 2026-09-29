@@ -83,28 +83,6 @@ export function PipelineFlowViz({ className, ariaLabel, stages, tech }: Pipeline
   );
 }
 
-export function JenkinsArgocdCicdViz({ className }: { className?: string }) {
-  return (
-    <PipelineFlowViz
-      className={className}
-      ariaLabel="CI/CD on OpenShift: Bitbucket source, Jenkins build, Nexus and Quay artifacts, Argo CD sync to a bare-metal OpenShift cluster"
-      stages={[
-        { label: "Bitbucket", caption: "Source" },
-        { label: "Jenkins", caption: "Build" },
-        { label: "Nexus/Quay", caption: "Artifacts" },
-        { label: "Argo CD", caption: "Sync", variant: "hub" },
-        { label: "OCP", caption: "Bare metal", variant: "dest" },
-      ]}
-      tech={[
-        { name: "Jenkins", icon: "git" },
-        { name: "Helm", icon: "k8s" },
-        { name: "Argo CD", icon: "argo" },
-        { name: "OpenShift", icon: "openshift" },
-      ]}
-    />
-  );
-}
-
 export function HelmGitopsViz({ className }: { className?: string }) {
   return (
     <PipelineFlowViz

@@ -50,28 +50,6 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    slug: "openshift-jenkins-argocd-cicd",
-    publishedAt: "2026-09-28",
-    anonymised: true,
-    title: "Telecom CI/CD on OpenShift with Jenkins and Argo CD",
-    client: "Telecom enterprise (name withheld)",
-    industry: "Telecom",
-    environment: "On-prem bare metal",
-    solution: "devops-platform-engineering",
-    summary:
-      "Replaced manual builds and deployments on a bare-metal OpenShift platform with Jenkins pipelines and Argo CD GitOps, so every release goes from commit to cluster the same way.",
-    challenge:
-      "Applications were built and deployed to OpenShift by hand with oc, kubectl, and scripts. Releases depended on individual engineers, changes were hard to trace, and rolling back meant repeating manual steps.",
-    solutionDetail:
-      "Built Jenkins pipelines that take code from Bitbucket, build it, and publish artifacts to Nexus and container images to the registry (Quay or the internal OpenShift registry). Packaged applications as Helm charts and set up Argo CD to sync them from Git to the bare-metal OpenShift cluster. Pipelines and runbooks were handed over to the client team.",
-    results: [
-      { metric: "Git", label: "Single source of truth for every deployment" },
-      { metric: "Automated", label: "Repeatable releases from commit to cluster, with a full audit trail" },
-      { metric: "Rollback", label: "Simpler rollback and fewer manual deployment errors" },
-    ],
-    stack: ["OpenShift", "Bare metal", "Jenkins", "Argo CD", "Helm", "Bitbucket", "Nexus", "Quay"],
-  },
-  {
     slug: "openshift-helm-gitops-production",
     publishedAt: "2026-09-28",
     anonymised: true,

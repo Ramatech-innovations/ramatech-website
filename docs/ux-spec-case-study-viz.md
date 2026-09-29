@@ -10,7 +10,6 @@ Every case study uses an animated SVG + Framer Motion “digital twin” panel w
 | Slug | Component | Flow |
 |------|-----------|------|
 | openshift-enterprise-migration | `openshift-migration-viz.tsx` | Legacy → Migration → GitOps → OpenShift |
-| openshift-jenkins-argocd-cicd | `JenkinsArgocdCicdViz` in `pipeline-flow-viz.tsx` | Bitbucket → Jenkins → Nexus/Quay → Argo CD → OCP (bare metal) |
 | openshift-helm-gitops-production | `HelmGitopsViz` in `pipeline-flow-viz.tsx` | GitLab → Jenkins → Helm → Argo CD → OCP (air-gapped) |
 | openshift-operations-automation | `OperationsAutomationViz` in `pipeline-flow-viz.tsx` | Jenkins → Ansible → Argo CD → Operators → OCP (bare metal) |
 

@@ -283,7 +283,6 @@ export const solutions: Solution[] = [
       { name: "GitLab" },
     ],
     relatedCaseStudies: [
-      "openshift-jenkins-argocd-cicd",
       "openshift-helm-gitops-production",
       "openshift-operations-automation",
     ],
