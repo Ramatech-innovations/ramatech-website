@@ -75,9 +75,8 @@ curl -s https://www.ramatech.co.in/robots.txt
 6. `https://www.ramatech.co.in/solutions/software-development`
 7. `https://www.ramatech.co.in/case-studies`
 8. `https://www.ramatech.co.in/case-studies/openshift-enterprise-migration`
-9. `https://www.ramatech.co.in/case-studies/openshift-jenkins-argocd-cicd`
-10. `https://www.ramatech.co.in/case-studies/openshift-helm-gitops-production`
-11. `https://www.ramatech.co.in/case-studies/openshift-operations-automation`
+9. `https://www.ramatech.co.in/case-studies/openshift-helm-gitops-production`
+10. `https://www.ramatech.co.in/case-studies/openshift-operations-automation`
 
 Spread Priority 1 and 1b over several days; the daily request quota is small.
 

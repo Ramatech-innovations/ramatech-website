@@ -21,6 +21,7 @@ const nextConfig: NextConfig = {
         "ai-automation-operations",
         "openshift-gitops-automation",
         "openshift-platform-engineering-golden-paths",
+        "openshift-jenkins-argocd-cicd",
       ].map((slug) => ({
         source: `/case-studies/${slug}`,
         destination: "/case-studies",

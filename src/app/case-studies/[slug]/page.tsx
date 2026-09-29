@@ -19,10 +19,6 @@ const RELATED_OPENSHIFT: Record<string, { title: string; href: string }[]> = {
     { title: "OpenShift installation services", href: "/openshift/installation-services" },
     { title: "OpenShift migration services", href: "/openshift/migration-services" },
   ],
-  "openshift-jenkins-argocd-cicd": [
-    { title: "OpenShift deployment services", href: "/openshift/deployment-services" },
-    { title: "OpenShift platform engineering", href: "/openshift/platform-engineering" },
-  ],
   "openshift-helm-gitops-production": [
     { title: "OpenShift deployment services", href: "/openshift/deployment-services" },
     { title: "OpenShift migration services", href: "/openshift/migration-services" },

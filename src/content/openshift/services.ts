@@ -1006,7 +1006,6 @@ export const openshiftServices: OpenShiftService[] = [
             type: "bulletList",
             items: [
               "A pharmaceutical enterprise: OpenShift on on-premises bare metal, with OpenShift Virtualization bringing legacy VMs onto the same platform as containers, and Argo CD GitOps",
-              "A telecom enterprise: Jenkins pipelines, Helm and Argo CD GitOps replacing manual builds and deployments on bare-metal OpenShift",
               "A financial services enterprise: a production application moved to Helm and GitOps on an air-gapped OpenShift cluster without disrupting production",
               "A financial services enterprise: automated team onboarding, monitoring setup, health checks and etcd backups with Ansible, Python, Jenkins and OpenShift Operators",
             ],

@@ -13,11 +13,11 @@ import { OpenshiftMigrationViz } from "@/components/case-studies/openshift-migra
 const CASE_STUDIES_BY_SERVICE: Record<string, string[]> = {
   "installation-services": ["openshift-enterprise-migration", "openshift-operations-automation"],
   "migration-services": ["openshift-enterprise-migration", "openshift-helm-gitops-production"],
-  "deployment-services": ["openshift-jenkins-argocd-cicd", "openshift-helm-gitops-production"],
+  "deployment-services": ["openshift-helm-gitops-production", "openshift-operations-automation"],
   "support-services": ["openshift-operations-automation", "openshift-enterprise-migration"],
   "upgrade-services": ["openshift-operations-automation", "openshift-helm-gitops-production"],
-  "consulting-services": ["openshift-enterprise-migration", "openshift-jenkins-argocd-cicd"],
-  "platform-engineering": ["openshift-jenkins-argocd-cicd", "openshift-operations-automation"],
+  "consulting-services": ["openshift-enterprise-migration", "openshift-helm-gitops-production"],
+  "platform-engineering": ["openshift-operations-automation", "openshift-helm-gitops-production"],
   "managed-services": ["openshift-operations-automation", "openshift-enterprise-migration"],
 };
 
