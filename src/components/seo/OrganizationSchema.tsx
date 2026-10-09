@@ -1,5 +1,5 @@
 import { JsonLdScript } from "@/components/seo/json-ld-script";
-import { schemaLogoUrl } from "@/lib/seo";
+import { schemaLogoUrl, siteConfig } from "@/lib/seo";
 
 const ORGANIZATION_JSON_LD = {
   "@context": "https://schema.org",
@@ -13,6 +13,7 @@ const ORGANIZATION_JSON_LD = {
     contactType: "sales",
   },
   areaServed: ["IN", "AE", "SA", "QA", "SG"],
+  sameAs: [siteConfig.linkedinUrl, siteConfig.xUrl],
 };
 
 export function OrganizationSchema() {

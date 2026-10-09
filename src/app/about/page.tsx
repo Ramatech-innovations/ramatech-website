@@ -59,6 +59,9 @@ export default function AboutPage() {
               software work where it fits the same engineering approach.
             </p>
             <p>
+              From a single task to a full platform build. Scoped per project.
+            </p>
+            <p>
               We install and operate; we do not sell Red Hat licenses. You keep your own
               subscriptions, and we do not claim a partner tier.
             </p>

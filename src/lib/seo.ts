@@ -17,6 +17,9 @@ export const siteConfig = {
   whatsappUrl:
     "https://wa.me/919828241244?text=Hi%20Ramatech%2C%20I%20want%20to%20discuss%20a%20project",
   whatsappE164: "+919828241244",
+  linkedinUrl: "https://www.linkedin.com/company/ramatechinnovation",
+  xUrl: "https://x.com/RamatechIOVN",
+  xHandle: "@RamatechIOVN",
 };
 
 export function buildWhatsAppUrl(message: string): string {
@@ -78,6 +81,7 @@ export function createMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      site: siteConfig.xHandle,
       title: fullTitle,
       description: desc,
       images: [defaultOgImage],
@@ -101,5 +105,5 @@ export const organizationJsonLd = {
     contactType: "sales",
   },
   areaServed: ["IN", "AE", "SA", "QA", "SG"],
-  sameAs: ["https://www.linkedin.com/company/ramatechinnovation"],
+  sameAs: [siteConfig.linkedinUrl, siteConfig.xUrl],
 };
