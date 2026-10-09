@@ -813,9 +813,9 @@ export const openshiftServices: OpenShiftService[] = [
     pageName: "Consulting Services",
     schemaName: "OpenShift Consulting Services",
     serviceType: "OpenShift Consulting Services",
-    metaTitle: "OpenShift Consulting Services and Implementation | Ramatech Innovation",
+    metaTitle: "OpenShift Consulting Services: Design and Build | Ramatech",
     metaDescription:
-      "OpenShift consultants who also do the implementation: architecture reviews, cluster design, migration planning, GitOps with Argo CD and security reviews, for teams in India and worldwide.",
+      "OpenShift consulting services from engineers who also implement: architecture reviews, cluster design, migration planning, GitOps and security reviews.",
     h1: "OpenShift Consulting Services: Architecture Reviews and Implementation",
     heroSubtext:
       "OpenShift consultants who design your platform and then build it with your team. We install and operate; we do not sell Red Hat licenses.",

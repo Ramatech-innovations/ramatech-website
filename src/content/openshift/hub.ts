@@ -21,6 +21,34 @@ export const openshiftHub = {
     "GitOps-first delivery using Argo CD and OpenShift GitOps for repeatable deployments",
     "Observability built in — Prometheus, Alertmanager, Grafana, and OpenShift Monitoring at install",
   ],
+  chooseServiceIntro:
+    "Most teams come to us at one of four points. Start with the one that matches where your platform is today; engagements can move from one to the next.",
+  chooseService: [
+    {
+      situation: "You have not decided the architecture yet",
+      text: "An architecture review or readiness assessment settles topology, tenancy, security baselines and the migration order before anything is installed. The same engineers then implement what they recommend.",
+      href: "/openshift/consulting-services",
+      label: "OpenShift consulting and architecture reviews",
+    },
+    {
+      situation: "The cluster exists, but workloads are not in production",
+      text: "Deployment work covers GitOps pipelines with Argo CD, Routes and Security Context Constraints, image promotion, and the hardening that production reviews ask for.",
+      href: "/openshift/deployment-services",
+      label: "OpenShift deployment services",
+    },
+    {
+      situation: "Product teams wait on the platform team",
+      text: "Platform engineering builds golden paths, automated namespace onboarding and reusable GitOps templates, so teams get a compliant environment without raising tickets.",
+      href: "/openshift/platform-engineering",
+      label: "OpenShift platform engineering",
+    },
+    {
+      situation: "Your team cannot keep up with day-two operations",
+      text: "Managed services cover upgrades, patching, capacity reviews and incident escalation, with coverage hours agreed per contract and handover documentation kept current.",
+      href: "/openshift/managed-services",
+      label: "Managed OpenShift services",
+    },
+  ],
   finalCta: {
     headline: "Talk to an OpenShift Engineer",
     bookLabel: "Book Consultation",

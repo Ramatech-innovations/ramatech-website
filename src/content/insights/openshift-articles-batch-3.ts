@@ -8,9 +8,9 @@ export const openshiftArticlesBatch3: InsightArticle[] = [
     title: "OpenShift Multi-Cluster Management",
     h1: "OpenShift Multi-Cluster Management for Distributed Fleets",
     primaryKeyword: "openshift multi cluster management",
-    metaTitle: "OpenShift Multi-Cluster Management — OpenShift Guide | Ramatech Insights",
+    metaTitle: "OpenShift Multi-Cluster Management with ACM | Ramatech",
     metaDescription:
-      "OpenShift multi cluster management with ACM, GitOps fleet patterns, hub-spoke topology, policy propagation, and governance at scale.",
+      "Manage many OpenShift clusters with Red Hat ACM and GitOps: hub-and-spoke topology, policy propagation, fleet upgrades and governance at scale.",
     summary:
       "How to approach OpenShift multi-cluster management — ACM hub-spoke, GitOps fleet repos, policy-as-code, and governance patterns for distributed OCP estates.",
     intro: [
@@ -97,9 +97,9 @@ export const openshiftArticlesBatch3: InsightArticle[] = [
       { href: "/solutions/cloud-infrastructure", label: "Cloud Infrastructure (AWS and ROSA)" },
     ],
     relatedTechnology: [{ href: "/technology/argocd", label: "Argo CD" }],
-    relatedReading: ["gitops"],
+    relatedReading: ["gitops", "disaster-recovery", "virtualization"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: INSIGHT_SCHEMA_DATE,
+    dateModified: "2026-10-09",
   },
   {
     slug: "disaster-recovery",
@@ -203,7 +203,7 @@ export const openshiftArticlesBatch3: InsightArticle[] = [
       { href: "/openshift/managed-services", label: "OpenShift Managed Services" },
     ],
     relatedTechnology: [{ href: "/technology/openshift", label: "OpenShift" }],
-    relatedReading: ["monitoring"],
+    relatedReading: ["monitoring", "upgrade-planning"],
     datePublished: INSIGHT_SCHEMA_DATE,
     dateModified: "2026-09-28",
   },
@@ -212,9 +212,9 @@ export const openshiftArticlesBatch3: InsightArticle[] = [
     title: "OpenShift Cost Optimization",
     h1: "OpenShift Cost Optimization Without Sacrificing Reliability",
     primaryKeyword: "openshift cost optimization",
-    metaTitle: "OpenShift Cost Optimization — OpenShift Guide | Ramatech Insights",
+    metaTitle: "OpenShift Cost Optimization: Right-Sizing and Quotas | Ramatech",
     metaDescription:
-      "OpenShift cost optimization — right-sizing, quotas, autoscaling limits, storage reclamation, and subscription efficiency for enterprise OCP.",
+      "Cut OpenShift costs without risking availability: right-size nodes, set quotas and limits, tune autoscaling, reclaim storage and use subscriptions well.",
     summary:
       "Practical OpenShift cost optimization — resource right-sizing, namespace quotas, autoscaling guardrails, storage cleanup, and Red Hat subscription alignment.",
     intro: [
@@ -310,18 +310,18 @@ export const openshiftArticlesBatch3: InsightArticle[] = [
       { href: "/solutions/cloud-infrastructure", label: "Cloud Infrastructure (AWS and ROSA)" },
     ],
     relatedTechnology: [{ href: "/technology/red-hat", label: "Red Hat" }],
-    relatedReading: ["security"],
+    relatedReading: ["security", "multi-cluster-management"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: INSIGHT_SCHEMA_DATE,
+    dateModified: "2026-10-09",
   },
   {
     slug: "ai-integration",
     title: "OpenShift AI Integration",
     h1: "OpenShift AI Integration: RHOAI, GPUs, and MLOps on OCP",
     primaryKeyword: "openshift ai integration",
-    metaTitle: "OpenShift AI Integration — OpenShift Guide | Ramatech Insights",
+    metaTitle: "OpenShift AI Guide: GPUs, Model Serving and MLOps | Ramatech",
     metaDescription:
-      "OpenShift AI integration with RHOAI — GPU operators, model serving, notebooks, pipelines, and enterprise MLOps patterns on OpenShift Container Platform.",
+      "Run AI on OpenShift with Red Hat OpenShift AI: the GPU operator, model serving, notebooks, pipelines and MLOps patterns for enterprise platforms.",
     summary:
       "Enterprise OpenShift AI integration using RHOAI — GPU scheduling, model serving, Kubeflow pipelines, data governance, and platform patterns for ML on OCP.",
     intro: [
@@ -412,8 +412,8 @@ export const openshiftArticlesBatch3: InsightArticle[] = [
       { href: "/technology/openshift", label: "OpenShift" },
       { href: "/technology/red-hat", label: "Red Hat" },
     ],
-    relatedReading: ["openshift-vs-kubernetes"],
+    relatedReading: ["openshift-vs-kubernetes", "gitops"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: INSIGHT_SCHEMA_DATE,
+    dateModified: "2026-10-09",
   },
 ];

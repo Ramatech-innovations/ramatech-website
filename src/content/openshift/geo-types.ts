@@ -1,4 +1,8 @@
-import type { OpenShiftGeoCityCoverage } from "./india-city-types";
+export type OpenShiftGeoCityCoverage = {
+  slug: string;
+  name: string;
+  description: string;
+};
 
 export type OpenShiftGeoPage = {
   slug: string;
@@ -34,5 +38,3 @@ export type OpenShiftGeoPage = {
   };
   cityCoverage?: OpenShiftGeoCityCoverage[];
 };
-
-export type { OpenShiftGeoCityCoverage } from "./india-city-types";
