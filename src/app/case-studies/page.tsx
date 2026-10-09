@@ -22,7 +22,7 @@ export default function CaseStudiesPage() {
       <PageHero
         eyebrow="Case studies"
         title="Delivery experience"
-        description="OpenShift platforms, CI/CD, GitOps, and automation delivered by the Ramatech team. Client names are withheld under confidentiality."
+        description="OpenShift platforms, GitOps, automation, and cloud setup and migration delivered by the Ramatech team. Client names are withheld under confidentiality unless the client has agreed to be named."
         breadcrumbs={<Breadcrumbs items={[{ name: "Case Studies" }]} />}
       />
       <SectionShell variant="light">

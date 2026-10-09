@@ -105,6 +105,28 @@ export function HelmGitopsViz({ className }: { className?: string }) {
   );
 }
 
+export function CloudMigrationViz({ className }: { className?: string }) {
+  return (
+    <PipelineFlowViz
+      className={className}
+      ariaLabel="Cloud setup and migration: Terraform defines the infrastructure, Jenkins deploys to UAT and then production on AWS, and the environment is rebuilt on Microsoft Azure"
+      stages={[
+        { label: "Terraform", caption: "IaC" },
+        { label: "Jenkins", caption: "CI/CD" },
+        { label: "UAT", caption: "Test" },
+        { label: "Prod", caption: "Live", variant: "hub" },
+        { label: "Azure", caption: "Rebuilt", variant: "dest" },
+      ]}
+      tech={[
+        { name: "Terraform", icon: "git" },
+        { name: "Jenkins", icon: "git" },
+        { name: "AWS VMs", icon: "vm" },
+        { name: "Azure VMs", icon: "vm" },
+      ]}
+    />
+  );
+}
+
 export function OperationsAutomationViz({ className }: { className?: string }) {
   return (
     <PipelineFlowViz

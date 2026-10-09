@@ -13,6 +13,15 @@ import { openshiftKubernetesComparison } from "@/content/openshift-kubernetes-co
 import { Button } from "@/components/ui/button";
 import { PAGE_CONTAINER } from "@/lib/layout";
 
+function formatDate(isoDate: string) {
+  return new Date(`${isoDate}T00:00:00Z`).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
 function ArticleSection({
   id,
   title,
@@ -56,7 +65,12 @@ export function InsightArticleView({ article }: { article: InsightArticle }) {
             ]}
           />
         }
-      />
+      >
+        <p className="text-sm text-slate-500">
+          Last updated{" "}
+          <time dateTime={article.dateModified}>{formatDate(article.dateModified)}</time>
+        </p>
+      </PageHero>
 
       <div className={`${PAGE_CONTAINER} section-light on-light py-12 lg:py-16`}>
         <div className="lg:grid lg:grid-cols-[minmax(0,220px)_1fr] lg:gap-12 xl:gap-16">

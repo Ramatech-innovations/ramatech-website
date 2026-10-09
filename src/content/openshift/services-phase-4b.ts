@@ -9,9 +9,9 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
     pageName: "Deployment Services",
     schemaName: "OpenShift Deployment Services",
     serviceType: "OpenShift Deployment Services",
-    metaTitle: "OpenShift Deployment Services | Workload Deployment on OCP | Ramatech",
+    metaTitle: "OpenShift Deployment Services: Ship Workloads to OCP | Ramatech",
     metaDescription:
-      "Deploy microservices, containerised apps, and AI workloads on Red Hat OpenShift. Helm charts, Operators, GitOps pipelines, and production-ready configurations.",
+      "Deploy containerised apps and AI workloads on Red Hat OpenShift: Helm charts, Operators, GitOps pipelines and production-ready defaults.",
     h1: "OpenShift Deployment Services — Ship Workloads Confidently on OCP",
     heroSubtext:
       "Production deployment services for teams that need repeatable releases, platform-safe defaults, and faster delivery on Red Hat OpenShift.",
@@ -522,8 +522,7 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
     pageName: "Platform Engineering",
     schemaName: "OpenShift Platform Engineering Services",
     serviceType: "OpenShift Platform Engineering",
-    metaTitle:
-      "OpenShift Platform Engineering | Internal Developer Platform on OCP | Ramatech",
+    metaTitle: "OpenShift Platform Engineering and Golden Paths | Ramatech",
     metaDescription:
       "Build an Internal Developer Platform on Red Hat OpenShift - golden paths, self-service namespaces, GitOps, developer portals, and policy automation.",
     h1: "OpenShift Platform Engineering — Build the Developer Platform Your Teams Actually Use",
@@ -812,9 +811,9 @@ export const openshiftServicesPhase4B: OpenShiftService[] = [
     pageName: "Managed Services",
     schemaName: "OpenShift Managed Services",
     serviceType: "OpenShift Managed Services",
-    metaTitle: "OpenShift Managed Services | Fully Managed OCP Platform | Ramatech India",
+    metaTitle: "Managed OpenShift Services: Upgrades, Patching, Ops | Ramatech",
     metaDescription:
-      "Fully managed Red Hat OpenShift - cluster operations, upgrades, patching, monitoring, incident response, and capacity management. Focus on your product, not your platform.",
+      "Managed Red Hat OpenShift operations: upgrades, patching, monitoring, incident response and capacity reviews, with coverage hours agreed per contract.",
     h1: "OpenShift Managed Services — Your Cluster, Fully Operated",
     heroSubtext:
       "End-to-end OpenShift operations for enterprises that need strong platform reliability, predictable lifecycle management, and accountable support with response targets agreed per contract.",

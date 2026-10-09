@@ -65,17 +65,12 @@ export function OpenShiftGeoPageView({ geo }: { geo: OpenShiftGeoPage }) {
       </PackageSection>
 
       {geo.cityCoverage && geo.cityCoverage.length > 0 && (
-        <PackageSection title="City coverage" variant="dark">
+        <PackageSection title="Cities we serve" variant="dark">
           <ul className="grid gap-6 sm:grid-cols-2">
             {geo.cityCoverage.map((city) => (
               <li key={city.slug}>
                 <h3 className="font-heading text-lg font-semibold text-brand-ink">
-                  <Link
-                    href={`/openshift/india/${city.slug}`}
-                    className="hover:text-brand-primary"
-                  >
-                    {city.name}
-                  </Link>
+                  {city.name}
                 </h3>
                 <p className="mt-2 text-base leading-relaxed text-slate-600">
                   {city.description}

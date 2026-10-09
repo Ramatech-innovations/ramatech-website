@@ -8,9 +8,9 @@ export const openshiftArticlesBatch1: InsightArticle[] = [
     title: "OpenShift Installation Guide",
     h1: "OpenShift Installation Guide for Production-Ready Clusters",
     primaryKeyword: "openshift installation guide",
-    metaTitle: "OpenShift Installation Guide — OpenShift Guide | Ramatech Insights",
+    metaTitle: "OpenShift Installation Guide: IPI, UPI, Air-Gapped | Ramatech",
     metaDescription:
-      "OpenShift installation guide covering IPI, UPI, bare metal, vSphere, and ROSA prerequisites, etcd sizing, and day-0 validation for enterprise clusters.",
+      "A practical OpenShift installation guide: IPI vs UPI, bare metal, vSphere and ROSA prerequisites, air-gapped mirrors, and day-0 checks before go-live.",
     summary:
       "A practical OpenShift installation guide for platform engineers planning IPI, UPI, or managed ROSA deployments — from DNS and load balancers through etcd topology and post-install validation.",
     intro: [
@@ -85,23 +85,24 @@ export const openshiftArticlesBatch1: InsightArticle[] = [
     relatedServices: [
       { href: "/openshift/installation-services", label: "OpenShift Installation Services" },
       { href: "/solutions/cloud-infrastructure", label: "Cloud Infrastructure (AWS and ROSA)" },
+      { href: "/openshift/consulting-services", label: "OpenShift Consulting and Architecture Reviews" },
     ],
     relatedTechnology: [
       { href: "/technology/openshift", label: "OpenShift" },
       { href: "/technology/red-hat", label: "Red Hat" },
     ],
-    relatedReading: ["upgrade-planning"],
+    relatedReading: ["upgrade-planning", "deployment-best-practices", "security"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: INSIGHT_SCHEMA_DATE,
+    dateModified: "2026-10-09",
   },
   {
     slug: "deployment-best-practices",
     title: "OpenShift Deployment Best Practices",
     h1: "OpenShift Deployment Best Practices for Reliable Workload Rollouts",
     primaryKeyword: "openshift deployment best practices",
-    metaTitle: "OpenShift Deployment Best Practices — OpenShift Guide | Ramatech Insights",
+    metaTitle: "OpenShift Deployment Best Practices Checklist | Ramatech",
     metaDescription:
-      "OpenShift deployment best practices for rollouts, probes, resource quotas, Routes, and CI/CD integration — operator guidance for production OCP workloads.",
+      "A production checklist for OpenShift deployments: rollout strategies, probes, quotas, Routes, SCCs and CI/CD with GitOps, and what to check before go-live.",
     summary:
       "Operator-focused OpenShift deployment best practices covering rollout strategies, health probes, resource governance, Routes, and pipeline integration for teams shipping on OCP.",
     intro: [
@@ -188,18 +189,18 @@ export const openshiftArticlesBatch1: InsightArticle[] = [
       { href: "/solutions/software-development", label: "Software Development" },
     ],
     relatedTechnology: [{ href: "/technology/argocd", label: "Argo CD" }],
-    relatedReading: ["gitops"],
+    relatedReading: ["gitops", "security", "monitoring"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: INSIGHT_SCHEMA_DATE,
+    dateModified: "2026-10-09",
   },
   {
     slug: "upgrade-planning",
     title: "OpenShift Upgrade Planning",
     h1: "OpenShift Upgrade Planning for Zero-Surprise Cluster Updates",
     primaryKeyword: "openshift upgrade planning",
-    metaTitle: "OpenShift Upgrade Planning — OpenShift Guide | Ramatech Insights",
+    metaTitle: "OpenShift Upgrade Planning: Channels, EUS, Rollback | Ramatech",
     metaDescription:
-      "OpenShift upgrade planning for minor and patch updates — CVO channels, etcd health, operator compatibility, and rollback strategy for production OCP.",
+      "Plan OpenShift upgrades safely: update channels, EUS-to-EUS paths, operator compatibility, etcd health checks and a rollback plan for production clusters.",
     summary:
       "A concise OpenShift upgrade planning framework covering CVO channels, pre-flight checks, etcd and operator compatibility, maintenance windows, and tested rollback paths.",
     intro: [
@@ -281,20 +282,21 @@ export const openshiftArticlesBatch1: InsightArticle[] = [
     ],
     relatedServices: [
       { href: "/openshift/upgrade-services", label: "OpenShift Upgrade Services" },
+      { href: "/openshift/managed-services", label: "Managed OpenShift Services" },
     ],
     relatedTechnology: [{ href: "/technology/red-hat", label: "Red Hat" }],
-    relatedReading: ["installation-guide"],
+    relatedReading: ["installation-guide", "disaster-recovery", "monitoring"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: INSIGHT_SCHEMA_DATE,
+    dateModified: "2026-10-09",
   },
   {
     slug: "virtualization",
     title: "OpenShift Virtualization",
     h1: "OpenShift Virtualization (CNV): Running VMs Alongside Containers",
     primaryKeyword: "openshift virtualization",
-    metaTitle: "OpenShift Virtualization — OpenShift Guide | Ramatech Insights",
+    metaTitle: "OpenShift Virtualization Guide: Run VMs on OpenShift | Ramatech",
     metaDescription:
-      "OpenShift virtualization with CNV — KubeVirt VMs, storage, live migration, networking, and migration paths from VMware to OCP-native workloads.",
+      "How OpenShift Virtualization (KubeVirt) runs VMs next to containers: storage, networking, live migration, and a migration path from VMware.",
     summary:
       "How OpenShift Virtualization (CNV) runs KubeVirt VMs on OCP — storage classes, live migration, multus networking, and pragmatic paths from legacy VMware estates.",
     intro: [
@@ -378,10 +380,11 @@ export const openshiftArticlesBatch1: InsightArticle[] = [
     relatedServices: [
       { href: "/openshift/platform-engineering", label: "OpenShift Platform Engineering" },
       { href: "/openshift/migration-services", label: "OpenShift Migration Services" },
+      { href: "/openshift/consulting-services", label: "OpenShift Consulting and Architecture Reviews" },
     ],
     relatedTechnology: [{ href: "/technology/openshift", label: "OpenShift" }],
-    relatedReading: ["multi-cluster-management"],
+    relatedReading: ["multi-cluster-management", "installation-guide"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: INSIGHT_SCHEMA_DATE,
+    dateModified: "2026-10-09",
   },
 ];

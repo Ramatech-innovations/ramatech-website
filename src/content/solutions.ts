@@ -184,7 +184,7 @@ export const solutions: Solution[] = [
       { name: "Argo CD", href: "/technology/argocd" },
       { name: "Prometheus", href: "/technology/prometheus" },
     ],
-    relatedCaseStudies: ["openshift-enterprise-migration"],
+    relatedCaseStudies: ["elitewash-aws-azure-migration", "openshift-enterprise-migration"],
     faqs: [
       {
         question: "Do you work with Azure or Google Cloud?",

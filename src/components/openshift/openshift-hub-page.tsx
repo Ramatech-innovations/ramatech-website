@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { openshiftHub } from "@/content/openshift/hub";
 import {
   openshiftGeoRegions,
@@ -36,7 +37,27 @@ export function OpenShiftHubPage() {
         <OpenShiftServiceCards items={openshiftServices} />
       </PackageSection>
 
-      <PackageSection title="How we work on OpenShift" variant="light">
+      <PackageSection title="Which OpenShift service fits your situation" variant="light">
+        <p className="mb-8 max-w-2xl text-slate-600">{openshiftHub.chooseServiceIntro}</p>
+        <ul className="grid gap-8 sm:grid-cols-2">
+          {openshiftHub.chooseService.map((item) => (
+            <li key={item.href}>
+              <h3 className="font-heading text-lg font-semibold text-brand-ink">
+                {item.situation}
+              </h3>
+              <p className="mt-2 text-base leading-relaxed text-slate-600">{item.text}</p>
+              <Link
+                href={item.href}
+                className="mt-3 inline-flex text-sm font-semibold text-brand-primary hover:underline"
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </PackageSection>
+
+      <PackageSection title="How we work on OpenShift" variant="dark">
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="max-w-2xl">
             <OpenShiftProse paragraphs={rest} />
@@ -48,11 +69,11 @@ export function OpenShiftHubPage() {
         </div>
       </PackageSection>
 
-      <PackageSection title="Delivery experience" variant="dark">
+      <PackageSection title="Delivery experience" variant="light">
         <CaseStudyCards />
       </PackageSection>
 
-      <PackageSection title="Remote delivery" variant="light">
+      <PackageSection title="Remote delivery" variant="dark">
         <p className="mb-8 max-w-2xl text-slate-600">
           We are based in India. Engagements outside India are delivered remotely, with
           on-site visits agreed per contract.

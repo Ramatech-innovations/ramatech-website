@@ -15,12 +15,23 @@ import { stackCategories } from "@/content/stack";
 import { PAGE_CONTAINER } from "@/lib/layout";
 
 const OPENSHIFT_LINKS = [
+  { label: "Consulting and architecture reviews", href: "/openshift/consulting-services" },
   { label: "Installation (IPI and UPI)", href: "/openshift/installation-services" },
+  { label: "Workload deployment and GitOps pipelines", href: "/openshift/deployment-services" },
   { label: "Migration and OpenShift Virtualization", href: "/openshift/migration-services" },
-  { label: "Support and managed services", href: "/openshift/support-services" },
+  { label: "Platform engineering and golden paths", href: "/openshift/platform-engineering" },
+  { label: "Managed OpenShift operations", href: "/openshift/managed-services" },
+  { label: "Support and incident response", href: "/openshift/support-services" },
   { label: "Planned version upgrades", href: "/openshift/upgrade-services" },
-  { label: "Platform engineering and GitOps", href: "/openshift/platform-engineering" },
 ];
+
+const HERO_OPENSHIFT_HREFS = new Set([
+  "/openshift/consulting-services",
+  "/openshift/installation-services",
+  "/openshift/migration-services",
+  "/openshift/platform-engineering",
+  "/openshift/managed-services",
+]);
 
 const AI_CAPABILITIES = [
   "LLM workflows",
@@ -43,7 +54,7 @@ function HeroPanel() {
       <div className="border-b border-slate-200 p-6 sm:border-b-0 sm:border-r">
         <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">OpenShift</p>
         <ul className="mt-4 space-y-3">
-          {OPENSHIFT_LINKS.map((item) => (
+          {OPENSHIFT_LINKS.filter((item) => HERO_OPENSHIFT_HREFS.has(item.href)).map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
@@ -207,7 +218,7 @@ function CaseStudiesSection() {
           <SectionHeader
             eyebrow="Case studies"
             title="Delivery experience"
-            description="OpenShift work delivered by the Ramatech team. Client names are withheld under confidentiality."
+            description="OpenShift, automation and cloud work delivered by the Ramatech team. Client names are withheld under confidentiality unless the client has agreed to be named."
             className="mb-0"
           />
           <Link

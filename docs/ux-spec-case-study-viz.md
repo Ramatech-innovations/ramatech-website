@@ -12,6 +12,7 @@ Every case study uses an animated SVG + Framer Motion “digital twin” panel w
 | openshift-enterprise-migration | `openshift-migration-viz.tsx` | Legacy → Migration → GitOps → OpenShift |
 | openshift-helm-gitops-production | `HelmGitopsViz` in `pipeline-flow-viz.tsx` | GitLab → Jenkins → Helm → Argo CD → OCP (air-gapped) |
 | openshift-operations-automation | `OperationsAutomationViz` in `pipeline-flow-viz.tsx` | Jenkins → Ansible → Argo CD → Operators → OCP (bare metal) |
+| elitewash-aws-azure-migration | `CloudMigrationViz` in `pipeline-flow-viz.tsx` | Terraform → Jenkins → UAT → Prod (AWS) → Azure (rebuilt) |
 
 Unknown slugs fall back to `OpenshiftMigrationViz`.
 

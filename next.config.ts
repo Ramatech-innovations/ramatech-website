@@ -27,6 +27,11 @@ const nextConfig: NextConfig = {
         destination: "/case-studies",
         permanent: true,
       })),
+      {
+        source: "/openshift/india/:city",
+        destination: "/openshift/india",
+        permanent: true,
+      },
     ];
   },
   async headers() {

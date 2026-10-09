@@ -8,9 +8,9 @@ export const openshiftArticlesBatch2: InsightArticle[] = [
     title: "OpenShift vs Kubernetes",
     h1: "OpenShift vs Kubernetes: What Platform Teams Actually Gain on OCP",
     primaryKeyword: "openshift vs kubernetes",
-    metaTitle: "OpenShift vs Kubernetes — OpenShift Guide | Ramatech Insights",
+    metaTitle: "OpenShift vs Kubernetes: Key Differences Explained | Ramatech",
     metaDescription:
-      "OpenShift vs Kubernetes compared for enterprises — SCCs, Routes, OperatorHub, integrated registry, and when vanilla K8s is enough for your platform team.",
+      "OpenShift vs Kubernetes: SCCs, Routes, OperatorHub, the built-in registry and support. When OpenShift is worth it and when plain Kubernetes is enough.",
     summary:
       "A technical OpenShift vs Kubernetes comparison for CTOs and platform leads — security defaults, developer UX, operators, and total cost of ownership beyond the hype.",
     intro: [
@@ -100,18 +100,18 @@ export const openshiftArticlesBatch2: InsightArticle[] = [
       { href: "/technology/openshift", label: "OpenShift" },
       { href: "/technology/kubernetes", label: "Kubernetes" },
     ],
-    relatedReading: ["ai-integration"],
+    relatedReading: ["ai-integration", "installation-guide", "security"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: INSIGHT_SCHEMA_DATE,
+    dateModified: "2026-10-09",
   },
   {
     slug: "gitops",
     title: "OpenShift GitOps",
     h1: "OpenShift GitOps: Declarative Cluster Management with Argo CD",
     primaryKeyword: "openshift gitops",
-    metaTitle: "OpenShift GitOps — OpenShift Guide | Ramatech Insights",
+    metaTitle: "OpenShift GitOps with Argo CD: Setup and Patterns | Ramatech",
     metaDescription:
-      "OpenShift GitOps with the Argo CD operator — ApplicationSets, AppProjects, secrets, drift detection, and multi-cluster patterns on OCP.",
+      "Set up OpenShift GitOps with the Argo CD operator: ApplicationSets, AppProjects, secrets handling, drift detection and multi-cluster patterns.",
     summary:
       "How to run OpenShift GitOps using the Argo CD operator — bootstrap, ApplicationSets, RBAC, secrets management, and promotion flows for enterprise OCP.",
     intro: [
@@ -207,9 +207,9 @@ export const openshiftArticlesBatch2: InsightArticle[] = [
       { href: "/solutions/devops-platform-engineering", label: "DevOps & Platform Engineering" },
     ],
     relatedTechnology: [{ href: "/technology/argocd", label: "Argo CD" }],
-    relatedReading: ["multi-cluster-management"],
+    relatedReading: ["multi-cluster-management", "deployment-best-practices"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: INSIGHT_SCHEMA_DATE,
+    dateModified: "2026-10-09",
   },
   {
     slug: "monitoring",
@@ -308,7 +308,7 @@ export const openshiftArticlesBatch2: InsightArticle[] = [
       { href: "/technology/prometheus", label: "Prometheus" },
       { href: "/technology/grafana", label: "Grafana" },
     ],
-    relatedReading: ["disaster-recovery"],
+    relatedReading: ["disaster-recovery", "upgrade-planning"],
     datePublished: INSIGHT_SCHEMA_DATE,
     dateModified: "2026-09-28",
   },
@@ -317,9 +317,9 @@ export const openshiftArticlesBatch2: InsightArticle[] = [
     title: "OpenShift Security Best Practices",
     h1: "OpenShift Security Best Practices for Enterprise OCP Platforms",
     primaryKeyword: "openshift security best practices",
-    metaTitle: "OpenShift Security Best Practices — OpenShift Guide | Ramatech Insights",
+    metaTitle: "OpenShift Security Best Practices and Hardening | Ramatech",
     metaDescription:
-      "OpenShift security best practices — SCCs, network policies, image signing, RBAC, compliance operators, and hardening patterns for production OCP.",
+      "An OpenShift security hardening checklist: SCCs, network policies, RBAC, image signing and the Compliance Operator, with patterns for production clusters.",
     summary:
       "Enterprise OpenShift security best practices covering SCCs, network segmentation, supply chain signing, identity, audit logging, and compliance-oriented hardening on OCP.",
     intro: [
@@ -406,8 +406,8 @@ export const openshiftArticlesBatch2: InsightArticle[] = [
       { href: "/openshift/support-services", label: "OpenShift Support Services" },
     ],
     relatedTechnology: [{ href: "/technology/red-hat", label: "Red Hat" }],
-    relatedReading: ["cost-optimization"],
+    relatedReading: ["cost-optimization", "deployment-best-practices", "multi-cluster-management"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: INSIGHT_SCHEMA_DATE,
+    dateModified: "2026-10-09",
   },
 ];
