@@ -24,7 +24,7 @@ export const pageMeta = {
   caseStudies: {
     title: "Case Studies",
     description:
-      "Four OpenShift case studies from the Ramatech team: bare-metal and air-gapped platforms, OpenShift Virtualization, Jenkins, Helm, Argo CD GitOps, and Ansible automation.",
+      "Case studies from the Ramatech team: bare-metal and air-gapped OpenShift platforms, OpenShift Virtualization, Helm and Argo CD GitOps, Ansible automation, and cloud setup on AWS with a migration to Microsoft Azure.",
   },
   technology: {
     title: "Technology",

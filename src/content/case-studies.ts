@@ -15,6 +15,8 @@ export type CaseStudy = {
   publishedAt: string;
   /** Real delivery with client name withheld — show confidentiality note on detail page */
   anonymised?: boolean;
+  /** Only with the client's written permission on file in CLAIMS.md */
+  testimonial?: { quote: string; attribution: string };
 };
 
 export const PHARMA_MIGRATION_SUMMARY =
@@ -92,6 +94,36 @@ export const caseStudies: CaseStudy[] = [
       { metric: "Fewer errors", label: "Less manual configuration, fewer configuration errors" },
     ],
     stack: ["OpenShift", "Bare metal", "Ansible", "Python", "Jenkins", "Argo CD", "Helm", "OpenShift Operators"],
+  },
+  {
+    slug: "elitewash-aws-azure-migration",
+    publishedAt: "2026-10-09",
+    anonymised: false,
+    title: "Elitewash: AWS Setup and Migration to Microsoft Azure",
+    client: "Elitewash, an app-based shoe cleaning and care service",
+    industry: "Consumer services",
+    environment: "AWS, then Microsoft Azure",
+    solution: "cloud-infrastructure",
+    summary:
+      "Built the cloud infrastructure behind Elitewash's app on AWS: separate testing, production and database servers, Jenkins CI/CD, VPN access and API monitoring. Then rebuilt it on Microsoft Azure to lower ongoing cloud cost, and right-sized it after the move.",
+    challenge:
+      "Elitewash had its application code ready but no structured cloud environment to run it. There was nowhere to test releases safely, no automated way to deploy, no secure way to reach the database, and no view of whether the app's APIs were healthy. Once the AWS setup was running, the business also wanted to move to Microsoft Azure to lower its ongoing cloud cost, without disrupting the live app.",
+    solutionDetail:
+      "The infrastructure was defined in Terraform, so environments could be created the same way every time. On AWS, separate virtual machines run testing (UAT), production and a dedicated MongoDB database server, inside a private network with security groups. A Jenkins server builds the app and deploys it to UAT, and validated releases go to production through the same pipeline. An open-source VPN server gives the team controlled access to internal resources, including the database, and open-source API monitoring shows when endpoints slow down or fail. The same environment was then rebuilt on Azure with virtual machines, a virtual network and network security groups, validated before the switch, and the app was moved across with a planned cutover. After the move, Azure resources were reviewed against real usage: oversized machines were right-sized and unneeded resources removed. Runbooks were handed over to the Elitewash team.",
+    results: [
+      { metric: "UAT → Production", label: "Every release is tested before it reaches customers" },
+      { metric: "AWS → Azure", label: "The full environment rebuilt on Azure with a planned cutover" },
+      { metric: "Right-sized", label: "Azure resources matched to real usage to keep running costs down" },
+    ],
+    stack: [
+      "AWS",
+      "Microsoft Azure",
+      "Terraform",
+      "Jenkins",
+      "MongoDB",
+      "Open-source VPN",
+      "Open-source API monitoring",
+    ],
   },
 ];
 

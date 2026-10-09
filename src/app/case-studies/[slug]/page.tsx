@@ -127,6 +127,16 @@ export default async function CaseStudyPage({
               ))}
             </ul>
           </div>
+          {study.testimonial && (
+            <figure className="card-on-light border-l-4 border-l-brand-primary p-6 md:p-8">
+              <blockquote className="type-body-card text-brand-ink">
+                <p>&ldquo;{study.testimonial.quote}&rdquo;</p>
+              </blockquote>
+              <figcaption className="mt-4 text-sm font-semibold text-slate-600">
+                {study.testimonial.attribution}
+              </figcaption>
+            </figure>
+          )}
           <div>
             <h2 className="type-h3 text-brand-ink">Stack</h2>
             <ul className="mt-4 flex flex-wrap gap-2">

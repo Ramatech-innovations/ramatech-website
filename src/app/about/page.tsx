@@ -138,7 +138,7 @@ export default function AboutPage() {
         <div className={PAGE_CONTAINER}>
           <SectionHeader
             title="Delivery experience"
-            description="OpenShift work delivered by the Ramatech team. Client names are withheld under confidentiality."
+            description="OpenShift, automation and cloud work delivered by the Ramatech team. Client names are withheld under confidentiality unless the client has agreed to be named."
           />
           <CaseStudyCards columns={4} compact />
         </div>

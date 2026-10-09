@@ -207,7 +207,7 @@ function CaseStudiesSection() {
           <SectionHeader
             eyebrow="Case studies"
             title="Delivery experience"
-            description="OpenShift work delivered by the Ramatech team. Client names are withheld under confidentiality."
+            description="OpenShift, automation and cloud work delivered by the Ramatech team. Client names are withheld under confidentiality unless the client has agreed to be named."
             className="mb-0"
           />
           <Link
