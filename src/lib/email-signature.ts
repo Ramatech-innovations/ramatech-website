@@ -36,7 +36,7 @@ export function signatureHtml(): string {
   <tr>
     <td style="padding:0 16px 0 0;vertical-align:middle;">
       <a href="${escapeHtml(siteConfig.url)}/?utm_source=email&amp;utm_medium=signature&amp;utm_campaign=transactional" style="text-decoration:none;">
-        <img src="${escapeHtml(logoUrl)}" width="80" height="64" alt="Ramatech Innovation" style="display:block;border:0;outline:none;">
+        <img src="${escapeHtml(logoUrl)}" width="110" height="86" alt="Ramatech Innovation" style="display:block;border:0;outline:none;">
       </a>
     </td>
     <td style="padding:0 0 0 16px;border-left:2px solid #0a4c95;vertical-align:middle;${font}">
