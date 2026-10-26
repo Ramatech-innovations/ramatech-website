@@ -23,12 +23,12 @@ export default function IndustriesPage() {
         title="Technology built for how your business actually works"
         description="Clear, practical solutions for restaurants, law firms, manufacturers, startups, and growing SMEs — no jargon, no oversized IT contracts."
       />
-      <MotionSection className="py-16 md:py-20">
+      <MotionSection className="section-light on-light py-14 md:py-16">
         <div className={PAGE_CONTAINER}>
           <div className="grid gap-8 md:grid-cols-2">
             {industries.map((ind) => (
-              <Card key={ind.slug} tone="light" className="p-8">
-                <h2 className="font-heading text-2xl font-semibold text-brand-ink">
+              <Card key={ind.slug} className="p-8">
+                <h2 className="font-heading text-xl font-semibold text-brand-ink">
                   {ind.title}
                 </h2>
                 <p className="type-body-card mt-4">{ind.description}</p>
@@ -36,7 +36,7 @@ export default function IndustriesPage() {
                   {ind.highlights.map((h) => (
                     <li
                       key={h}
-                      className="rounded-full border border-brand-cyan/30 px-3 py-1.5 text-sm text-brand-cyan"
+                      className="rounded-md border border-slate-200 bg-slate-50 px-3 py-1 text-sm text-slate-700"
                     >
                       {h}
                     </li>
@@ -44,15 +44,15 @@ export default function IndustriesPage() {
                 </ul>
                 <Link
                   href={`/industries/${ind.slug}`}
-                  className="mt-6 inline-block text-sm font-medium text-brand-cyan hover:underline"
+                  className="mt-6 inline-block text-sm font-semibold text-brand-primary hover:underline"
                 >
                   Learn more →
                 </Link>
               </Card>
             ))}
           </div>
-          <div className="mt-12 text-center">
-            <Button asChild size="lg" className="glow-cta">
+          <div className="mt-12">
+            <Button asChild size="lg">
               <BookConsultationLink>Book free consultation</BookConsultationLink>
             </Button>
           </div>

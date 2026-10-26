@@ -1,6 +1,6 @@
 # Ramatech Website
 
-Premium marketing site for Ramatech Innovation Pvt Ltd.
+Premium marketing site for Ramatech Innovation.
 
 ## Stack
 

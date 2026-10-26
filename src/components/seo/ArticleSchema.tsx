@@ -1,5 +1,5 @@
 import { JsonLdScript } from "@/components/seo/json-ld-script";
-import { siteConfig } from "@/lib/seo";
+import { schemaLogoUrl, siteConfig } from "@/lib/seo";
 
 export function ArticleSchema({
   headline,
@@ -24,16 +24,16 @@ export function ArticleSchema({
     dateModified,
     author: {
       "@type": "Organization",
-      name: "Ramatech Innovation Pvt Ltd",
+      name: "Ramatech Innovation",
       url: siteConfig.url,
     },
     publisher: {
       "@type": "Organization",
-      name: "Ramatech Innovation Pvt Ltd",
+      name: "Ramatech Innovation",
       url: siteConfig.url,
       logo: {
         "@type": "ImageObject",
-        url: `${siteConfig.url.replace(/\/$/, "")}/brand/logo-dark.png`,
+        url: schemaLogoUrl,
       },
     },
   };

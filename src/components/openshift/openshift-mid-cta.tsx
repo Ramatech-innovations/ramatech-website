@@ -1,5 +1,5 @@
-import { Card } from "@/components/ui/card";
 import { OpenShiftCtaGroup } from "@/components/openshift/openshift-cta-group";
+import { PAGE_CONTAINER } from "@/lib/layout";
 
 export function OpenShiftMidCta({
   analyticsLabel,
@@ -15,20 +15,17 @@ export function OpenShiftMidCta({
   whatsappLabel?: string;
 }) {
   return (
-    <section className="section-light-elevated border-y border-slate-200 py-12 md:py-16">
-      <div className="mx-auto max-w-3xl px-4 text-center md:px-6">
-        <Card tone="light" className="p-8 md:p-10">
-          <h2 className="type-h3 text-brand-ink md:text-2xl">{headline}</h2>
-          <div className="flex justify-center">
-            <OpenShiftCtaGroup
-              analyticsLabel={analyticsLabel}
-              whatsappMessage={whatsappMessage}
-              bookLabel={bookLabel}
-              whatsappLabel={whatsappLabel}
-              className="mt-8"
-            />
-          </div>
-        </Card>
+    <section className="section-light on-light border-t border-slate-200 py-10">
+      <div
+        className={`${PAGE_CONTAINER} flex flex-col gap-6 rounded-lg border border-slate-200 bg-slate-50 p-6 md:flex-row md:items-center md:justify-between md:p-8`}
+      >
+        <h2 className="font-heading text-xl font-semibold text-brand-ink">{headline}</h2>
+        <OpenShiftCtaGroup
+          analyticsLabel={analyticsLabel}
+          whatsappMessage={whatsappMessage}
+          bookLabel={bookLabel}
+          whatsappLabel={whatsappLabel}
+        />
       </div>
     </section>
   );

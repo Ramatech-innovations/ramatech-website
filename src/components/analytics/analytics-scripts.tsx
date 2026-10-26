@@ -8,10 +8,7 @@ const CLARITY_PROJECT_ID = "x1vr5acm34";
 export function AnalyticsScripts() {
   return (
     <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
-      />
+      {/* The stub defines window.gtag immediately so events queue in dataLayer until gtag.js loads. */}
       <Script id="ga4-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
@@ -20,7 +17,11 @@ export function AnalyticsScripts() {
           gtag('config', '${GA_MEASUREMENT_ID}');
         `}
       </Script>
-      <Script id="clarity-init" strategy="afterInteractive">
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        strategy="lazyOnload"
+      />
+      <Script id="clarity-init" strategy="lazyOnload">
         {`
           (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

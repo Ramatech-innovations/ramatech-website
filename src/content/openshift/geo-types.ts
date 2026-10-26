@@ -1,4 +1,8 @@
-import type { OpenShiftGeoCityCoverage } from "./india-city-types";
+export type OpenShiftGeoCityCoverage = {
+  slug: string;
+  name: string;
+  description: string;
+};
 
 export type OpenShiftGeoPage = {
   slug: string;
@@ -11,6 +15,8 @@ export type OpenShiftGeoPage = {
   heroSubtext: string;
   analyticsLabel: string;
   whatsappMessage: string;
+  /** Remote delivery from India, no local presence (DEC-2026-010) */
+  remote?: boolean;
   intro: string[];
   serviceSummaries: {
     href: string;
@@ -32,5 +38,3 @@ export type OpenShiftGeoPage = {
   };
   cityCoverage?: OpenShiftGeoCityCoverage[];
 };
-
-export type { OpenShiftGeoCityCoverage } from "./india-city-types";

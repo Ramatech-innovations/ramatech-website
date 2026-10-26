@@ -67,7 +67,7 @@ export const packageLandings: PackageLanding[] = [
       "SEO meta tags, sitemap, Google Search Console setup",
       "Contact form + WhatsApp integration",
       "Google Analytics setup",
-      "30-day post-launch support",
+      "Post-launch support agreed during consultation",
       "CMS so you can update content",
     ],
     timeline: [
@@ -76,8 +76,8 @@ export const packageLandings: PackageLanding[] = [
       { week: "Week 3", label: "Testing + Launch" },
     ],
     pricing: {
-      display: "Starting from ₹49,999",
-      note: "Final pricing depends on scope and features",
+      display: "Scoped per project",
+      note: "We confirm scope after a free 30-minute consultation.",
     },
     faqs: [
       {
@@ -93,7 +93,7 @@ export const packageLandings: PackageLanding[] = [
       {
         question: "What if I need changes after launch?",
         answer:
-          "30 days of free revisions included. Ongoing support available.",
+          "A revision window is agreed during consultation. Ongoing support available.",
       },
       {
         question: "How do I get started?",
@@ -166,7 +166,8 @@ export const packageLandings: PackageLanding[] = [
       { week: "Week 4", label: "Testing + handover" },
     ],
     pricing: {
-      display: "Starting from ₹1,49,999",
+      display: "Scoped per project",
+      note: "We confirm scope after a free 30-minute consultation.",
     },
     faqs: [
       {
@@ -253,7 +254,7 @@ export const packageLandings: PackageLanding[] = [
       "Integration with your existing tools (WhatsApp, email, CRM, etc.)",
       "Testing + QA",
       "Team training (1 session)",
-      "30-day monitoring",
+      "Post-launch monitoring period agreed during consultation",
     ],
     timeline: [
       { week: "Week 1–2", label: "Discovery + design" },
@@ -261,7 +262,8 @@ export const packageLandings: PackageLanding[] = [
       { week: "Week 5–6", label: "Test + deploy + train" },
     ],
     pricing: {
-      display: "Starting from ₹99,999",
+      display: "Scoped per project",
+      note: "We confirm scope after a free 30-minute consultation.",
     },
     faqs: [
       {
@@ -350,7 +352,8 @@ export const packageLandings: PackageLanding[] = [
       },
     ],
     pricing: {
-      display: "Starting from ₹1,99,999",
+      display: "Scoped per project",
+      note: "We confirm scope after a free 30-minute consultation.",
     },
     faqs: [
       {
@@ -360,7 +363,7 @@ export const packageLandings: PackageLanding[] = [
       },
       {
         question: "Who owns the code?",
-        answer: "You do. 100% ownership, source code delivered.",
+        answer: "You do. You own the system and receive the full source code.",
       },
       {
         question: "Can you add features later?",

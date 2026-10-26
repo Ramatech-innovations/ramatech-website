@@ -24,30 +24,20 @@ export function OpenShiftProse({ paragraphs }: { paragraphs: string[] }) {
 
 export function OpenShiftBulletList({
   items,
-  variant = "light",
+  columns = 1,
 }: {
   items: string[];
   variant?: "light" | "dark";
+  columns?: 1 | 2;
 }) {
-  const isLight = variant === "light";
-
   return (
-    <ul className="grid gap-3 sm:grid-cols-2">
+    <ul className={cn("grid gap-3", columns === 2 && "sm:grid-cols-2")}>
       {items.map((item) => (
         <li
           key={item}
-          className={cn(
-            "flex gap-3 text-base leading-relaxed md:text-[1.0625rem]",
-            isLight ? "text-slate-700" : "text-foreground/90"
-          )}
+          className="flex gap-3 text-base leading-relaxed text-slate-700 md:text-[1.0625rem]"
         >
-          <Check
-            className={cn(
-              "mt-1 h-5 w-5 shrink-0",
-              isLight ? "text-brand-primary" : "text-brand-cyan"
-            )}
-            aria-hidden
-          />
+          <Check className="mt-1 h-5 w-5 shrink-0 text-brand-primary" aria-hidden />
           <span>{item}</span>
         </li>
       ))}
@@ -84,7 +74,7 @@ export function OpenShiftTierCards({ tiers }: { tiers: TierCard[] }) {
     <ul className="grid gap-6 md:grid-cols-3">
       {tiers.map((tier) => (
         <li key={tier.name}>
-          <Card tone="light" className="flex h-full flex-col p-6 md:p-8">
+          <Card className="flex h-full flex-col p-6 md:p-8">
             <h3 className="type-h3 text-brand-ink">{tier.name}</h3>
             <ul className="mt-4 flex-1 space-y-2.5">
               {tier.features.map((f) => (
@@ -140,10 +130,9 @@ export function OpenShiftSlaTable({
 
 export function OpenShiftSectionBlocks({
   blocks,
-  variant,
 }: {
   blocks: ContentBlock[];
-  variant: ServiceSection["variant"];
+  variant?: ServiceSection["variant"];
 }) {
   return (
     <div className="space-y-8">
@@ -153,11 +142,7 @@ export function OpenShiftSectionBlocks({
             return <OpenShiftProse key={block.paragraphs[0]} paragraphs={block.paragraphs} />;
           case "bulletList":
             return (
-              <OpenShiftBulletList
-                key={block.items[0]}
-                items={block.items}
-                variant={variant}
-              />
+              <OpenShiftBulletList key={block.items[0]} items={block.items} columns={2} />
             );
           case "numberedSteps":
             return (

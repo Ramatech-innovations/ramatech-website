@@ -4,15 +4,15 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
+    --background: 0 0% 100%;
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
     --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted-foreground: 215 16% 40%;
     --border: 214 32% 91%;
-    --accent: 187 85% 49%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 212 87% 31%;
+    --accent-foreground: 0 0% 100%;
     --radius: 0.625rem;
   }
 
@@ -46,26 +46,24 @@
 }
 
 @layer components {
-  /*
-   * Section scopes: section-light / section-light-elevated / on-light for light UI;
-   * section-dark / section-gradient / section-elevated for dark UI.
-   * Use light cards (card-on-light) on light sections; glass-panel only on dark sections.
-   */
-
   .type-eyebrow {
-    @apply font-heading text-xs font-semibold uppercase tracking-[0.16em] text-brand-cyan;
+    @apply font-heading text-xs font-semibold uppercase tracking-[0.12em] text-brand-primary;
+  }
+
+  .section-dark .type-eyebrow {
+    @apply text-slate-300;
   }
 
   .type-display-lg {
-    @apply font-heading text-4xl font-bold tracking-[-0.03em] leading-[1.06] text-foreground md:text-5xl lg:text-[3.35rem];
+    @apply font-heading text-4xl font-bold tracking-[-0.025em] leading-[1.1] text-foreground md:text-5xl;
   }
 
   .type-display {
-    @apply font-heading text-4xl font-bold tracking-[-0.03em] leading-[1.08] text-foreground md:text-5xl lg:text-6xl;
+    @apply font-heading text-3xl font-bold tracking-[-0.025em] leading-[1.12] text-foreground md:text-4xl lg:text-5xl;
   }
 
   .type-h2 {
-    @apply font-heading text-[1.875rem] font-bold tracking-[-0.025em] leading-[1.12] text-foreground md:text-4xl lg:text-[2.75rem];
+    @apply font-heading text-[1.75rem] font-bold tracking-[-0.02em] leading-[1.15] text-foreground md:text-4xl;
   }
 
   /* In-page section titles — smaller than hero-level type-h2 */
@@ -102,7 +100,7 @@
   }
 
   .type-metric {
-    @apply font-mono text-metric font-medium tabular-nums tracking-[-0.04em] text-gradient md:text-6xl lg:text-metric-lg;
+    @apply font-mono text-4xl font-medium tabular-nums tracking-[-0.03em] text-brand-primary md:text-5xl;
   }
 
   .type-metric-label {
@@ -122,7 +120,7 @@
   }
 
   .type-index {
-    @apply font-mono text-[11px] font-medium tabular-nums tracking-wide text-brand-cyan/75;
+    @apply font-mono text-[11px] font-medium tabular-nums tracking-wide text-slate-500;
   }
 
   .type-button {
@@ -135,89 +133,44 @@
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-brand-gradient bg-clip-text text-transparent;
-  }
-
-  .glass-panel {
-    @apply border border-white/10 bg-white/5 backdrop-blur-md;
-  }
-
-  .glass-panel-xl {
-    @apply border border-white/10 bg-white/[0.07] backdrop-blur-xl shadow-inner shadow-white/5;
-  }
-
-  .glass-pill {
-    @apply type-eyebrow inline-flex items-center rounded-full border border-brand-cyan/30 bg-brand-cyan/10 px-4 py-2 backdrop-blur-md;
-  }
-
-  .glass-pill-light {
-    @apply type-eyebrow inline-flex items-center rounded-full border border-brand-primary/25 bg-white px-4 py-2 text-brand-primary shadow-sm;
-  }
-
-  .glass-panel-light {
-    @apply border border-slate-200 bg-white shadow-sm backdrop-blur-md;
-  }
-
-  .glass-panel-xl-light {
-    @apply border border-slate-200 bg-white shadow-xl backdrop-blur-xl;
-  }
-
+  /*
+   * Three section backgrounds only: section-light (white), section-light-elevated
+   * (slate-50), and section-dark (navy, reserved for closing CTAs and the footer).
+   */
   .card-on-light {
-    @apply rounded-xl border border-slate-200 bg-white shadow-sm transition-[border-color,box-shadow] hover:border-brand-cyan/40 hover:shadow-md;
+    @apply rounded-lg border border-slate-200 bg-white transition-colors hover:border-brand-primary/40;
   }
 
   .section-pad {
-    @apply py-20 md:py-28 lg:py-32;
-  }
-
-  .cinematic-fade {
-    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    @apply py-16 md:py-20;
   }
 
   .section-light {
-    @apply bg-brand-light;
-    --background: 210 40% 98%;
+    @apply bg-white;
+    --background: 0 0% 100%;
     --foreground: 222 47% 11%;
-    --muted-foreground: 215 16% 47%;
+    --muted-foreground: 215 16% 40%;
     --border: 214 32% 91%;
     --card: 0 0% 100%;
   }
 
   .section-light-elevated {
-    @apply bg-[#EEF2F7];
-    --background: 214 32% 95%;
+    @apply bg-slate-50;
+    --background: 210 40% 98%;
     --foreground: 222 47% 11%;
-    --muted-foreground: 215 16% 47%;
-    --border: 214 32% 88%;
+    --muted-foreground: 215 16% 40%;
+    --border: 214 32% 91%;
     --card: 0 0% 100%;
   }
 
   .section-dark {
-    @apply bg-brand-dark text-foreground;
-    --background: 222 47% 7%;
+    @apply bg-brand-ink text-foreground;
+    --background: 216 60% 10%;
     --foreground: 210 40% 98%;
-    --muted-foreground: 215 18% 72%;
+    --muted-foreground: 215 20% 75%;
     --border: 217 33% 22%;
-    --card: 217 33% 12%;
+    --card: 217 33% 14%;
     --card-foreground: 210 40% 98%;
-  }
-
-  .section-elevated {
-    @apply bg-[#0a0f1a];
-    --background: 222 47% 5%;
-    --foreground: 210 40% 98%;
-    --muted-foreground: 215 18% 72%;
-    --border: 217 33% 22%;
-    --card: 217 33% 12%;
-    --card-foreground: 210 40% 98%;
-  }
-
-  .section-gradient {
-    @apply bg-gradient-to-b from-[#0a0f1a] to-brand-dark text-foreground;
-    --foreground: 210 40% 98%;
-    --muted-foreground: 215 18% 72%;
   }
 
   .on-light .type-body-muted,
@@ -243,145 +196,5 @@
 
   .card-elevated-light {
     @apply card-on-light;
-  }
-
-  .grid-bg {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-
-  .grid-bg-light {
-    background-image: linear-gradient(rgba(10, 76, 149, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(10, 76, 149, 0.06) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-
-  .hero-viz-feather {
-    mask-image: radial-gradient(ellipse 94% 90% at 50% 48%, black 62%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 94% 90% at 50% 48%, black 62%, transparent 100%);
-  }
-
-  .perspective-mock {
-    perspective: 1200px;
-  }
-
-  .tilt-card {
-    transform-style: preserve-3d;
-    transition: transform 0.4s ease;
-  }
-
-  .tilt-card:hover {
-    transform: rotateY(-4deg) rotateX(2deg) scale(1.02);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .tilt-card:hover {
-      transform: none;
-    }
-    .animate-marquee,
-    .animate-marquee-slow,
-    .animate-pulse-soft,
-    .animate-orbit-slow,
-    .animate-flow-x {
-      animation: none;
-    }
-  }
-
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  .animate-marquee {
-    animation: marquee 35s linear infinite;
-  }
-
-  .animate-marquee-slow {
-    animation: marquee 50s linear infinite;
-  }
-
-  @keyframes pulse-soft {
-    0%,
-    100% {
-      opacity: 0.7;
-    }
-    50% {
-      opacity: 1;
-    }
-  }
-
-  .animate-pulse-soft {
-    animation: pulse-soft 2.5s ease-in-out infinite;
-  }
-
-  @keyframes orbit-slow {
-    0% {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    100% {
-      transform: translate(-50%, -50%) rotate(360deg);
-    }
-  }
-
-  .animate-orbit-slow {
-    animation: orbit-slow 24s linear infinite;
-  }
-
-  @keyframes flow-x {
-    0% {
-      transform: translateX(-20%);
-    }
-    100% {
-      transform: translateX(120%);
-    }
-  }
-
-  .animate-flow-x {
-    animation: flow-x 2s ease-in-out infinite;
-  }
-
-  .glow-border {
-    box-shadow: 0 0 0 1px rgba(17, 211, 232, 0.2), 0 0 40px -10px rgba(17, 211, 232, 0.25);
-  }
-
-  .glow-cta {
-    box-shadow: 0 0 24px -4px rgba(17, 211, 232, 0.45);
-  }
-
-  .glow-cta:hover {
-    box-shadow: 0 0 32px -2px rgba(17, 211, 232, 0.55);
-  }
-
-  .noise-overlay {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    opacity: 0.35;
-    mix-blend-mode: overlay;
-  }
-
-  @keyframes mesh-drift {
-    0%,
-    100% {
-      opacity: 0.85;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1.02);
-    }
-  }
-
-  .bg-mesh {
-    animation: mesh-drift 12s ease-in-out infinite;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .bg-mesh {
-      animation: none;
-    }
   }
 }

@@ -4,7 +4,7 @@ export function PackagePricing({
   pricing: { display: string; note?: string };
 }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+    <div className="card-on-light max-w-xl p-8">
       <p className="font-heading text-3xl font-semibold text-brand-ink md:text-4xl">
         {pricing.display}
       </p>

@@ -25,7 +25,7 @@ export const servicePackages: ServicePackage[] = [
   {
     slug: "business-growth-website",
     title: "Business Growth Website",
-    tagline: "A high-performance website that works as your 24/7 salesperson",
+    tagline: "A high-performance website that works as your online salesperson",
     timeline: "2–3 weeks",
     icon: "globe",
     description:

@@ -41,7 +41,7 @@ export function ServiceSchema({
     url,
     provider: {
       "@type": "Organization",
-      name: "Ramatech Innovation Pvt Ltd",
+      name: "Ramatech Innovation",
       url: siteConfig.url,
     },
     areaServed: areaServedSchema,

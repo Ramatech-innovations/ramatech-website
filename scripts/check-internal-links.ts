@@ -7,7 +7,6 @@ import { join, relative } from "node:path";
 import { caseStudies } from "../src/content/case-studies";
 import { insightArticles } from "../src/content/insights/articles";
 import { openshiftGeoPages } from "../src/content/openshift/geo-pages";
-import { openshiftIndiaCityPages } from "../src/content/openshift/india-city-pages";
 import { openshiftServices } from "../src/content/openshift/services";
 import { stackCategories } from "../src/content/stack";
 import { technologyPages } from "../src/content/technology-pages";
@@ -113,14 +112,6 @@ function applyListingPageLinks(inbound: Map<string, Set<string>>) {
 
   for (const geo of openshiftGeoPages) {
     addInbound(inbound, `/openshift/${geo.slug}`, "listing:/openshift");
-  }
-
-  for (const city of openshiftIndiaCityPages) {
-    addInbound(
-      inbound,
-      `/openshift/india/${city.slug}`,
-      "listing:/openshift/india"
-    );
   }
 }
 

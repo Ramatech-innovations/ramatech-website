@@ -19,7 +19,7 @@ export const openshiftServices: OpenShiftService[] = [
     serviceType: "OpenShift Installation Services",
     metaTitle: "OpenShift Installation Services | Red Hat OCP Deployment | Ramatech India",
     metaDescription:
-      "Expert Red Hat OpenShift installation services - on-prem, baremetal, AWS ROSA, Azure ARO, and GCP. IPI and UPI deployment. Serving India and MENA enterprises.",
+      "Expert Red Hat OpenShift installation services - on-prem bare metal, VMware vSphere, KVM, AWS and air-gapped. IPI and UPI deployment. Serving India and MENA enterprises.",
     h1: "Red Hat OpenShift Installation Services",
     heroSubtext:
       "Production-grade OpenShift installation for enterprise teams that need predictable architecture, secure defaults, and clean handover from day one.",
@@ -66,9 +66,8 @@ export const openshiftServices: OpenShiftService[] = [
           {
             type: "bulletList",
             items: [
-              "Installer-Provisioned Infrastructure (IPI): AWS, GCP, Azure, vSphere, Bare Metal",
-              "User-Provisioned Infrastructure (UPI): Air-gapped, enterprise on-prem, custom networks",
-              "Managed OpenShift: AWS ROSA, Azure ARO, IBM ROKS",
+              "Installer-Provisioned Infrastructure (IPI): AWS, vSphere, Bare Metal",
+              "User-Provisioned Infrastructure (UPI): Air-gapped, enterprise on-prem (bare metal, VMware, KVM), custom networks",
               "Disconnected / Air-gapped installations",
             ],
           },
@@ -157,7 +156,7 @@ export const openshiftServices: OpenShiftService[] = [
               "RBAC and project setup",
               "Node autoscaling (MachineSet)",
               "Full documentation",
-              "30-day post-install support",
+              "Post-install support period agreed in scope",
             ],
           },
         ],
@@ -180,9 +179,8 @@ export const openshiftServices: OpenShiftService[] = [
             items: [
               "VMware vSphere",
               "Bare metal (RHEL/RHCOS)",
-              "AWS EC2 / ROSA",
-              "Azure / ARO",
-              "GCP",
+              "KVM",
+              "AWS",
               "On-premises air-gapped networks",
             ],
           },
@@ -213,14 +211,10 @@ export const openshiftServices: OpenShiftService[] = [
       {
         question: "What happens after installation?",
         answer:
-          "We hand over full documentation, a runbook, and provide 30 days of post-install support. Ongoing managed services are available.",
+          "We hand over full documentation, a runbook, and provide a post-install support period agreed in the scope. Ongoing managed services are available.",
       },
     ],
     internalLinks: [
-      {
-        href: "/openshift/deployment-services",
-        label: "Ready to deploy workloads? See deployment services",
-      },
       {
         href: "/openshift/migration-services",
         label: "Planning a platform move? Explore OpenShift migration services",
@@ -234,8 +228,12 @@ export const openshiftServices: OpenShiftService[] = [
         label: "Want full cluster operations? Explore managed services",
       },
       {
-        href: "/openshift",
-        label: "Return to the OpenShift services hub",
+        href: "/openshift/platform-engineering",
+        label: "Building developer golden paths? See platform engineering",
+      },
+      {
+        href: "/openshift/deployment-services",
+        label: "Ready to deploy workloads? See deployment services",
       },
     ],
     insightLinks: [
@@ -257,7 +255,7 @@ export const openshiftServices: OpenShiftService[] = [
     serviceType: "OpenShift Migration Services",
     metaTitle: "OpenShift Migration Services | Kubernetes to OCP Migration | Ramatech",
     metaDescription:
-      "Migrate from Kubernetes, OpenShift 3.x, or legacy infra to Red Hat OpenShift 4.x. Zero-downtime migration planning, execution, and validation.",
+      "Migrate from Kubernetes, OpenShift 3.x, or legacy infrastructure to Red Hat OpenShift 4.x with planned cutover, execution, and validation.",
     h1: "OpenShift Migration Services - From Legacy Infrastructure to OCP 4.x",
     heroSubtext:
       "Structured migration programs that reduce cutover risk, protect workload reliability, and move teams to OpenShift 4.x with controlled validation.",
@@ -266,7 +264,6 @@ export const openshiftServices: OpenShiftService[] = [
       "Hi Ramatech, I need help planning and executing an OpenShift migration.",
     areaServed,
     showMigrationViz: true,
-    showCaseStudyCallout: true,
     sections: [
       {
         id: "intro",
@@ -312,7 +309,7 @@ export const openshiftServices: OpenShiftService[] = [
             items: [
               "OpenShift 3.x -> OpenShift 4.x",
               "Kubernetes (EKS, GKE, AKS) -> OpenShift",
-              "On-premises -> AWS ROSA / Azure ARO",
+              "On-premises -> AWS (self-managed OpenShift or ROSA)",
               "VMware Tanzu -> OpenShift",
               "Legacy VM workloads -> OpenShift Virtualization",
               "Multi-cluster consolidation",
@@ -432,8 +429,8 @@ export const openshiftServices: OpenShiftService[] = [
           {
             type: "prose",
             paragraphs: [
-              "A strong migration plan should translate into measurable business outcomes. In our enterprise OpenShift migration case study, the customer moved from fragmented platform operations to a controlled OpenShift model with standardized deployment and governance practices. The transformation was not limited to moving workloads; it included architecture cleanup, pipeline modernization, and stronger operational accountability.",
-              "The published outcomes were material: 60% deploy time reduction, 100% GitOps coverage, and zero critical rollback incidents during the governed migration window. These results came from disciplined phase execution, explicit cutover criteria, and close alignment between platform, application, and operations teams. The program demonstrated that migration can improve delivery speed and reliability simultaneously when risk controls are built into each phase.",
+              "A strong migration plan should translate into measurable business outcomes. In our enterprise OpenShift migration case study, a pharmaceutical enterprise (name withheld) moved from fragmented platform operations to a controlled OpenShift model with standardized deployment and governance practices. The transformation was not limited to moving workloads; it included architecture cleanup, pipeline modernization, and stronger operational accountability.",
+              "The team installed OpenShift on on-prem bare metal, brought existing virtual machines onto the platform with OpenShift Virtualization, containerised suitable applications, and set up dynamic PV/PVC storage provisioning. Deployments moved from manual steps to Argo CD GitOps, so every change is versioned and reviewable, which matters in a regulated pharmaceutical environment.",
               "We use the same principles across migration engagements: evidence-led planning, staged validation, transparent risk ownership, and practical runbooks for day-two operations. Teams that follow this model avoid reactive firefighting and gain a platform foundation that supports long-term scalability.",
             ],
           },
@@ -442,14 +439,14 @@ export const openshiftServices: OpenShiftService[] = [
     ],
     faqs: [
       {
-        question: "Can you migrate with zero downtime?",
+        question: "How do you minimise downtime during migration?",
         answer:
-          "For stateless workloads, yes - we use blue-green migration patterns. Stateful workloads require a maintenance window, which we plan with your team to minimise impact.",
+          "Stateless workloads can usually move with blue-green migration patterns. Stateful workloads need a maintenance window, which we plan with your team in advance to minimise impact.",
       },
       {
         question: "How long does an OpenShift migration take?",
         answer:
-          "Small environments (10-20 workloads) typically take 3-6 weeks. Large enterprise migrations are planned in waves over 2-4 months.",
+          "It depends on the number of workloads, the data to move, and the integrations involved. We set a timeline after the assessment, and large estates are planned in waves.",
       },
       {
         question: "What about existing CI/CD pipelines?",
@@ -469,20 +466,20 @@ export const openshiftServices: OpenShiftService[] = [
     ],
     internalLinks: [
       {
-        href: "/openshift/upgrade-services",
-        label: "On OCP 3.x or older 4.x? Plan your upgrade path",
+        href: "/openshift/installation-services",
+        label: "Need a new cluster baseline first? Explore installation services",
       },
       {
-        href: "/openshift/consulting-services",
-        label: "Need architecture input before migration? Start with consulting",
+        href: "/openshift/support-services",
+        label: "Need day-two reliability after cutover? See support services",
       },
       {
-        href: "/openshift/deployment-services",
-        label: "Post-migration deployments? See deployment services",
+        href: "/openshift/managed-services",
+        label: "Want full lifecycle operations? Explore managed services",
       },
       {
-        href: "/openshift",
-        label: "Explore the full OpenShift services portfolio",
+        href: "/openshift/platform-engineering",
+        label: "Building self-service platforms after migration? See platform engineering",
       },
       {
         href: "/case-studies/openshift-enterprise-migration",
@@ -506,9 +503,9 @@ export const openshiftServices: OpenShiftService[] = [
     pageName: "Support Services",
     schemaName: "OpenShift Support Services",
     serviceType: "OpenShift Support Services",
-    metaTitle: "OpenShift Support Services | 24/7 OCP Platform Support | Ramatech India",
+    metaTitle: "OpenShift Support Services | OCP Platform Support | Ramatech India",
     metaDescription:
-      "Managed OpenShift support services - cluster health monitoring, incident response, patch management, and expert escalation. India, UAE, and MENA.",
+      "Managed OpenShift support services - cluster health monitoring, incident response, patch management, and expert escalation. For teams in India and worldwide.",
     h1: "OpenShift Support Services - Expert Platform Reliability for Your OCP Cluster",
     heroSubtext:
       "Operational support that keeps OpenShift clusters healthy, secure, and predictable through incident response, patching, and lifecycle governance.",
@@ -563,7 +560,7 @@ export const openshiftServices: OpenShiftService[] = [
             items: [
               "Shared cluster monitoring with alert routing and monthly health reviews",
               "Dedicated platform SRE coverage with incident response and patch coordination",
-              "Fully managed OpenShift operations including upgrades and 24/7 escalation",
+              "Fully managed OpenShift operations including upgrades and escalation paths agreed per contract",
               "Co-managed models blending internal ownership with Ramatech escalation paths",
             ],
           },
@@ -661,7 +658,7 @@ export const openshiftServices: OpenShiftService[] = [
               {
                 name: "Tier 1 - Monitoring & Alerting",
                 features: [
-                  "8x5 cluster health monitoring",
+                  "Business-hours monitoring (Mon–Sat, 10:00–19:00 IST)",
                   "Alert routing and first response",
                   "Monthly health reports",
                 ],
@@ -669,20 +666,20 @@ export const openshiftServices: OpenShiftService[] = [
               {
                 name: "Tier 2 - Active Platform Support",
                 features: [
-                  "12x7 coverage",
+                  "Extended coverage on request",
                   "Node failure, pod crash, storage issue response",
                   "Patch coordination (OCP z-stream updates)",
                   "Capacity planning reviews",
                 ],
               },
               {
-                name: "Tier 3 - Managed OpenShift Operations (24/7)",
+                name: "Tier 3 - Managed OpenShift Operations",
                 features: [
                   "Full cluster lifecycle management",
                   "Upgrade execution",
                   "Security patching",
                   "Change management",
-                  "On-call escalation",
+                  "On-call escalation (scope agreed per contract)",
                 ],
               },
             ],
@@ -726,7 +723,7 @@ export const openshiftServices: OpenShiftService[] = [
           {
             type: "prose",
             paragraphs: [
-              "Response targets only matter when paired with operating rigor. Our SLA commitments are backed by incident classification standards, on-call routing, and escalation governance so P1, P2, and P3 issues are handled consistently. We define these protocols during onboarding to ensure everyone understands decision authority, communication expectations, and handoff procedures before incidents occur.",
+              "Response targets only matter when paired with operating rigor. Response targets are agreed per contract and backed by incident classification standards, on-call routing, and escalation governance so P1, P2, and P3 issues are handled consistently. We define these protocols during onboarding to ensure everyone understands decision authority, communication expectations, and handoff procedures before incidents occur.",
               "Incident response quality is also improved through context continuity. We maintain environment-specific operational knowledge, runbook references, and issue history so responders can diagnose faster and avoid repeated missteps. For high-severity events, we run structured incident command and provide clear status communication to technical and business stakeholders. This reduces confusion and shortens time to stabilization.",
               "SLA reporting is transparent and action-oriented. We track response and resolution trends, identify recurring risk patterns, and recommend preventive measures that improve reliability over time. The goal is not only to meet response metrics, but to steadily reduce incident volume and severity as platform operations mature.",
             ],
@@ -736,15 +733,15 @@ export const openshiftServices: OpenShiftService[] = [
             rows: [
               {
                 priority: "P1 (Cluster down)",
-                response: "Response < 30 min",
+                response: "Response target agreed per contract",
               },
               {
                 priority: "P2 (Degraded cluster)",
-                response: "Response < 2 hours",
+                response: "Response target agreed per contract",
               },
               {
                 priority: "P3 (Non-critical)",
-                response: "Response < 8 hours",
+                response: "Response target agreed per contract",
               },
             ],
           },
@@ -758,14 +755,9 @@ export const openshiftServices: OpenShiftService[] = [
           "Yes. We begin with a cluster assessment to understand the current state before taking over support.",
       },
       {
-        question: "What's the minimum commitment?",
-        answer:
-          "A 3-month minimum engagement applies for support services. Most clients run on 12-month retainers to align with platform lifecycle planning.",
-      },
-      {
         question: "Do you provide support for AWS ROSA or Azure ARO?",
         answer:
-          "Yes - we support managed OpenShift variants including ROSA, ARO, and IBM ROKS.",
+          "We support OpenShift on AWS, including ROSA. Other managed variants are scoped case by case.",
       },
       {
         question: "How do you handle patch and z-stream update coordination?",
@@ -821,12 +813,12 @@ export const openshiftServices: OpenShiftService[] = [
     pageName: "Consulting Services",
     schemaName: "OpenShift Consulting Services",
     serviceType: "OpenShift Consulting Services",
-    metaTitle: "OpenShift Consulting Services | Red Hat OCP Experts | Ramatech Innovation",
+    metaTitle: "OpenShift Consulting Services: Design and Build | Ramatech",
     metaDescription:
-      "Strategic OpenShift consulting - platform architecture, cluster design, GitOps adoption, security hardening, and migration planning. India and global.",
-    h1: "OpenShift Consulting Services - Architecture, Strategy, and Platform Expertise",
+      "OpenShift consulting services from engineers who also implement: architecture reviews, cluster design, migration planning, GitOps and security reviews.",
+    h1: "OpenShift Consulting Services: Architecture Reviews and Implementation",
     heroSubtext:
-      "Advisory and architecture services for enterprise teams that need to make confident OpenShift decisions and execute with less platform risk.",
+      "OpenShift consultants who design your platform and then build it with your team. We install and operate; we do not sell Red Hat licenses.",
     analyticsLabel: "openshift_consulting_services",
     whatsappMessage:
       "Hi Ramatech, I want to book an OpenShift consulting session.",
@@ -840,25 +832,10 @@ export const openshiftServices: OpenShiftService[] = [
           {
             type: "prose",
             paragraphs: [
-              "OpenShift consulting is most valuable when organizations have momentum but need sharper platform decisions. Many teams already run clusters, yet they still face recurring questions: Is architecture aligned with growth targets? Are security and policy controls robust enough for regulated workloads? Is GitOps adoption improving release safety or creating process overhead? These questions require technical depth and business context, not generic best-practice slides. Our consulting model is designed to provide practical, decision-ready guidance that teams can apply immediately.",
-              "Consulting also helps enterprises avoid expensive architectural lock-in. Platform choices made under schedule pressure can work initially but become constraints as workload scale, compliance obligations, and team structures evolve. We assess where design assumptions no longer match operating reality, then prioritize improvements by risk reduction and execution feasibility. This allows teams to invest in changes that materially improve reliability and delivery outcomes instead of running broad but low-impact transformation programs.",
-              "Security and governance concerns are a frequent trigger for consulting engagements. Platform teams may need confidence that SCC usage, RBAC boundaries, audit visibility, and change controls are aligned with enterprise standards before expansion. We provide technical assessments with clear remediation priorities and practical implementation paths so compliance objectives can be met without slowing engineering flow unnecessarily.",
-              "Finally, consulting accelerates internal capability growth. Alongside recommendations, we work with platform and engineering teams through workshops, design reviews, and implementation coaching. The outcome is not dependency on external advisors, but stronger in-house decision making and a clearer long-term OpenShift operating strategy.",
-              "A major consulting advantage is the ability to create shared language between technical and business leadership. Platform teams often communicate in architecture details while executives focus on risk, speed, and cost outcomes. We bridge this gap by translating technical findings into business-relevant priorities and sequencing options. This helps leadership teams make investment decisions with confidence and enables engineering teams to execute against goals that are clearly understood across the organization.",
-              "Consulting engagements are also effective when organizations need to make irreversible decisions, such as selecting cluster tenancy models, defining multi-region strategy, or choosing between managed and self-managed operating approaches. These decisions influence talent requirements, budget planning, and operational resilience for years. We provide decision frameworks grounded in your workload profile, compliance obligations, and organizational maturity so choices are durable rather than reactive.",
-              "Many enterprises underestimate the operational implications of rapid platform adoption. Early success can lead to uncontrolled growth in namespaces, pipelines, and policy exceptions, which eventually slows delivery and increases risk. Our consulting approach includes governance and operating model design to ensure growth remains manageable. We help teams establish practical controls that scale with adoption while preserving developer productivity.",
-              "Where modernization programs involve multiple stakeholders, consulting also provides neutral technical arbitration. Different teams may advocate competing standards based on local priorities. We facilitate evidence-led architecture decisions that account for reliability, security, and delivery impact across the full platform ecosystem. This reduces decision deadlock and keeps transformation initiatives moving.",
-              "We place strong emphasis on implementation realism. Recommendations are only valuable when they can be delivered within existing release commitments and team capacity constraints. For every major finding, we define execution paths, ownership expectations, and risk trade-offs so teams can move from assessment to action without ambiguity. This makes consulting output immediately useful for roadmap planning and sprint-level execution.",
-              "Finally, consulting should leave your organization stronger than before the engagement began. We include coaching, design rationale transfer, and repeatable assessment methods so internal teams can continue improving the platform independently. The objective is long-term capability building: better decisions, stronger architecture discipline, and a platform strategy that remains effective as business demands evolve.",
-              "We also help teams prioritize sequencing, which is often the hardest part of platform improvement. Enterprises usually have more recommended actions than they can execute at once. By grouping initiatives into near-term stabilizers, medium-term enablers, and long-term strategic investments, we make roadmap decisions clearer and reduce execution friction.",
-              "In organizations with multiple engineering domains, consulting can align standards without forcing rigid uniformity. We define where common controls are non-negotiable and where domain-specific variation is acceptable. This balance protects governance while preserving team autonomy, which is critical for sustained adoption of platform practices.",
-              "Another frequent consulting outcome is improved decision velocity. When architecture principles, review mechanisms, and ownership boundaries are explicit, teams spend less time revisiting the same debates. This speeds up delivery and reduces the operational risk of inconsistent decisions made under deadline pressure.",
-              "Because platform strategy is never static, we also establish periodic reassessment practices so architecture and governance can evolve with workload changes, regulatory updates, and business priorities. This keeps your OpenShift program adaptive and prevents technical debt from accumulating unnoticed over multiple planning cycles.",
-              "Enterprises that gain the most from consulting treat recommendations as part of an ongoing platform operating system rather than a one-time report. We help teams embed architecture reviews, risk checkpoints, and governance feedback loops into normal planning and delivery cycles. This institutionalization improves consistency, makes adaptation easier when priorities shift, and ensures that platform direction remains aligned with measurable business outcomes over multiple years.",
-              "We also support leadership teams in defining success metrics for platform strategy itself, such as time-to-onboard new services, policy exception rates, incident recurrence, and upgrade predictability. With shared metrics, consulting recommendations can be tracked as operational improvements rather than abstract architectural intent.",
-              "Where executive alignment is required, we facilitate decision workshops that convert technical options into clear investment choices with explicit trade-offs and implementation impact.",
-              "By combining architecture depth, operating model clarity, and leadership alignment, consulting engagements create durable momentum. Teams gain a roadmap they can execute, leaders gain confidence in platform direction, and cross-functional stakeholders gain a common frame for decision making. This shared direction is often the difference between fragmented modernization efforts and a coherent platform program that continuously delivers value.",
-              "The result is faster decisions, cleaner execution, and lower long-term platform risk.",
+              "Teams bring in an OpenShift consultant when a platform decision is expensive to get wrong: how to install and size a new cluster, how to move VMware and legacy VMs onto OpenShift, how to adopt GitOps without slowing releases, or how to make an inherited cluster safe to run. We answer those questions with a review of your actual environment, not a generic best-practice deck.",
+              "An engagement starts with the platform as it runs today: cluster topology, networking, storage and persistent volumes, RBAC and security context constraints, operators, observability, the upgrade path, and how changes reach production. You get written findings with priorities, and a sequence your team can deliver within its current commitments.",
+              "The engineers who do the review also do the implementation. When the recommendations call for installation, migration, OpenShift Virtualization, GitOps with Argo CD, or platform engineering, the same people build it with your team and hand over runbooks and repositories. We install and operate; we do not sell Red Hat licenses, so you keep your own subscriptions.",
+              "We work on bare metal (RHEL and RHCOS), VMware vSphere, KVM, AWS with self-managed OpenShift or ROSA, and on-premises air-gapped networks, for teams in India and worldwide.",
             ],
           },
         ],
@@ -998,18 +975,39 @@ export const openshiftServices: OpenShiftService[] = [
           {
             type: "prose",
             paragraphs: [
-              "We offer multiple engagement models so organizations can choose the right depth of support for current priorities. Fixed-scope assessments are useful when a team needs clear findings and recommendations quickly. Workshops are ideal for focused design and decision sessions with cross-functional stakeholders. Advisory retainers support continuous guidance as platform complexity grows. Embedded consulting helps enterprises execute major transformations with hands-on leadership and technical stewardship.",
+              "We offer multiple engagement models so organizations can choose the right depth of support for current priorities. Architecture assessments are useful when a team needs clear findings and recommendations quickly. Workshops are ideal for focused design and decision sessions with cross-functional stakeholders. Ongoing advisory supports continuous guidance as platform complexity grows. Embedded consulting helps enterprises execute major transformations with hands-on leadership and technical stewardship.",
               "Selecting the right model depends on urgency, scope, and internal capacity. During scoping, we define desired outcomes, decision timelines, and ownership expectations so the engagement structure supports delivery rather than adding overhead. This upfront alignment keeps consulting work tightly connected to business goals and implementation realities.",
-              "All models can be delivered remotely and are designed for distributed teams across India, UAE, Saudi Arabia, Qatar, and Singapore. We use structured communication, documented decision logs, and clear action ownership so progress remains transparent regardless of geography. The result is consulting that drives action, not just analysis.",
+              "All models can be delivered remotely and are designed for distributed teams in India and worldwide. We use structured communication, documented decision logs, and clear action ownership so progress remains transparent regardless of geography. The result is consulting that drives action, not just analysis.",
             ],
           },
           {
             type: "bulletList",
             items: [
-              "Fixed-scope assessment (1-2 weeks)",
-              "Workshop (1-3 days)",
-              "Ongoing advisory retainer (monthly)",
-              "Embedded consulting (3-6 months)",
+              "Architecture assessment",
+              "Workshop",
+              "Ongoing advisory",
+              "Embedded consulting",
+            ],
+          },
+        ],
+      },
+      {
+        id: "implementation-experience",
+        title: "OpenShift Implementation Experience",
+        variant: "light",
+        blocks: [
+          {
+            type: "prose",
+            paragraphs: [
+              "Our consulting advice comes from delivery work. These are OpenShift projects delivered by the Ramatech team; client names are withheld under confidentiality.",
+            ],
+          },
+          {
+            type: "bulletList",
+            items: [
+              "A pharmaceutical enterprise: OpenShift on on-premises bare metal, with OpenShift Virtualization bringing legacy VMs onto the same platform as containers, and Argo CD GitOps",
+              "A financial services enterprise: a production application moved to Helm and GitOps on an air-gapped OpenShift cluster without disrupting production",
+              "A financial services enterprise: automated team onboarding, monitoring setup, health checks and etcd backups with Ansible, Python, Jenkins and OpenShift Operators",
             ],
           },
         ],
@@ -1029,17 +1027,37 @@ export const openshiftServices: OpenShiftService[] = [
       {
         question: "Do you offer remote consulting?",
         answer:
-          "Yes. All consulting engagements can be delivered remotely. We work across India, UAE, Saudi Arabia, Qatar, and Singapore.",
+          "Yes. All consulting engagements can be delivered remotely. We work with teams across India and worldwide.",
       },
       {
         question: "How long does a typical architecture review take?",
         answer:
-          "Fixed-scope assessments usually run 1–2 weeks depending on cluster count and integration depth. We define scope and deliverable format during onboarding.",
+          "It depends on cluster count and integration depth. We agree the scope, timeline, and deliverable format during onboarding.",
       },
       {
         question: "Do you provide implementation support after the assessment?",
         answer:
-          "Yes. We offer embedded consulting and advisory retainers to help teams execute recommendations—installation, migration, GitOps, and platform engineering engagements can follow assessment findings.",
+          "Yes. We offer embedded consulting and ongoing advisory to help teams execute recommendations—installation, migration, GitOps, and platform engineering engagements can follow assessment findings.",
+      },
+      {
+        question: "What does an OpenShift consultant do?",
+        answer:
+          "An OpenShift consultant reviews how your platform is designed and run, then recommends what to change and in what order: architecture, security and RBAC, storage, upgrades, GitOps, and operations. With us, the same engineers can then carry out the work.",
+      },
+      {
+        question: "Do your consultants also implement?",
+        answer:
+          "Yes. The engineers who run the review also install, migrate, and automate: OpenShift installation (IPI and UPI), migration from VMware and legacy VMs, OpenShift Virtualization, GitOps with Argo CD, and platform engineering.",
+      },
+      {
+        question: "Can you help with business continuity and disaster recovery for OpenShift?",
+        answer:
+          "Yes. Disaster recovery planning is part of our consulting work: we review etcd and application backups, restore procedures, and failover design against the recovery targets your business sets.",
+      },
+      {
+        question: "Do you sell Red Hat licenses?",
+        answer:
+          "No. We install and operate; we do not sell Red Hat licenses. You keep your own Red Hat subscriptions.",
       },
     ],
     internalLinks: [
@@ -1056,11 +1074,19 @@ export const openshiftServices: OpenShiftService[] = [
         label: "Need cluster foundation work? Explore installation services",
       },
       {
+        href: "/case-studies",
+        label: "See OpenShift case studies from our delivery work",
+      },
+      {
         href: "/openshift",
         label: "Return to the OpenShift hub",
       },
     ],
     insightLinks: [
+      {
+        href: "/insights/openshift/disaster-recovery",
+        label: "OpenShift disaster recovery and business continuity guide",
+      },
       {
         href: "/insights/openshift/openshift-vs-kubernetes",
         label: "OpenShift vs Kubernetes comparison",

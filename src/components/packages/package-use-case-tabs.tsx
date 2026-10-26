@@ -23,19 +23,19 @@ export function PackageUseCaseTabs({
             aria-selected={i === active}
             onClick={() => setActive(i)}
             className={cn(
-              "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
+              "rounded-md border px-4 py-2 text-sm font-medium transition-colors",
               i === active
-                ? "border-brand-cyan/50 bg-brand-cyan/15 text-brand-cyan"
-                : "border-white/15 text-muted-foreground hover:border-white/25 hover:text-foreground"
+                ? "border-brand-primary bg-brand-primary text-white"
+                : "border-slate-300 bg-white text-slate-700 hover:border-brand-primary/50 hover:text-brand-primary"
             )}
           >
             {uc.title}
           </button>
         ))}
       </div>
-      <Card tone="dark" className="mt-6 border border-white/10">
-        <h3 className="font-heading text-lg font-semibold">{current.title}</h3>
-        <p className="mt-2 text-[0.9375rem] leading-relaxed text-foreground/85">
+      <Card className="mt-6">
+        <h3 className="font-heading text-lg font-semibold text-brand-ink">{current.title}</h3>
+        <p className="mt-2 text-[0.9375rem] leading-relaxed text-slate-600">
           {current.description}
         </p>
       </Card>

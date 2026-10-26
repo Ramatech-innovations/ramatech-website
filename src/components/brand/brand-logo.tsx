@@ -1,103 +1,52 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { brandAssets, logoImageClass, logoSizes } from "@/lib/brand";
+import { brandAssets } from "@/lib/brand";
 
-type BrandLogoVariant = "header" | "headerScrolled" | "heroBadge" | "footer" | "credibility" | "watermark";
-type BrandLogoTheme = "dark" | "light";
-
-const config: Record<
-  BrandLogoVariant,
-  { width: number; height: number; className: string; priority?: boolean }
-> = {
-  header: {
-    width: logoSizes.header.width,
-    height: logoSizes.header.height,
-    className: logoSizes.header.className,
-    priority: true,
-  },
-  headerScrolled: {
-    width: logoSizes.header.width,
-    height: logoSizes.header.height,
-    className: logoSizes.headerScrolled.className,
-    priority: true,
-  },
-  heroBadge: {
-    width: logoSizes.heroBadge.width,
-    height: logoSizes.heroBadge.height,
-    className: logoSizes.heroBadge.className,
-    priority: true,
-  },
-  footer: {
-    width: logoSizes.footer.width,
-    height: logoSizes.footer.height,
-    className: logoSizes.footer.className,
-  },
-  credibility: {
-    width: logoSizes.credibility.width,
-    height: logoSizes.credibility.height,
-    className: logoSizes.credibility.className,
-  },
-  watermark: {
-    width: logoSizes.watermark.width,
-    height: logoSizes.watermark.height,
-    className: logoSizes.watermark.className,
-  },
-};
-
-function srcFor(variant: BrandLogoVariant, theme: BrandLogoTheme) {
-  if (variant === "footer") {
-    return brandAssets.footerLockup;
-  }
-  if (theme === "light" && (variant === "header" || variant === "headerScrolled" || variant === "heroBadge")) {
-    return brandAssets.iconOnLight;
-  }
-  if (variant === "credibility" || variant === "watermark") {
-    return brandAssets.mark;
-  }
-  return brandAssets.icon;
-}
-
+/**
+ * Icon mark with a typed wordmark. The public name is "Ramatech Innovation" only
+ * (DEC-2026-001), so image lockups that include other legal suffixes are not used.
+ */
 export function BrandLogo({
-  variant = "header",
-  theme = "light",
+  tone = "light",
+  size = "md",
   className,
-  alt = "Ramatech Innovation",
-  chipOnLight = false,
 }: {
-  variant?: BrandLogoVariant;
-  theme?: BrandLogoTheme;
+  tone?: "light" | "dark";
+  size?: "md" | "lg";
   className?: string;
-  alt?: string;
-  /** Subtle white chip behind logo on light backgrounds when asset lacks contrast */
-  chipOnLight?: boolean;
 }) {
-  const c = config[variant];
-  const src = srcFor(variant, theme);
-  const sizes =
-    variant === "footer"
-      ? "(max-width: 640px) 256px, 288px"
-      : "(max-width: 768px) 120px, 160px";
+  const iconSize = size === "lg" ? 44 : 36;
 
-  const img = (
-    <Image
-      src={src}
-      alt={alt}
-      width={c.width}
-      height={c.height}
-      className={cn(logoImageClass, c.className, className)}
-      priority={c.priority}
-      style={{ background: "transparent" }}
-      sizes={sizes}
-    />
-  );
-
-  if (chipOnLight && theme === "light") {
-    return (
-      <span className="inline-flex rounded-xl bg-white p-1.5 shadow-md ring-1 ring-slate-200/80">
-        {img}
+  return (
+    <span className={cn("inline-flex items-center gap-2.5", className)}>
+      <Image
+        src={brandAssets.icon}
+        alt=""
+        width={iconSize}
+        height={iconSize}
+        priority
+        className="h-auto shrink-0 select-none"
+        style={{ width: iconSize }}
+      />
+      <span className="flex flex-col leading-none">
+        <span
+          className={cn(
+            "font-heading font-bold tracking-[0.02em]",
+            size === "lg" ? "text-xl" : "text-lg",
+            tone === "light" ? "text-brand-ink" : "text-white"
+          )}
+        >
+          RAMATECH
+        </span>
+        <span
+          className={cn(
+            "mt-1 text-[0.625rem] font-semibold uppercase tracking-[0.22em]",
+            tone === "light" ? "text-slate-500" : "text-slate-400"
+          )}
+        >
+          Innovation
+        </span>
       </span>
-    );
-  }
-
-  return img;
+    </span>
+  );
 }

@@ -1,21 +1,25 @@
 import type { Metadata } from "next";
+import { brandAssets } from "@/lib/brand";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.ramatech.co.in";
 
 export const defaultOgImage = "/og-image.png";
 export const defaultOgAlt =
-  "Ramatech Innovation — AI-powered technology for product and platform teams";
+  "Ramatech Innovation — OpenShift platforms and production AI engineering";
 
 export const siteConfig = {
   name: "Ramatech Innovation",
   description:
-    "Ramatech Innovation engineers AI systems, cloud platforms, DevOps, and enterprise automation for product and platform teams worldwide.",
+    "Ramatech Innovation engineers Red Hat OpenShift platforms and production AI systems, plus cloud, DevOps, and automation, for teams worldwide.",
   url: siteUrl,
   tagline: "Engineering intelligent systems at scale.",
   email: "info@ramatech.co.in",
   whatsappUrl:
     "https://wa.me/919828241244?text=Hi%20Ramatech%2C%20I%20want%20to%20discuss%20a%20project",
   whatsappE164: "+919828241244",
+  linkedinUrl: "https://www.linkedin.com/company/ramatechinnovation",
+  xUrl: "https://x.com/RamatechIOVN",
+  xHandle: "@RamatechIOVN",
 };
 
 export function buildWhatsAppUrl(message: string): string {
@@ -77,6 +81,7 @@ export function createMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      site: siteConfig.xHandle,
       title: fullTitle,
       description: desc,
       images: [defaultOgImage],
@@ -84,19 +89,21 @@ export function createMetadata({
   };
 }
 
+export const schemaLogoUrl = `${siteConfig.url.replace(/\/$/, "")}${brandAssets.schemaLogo}`;
+
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Ramatech Innovation Pvt Ltd",
+  name: "Ramatech Innovation",
   url: siteConfig.url,
   description: siteConfig.description,
   email: siteConfig.email,
-  logo: `${siteConfig.url}/brand/logo-dark.png`,
+  logo: schemaLogoUrl,
   contactPoint: {
     "@type": "ContactPoint",
     email: siteConfig.email,
     contactType: "sales",
   },
   areaServed: ["IN", "AE", "SA", "QA", "SG"],
-  sameAs: ["https://www.linkedin.com/company/ramatechinnovation"],
+  sameAs: [siteConfig.linkedinUrl, siteConfig.xUrl],
 };

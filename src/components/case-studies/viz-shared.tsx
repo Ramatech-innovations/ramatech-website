@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useRef, useState, type ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -17,28 +17,17 @@ export const VIZ_VIEWBOX = { w: 480, h: 268 } as const;
 export function useCaseStudyVizMotion() {
   const reduce = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(false);
   const [hovered, setHovered] = useState(false);
 
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([entry]) => setActive(entry.isIntersecting),
-      { threshold: 0.12 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+  const speed = 1;
+  const loopDur = 6;
 
-  const speed = hovered ? 1.6 : 1;
-  const loopDur = 6 / speed;
-
+  /* Diagrams are static by default and animate only while hovered. */
   return {
     containerRef,
     hovered,
     setHovered,
-    shouldAnimate: active && !reduce,
+    shouldAnimate: hovered && !reduce,
     reduced: !!reduce,
     loopDur,
     speed,
@@ -56,14 +45,13 @@ export function CaseStudyVizShell({
   children: ReactNode;
   motion: ReturnType<typeof useCaseStudyVizMotion>;
 }) {
-  const { containerRef, setHovered, hovered } = m;
+  const { containerRef } = m;
 
   return (
     <div
       ref={containerRef}
       className={cn(
-        "relative w-full rounded-xl border border-white/10 bg-white/[0.04] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_12px_40px_rgba(0,0,0,0.4)] backdrop-blur-md",
-        hovered && "border-brand-cyan/30 shadow-[0_0_48px_rgba(17,211,232,0.1)]",
+        "relative w-full rounded-lg border border-slate-800 bg-brand-ink p-3",
         className
       )}
       onMouseEnter={() => m.setHovered(true)}
@@ -71,14 +59,6 @@ export function CaseStudyVizShell({
       role="img"
       aria-label={ariaLabel}
     >
-      <div
-        className="pointer-events-none absolute inset-0 rounded-xl"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 55% at 50% 42%, rgba(17,211,232,0.07), transparent 72%)",
-        }}
-        aria-hidden
-      />
       <svg
         viewBox={`0 0 ${VIZ_VIEWBOX.w} ${VIZ_VIEWBOX.h}`}
         className="relative z-[1] h-full w-full min-h-[220px] md:min-h-[268px]"

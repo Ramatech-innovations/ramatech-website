@@ -2,54 +2,54 @@
 
 export const pageMeta = {
   home: {
-    title: "AI-Powered Cloud, DevOps & Automation Services",
+    title: "OpenShift & Production AI Engineering Services",
     description:
-      "Ramatech delivers cloud infrastructure, DevOps, AI automation, and custom software for SaaS startups, SMEs, restaurants, and law firms. Fixed-scope. Fast delivery.",
+      "Ramatech is an engineering services firm for Red Hat OpenShift platforms and production AI, plus cloud, DevOps, and automation for platform and product teams.",
   },
   about: {
     title: "About",
     description:
-      "Learn how Ramatech Innovation delivers AI-powered platforms, cloud engineering, and automation for enterprises—senior engineers, production outcomes, global delivery.",
+      "Ramatech Innovation is an engineering firm for OpenShift platforms and production AI. We install, build, and hand over systems your team can run.",
   },
   solutions: {
-    title: "Solutions",
+    title: "Services",
     description:
-      "Cloud infrastructure, DevOps and platform engineering, AI solutions, business automation, and custom software for technology-driven companies.",
+      "Red Hat OpenShift services and production AI, plus AWS cloud, DevOps and platform engineering, business automation, and software development.",
   },
   industries: {
     title: "Industries",
     description:
-      "Ramatech serves SaaS, logistics, healthcare, fintech, and legal technology teams with cloud, platform, and AI engineering tailored to each industry.",
+      "Ramatech serves restaurants, law firms, manufacturing, startups, and SMEs with websites, automation, cloud, and platform engineering tailored to each vertical.",
   },
   caseStudies: {
     title: "Case Studies",
     description:
-      "Production outcomes from observability, OpenShift migration, and AI automation engagements—metrics, timelines, and technology stacks.",
+      "Case studies from the Ramatech team: bare-metal and air-gapped OpenShift platforms, OpenShift Virtualization, Helm and Argo CD GitOps, Ansible automation, and cloud setup on AWS with a migration to Microsoft Azure.",
   },
   technology: {
     title: "Technology",
     description:
-      "Production technology stack: Kubernetes, OpenShift, AWS, Azure, Terraform, AI platforms, observability, and enterprise automation tools we deploy.",
+      "Technologies we work with: OpenShift, Kubernetes, Argo CD, Helm, Jenkins, Ansible, Prometheus, Grafana, and AWS, plus AI and SAP capabilities.",
   },
   insights: {
     title: "Insights",
     description:
-      "Operator-level OpenShift guides on installation, GitOps, security, monitoring, upgrades, and platform engineering from Ramatech engineering teams.",
+      "OpenShift guides on installation, GitOps, security, monitoring, upgrades, and platform engineering, written by Ramatech engineers.",
   },
   contact: {
     title: "Contact",
     description:
-      "Contact Ramatech engineering leaders about cloud, AI, or automation initiatives. We respond within four business hours—teams across US, UK, EU, and APAC.",
+      "Contact Ramatech Innovation by email, WhatsApp, or the enquiry form. We reply within one business day (Mon–Sat, 10:00–19:00 IST).",
   },
   bookConsultation: {
     title: "Book Consultation",
     description:
-      "Book a technical consultation with Ramatech senior engineers. Discuss platform, AI, or automation goals—no generic sales pitch, engineering-led discovery.",
+      "Book a free 30-minute consultation with a Ramatech engineer to discuss OpenShift, AI, cloud, DevOps, or automation work. No obligation.",
   },
   privacy: {
     title: "Privacy Policy",
     description:
-      "How Ramatech Innovation Pvt Ltd collects and uses contact form data, hosting information, and your rights. Questions: info@ramatech.co.in.",
+      "How Ramatech Innovation collects and uses contact form data, analytics and cookies, and your rights. Questions: info@ramatech.co.in.",
   },
   terms: {
     title: "Terms of Service",

@@ -7,35 +7,21 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import { cn } from "@/lib/utils";
-
-const triggerByVariant = {
-  light:
-    "text-foreground/95 hover:text-brand-cyan data-[state=open]:text-brand-cyan text-lg md:text-xl py-5",
-  dark: "text-white/95 hover:text-brand-cyan data-[state=open]:text-brand-cyan text-lg md:text-xl py-5",
-};
-
-const contentByVariant = {
-  light: "text-foreground/80 text-base md:text-[1.0625rem] leading-relaxed",
-  dark: "text-slate-300 text-base md:text-[1.0625rem] leading-relaxed",
-};
-
 export function PackageFaqAccordion({
   faqs,
-  variant = "light",
 }: {
   faqs: { question: string; answer: string }[];
   variant?: "light" | "dark";
 }) {
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="max-w-3xl">
       <Accordion type="single" collapsible className="w-full">
         {faqs.map((faq, i) => (
-          <AccordionItem key={faq.question} value={`item-${i}`}>
-            <AccordionTrigger className={cn(triggerByVariant[variant])}>
+          <AccordionItem key={faq.question} value={`item-${i}`} className="border-slate-200">
+            <AccordionTrigger className="py-5 text-left text-base font-semibold text-brand-ink hover:text-brand-primary data-[state=open]:text-brand-primary md:text-lg">
               {faq.question}
             </AccordionTrigger>
-            <AccordionContent className={cn(contentByVariant[variant])}>
+            <AccordionContent className="text-base leading-relaxed text-slate-600">
               {faq.answer}
             </AccordionContent>
           </AccordionItem>

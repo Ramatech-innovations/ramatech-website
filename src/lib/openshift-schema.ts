@@ -1,6 +1,6 @@
 import type { OpenShiftService } from "@/content/openshift/services";
 import type { BreadcrumbSchemaItem } from "@/components/seo/BreadcrumbSchema";
-import { siteConfig } from "@/lib/seo";
+import { schemaLogoUrl, siteConfig } from "@/lib/seo";
 
 const base = () => siteConfig.url.replace(/\/$/, "");
 
@@ -41,7 +41,7 @@ export function openshiftHubServiceSchemaProps() {
     name: "OpenShift Consulting and Professional Services",
     serviceType: "OpenShift Consulting and Professional Services",
     description:
-      "Red Hat OpenShift installation, deployment, migration, support, upgrade, and managed services for enterprise clients across India, UAE, Saudi Arabia, Qatar, and Singapore.",
+      "Red Hat OpenShift installation, deployment, migration, support, upgrade, and managed services for teams across India and worldwide.",
     url: `${base()}/openshift`,
     areaServed: [...OPENSHIFT_AREA_SERVED],
   };
@@ -72,41 +72,13 @@ export function openshiftGeoServiceSchemaProps(geo: {
   };
 }
 
-export function openshiftIndiaCityBreadcrumbItems(
-  cityName: string,
-  citySlug: string
-): BreadcrumbSchemaItem[] {
-  return [
-    { name: "Home", path: "/" },
-    { name: "OpenShift", path: "/openshift" },
-    { name: "India", path: "/openshift/india" },
-    { name: cityName, path: `/openshift/india/${citySlug}` },
-  ];
-}
-
-export function openshiftIndiaCityServiceSchemaProps(city: {
-  h1: string;
-  metaDescription: string;
-  slug: string;
-  cityName: string;
-}) {
-  return {
-    name: city.h1,
-    serviceType: city.h1,
-    description: city.metaDescription,
-    url: `${base()}/openshift/india/${city.slug}`,
-    areaServed: ["IN"],
-    addressLocality: city.cityName,
-  };
-}
-
 /** @deprecated Use OrganizationSchema component in layout */
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Ramatech Innovation Pvt Ltd",
+  name: "Ramatech Innovation",
   url: "https://www.ramatech.co.in",
-  logo: "https://www.ramatech.co.in/brand/logo-dark.png",
+  logo: schemaLogoUrl,
   contactPoint: {
     "@type": "ContactPoint",
     email: "info@ramatech.co.in",
@@ -155,7 +127,7 @@ export function openshiftHubServiceJsonLd() {
     ...props,
     provider: {
       "@type": "Organization",
-      name: "Ramatech Innovation Pvt Ltd",
+      name: "Ramatech Innovation",
       url: base(),
     },
     areaServed: props.areaServed.map((code) => ({

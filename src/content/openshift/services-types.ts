@@ -39,7 +39,6 @@ export type OpenShiftService = {
     whatsappLabel: string;
   };
   showMigrationViz?: boolean;
-  showCaseStudyCallout?: boolean;
   midCta?: {
     headline?: string;
     bookLabel?: string;
