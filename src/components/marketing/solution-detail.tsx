@@ -6,6 +6,7 @@ import { PageHero } from "@/components/marketing/page-hero";
 import { Breadcrumbs } from "@/components/marketing/breadcrumbs";
 import { ClosingCta } from "@/components/marketing/closing-cta";
 import { RelatedResources, linksToResources } from "@/components/marketing/related-resources";
+import { ReadNextSocial } from "@/components/marketing/read-next-social";
 import { PackageSection } from "@/components/packages/package-section";
 import { PackageFaqAccordion } from "@/components/packages/package-faq-accordion";
 import { CaseStudyCards } from "@/components/case-studies/case-study-cards";
@@ -177,6 +178,8 @@ export function SolutionDetail({ solution }: { solution: Solution }) {
           </Button>
         </div>
       </PageHero>
+
+      <ReadNextSocial pathname={pageSource} />
 
       {blocks.map((block, i) => (
         <PackageSection key={block.title} title={block.title} variant={i % 2 === 0 ? "dark" : "light"}>

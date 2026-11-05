@@ -9,6 +9,7 @@ import { OpenShiftServiceFinalCta } from "@/components/openshift/openshift-final
 import { OpenShiftInternalLinks } from "@/components/openshift/openshift-internal-links";
 import { OpenShiftLeadForm } from "@/components/openshift/openshift-lead-form";
 import { OpenshiftMigrationViz } from "@/components/case-studies/openshift-migration-viz";
+import { ReadNextSocial } from "@/components/marketing/read-next-social";
 
 const CASE_STUDIES_BY_SERVICE: Record<string, string[]> = {
   "installation-services": ["openshift-enterprise-migration", "openshift-operations-automation"],
@@ -38,6 +39,8 @@ export function OpenShiftServicePage({ service }: { service: OpenShiftService })
   return (
     <>
       <OpenShiftServiceHero service={service} />
+
+      <ReadNextSocial pathname={`/openshift/${service.slug}`} />
 
       {beforeMid.map(renderSection)}
 
