@@ -104,9 +104,9 @@ export const openshiftArticlesBatch3: InsightArticle[] = [
   {
     slug: "disaster-recovery",
     title: "OpenShift Disaster Recovery",
-    h1: "OpenShift Disaster Recovery and Business Continuity: RPO, RTO, and Tested Restore Paths",
-    primaryKeyword: "openshift disaster recovery",
-    metaTitle: "OpenShift Disaster Recovery and Business Continuity Guide | Ramatech",
+    h1: "Business Continuity for OpenShift: Disaster Recovery, RPO, and RTO",
+    primaryKeyword: "business continuity for openshift",
+    metaTitle: "Business Continuity for OpenShift: Disaster Recovery, RPO and RTO | Ramatech",
     metaDescription:
       "Business continuity for OpenShift: etcd backups, OADP, regional failover, restore testing and RPO/RTO planning for production clusters.",
     summary:
@@ -205,7 +205,7 @@ export const openshiftArticlesBatch3: InsightArticle[] = [
     relatedTechnology: [{ href: "/technology/openshift", label: "OpenShift" }],
     relatedReading: ["monitoring", "upgrade-planning"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: "2026-09-28",
+    dateModified: "2026-11-02",
   },
   {
     slug: "cost-optimization",

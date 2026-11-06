@@ -214,11 +214,11 @@ export const openshiftArticlesBatch2: InsightArticle[] = [
   {
     slug: "monitoring",
     title: "OpenShift Monitoring",
-    h1: "OpenShift Monitoring: Cluster and Application Metrics, Alerts, and SLOs",
-    primaryKeyword: "openshift monitoring",
-    metaTitle: "OpenShift Monitoring and Application Monitoring Guide | Ramatech",
+    h1: "Application Monitoring on OpenShift: Cluster Metrics, Alerts, and SLOs",
+    primaryKeyword: "application monitoring openshift",
+    metaTitle: "Application Monitoring on OpenShift: Prometheus, Alerts, SLOs | Ramatech",
     metaDescription:
-      "How to monitor OpenShift clusters and applications: built-in Prometheus, user workload monitoring, Grafana dashboards, Alertmanager routing and SLOs.",
+      "Application monitoring on OpenShift: enable user-workload Prometheus, Grafana dashboards, Alertmanager routing, and SLO alerts for cluster and app teams.",
     summary:
       "Operator-level OpenShift monitoring guidance — platform Prometheus, user-workload monitoring, Grafana dashboards, alerting hygiene, and tying metrics to disaster recovery.",
     intro: [
@@ -310,7 +310,7 @@ export const openshiftArticlesBatch2: InsightArticle[] = [
     ],
     relatedReading: ["disaster-recovery", "upgrade-planning"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: "2026-09-28",
+    dateModified: "2026-11-02",
   },
   {
     slug: "security",
