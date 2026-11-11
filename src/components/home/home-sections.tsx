@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import {
   BookConsultationLink,
-  ExploreSolutionsLink,
   WhatsAppLink,
 } from "@/components/analytics/tracked-link";
 import { Button } from "@/components/ui/button";
@@ -100,13 +99,28 @@ function HeroSection() {
             We install, migrate, and operate Red Hat OpenShift, and build AI systems for production,
             plus cloud, DevOps, and automation. Engineers do the work and hand it over to your team.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <p className="mt-3 text-sm text-slate-500">
+            <Link
+              href="/case-studies/openshift-enterprise-migration"
+              className="font-medium text-brand-primary hover:underline"
+            >
+              Read a delivery story
+            </Link>
+            {" — "}OpenShift on bare metal with OpenShift Virtualization.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button asChild size="lg">
               <BookConsultationLink pageSource="/">Book Consultation</BookConsultationLink>
             </Button>
             <Button asChild size="lg" variant="secondary">
-              <ExploreSolutionsLink>Explore services</ExploreSolutionsLink>
+              <WhatsAppLink source="home_hero">WhatsApp</WhatsAppLink>
             </Button>
+            <Link
+              href="/solutions"
+              className="text-sm font-medium text-slate-600 underline-offset-4 hover:text-brand-ink hover:underline"
+            >
+              Explore services
+            </Link>
           </div>
         </div>
         <HeroPanel />
