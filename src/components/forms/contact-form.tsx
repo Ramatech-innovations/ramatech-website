@@ -38,12 +38,15 @@ export function ContactForm({
   variant = "full",
   presetInterest,
   service,
+  hideInterestGroups = [],
 }: {
   defaultIntent?: string;
   /** "short" hides role and interests; used on ad landing pages */
   variant?: "full" | "short";
   presetInterest?: string;
   service?: string;
+  /** Hide interest groups (e.g. packages on consultation) to reduce form noise */
+  hideInterestGroups?: ContactInterestOption["group"][];
 }) {
   const isShort = variant === "short";
   const searchParams = useSearchParams();
@@ -245,7 +248,9 @@ export function ContactForm({
           <Label>
             Areas of interest <span className="text-red-500">*</span>
           </Label>
-          {interestGroups.map((group) => {
+          {interestGroups
+            .filter((group) => !hideInterestGroups.includes(group.key))
+            .map((group) => {
             const options = contactInterestOptions.filter((o) => o.group === group.key);
             if (options.length === 0) return null;
             return (

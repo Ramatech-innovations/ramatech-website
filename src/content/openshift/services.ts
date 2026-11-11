@@ -253,12 +253,12 @@ export const openshiftServices: OpenShiftService[] = [
     pageName: "Migration Services",
     schemaName: "OpenShift Migration Services",
     serviceType: "OpenShift Migration Services",
-    metaTitle: "OpenShift Migration Services | Kubernetes to OCP Migration | Ramatech",
+    metaTitle: "OpenShift Migration & Virtualization | VMware to OCP | Ramatech",
     metaDescription:
-      "Migrate from Kubernetes, OpenShift 3.x, or legacy infrastructure to Red Hat OpenShift 4.x with planned cutover, execution, and validation.",
-    h1: "OpenShift Migration Services - From Legacy Infrastructure to OCP 4.x",
+      "Migrate from Kubernetes, OpenShift 3.x, VMware, or legacy VMs to Red Hat OpenShift 4.x — including OpenShift Virtualization — with planned cutover, execution, and validation.",
+    h1: "OpenShift Migration and Virtualization — Legacy and VMware to OCP 4.x",
     heroSubtext:
-      "Structured migration programs that reduce cutover risk, protect workload reliability, and move teams to OpenShift 4.x with controlled validation.",
+      "Structured migration programs for Kubernetes, OpenShift 3.x, and VMware estates — including OpenShift Virtualization for VM workloads — with planned cutover, validation, and rollback checkpoints.",
     analyticsLabel: "openshift_migration_services",
     whatsappMessage:
       "Hi Ramatech, I need help planning and executing an OpenShift migration.",
