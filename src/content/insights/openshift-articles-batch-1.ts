@@ -6,11 +6,11 @@ export const openshiftArticlesBatch1: InsightArticle[] = [
   {
     slug: "installation-guide",
     title: "OpenShift Installation Guide",
-    h1: "OpenShift Installation Guide for Production-Ready Clusters",
+    h1: "OpenShift Installation: IPI and UPI on Bare Metal, VMware, KVM, and AWS",
     primaryKeyword: "openshift installation guide",
-    metaTitle: "OpenShift Installation Guide: IPI, UPI, Air-Gapped | Ramatech",
+    metaTitle: "OpenShift Installation Guide: IPI, UPI, Bare Metal, Air-Gap | Ramatech",
     metaDescription:
-      "A practical OpenShift installation guide: IPI vs UPI, bare metal, vSphere and ROSA prerequisites, air-gapped mirrors, and day-0 checks before go-live.",
+      "Practical OpenShift installation choices: IPI vs UPI, bare metal, VMware, KVM, AWS and air-gapped networks — then day-two operations your team can run.",
     summary:
       "A practical OpenShift installation guide for platform engineers planning IPI, UPI, or managed ROSA deployments — from DNS and load balancers through etcd topology and post-install validation.",
     intro: [
@@ -86,14 +86,15 @@ export const openshiftArticlesBatch1: InsightArticle[] = [
       { href: "/openshift/installation-services", label: "OpenShift Installation Services" },
       { href: "/solutions/cloud-infrastructure", label: "Cloud Infrastructure (AWS and ROSA)" },
       { href: "/openshift/consulting-services", label: "OpenShift Consulting and Architecture Reviews" },
+      { href: "/book-consultation", label: "Book a free 30-minute consultation" },
     ],
     relatedTechnology: [
       { href: "/technology/openshift", label: "OpenShift" },
       { href: "/technology/red-hat", label: "Red Hat" },
     ],
-    relatedReading: ["upgrade-planning", "deployment-best-practices", "security"],
+    relatedReading: ["upgrade-planning", "deployment-best-practices", "security", "virtualization"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: "2026-10-09",
+    dateModified: "2026-11-15",
   },
   {
     slug: "deployment-best-practices",
@@ -292,11 +293,11 @@ export const openshiftArticlesBatch1: InsightArticle[] = [
   {
     slug: "virtualization",
     title: "OpenShift Virtualization",
-    h1: "OpenShift Virtualization (CNV): Running VMs Alongside Containers",
-    primaryKeyword: "openshift virtualization",
-    metaTitle: "OpenShift Virtualization Guide: Run VMs on OpenShift | Ramatech",
+    h1: "VMware to OpenShift Virtualization: Plan Storage, Networking, and MTV Waves",
+    primaryKeyword: "vmware to openshift virtualization",
+    metaTitle: "VMware to OpenShift Virtualization: Migration Checklist | Ramatech",
     metaDescription:
-      "How OpenShift Virtualization (KubeVirt) runs VMs next to containers: storage, networking, live migration, and a migration path from VMware.",
+      "Checklist for moving VMs to OpenShift Virtualization: storage for live migration, networking, MTV warm/cold waves, Day-2 ops, and GitOps for VMs. Engineering services — we do not sell Red Hat licenses.",
     summary:
       "How OpenShift Virtualization (CNV) runs KubeVirt VMs on OCP — storage classes, live migration, multus networking, and pragmatic paths from legacy VMware estates.",
     intro: [
@@ -346,6 +347,14 @@ export const openshiftArticlesBatch1: InsightArticle[] = [
         ],
       },
       {
+        id: "six-things-before-first-vm",
+        title: "Six things to plan before the first VM moves",
+        paragraphs: [
+          "Treat the move from VMware to OpenShift Virtualization as a platform change, not a lift-and-shift. Before the first production VM cutover, work through six planning items that show up on every serious migration: bare-metal (or virt-capable) workers with enough headroom; storage classes that support live migration; VM networking and Multus attachments that match the old VLAN model; migration waves (pilot, then batches) with MTV warm or cold choices; Day-2 operations (backup, monitoring, patch ownership); and GitOps for VirtualMachine definitions so VMs are reviewed like apps.",
+          "Storage and networking usually consume the most planning time. Get those wrong and Day 2 becomes the whole project. Keep Red Hat subscriptions and entitlements with the customer — engineering services install and operate; they do not sell Red Hat licenses.",
+        ],
+      },
+      {
         id: "governance-day-two",
         title: "Governance and Day-2 Operations for CNV",
         paragraphs: [
@@ -381,10 +390,11 @@ export const openshiftArticlesBatch1: InsightArticle[] = [
       { href: "/openshift/platform-engineering", label: "OpenShift Platform Engineering" },
       { href: "/openshift/migration-services", label: "OpenShift Migration Services" },
       { href: "/openshift/consulting-services", label: "OpenShift Consulting and Architecture Reviews" },
+      { href: "/book-consultation", label: "Book a free 30-minute consultation" },
     ],
     relatedTechnology: [{ href: "/technology/openshift", label: "OpenShift" }],
-    relatedReading: ["multi-cluster-management", "installation-guide"],
+    relatedReading: ["multi-cluster-management", "installation-guide", "gitops"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: "2026-10-09",
+    dateModified: "2026-11-15",
   },
 ];
