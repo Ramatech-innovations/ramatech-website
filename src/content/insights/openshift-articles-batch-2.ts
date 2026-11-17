@@ -107,11 +107,11 @@ export const openshiftArticlesBatch2: InsightArticle[] = [
   {
     slug: "gitops",
     title: "OpenShift GitOps",
-    h1: "OpenShift GitOps: Declarative Cluster Management with Argo CD",
+    h1: "OpenShift GitOps: Argo CD, Helm, and the CI to CD Handoff",
     primaryKeyword: "openshift gitops",
-    metaTitle: "OpenShift GitOps with Argo CD: Setup and Patterns | Ramatech",
+    metaTitle: "OpenShift GitOps with Argo CD: CI to CD Handoff | Ramatech",
     metaDescription:
-      "Set up OpenShift GitOps with the Argo CD operator: ApplicationSets, AppProjects, secrets handling, drift detection and multi-cluster patterns.",
+      "OpenShift GitOps with Argo CD: AppProjects, ApplicationSets, secrets, and how CI builds hand off to GitOps deploys — including air-gapped patterns platform teams use.",
     summary:
       "How to run OpenShift GitOps using the Argo CD operator — bootstrap, ApplicationSets, RBAC, secrets management, and promotion flows for enterprise OCP.",
     intro: [
@@ -205,11 +205,12 @@ export const openshiftArticlesBatch2: InsightArticle[] = [
       { href: "/openshift/deployment-services", label: "OpenShift Deployment Services" },
       { href: "/openshift/platform-engineering", label: "OpenShift Platform Engineering" },
       { href: "/solutions/devops-platform-engineering", label: "DevOps & Platform Engineering" },
+      { href: "/book-consultation", label: "Book a free 30-minute consultation" },
     ],
     relatedTechnology: [{ href: "/technology/argocd", label: "Argo CD" }],
-    relatedReading: ["multi-cluster-management", "deployment-best-practices"],
+    relatedReading: ["multi-cluster-management", "deployment-best-practices", "virtualization"],
     datePublished: INSIGHT_SCHEMA_DATE,
-    dateModified: "2026-10-09",
+    dateModified: "2026-11-15",
   },
   {
     slug: "monitoring",
